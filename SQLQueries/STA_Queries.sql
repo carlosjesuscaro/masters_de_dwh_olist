@@ -10,3 +10,6 @@ CREATE TABLE dbo.[STA_Customers] (
 
 SELECT *
 FROM STA_Customers;
+
+SELECT COUNT(DISTINCT customer_id)
+FROM STA_Customers;
