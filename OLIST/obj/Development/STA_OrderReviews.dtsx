@@ -1,30 +1,31 @@
 <?xml version="1.0"?>
 <DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
   DTS:refId="Package"
-  DTS:CreationDate="10/20/2025 5:07:57 AM"
+  DTS:CreationDate="10/22/2025 12:59:55 AM"
   DTS:CreationName="Microsoft.Package"
   DTS:CreatorComputerName="MACHINEX"
   DTS:CreatorName="MACHINEX\carlos"
-  DTS:DTSID="{A2FA2DAF-AC3C-4391-A347-6521ADEDE75D}"
+  DTS:DTSID="{EC5C8FE4-E37D-4AB9-8C7F-1F712A665A1B}"
   DTS:ExecutableType="Microsoft.Package"
   DTS:LastModifiedProductVersion="16.0.5685.2"
   DTS:LocaleID="4105"
-  DTS:ObjectName="Package1"
+  DTS:ObjectName="STA_OrderReviews"
   DTS:PackageType="5"
-  DTS:VersionBuild="12"
-  DTS:VersionGUID="{46F29333-83B0-46CC-B7BA-1FBCDC815854}">
+  DTS:VersionBuild="15"
+  DTS:VersionGUID="{242267C1-4A15-4D64-92A6-92B8611D4D8A}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
     <DTS:ConnectionManager
       DTS:refId="Package.ConnectionManagers[Flat File Connection Manager]"
       DTS:CreationName="FLATFILE"
-      DTS:DTSID="{25529AF6-E0C2-476D-85A4-AF8144FB97CF}"
+      DTS:DTSID="{BB823FC4-DB1B-4B12-B724-A44C461FAA71}"
       DTS:ObjectName="Flat File Connection Manager">
       <DTS:ObjectData>
         <DTS:ConnectionManager
           DTS:Format="Delimited"
           DTS:LocaleID="4105"
+          DTS:Unicode="True"
           DTS:HeaderRowDelimiter="_x000D__x000A_"
           DTS:ColumnNamesInFirstDataRow="True"
           DTS:RowDelimiter=""
@@ -36,37 +37,37 @@
               DTS:ColumnType="Delimited"
               DTS:ColumnDelimiter="_x002C_"
               DTS:MaximumWidth="50"
-              DTS:DataType="129"
+              DTS:DataType="130"
               DTS:TextQualified="True"
               DTS:ObjectName="review_id"
-              DTS:DTSID="{04655D9C-CC7C-4C6C-91A9-C3FC9400D054}"
+              DTS:DTSID="{9CDAFE20-1AF7-408F-A04E-9D12DD32A26D}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
               DTS:ColumnDelimiter="_x002C_"
               DTS:MaximumWidth="50"
-              DTS:DataType="129"
+              DTS:DataType="130"
               DTS:TextQualified="True"
               DTS:ObjectName="order_id"
-              DTS:DTSID="{BB6532E3-EF9B-4B7B-BF26-1841E1B6340A}"
+              DTS:DTSID="{D3168493-247C-42A2-9416-87255532B324}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
               DTS:ColumnDelimiter="_x002C_"
               DTS:MaximumWidth="50"
-              DTS:DataType="129"
+              DTS:DataType="130"
               DTS:TextQualified="True"
               DTS:ObjectName="review_score"
-              DTS:DTSID="{7962AF54-26A5-4EC6-85FF-6E25050E3656}"
+              DTS:DTSID="{3279D572-BA5D-4981-9819-E833369FB6F2}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
               DTS:ColumnDelimiter="_x002C_"
               DTS:MaximumWidth="50"
-              DTS:DataType="129"
+              DTS:DataType="130"
               DTS:TextQualified="True"
               DTS:ObjectName="review_comment_title"
-              DTS:DTSID="{047C5943-9AAB-4459-A7CB-5C9AE5C70FF9}"
+              DTS:DTSID="{9974C432-06AB-48CF-8A93-25C3EB6CC6BF}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -74,25 +75,25 @@
               DTS:DataType="303"
               DTS:TextQualified="True"
               DTS:ObjectName="review_comment_message"
-              DTS:DTSID="{264601B6-8252-4D4E-870F-AD2804A579D2}"
+              DTS:DTSID="{62A32A86-0003-4563-B449-CF38AAE88300}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
               DTS:ColumnDelimiter="_x002C_"
               DTS:MaximumWidth="50"
-              DTS:DataType="129"
+              DTS:DataType="130"
               DTS:TextQualified="True"
               DTS:ObjectName="review_creation_date"
-              DTS:DTSID="{1333FCD0-9D19-4294-B5C0-6AE98602D375}"
+              DTS:DTSID="{B77739F6-EEB6-4698-BBD2-BBFF203E3FE3}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
               DTS:ColumnDelimiter="_x000D__x000A_"
               DTS:MaximumWidth="50"
-              DTS:DataType="129"
+              DTS:DataType="130"
               DTS:TextQualified="True"
               DTS:ObjectName="review_answer_timestamp"
-              DTS:DTSID="{97E658D6-F0E3-42B3-8209-BBE39881E759}"
+              DTS:DTSID="{B09714EC-B4F8-468D-BD56-653D3F4419F5}"
               DTS:CreationName="" />
           </DTS:FlatFileColumns>
         </DTS:ConnectionManager>
@@ -105,7 +106,7 @@
       DTS:refId="Package\DFT_STA_OrderReviews"
       DTS:CreationName="Microsoft.Pipeline"
       DTS:Description="Data Flow Task"
-      DTS:DTSID="{23FDC4C4-775D-4203-9EF5-1505C9D06942}"
+      DTS:DTSID="{DBEAEAFA-2196-4AE7-A27B-56B54AFE1D8C}"
       DTS:ExecutableType="Microsoft.Pipeline"
       DTS:LocaleID="-1"
       DTS:ObjectName="DFT_STA_OrderReviews"
@@ -148,8 +149,7 @@
                   <outputColumns>
                     <outputColumn
                       refId="Package\DFT_STA_OrderReviews\FFT_SRC_OrderReviews.Outputs[Flat File Source Output].Columns[review_id]"
-                      codePage="65001"
-                      dataType="str"
+                      dataType="wstr"
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
                       externalMetadataColumnId="Package\DFT_STA_OrderReviews\FFT_SRC_OrderReviews.Outputs[Flat File Source Output].ExternalColumns[review_id]"
@@ -170,8 +170,7 @@
                     </outputColumn>
                     <outputColumn
                       refId="Package\DFT_STA_OrderReviews\FFT_SRC_OrderReviews.Outputs[Flat File Source Output].Columns[order_id]"
-                      codePage="65001"
-                      dataType="str"
+                      dataType="wstr"
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
                       externalMetadataColumnId="Package\DFT_STA_OrderReviews\FFT_SRC_OrderReviews.Outputs[Flat File Source Output].ExternalColumns[order_id]"
@@ -192,8 +191,7 @@
                     </outputColumn>
                     <outputColumn
                       refId="Package\DFT_STA_OrderReviews\FFT_SRC_OrderReviews.Outputs[Flat File Source Output].Columns[review_score]"
-                      codePage="65001"
-                      dataType="str"
+                      dataType="wstr"
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
                       externalMetadataColumnId="Package\DFT_STA_OrderReviews\FFT_SRC_OrderReviews.Outputs[Flat File Source Output].ExternalColumns[review_score]"
@@ -214,8 +212,7 @@
                     </outputColumn>
                     <outputColumn
                       refId="Package\DFT_STA_OrderReviews\FFT_SRC_OrderReviews.Outputs[Flat File Source Output].Columns[review_comment_title]"
-                      codePage="65001"
-                      dataType="str"
+                      dataType="wstr"
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
                       externalMetadataColumnId="Package\DFT_STA_OrderReviews\FFT_SRC_OrderReviews.Outputs[Flat File Source Output].ExternalColumns[review_comment_title]"
@@ -256,8 +253,7 @@
                     </outputColumn>
                     <outputColumn
                       refId="Package\DFT_STA_OrderReviews\FFT_SRC_OrderReviews.Outputs[Flat File Source Output].Columns[review_creation_date]"
-                      codePage="65001"
-                      dataType="str"
+                      dataType="wstr"
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
                       externalMetadataColumnId="Package\DFT_STA_OrderReviews\FFT_SRC_OrderReviews.Outputs[Flat File Source Output].ExternalColumns[review_creation_date]"
@@ -278,8 +274,7 @@
                     </outputColumn>
                     <outputColumn
                       refId="Package\DFT_STA_OrderReviews\FFT_SRC_OrderReviews.Outputs[Flat File Source Output].Columns[review_answer_timestamp]"
-                      codePage="65001"
-                      dataType="str"
+                      dataType="wstr"
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
                       externalMetadataColumnId="Package\DFT_STA_OrderReviews\FFT_SRC_OrderReviews.Outputs[Flat File Source Output].ExternalColumns[review_answer_timestamp]"
@@ -303,26 +298,22 @@
                     isUsed="True">
                     <externalMetadataColumn
                       refId="Package\DFT_STA_OrderReviews\FFT_SRC_OrderReviews.Outputs[Flat File Source Output].ExternalColumns[review_id]"
-                      codePage="65001"
-                      dataType="str"
+                      dataType="wstr"
                       length="50"
                       name="review_id" />
                     <externalMetadataColumn
                       refId="Package\DFT_STA_OrderReviews\FFT_SRC_OrderReviews.Outputs[Flat File Source Output].ExternalColumns[order_id]"
-                      codePage="65001"
-                      dataType="str"
+                      dataType="wstr"
                       length="50"
                       name="order_id" />
                     <externalMetadataColumn
                       refId="Package\DFT_STA_OrderReviews\FFT_SRC_OrderReviews.Outputs[Flat File Source Output].ExternalColumns[review_score]"
-                      codePage="65001"
-                      dataType="str"
+                      dataType="wstr"
                       length="50"
                       name="review_score" />
                     <externalMetadataColumn
                       refId="Package\DFT_STA_OrderReviews\FFT_SRC_OrderReviews.Outputs[Flat File Source Output].ExternalColumns[review_comment_title]"
-                      codePage="65001"
-                      dataType="str"
+                      dataType="wstr"
                       length="50"
                       name="review_comment_title" />
                     <externalMetadataColumn
@@ -331,14 +322,12 @@
                       name="review_comment_message" />
                     <externalMetadataColumn
                       refId="Package\DFT_STA_OrderReviews\FFT_SRC_OrderReviews.Outputs[Flat File Source Output].ExternalColumns[review_creation_date]"
-                      codePage="65001"
-                      dataType="str"
+                      dataType="wstr"
                       length="50"
                       name="review_creation_date" />
                     <externalMetadataColumn
                       refId="Package\DFT_STA_OrderReviews\FFT_SRC_OrderReviews.Outputs[Flat File Source Output].ExternalColumns[review_answer_timestamp]"
-                      codePage="65001"
-                      dataType="str"
+                      dataType="wstr"
                       length="50"
                       name="review_answer_timestamp" />
                   </externalMetadataColumns>
@@ -350,8 +339,7 @@
                   <outputColumns>
                     <outputColumn
                       refId="Package\DFT_STA_OrderReviews\FFT_SRC_OrderReviews.Outputs[Flat File Source Error Output].Columns[Flat File Source Error Output Column]"
-                      codePage="1252"
-                      dataType="text"
+                      dataType="nText"
                       description="Flat File Source Error Output Column"
                       lineageId="Package\DFT_STA_OrderReviews\FFT_SRC_OrderReviews.Outputs[Flat File Source Error Output].Columns[Flat File Source Error Output Column]"
                       name="Flat File Source Error Output Column" />
@@ -446,54 +434,42 @@
                   <inputColumns>
                     <inputColumn
                       refId="Package\DFT_STA_OrderReviews\OLE_DST_STA.Inputs[OLE DB Destination Input].Columns[review_id]"
-                      cachedCodepage="65001"
-                      cachedDataType="str"
+                      cachedDataType="wstr"
                       cachedLength="50"
                       cachedName="review_id"
                       externalMetadataColumnId="Package\DFT_STA_OrderReviews\OLE_DST_STA.Inputs[OLE DB Destination Input].ExternalColumns[review_id]"
                       lineageId="Package\DFT_STA_OrderReviews\FFT_SRC_OrderReviews.Outputs[Flat File Source Output].Columns[review_id]" />
                     <inputColumn
                       refId="Package\DFT_STA_OrderReviews\OLE_DST_STA.Inputs[OLE DB Destination Input].Columns[order_id]"
-                      cachedCodepage="65001"
-                      cachedDataType="str"
+                      cachedDataType="wstr"
                       cachedLength="50"
                       cachedName="order_id"
                       externalMetadataColumnId="Package\DFT_STA_OrderReviews\OLE_DST_STA.Inputs[OLE DB Destination Input].ExternalColumns[order_id]"
                       lineageId="Package\DFT_STA_OrderReviews\FFT_SRC_OrderReviews.Outputs[Flat File Source Output].Columns[order_id]" />
                     <inputColumn
                       refId="Package\DFT_STA_OrderReviews\OLE_DST_STA.Inputs[OLE DB Destination Input].Columns[review_score]"
-                      cachedCodepage="65001"
-                      cachedDataType="str"
+                      cachedDataType="wstr"
                       cachedLength="50"
                       cachedName="review_score"
                       externalMetadataColumnId="Package\DFT_STA_OrderReviews\OLE_DST_STA.Inputs[OLE DB Destination Input].ExternalColumns[review_score]"
                       lineageId="Package\DFT_STA_OrderReviews\FFT_SRC_OrderReviews.Outputs[Flat File Source Output].Columns[review_score]" />
                     <inputColumn
                       refId="Package\DFT_STA_OrderReviews\OLE_DST_STA.Inputs[OLE DB Destination Input].Columns[review_comment_title]"
-                      cachedCodepage="65001"
-                      cachedDataType="str"
+                      cachedDataType="wstr"
                       cachedLength="50"
                       cachedName="review_comment_title"
                       externalMetadataColumnId="Package\DFT_STA_OrderReviews\OLE_DST_STA.Inputs[OLE DB Destination Input].ExternalColumns[review_comment_title]"
                       lineageId="Package\DFT_STA_OrderReviews\FFT_SRC_OrderReviews.Outputs[Flat File Source Output].Columns[review_comment_title]" />
                     <inputColumn
-                      refId="Package\DFT_STA_OrderReviews\OLE_DST_STA.Inputs[OLE DB Destination Input].Columns[review_comment_message]"
-                      cachedDataType="nText"
-                      cachedName="review_comment_message"
-                      externalMetadataColumnId="Package\DFT_STA_OrderReviews\OLE_DST_STA.Inputs[OLE DB Destination Input].ExternalColumns[review_comment_message]"
-                      lineageId="Package\DFT_STA_OrderReviews\FFT_SRC_OrderReviews.Outputs[Flat File Source Output].Columns[review_comment_message]" />
-                    <inputColumn
                       refId="Package\DFT_STA_OrderReviews\OLE_DST_STA.Inputs[OLE DB Destination Input].Columns[review_creation_date]"
-                      cachedCodepage="65001"
-                      cachedDataType="str"
+                      cachedDataType="wstr"
                       cachedLength="50"
                       cachedName="review_creation_date"
                       externalMetadataColumnId="Package\DFT_STA_OrderReviews\OLE_DST_STA.Inputs[OLE DB Destination Input].ExternalColumns[review_creation_date]"
                       lineageId="Package\DFT_STA_OrderReviews\FFT_SRC_OrderReviews.Outputs[Flat File Source Output].Columns[review_creation_date]" />
                     <inputColumn
                       refId="Package\DFT_STA_OrderReviews\OLE_DST_STA.Inputs[OLE DB Destination Input].Columns[review_answer_timestamp]"
-                      cachedCodepage="65001"
-                      cachedDataType="str"
+                      cachedDataType="wstr"
                       cachedLength="50"
                       cachedName="review_answer_timestamp"
                       externalMetadataColumnId="Package\DFT_STA_OrderReviews\OLE_DST_STA.Inputs[OLE DB Destination Input].ExternalColumns[review_answer_timestamp]"
@@ -503,27 +479,23 @@
                     isUsed="True">
                     <externalMetadataColumn
                       refId="Package\DFT_STA_OrderReviews\OLE_DST_STA.Inputs[OLE DB Destination Input].ExternalColumns[review_id]"
-                      codePage="1252"
-                      dataType="str"
-                      length="50"
+                      dataType="wstr"
+                      length="255"
                       name="review_id" />
                     <externalMetadataColumn
                       refId="Package\DFT_STA_OrderReviews\OLE_DST_STA.Inputs[OLE DB Destination Input].ExternalColumns[order_id]"
-                      codePage="1252"
-                      dataType="str"
-                      length="50"
+                      dataType="wstr"
+                      length="255"
                       name="order_id" />
                     <externalMetadataColumn
                       refId="Package\DFT_STA_OrderReviews\OLE_DST_STA.Inputs[OLE DB Destination Input].ExternalColumns[review_score]"
-                      codePage="1252"
-                      dataType="str"
+                      dataType="wstr"
                       length="50"
                       name="review_score" />
                     <externalMetadataColumn
                       refId="Package\DFT_STA_OrderReviews\OLE_DST_STA.Inputs[OLE DB Destination Input].ExternalColumns[review_comment_title]"
-                      codePage="1252"
-                      dataType="str"
-                      length="50"
+                      dataType="wstr"
+                      length="255"
                       name="review_comment_title" />
                     <externalMetadataColumn
                       refId="Package\DFT_STA_OrderReviews\OLE_DST_STA.Inputs[OLE DB Destination Input].ExternalColumns[review_comment_message]"
@@ -531,14 +503,12 @@
                       name="review_comment_message" />
                     <externalMetadataColumn
                       refId="Package\DFT_STA_OrderReviews\OLE_DST_STA.Inputs[OLE DB Destination Input].ExternalColumns[review_creation_date]"
-                      codePage="1252"
-                      dataType="str"
+                      dataType="wstr"
                       length="50"
                       name="review_creation_date" />
                     <externalMetadataColumn
                       refId="Package\DFT_STA_OrderReviews\OLE_DST_STA.Inputs[OLE DB Destination Input].ExternalColumns[review_answer_timestamp]"
-                      codePage="1252"
-                      dataType="str"
+                      dataType="wstr"
                       length="50"
                       name="review_answer_timestamp" />
                   </externalMetadataColumns>
@@ -580,7 +550,34 @@
         </pipeline>
       </DTS:ObjectData>
     </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\SQL_Truncate_STA_OrderReviews"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{576E6B65-5F09-47F8-9793-E0A883DDED2D}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="SQL_Truncate_STA_OrderReviews"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2022; © 2022 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{EB752D20-B64C-41DD-945F-B33A50E325C2}"
+          SQLTask:SqlStatementSource="TRUNCATE TABLE dbo.STA_OrderReviews" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
   </DTS:Executables>
+  <DTS:PrecedenceConstraints>
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint]"
+      DTS:CreationName=""
+      DTS:DTSID="{643CD62E-0161-4C18-BCEF-58C5576FEEBA}"
+      DTS:From="Package\SQL_Truncate_STA_OrderReviews"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint"
+      DTS:To="Package\DFT_STA_OrderReviews" />
+  </DTS:PrecedenceConstraints>
   <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
 <!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
 <!--If you manually edit this section and make a mistake, you can delete it. -->
@@ -592,11 +589,49 @@
     design-time-name="Package">
     <LayoutInfo>
       <GraphLayout
-        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph">
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
           Size="204,42"
           Id="Package\DFT_STA_OrderReviews"
-          TopLeft="124,83" />
+          TopLeft="63,157" />
+        <NodeLayout
+          Size="254,42"
+          Id="Package\SQL_Truncate_STA_OrderReviews"
+          TopLeft="55,30" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint]"
+          TopLeft="182,72">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-17,85"
+              Start="0,0"
+              End="-17,77.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,38.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,38.5"
+                    Point2="0,42.5"
+                    Point3="-4,42.5" />
+                  <mssgle:LineSegment
+                    End="-13,42.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-13,42.5"
+                    Point2="-17,42.5"
+                    Point3="-17,46.5" />
+                  <mssgle:LineSegment
+                    End="-17,77.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
       </GraphLayout>
     </LayoutInfo>
   </Package>
@@ -606,27 +641,39 @@
       <GraphLayout
         Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
-          Size="204,42"
-          Id="Package\DFT_STA_OrderReviews\FFT_SRC_OrderReviews"
-          TopLeft="57,41" />
-        <NodeLayout
           Size="157,42"
           Id="Package\DFT_STA_OrderReviews\OLE_DST_STA"
-          TopLeft="78,231" />
+          TopLeft="189,185" />
+        <NodeLayout
+          Size="204,42"
+          Id="Package\DFT_STA_OrderReviews\FFT_SRC_OrderReviews"
+          TopLeft="189,44" />
         <EdgeLayout
           Id="Package\DFT_STA_OrderReviews.Paths[Flat File Source Output]"
-          TopLeft="157.75,83">
+          TopLeft="291,86">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,148"
+              EndConnector="-23.5,99"
               Start="0,0"
-              End="0,140.5">
+              End="-23.5,91.5">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,140.5" />
+                    End="0,45.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,45.5"
+                    Point2="0,49.5"
+                    Point3="-4,49.5" />
+                  <mssgle:LineSegment
+                    End="-19.5,49.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-19.5,49.5"
+                    Point2="-23.5,49.5"
+                    Point3="-23.5,53.5" />
+                  <mssgle:LineSegment
+                    End="-23.5,91.5" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>

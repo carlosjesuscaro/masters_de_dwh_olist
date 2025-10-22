@@ -2,7 +2,7 @@
 <BuildLog xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
   <ProjectInfo>
     <Name>OLIST</Name>
-    <LastWriteTime>2025-10-20T10:05:39.393686Z</LastWriteTime>
+    <LastWriteTime>2025-10-22T07:02:04.3609455Z</LastWriteTime>
     <LastKnownProtectionLevel>EncryptSensitiveWithUserKey</LastKnownProtectionLevel>
   </ProjectInfo>
   <LastBuildInfos>
@@ -23,7 +23,7 @@
     </ProjectBuildItemInfo>
     <ProjectBuildItemInfo>
       <Name>STA_OrderReviews.dtsx</Name>
-      <LastWriteTime>2025-10-20T10:05:39.3646191Z</LastWriteTime>
+      <LastWriteTime>2025-10-22T07:05:53.0412031Z</LastWriteTime>
       <LastKnownProtectionLevel>EncryptSensitiveWithUserKey</LastKnownProtectionLevel>
     </ProjectBuildItemInfo>
   </LastBuildInfos>

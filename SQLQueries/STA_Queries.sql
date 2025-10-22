@@ -55,16 +55,18 @@ FROM STA_OrderPayments;
 -- OrderReviews
 
 CREATE TABLE dbo.[STA_OrderReviews] (
-    [review_id] varchar(50),
-    [order_id] varchar(50),
-    [review_score] varchar(50),
-    [review_comment_title] varchar(50),
+    [review_id] nvarchar(255),
+    [order_id] nvarchar(255),
+    [review_score] nvarchar(50),
+    [review_comment_title] nvarchar(255),
     [review_comment_message] nvarchar(max),
-    [review_creation_date] varchar(50),
-    [review_answer_timestamp] varchar(50)
-)
+    [review_creation_date] nvarchar(50),
+    [review_answer_timestamp] nvarchar(50)
+);
 
 SELECT *
 FROM STA_OrderReviews;
 
 DROP TABLE STA_OrderReviews;
+
+sp_help 'dbo.STA_OrderReviews';
