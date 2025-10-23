@@ -73,3 +73,69 @@ FROM STA_OrderReviews;
 DROP TABLE STA_OrderReviews;
 
 sp_help 'dbo.STA_OrderReviews';
+
+-- Orders
+
+CREATE TABLE dbo.[STA_Orders] (
+    [order_id] varchar(50),
+    [customer_id] varchar(50),
+    [order_status] varchar(50),
+    [order_purchase_timestamp] varchar(50),
+    [order_approved_at] varchar(50),
+    [order_delivered_carrier_date] varchar(50),
+    [order_delivered_customer_date] varchar(50),
+    [order_estimated_delivery_date] varchar(50)
+)
+
+SELECT *
+FROM STA_Orders;
+
+SELECT COUNT(DISTINCT order_id)
+FROM STA_Orders;
+
+-- Products
+CREATE TABLE dbo.[STA_Products] (
+    [product_id] varchar(50),
+    [product_category_name] varchar(50),
+    [product_name_lenght] varchar(50),
+    [product_description_lenght] varchar(50),
+    [product_photos_qty] varchar(50),
+    [product_weight_g] varchar(50),
+    [product_length_cm] varchar(50),
+    [product_height_cm] varchar(50),
+    [product_width_cm] varchar(50)
+)
+
+SELECT *
+FROM STA_Products;
+
+SELECT COUNT(DISTINCT product_id)
+FROM STA_Products;
+
+-- Sellers
+
+CREATE TABLE dbo.[STA_Sellers] (
+    [seller_id] varchar(50),
+    [seller_zip_code_prefix] varchar(50),
+    [seller_city] varchar(50),
+    [seller_state] varchar(50)
+)
+
+SELECT *
+FROM STA_Sellers;
+
+SELECT COUNT(DISTINCT seller_id)
+FROM STA_Sellers;
+
+-- ProductTranslations
+
+CREATE TABLE dbo.[STA_ProductTranslations] (
+    [product_category_name] varchar(50),
+    [product_category_name_english] varchar(50)
+)
+
+SELECT *
+FROM STA_ProductTranslations;
+
+SELECT COUNT(DISTINCT product_category_name)
+FROM STA_ProductTranslations;

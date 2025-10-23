@@ -1,0 +1,843 @@
+﻿<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="10/22/2025 8:01:03 PM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="MACHINEX"
+  DTS:CreatorName="MACHINEX\carlos"
+  DTS:DTSID="{9FAAE2B5-75BB-40CE-8DCD-3EDDF4B2ADDA}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="16.0.5685.2"
+  DTS:LocaleID="4105"
+  DTS:ObjectName="Package1"
+  DTS:PackageType="5"
+  DTS:VersionBuild="3"
+  DTS:VersionGUID="{B3D3B6B6-8C39-45FE-B6A6-E4F0B35026FD}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:ConnectionManagers>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[Flat File Connection Manager]"
+      DTS:CreationName="FLATFILE"
+      DTS:DTSID="{8171F5B5-B5DA-4203-8FF3-D3034CD7DA8B}"
+      DTS:ObjectName="Flat File Connection Manager">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:Format="Delimited"
+          DTS:LocaleID="4105"
+          DTS:HeaderRowDelimiter="_x000D__x000A_"
+          DTS:ColumnNamesInFirstDataRow="True"
+          DTS:RowDelimiter=""
+          DTS:TextQualifier="_x0022_"
+          DTS:CodePage="1252"
+          DTS:ConnectionString="C:\Users\carlos\source\repos\OLIST\source_data\olist_products_dataset.csv">
+          <DTS:FlatFileColumns>
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="product_id"
+              DTS:DTSID="{D8260DCB-D47D-4BCD-B191-B3C73CF901DE}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="product_category_name"
+              DTS:DTSID="{762EABD6-66A5-47DB-9EEE-5D9AFB42AC46}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="product_name_lenght"
+              DTS:DTSID="{4A940958-9561-42C3-9E82-C9B9240DB7B6}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="product_description_lenght"
+              DTS:DTSID="{000A9F4E-3CD8-46F1-ADB2-D97DDAF2F34D}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="product_photos_qty"
+              DTS:DTSID="{2BA3F998-ED3E-4555-8CD5-C0F530B32B57}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="product_weight_g"
+              DTS:DTSID="{2DAC2260-1A67-4AB0-BCCC-7868C8EF47AF}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="product_length_cm"
+              DTS:DTSID="{CD4C6167-D495-4DFE-B64A-4777B7433277}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="product_height_cm"
+              DTS:DTSID="{5FA15082-5F80-4B29-99DC-8E599C9C74FC}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x000A_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="product_width_cm"
+              DTS:DTSID="{A39CCD35-F2D9-49B3-9801-F952593C8DDD}"
+              DTS:CreationName="" />
+          </DTS:FlatFileColumns>
+        </DTS:ConnectionManager>
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+  </DTS:ConnectionManagers>
+  <DTS:Variables />
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\DFT_STA_Products"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Data Flow Task"
+      DTS:DTSID="{C919E2D9-AC43-46BA-AB2E-BD1970815F11}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="DFT_STA_Products"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\DFT_STA_Products\FFT_SRC_Products"
+              componentClassID="Microsoft.FlatFileSource"
+              contactInfo="Flat File Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;1"
+              description="Flat File Source"
+              localeId="4105"
+              name="FFT_SRC_Products"
+              usesDispositions="true"
+              version="1">
+              <properties>
+                <property
+                  dataType="System.Boolean"
+                  description="Specifies whether zero-length columns are treated as null."
+                  name="RetainNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of an output column containing the file name. If no name is specified, no output column containing the file name will be generated."
+                  name="FileNameColumnName"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\DFT_STA_Products\FFT_SRC_Products.Connections[FlatFileConnection]"
+                  connectionManagerID="Package.ConnectionManagers[Flat File Connection Manager]"
+                  connectionManagerRefId="Package.ConnectionManagers[Flat File Connection Manager]"
+                  name="FlatFileConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\DFT_STA_Products\FFT_SRC_Products.Outputs[Flat File Source Output]"
+                  name="Flat File Source Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DFT_STA_Products\FFT_SRC_Products.Outputs[Flat File Source Output].Columns[product_id]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT_STA_Products\FFT_SRC_Products.Outputs[Flat File Source Output].ExternalColumns[product_id]"
+                      length="50"
+                      lineageId="Package\DFT_STA_Products\FFT_SRC_Products.Outputs[Flat File Source Output].Columns[product_id]"
+                      name="product_id"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DFT_STA_Products\FFT_SRC_Products.Outputs[Flat File Source Output].Columns[product_category_name]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT_STA_Products\FFT_SRC_Products.Outputs[Flat File Source Output].ExternalColumns[product_category_name]"
+                      length="50"
+                      lineageId="Package\DFT_STA_Products\FFT_SRC_Products.Outputs[Flat File Source Output].Columns[product_category_name]"
+                      name="product_category_name"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DFT_STA_Products\FFT_SRC_Products.Outputs[Flat File Source Output].Columns[product_name_lenght]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT_STA_Products\FFT_SRC_Products.Outputs[Flat File Source Output].ExternalColumns[product_name_lenght]"
+                      length="50"
+                      lineageId="Package\DFT_STA_Products\FFT_SRC_Products.Outputs[Flat File Source Output].Columns[product_name_lenght]"
+                      name="product_name_lenght"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DFT_STA_Products\FFT_SRC_Products.Outputs[Flat File Source Output].Columns[product_description_lenght]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT_STA_Products\FFT_SRC_Products.Outputs[Flat File Source Output].ExternalColumns[product_description_lenght]"
+                      length="50"
+                      lineageId="Package\DFT_STA_Products\FFT_SRC_Products.Outputs[Flat File Source Output].Columns[product_description_lenght]"
+                      name="product_description_lenght"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DFT_STA_Products\FFT_SRC_Products.Outputs[Flat File Source Output].Columns[product_photos_qty]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT_STA_Products\FFT_SRC_Products.Outputs[Flat File Source Output].ExternalColumns[product_photos_qty]"
+                      length="50"
+                      lineageId="Package\DFT_STA_Products\FFT_SRC_Products.Outputs[Flat File Source Output].Columns[product_photos_qty]"
+                      name="product_photos_qty"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DFT_STA_Products\FFT_SRC_Products.Outputs[Flat File Source Output].Columns[product_weight_g]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT_STA_Products\FFT_SRC_Products.Outputs[Flat File Source Output].ExternalColumns[product_weight_g]"
+                      length="50"
+                      lineageId="Package\DFT_STA_Products\FFT_SRC_Products.Outputs[Flat File Source Output].Columns[product_weight_g]"
+                      name="product_weight_g"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DFT_STA_Products\FFT_SRC_Products.Outputs[Flat File Source Output].Columns[product_length_cm]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT_STA_Products\FFT_SRC_Products.Outputs[Flat File Source Output].ExternalColumns[product_length_cm]"
+                      length="50"
+                      lineageId="Package\DFT_STA_Products\FFT_SRC_Products.Outputs[Flat File Source Output].Columns[product_length_cm]"
+                      name="product_length_cm"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DFT_STA_Products\FFT_SRC_Products.Outputs[Flat File Source Output].Columns[product_height_cm]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT_STA_Products\FFT_SRC_Products.Outputs[Flat File Source Output].ExternalColumns[product_height_cm]"
+                      length="50"
+                      lineageId="Package\DFT_STA_Products\FFT_SRC_Products.Outputs[Flat File Source Output].Columns[product_height_cm]"
+                      name="product_height_cm"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DFT_STA_Products\FFT_SRC_Products.Outputs[Flat File Source Output].Columns[product_width_cm]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT_STA_Products\FFT_SRC_Products.Outputs[Flat File Source Output].ExternalColumns[product_width_cm]"
+                      length="50"
+                      lineageId="Package\DFT_STA_Products\FFT_SRC_Products.Outputs[Flat File Source Output].Columns[product_width_cm]"
+                      name="product_width_cm"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\DFT_STA_Products\FFT_SRC_Products.Outputs[Flat File Source Output].ExternalColumns[product_id]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="product_id" />
+                    <externalMetadataColumn
+                      refId="Package\DFT_STA_Products\FFT_SRC_Products.Outputs[Flat File Source Output].ExternalColumns[product_category_name]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="product_category_name" />
+                    <externalMetadataColumn
+                      refId="Package\DFT_STA_Products\FFT_SRC_Products.Outputs[Flat File Source Output].ExternalColumns[product_name_lenght]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="product_name_lenght" />
+                    <externalMetadataColumn
+                      refId="Package\DFT_STA_Products\FFT_SRC_Products.Outputs[Flat File Source Output].ExternalColumns[product_description_lenght]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="product_description_lenght" />
+                    <externalMetadataColumn
+                      refId="Package\DFT_STA_Products\FFT_SRC_Products.Outputs[Flat File Source Output].ExternalColumns[product_photos_qty]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="product_photos_qty" />
+                    <externalMetadataColumn
+                      refId="Package\DFT_STA_Products\FFT_SRC_Products.Outputs[Flat File Source Output].ExternalColumns[product_weight_g]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="product_weight_g" />
+                    <externalMetadataColumn
+                      refId="Package\DFT_STA_Products\FFT_SRC_Products.Outputs[Flat File Source Output].ExternalColumns[product_length_cm]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="product_length_cm" />
+                    <externalMetadataColumn
+                      refId="Package\DFT_STA_Products\FFT_SRC_Products.Outputs[Flat File Source Output].ExternalColumns[product_height_cm]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="product_height_cm" />
+                    <externalMetadataColumn
+                      refId="Package\DFT_STA_Products\FFT_SRC_Products.Outputs[Flat File Source Output].ExternalColumns[product_width_cm]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="product_width_cm" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\DFT_STA_Products\FFT_SRC_Products.Outputs[Flat File Source Error Output]"
+                  isErrorOut="true"
+                  name="Flat File Source Error Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DFT_STA_Products\FFT_SRC_Products.Outputs[Flat File Source Error Output].Columns[Flat File Source Error Output Column]"
+                      codePage="1252"
+                      dataType="text"
+                      description="Flat File Source Error Output Column"
+                      lineageId="Package\DFT_STA_Products\FFT_SRC_Products.Outputs[Flat File Source Error Output].Columns[Flat File Source Error Output Column]"
+                      name="Flat File Source Error Output Column" />
+                    <outputColumn
+                      refId="Package\DFT_STA_Products\FFT_SRC_Products.Outputs[Flat File Source Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\DFT_STA_Products\FFT_SRC_Products.Outputs[Flat File Source Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\DFT_STA_Products\FFT_SRC_Products.Outputs[Flat File Source Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\DFT_STA_Products\FFT_SRC_Products.Outputs[Flat File Source Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\DFT_STA_Products\OLE_DST_STA"
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+              description="OLE DB Destination"
+              name="OLE_DST_STA"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[dbo].[STA_Products]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">3</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                  name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\DFT_STA_Products\OLE_DST_STA.Connections[OleDbConnection]"
+                  connectionManagerID="{EB752D20-B64C-41DD-945F-B33A50E325C2}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[MACHINEX.OLIST_STA]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\DFT_STA_Products\OLE_DST_STA.Inputs[OLE DB Destination Input]"
+                  errorOrTruncationOperation="Insert"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="OLE DB Destination Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\DFT_STA_Products\OLE_DST_STA.Inputs[OLE DB Destination Input].Columns[product_id]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="product_id"
+                      externalMetadataColumnId="Package\DFT_STA_Products\OLE_DST_STA.Inputs[OLE DB Destination Input].ExternalColumns[product_id]"
+                      lineageId="Package\DFT_STA_Products\FFT_SRC_Products.Outputs[Flat File Source Output].Columns[product_id]" />
+                    <inputColumn
+                      refId="Package\DFT_STA_Products\OLE_DST_STA.Inputs[OLE DB Destination Input].Columns[product_category_name]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="product_category_name"
+                      externalMetadataColumnId="Package\DFT_STA_Products\OLE_DST_STA.Inputs[OLE DB Destination Input].ExternalColumns[product_category_name]"
+                      lineageId="Package\DFT_STA_Products\FFT_SRC_Products.Outputs[Flat File Source Output].Columns[product_category_name]" />
+                    <inputColumn
+                      refId="Package\DFT_STA_Products\OLE_DST_STA.Inputs[OLE DB Destination Input].Columns[product_name_lenght]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="product_name_lenght"
+                      externalMetadataColumnId="Package\DFT_STA_Products\OLE_DST_STA.Inputs[OLE DB Destination Input].ExternalColumns[product_name_lenght]"
+                      lineageId="Package\DFT_STA_Products\FFT_SRC_Products.Outputs[Flat File Source Output].Columns[product_name_lenght]" />
+                    <inputColumn
+                      refId="Package\DFT_STA_Products\OLE_DST_STA.Inputs[OLE DB Destination Input].Columns[product_description_lenght]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="product_description_lenght"
+                      externalMetadataColumnId="Package\DFT_STA_Products\OLE_DST_STA.Inputs[OLE DB Destination Input].ExternalColumns[product_description_lenght]"
+                      lineageId="Package\DFT_STA_Products\FFT_SRC_Products.Outputs[Flat File Source Output].Columns[product_description_lenght]" />
+                    <inputColumn
+                      refId="Package\DFT_STA_Products\OLE_DST_STA.Inputs[OLE DB Destination Input].Columns[product_photos_qty]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="product_photos_qty"
+                      externalMetadataColumnId="Package\DFT_STA_Products\OLE_DST_STA.Inputs[OLE DB Destination Input].ExternalColumns[product_photos_qty]"
+                      lineageId="Package\DFT_STA_Products\FFT_SRC_Products.Outputs[Flat File Source Output].Columns[product_photos_qty]" />
+                    <inputColumn
+                      refId="Package\DFT_STA_Products\OLE_DST_STA.Inputs[OLE DB Destination Input].Columns[product_weight_g]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="product_weight_g"
+                      externalMetadataColumnId="Package\DFT_STA_Products\OLE_DST_STA.Inputs[OLE DB Destination Input].ExternalColumns[product_weight_g]"
+                      lineageId="Package\DFT_STA_Products\FFT_SRC_Products.Outputs[Flat File Source Output].Columns[product_weight_g]" />
+                    <inputColumn
+                      refId="Package\DFT_STA_Products\OLE_DST_STA.Inputs[OLE DB Destination Input].Columns[product_length_cm]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="product_length_cm"
+                      externalMetadataColumnId="Package\DFT_STA_Products\OLE_DST_STA.Inputs[OLE DB Destination Input].ExternalColumns[product_length_cm]"
+                      lineageId="Package\DFT_STA_Products\FFT_SRC_Products.Outputs[Flat File Source Output].Columns[product_length_cm]" />
+                    <inputColumn
+                      refId="Package\DFT_STA_Products\OLE_DST_STA.Inputs[OLE DB Destination Input].Columns[product_height_cm]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="product_height_cm"
+                      externalMetadataColumnId="Package\DFT_STA_Products\OLE_DST_STA.Inputs[OLE DB Destination Input].ExternalColumns[product_height_cm]"
+                      lineageId="Package\DFT_STA_Products\FFT_SRC_Products.Outputs[Flat File Source Output].Columns[product_height_cm]" />
+                    <inputColumn
+                      refId="Package\DFT_STA_Products\OLE_DST_STA.Inputs[OLE DB Destination Input].Columns[product_width_cm]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="product_width_cm"
+                      externalMetadataColumnId="Package\DFT_STA_Products\OLE_DST_STA.Inputs[OLE DB Destination Input].ExternalColumns[product_width_cm]"
+                      lineageId="Package\DFT_STA_Products\FFT_SRC_Products.Outputs[Flat File Source Output].Columns[product_width_cm]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\DFT_STA_Products\OLE_DST_STA.Inputs[OLE DB Destination Input].ExternalColumns[product_id]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="product_id" />
+                    <externalMetadataColumn
+                      refId="Package\DFT_STA_Products\OLE_DST_STA.Inputs[OLE DB Destination Input].ExternalColumns[product_category_name]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="product_category_name" />
+                    <externalMetadataColumn
+                      refId="Package\DFT_STA_Products\OLE_DST_STA.Inputs[OLE DB Destination Input].ExternalColumns[product_name_lenght]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="product_name_lenght" />
+                    <externalMetadataColumn
+                      refId="Package\DFT_STA_Products\OLE_DST_STA.Inputs[OLE DB Destination Input].ExternalColumns[product_description_lenght]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="product_description_lenght" />
+                    <externalMetadataColumn
+                      refId="Package\DFT_STA_Products\OLE_DST_STA.Inputs[OLE DB Destination Input].ExternalColumns[product_photos_qty]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="product_photos_qty" />
+                    <externalMetadataColumn
+                      refId="Package\DFT_STA_Products\OLE_DST_STA.Inputs[OLE DB Destination Input].ExternalColumns[product_weight_g]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="product_weight_g" />
+                    <externalMetadataColumn
+                      refId="Package\DFT_STA_Products\OLE_DST_STA.Inputs[OLE DB Destination Input].ExternalColumns[product_length_cm]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="product_length_cm" />
+                    <externalMetadataColumn
+                      refId="Package\DFT_STA_Products\OLE_DST_STA.Inputs[OLE DB Destination Input].ExternalColumns[product_height_cm]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="product_height_cm" />
+                    <externalMetadataColumn
+                      refId="Package\DFT_STA_Products\OLE_DST_STA.Inputs[OLE DB Destination Input].ExternalColumns[product_width_cm]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="product_width_cm" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\DFT_STA_Products\OLE_DST_STA.Outputs[OLE DB Destination Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="OLE DB Destination Error Output"
+                  synchronousInputId="Package\DFT_STA_Products\OLE_DST_STA.Inputs[OLE DB Destination Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DFT_STA_Products\OLE_DST_STA.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\DFT_STA_Products\OLE_DST_STA.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\DFT_STA_Products\OLE_DST_STA.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\DFT_STA_Products\OLE_DST_STA.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\DFT_STA_Products.Paths[Flat File Source Output]"
+              endId="Package\DFT_STA_Products\OLE_DST_STA.Inputs[OLE DB Destination Input]"
+              name="Flat File Source Output"
+              startId="Package\DFT_STA_Products\FFT_SRC_Products.Outputs[Flat File Source Output]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\SQL_Truncate_STA_Products"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{9C1B2FF6-512B-41BF-9EDA-CF1BD734BA0B}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="SQL_Truncate_STA_Products"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2022; © 2022 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{EB752D20-B64C-41DD-945F-B33A50E325C2}"
+          SQLTask:SqlStatementSource="TRUNCATE TABLE dbo.STA_Products" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:PrecedenceConstraints>
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint]"
+      DTS:CreationName=""
+      DTS:DTSID="{99AE7DAF-5DB7-47B1-848C-F6E5958EA3FC}"
+      DTS:From="Package\SQL_Truncate_STA_Products"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint"
+      DTS:To="Package\DFT_STA_Products" />
+  </DTS:PrecedenceConstraints>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="8">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="177,42"
+          Id="Package\DFT_STA_Products"
+          TopLeft="226,167" />
+        <NodeLayout
+          Size="227,42"
+          Id="Package\SQL_Truncate_STA_Products"
+          TopLeft="260,49" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint]"
+          TopLeft="373.5,91">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-59,76"
+              Start="0,0"
+              End="-59,68.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,34" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,34"
+                    Point2="0,38"
+                    Point3="-4,38" />
+                  <mssgle:LineSegment
+                    End="-55,38" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-55,38"
+                    Point2="-59,38"
+                    Point3="-59,42" />
+                  <mssgle:LineSegment
+                    End="-59,68.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <TaskHost
+    design-time-name="Package\DFT_STA_Products">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="178,42"
+          Id="Package\DFT_STA_Products\FFT_SRC_Products"
+          TopLeft="290,63" />
+        <NodeLayout
+          Size="157,42"
+          Id="Package\DFT_STA_Products\OLE_DST_STA"
+          TopLeft="289,219" />
+        <EdgeLayout
+          Id="Package\DFT_STA_Products.Paths[Flat File Source Output]"
+          TopLeft="379,105">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-11.5,114"
+              Start="0,0"
+              End="-11.5,106.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,53" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,53"
+                    Point2="0,57"
+                    Point3="-4,57" />
+                  <mssgle:LineSegment
+                    End="-7.5,57" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-7.5,57"
+                    Point2="-11.5,57"
+                    Point3="-11.5,61" />
+                  <mssgle:LineSegment
+                    End="-11.5,106.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\DFT_STA_Products\OLE_DST_STA">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>
