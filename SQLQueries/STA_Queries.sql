@@ -67,6 +67,9 @@ CREATE TABLE dbo.[STA_OrderReviews] (
 SELECT *
 FROM STA_OrderReviews;
 
+SELECT COUNT(DISTINCT review_id)
+FROM STA_OrderReviews;
+
 DROP TABLE STA_OrderReviews;
 
 sp_help 'dbo.STA_OrderReviews';
