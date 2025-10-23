@@ -1,4 +1,4 @@
-USE OLIST_STA
+USE OLIST_STA;
 
 -- Customers
 CREATE TABLE dbo.[STA_Customers] (
