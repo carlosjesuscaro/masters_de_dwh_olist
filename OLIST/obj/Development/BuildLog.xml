@@ -2,13 +2,13 @@
 <BuildLog xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
   <ProjectInfo>
     <Name>OLIST</Name>
-    <LastWriteTime>2025-10-23T04:21:08.1068983Z</LastWriteTime>
+    <LastWriteTime>2025-10-23T04:36:48.3815226Z</LastWriteTime>
     <LastKnownProtectionLevel>EncryptSensitiveWithUserKey</LastKnownProtectionLevel>
   </ProjectInfo>
   <LastBuildInfos>
     <ProjectBuildItemInfo>
       <Name>STA_Customers.dtsx</Name>
-      <LastWriteTime>2025-10-20T08:01:27.796872Z</LastWriteTime>
+      <LastWriteTime>2025-10-23T05:47:13.8712396Z</LastWriteTime>
       <LastKnownProtectionLevel>EncryptSensitiveWithUserKey</LastKnownProtectionLevel>
     </ProjectBuildItemInfo>
     <ProjectBuildItemInfo>
@@ -53,7 +53,12 @@
     </ProjectBuildItemInfo>
     <ProjectBuildItemInfo>
       <Name>ODS_OrderItems.dtsx</Name>
-      <LastWriteTime>2025-10-23T04:28:25.2511193Z</LastWriteTime>
+      <LastWriteTime>2025-10-23T05:21:55.8329678Z</LastWriteTime>
+      <LastKnownProtectionLevel>EncryptSensitiveWithUserKey</LastKnownProtectionLevel>
+    </ProjectBuildItemInfo>
+    <ProjectBuildItemInfo>
+      <Name>ODS_OrderPayments.dtsx</Name>
+      <LastWriteTime>2025-10-24T01:30:07.3714261Z</LastWriteTime>
       <LastKnownProtectionLevel>EncryptSensitiveWithUserKey</LastKnownProtectionLevel>
     </ProjectBuildItemInfo>
   </LastBuildInfos>

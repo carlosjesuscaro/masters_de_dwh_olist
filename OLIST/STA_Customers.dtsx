@@ -11,8 +11,8 @@
   DTS:LocaleID="4105"
   DTS:ObjectName="STA_Customers"
   DTS:PackageType="5"
-  DTS:VersionBuild="29"
-  DTS:VersionGUID="{B26D8ED9-AB3F-407A-B358-F562E82C6FA1}">
+  DTS:VersionBuild="30"
+  DTS:VersionGUID="{8ACD84B7-07D3-48C8-ACD2-87398B83E0E8}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -432,7 +432,9 @@
                       name="customer_unique_id" />
                     <externalMetadataColumn
                       refId="Package\DFT_STA_Customers\OLE_DST_STA.Inputs[OLE DB Destination Input].ExternalColumns[customer_zip_code_prefix]"
-                      dataType="i4"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
                       name="customer_zip_code_prefix" />
                     <externalMetadataColumn
                       refId="Package\DFT_STA_Customers\OLE_DST_STA.Inputs[OLE DB Destination Input].ExternalColumns[customer_city]"

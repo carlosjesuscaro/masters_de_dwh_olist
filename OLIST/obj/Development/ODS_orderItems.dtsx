@@ -11,8 +11,8 @@
   DTS:LocaleID="4105"
   DTS:ObjectName="ODS_OrderItems"
   DTS:PackageType="5"
-  DTS:VersionBuild="12"
-  DTS:VersionGUID="{9A4786C2-3E9A-4D80-9511-687489F62E01}">
+  DTS:VersionBuild="17"
+  DTS:VersionGUID="{1EB3AF52-771B-4017-970C-EBE4736D6AEE}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:Variables />
@@ -32,19 +32,639 @@
           version="1">
           <components>
             <component
-              refId="Package\DFT_ODS_OrderItems\DCNV_FreightDec"
+              refId="Package\DFT_ODS_OrderItems\ALL_Rejects"
+              componentClassID="Microsoft.UnionAll"
+              contactInfo="Union All;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;1"
+              description="Combines rows from multiple data flows without sorting. For example, add rows back to a data flow after correction of errors. If sorting is important, we recommend using the Merge transformation."
+              name="ALL_Rejects"
+              version="1">
+              <inputs>
+                <input
+                  refId="Package\DFT_ODS_OrderItems\ALL_Rejects.Inputs[Union All Input 1]"
+                  name="Union All Input 1">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\DFT_ODS_OrderItems\ALL_Rejects.Inputs[Union All Input 1].Columns[order_id]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="order_id"
+                      lineageId="Package\DFT_ODS_OrderItems\OLE_SRC_STA_OrderItems.Outputs[OLE DB Source Output].Columns[order_id]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\DFT_ODS_OrderItems\ALL_Rejects.Outputs[Union All Output 1].Columns[order_id]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\DFT_ODS_OrderItems\ALL_Rejects.Inputs[Union All Input 1].Columns[order_item_id]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="order_item_id"
+                      lineageId="Package\DFT_ODS_OrderItems\OLE_SRC_STA_OrderItems.Outputs[OLE DB Source Output].Columns[order_item_id]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\DFT_ODS_OrderItems\ALL_Rejects.Outputs[Union All Output 1].Columns[order_item_id]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\DFT_ODS_OrderItems\ALL_Rejects.Inputs[Union All Input 1].Columns[product_id]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="product_id"
+                      lineageId="Package\DFT_ODS_OrderItems\OLE_SRC_STA_OrderItems.Outputs[OLE DB Source Output].Columns[product_id]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\DFT_ODS_OrderItems\ALL_Rejects.Outputs[Union All Output 1].Columns[product_id]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\DFT_ODS_OrderItems\ALL_Rejects.Inputs[Union All Input 1].Columns[seller_id]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="seller_id"
+                      lineageId="Package\DFT_ODS_OrderItems\OLE_SRC_STA_OrderItems.Outputs[OLE DB Source Output].Columns[seller_id]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\DFT_ODS_OrderItems\ALL_Rejects.Outputs[Union All Output 1].Columns[seller_id]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\DFT_ODS_OrderItems\ALL_Rejects.Inputs[Union All Input 1].Columns[shipping_limit_date]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="shipping_limit_date"
+                      lineageId="Package\DFT_ODS_OrderItems\OLE_SRC_STA_OrderItems.Outputs[OLE DB Source Output].Columns[shipping_limit_date]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\DFT_ODS_OrderItems\ALL_Rejects.Outputs[Union All Output 1].Columns[shipping_limit_date]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\DFT_ODS_OrderItems\ALL_Rejects.Inputs[Union All Input 1].Columns[price]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="price"
+                      lineageId="Package\DFT_ODS_OrderItems\OLE_SRC_STA_OrderItems.Outputs[OLE DB Source Output].Columns[price]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\DFT_ODS_OrderItems\ALL_Rejects.Outputs[Union All Output 1].Columns[price]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\DFT_ODS_OrderItems\ALL_Rejects.Inputs[Union All Input 1].Columns[freight_value]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="freight_value"
+                      lineageId="Package\DFT_ODS_OrderItems\OLE_SRC_STA_OrderItems.Outputs[OLE DB Source Output].Columns[freight_value]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\DFT_ODS_OrderItems\ALL_Rejects.Outputs[Union All Output 1].Columns[freight_value]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\DFT_ODS_OrderItems\ALL_Rejects.Inputs[Union All Input 1].Columns[ErrorCode]"
+                      cachedDataType="i4"
+                      cachedName="ErrorCode"
+                      lineageId="Package\DFT_ODS_OrderItems\DCNV_Price_Dec.Outputs[Data Conversion Error Output].Columns[ErrorCode]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\DFT_ODS_OrderItems\ALL_Rejects.Outputs[Union All Output 1].Columns[ErrorCode]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\DFT_ODS_OrderItems\ALL_Rejects.Inputs[Union All Input 1].Columns[ErrorColumn]"
+                      cachedDataType="i4"
+                      cachedName="ErrorColumn"
+                      lineageId="Package\DFT_ODS_OrderItems\DCNV_Price_Dec.Outputs[Data Conversion Error Output].Columns[ErrorColumn]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\DFT_ODS_OrderItems\ALL_Rejects.Outputs[Union All Output 1].Columns[ErrorColumn]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\DFT_ODS_OrderItems\ALL_Rejects.Inputs[Union All Input 1].Columns[RejectsDate]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="RejectsDate"
+                      lineageId="Package\DFT_ODS_OrderItems\DER_Price_Rejects.Outputs[Derived Column Output].Columns[RejectsDate]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\DFT_ODS_OrderItems\ALL_Rejects.Outputs[Union All Output 1].Columns[RejectsDate]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\DFT_ODS_OrderItems\ALL_Rejects.Inputs[Union All Input 1].Columns[RejectsPkgAndTask]"
+                      cachedDataType="wstr"
+                      cachedLength="100"
+                      cachedName="RejectsPkgAndTask"
+                      lineageId="Package\DFT_ODS_OrderItems\DER_Price_Rejects.Outputs[Derived Column Output].Columns[RejectsPkgAndTask]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\DFT_ODS_OrderItems\ALL_Rejects.Outputs[Union All Output 1].Columns[RejectsPkgAndTask]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\DFT_ODS_OrderItems\ALL_Rejects.Inputs[Union All Input 1].Columns[RejectColumn]"
+                      cachedDataType="wstr"
+                      cachedLength="5"
+                      cachedName="RejectColumn"
+                      lineageId="Package\DFT_ODS_OrderItems\DER_Price_Rejects.Outputs[Derived Column Output].Columns[RejectColumn]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\DFT_ODS_OrderItems\ALL_Rejects.Outputs[Union All Output 1].Columns[RejectColumn]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\DFT_ODS_OrderItems\ALL_Rejects.Inputs[Union All Input 1].Columns[RejectDescription]"
+                      cachedDataType="wstr"
+                      cachedLength="79"
+                      cachedName="RejectDescription"
+                      lineageId="Package\DFT_ODS_OrderItems\DER_Price_Rejects.Outputs[Derived Column Output].Columns[RejectDescription]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\DFT_ODS_OrderItems\ALL_Rejects.Outputs[Union All Output 1].Columns[RejectDescription]}</property>
+                      </properties>
+                    </inputColumn>
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+                <input
+                  refId="Package\DFT_ODS_OrderItems\ALL_Rejects.Inputs[Union All Input 2]"
+                  hasSideEffects="true"
+                  name="Union All Input 2">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\DFT_ODS_OrderItems\ALL_Rejects.Inputs[Union All Input 2].Columns[order_id]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="order_id"
+                      lineageId="Package\DFT_ODS_OrderItems\OLE_SRC_STA_OrderItems.Outputs[OLE DB Source Output].Columns[order_id]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\DFT_ODS_OrderItems\ALL_Rejects.Outputs[Union All Output 1].Columns[order_id]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\DFT_ODS_OrderItems\ALL_Rejects.Inputs[Union All Input 2].Columns[order_item_id]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="order_item_id"
+                      lineageId="Package\DFT_ODS_OrderItems\OLE_SRC_STA_OrderItems.Outputs[OLE DB Source Output].Columns[order_item_id]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\DFT_ODS_OrderItems\ALL_Rejects.Outputs[Union All Output 1].Columns[order_item_id]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\DFT_ODS_OrderItems\ALL_Rejects.Inputs[Union All Input 2].Columns[product_id]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="product_id"
+                      lineageId="Package\DFT_ODS_OrderItems\OLE_SRC_STA_OrderItems.Outputs[OLE DB Source Output].Columns[product_id]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\DFT_ODS_OrderItems\ALL_Rejects.Outputs[Union All Output 1].Columns[product_id]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\DFT_ODS_OrderItems\ALL_Rejects.Inputs[Union All Input 2].Columns[seller_id]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="seller_id"
+                      lineageId="Package\DFT_ODS_OrderItems\OLE_SRC_STA_OrderItems.Outputs[OLE DB Source Output].Columns[seller_id]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\DFT_ODS_OrderItems\ALL_Rejects.Outputs[Union All Output 1].Columns[seller_id]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\DFT_ODS_OrderItems\ALL_Rejects.Inputs[Union All Input 2].Columns[shipping_limit_date]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="shipping_limit_date"
+                      lineageId="Package\DFT_ODS_OrderItems\OLE_SRC_STA_OrderItems.Outputs[OLE DB Source Output].Columns[shipping_limit_date]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\DFT_ODS_OrderItems\ALL_Rejects.Outputs[Union All Output 1].Columns[shipping_limit_date]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\DFT_ODS_OrderItems\ALL_Rejects.Inputs[Union All Input 2].Columns[price]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="price"
+                      lineageId="Package\DFT_ODS_OrderItems\OLE_SRC_STA_OrderItems.Outputs[OLE DB Source Output].Columns[price]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\DFT_ODS_OrderItems\ALL_Rejects.Outputs[Union All Output 1].Columns[price]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\DFT_ODS_OrderItems\ALL_Rejects.Inputs[Union All Input 2].Columns[freight_value]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="freight_value"
+                      lineageId="Package\DFT_ODS_OrderItems\OLE_SRC_STA_OrderItems.Outputs[OLE DB Source Output].Columns[freight_value]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\DFT_ODS_OrderItems\ALL_Rejects.Outputs[Union All Output 1].Columns[freight_value]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\DFT_ODS_OrderItems\ALL_Rejects.Inputs[Union All Input 2].Columns[ErrorCode]"
+                      cachedDataType="i4"
+                      cachedName="ErrorCode"
+                      lineageId="Package\DFT_ODS_OrderItems\DCNV_Freight_Dec.Outputs[Data Conversion Error Output].Columns[ErrorCode]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\DFT_ODS_OrderItems\ALL_Rejects.Outputs[Union All Output 1].Columns[ErrorCode]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\DFT_ODS_OrderItems\ALL_Rejects.Inputs[Union All Input 2].Columns[ErrorColumn]"
+                      cachedDataType="i4"
+                      cachedName="ErrorColumn"
+                      lineageId="Package\DFT_ODS_OrderItems\DCNV_Freight_Dec.Outputs[Data Conversion Error Output].Columns[ErrorColumn]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\DFT_ODS_OrderItems\ALL_Rejects.Outputs[Union All Output 1].Columns[ErrorColumn]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\DFT_ODS_OrderItems\ALL_Rejects.Inputs[Union All Input 2].Columns[RejectsPkgAndTask]"
+                      cachedDataType="wstr"
+                      cachedLength="100"
+                      cachedName="RejectsPkgAndTask"
+                      lineageId="Package\DFT_ODS_OrderItems\DER_Freight_Rejects.Outputs[Derived Column Output].Columns[RejectsPkgAndTask]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\DFT_ODS_OrderItems\ALL_Rejects.Outputs[Union All Output 1].Columns[RejectsPkgAndTask]}</property>
+                      </properties>
+                    </inputColumn>
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+                <input
+                  refId="Package\DFT_ODS_OrderItems\ALL_Rejects.Inputs[Union All Input 3]"
+                  hasSideEffects="true"
+                  name="Union All Input 3">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\DFT_ODS_OrderItems\ALL_Rejects.Inputs[Union All Input 3].Columns[order_id]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="order_id"
+                      lineageId="Package\DFT_ODS_OrderItems\OLE_SRC_STA_OrderItems.Outputs[OLE DB Source Output].Columns[order_id]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\DFT_ODS_OrderItems\ALL_Rejects.Outputs[Union All Output 1].Columns[order_id]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\DFT_ODS_OrderItems\ALL_Rejects.Inputs[Union All Input 3].Columns[order_item_id]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="order_item_id"
+                      lineageId="Package\DFT_ODS_OrderItems\OLE_SRC_STA_OrderItems.Outputs[OLE DB Source Output].Columns[order_item_id]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\DFT_ODS_OrderItems\ALL_Rejects.Outputs[Union All Output 1].Columns[order_item_id]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\DFT_ODS_OrderItems\ALL_Rejects.Inputs[Union All Input 3].Columns[product_id]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="product_id"
+                      lineageId="Package\DFT_ODS_OrderItems\OLE_SRC_STA_OrderItems.Outputs[OLE DB Source Output].Columns[product_id]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\DFT_ODS_OrderItems\ALL_Rejects.Outputs[Union All Output 1].Columns[product_id]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\DFT_ODS_OrderItems\ALL_Rejects.Inputs[Union All Input 3].Columns[seller_id]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="seller_id"
+                      lineageId="Package\DFT_ODS_OrderItems\OLE_SRC_STA_OrderItems.Outputs[OLE DB Source Output].Columns[seller_id]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\DFT_ODS_OrderItems\ALL_Rejects.Outputs[Union All Output 1].Columns[seller_id]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\DFT_ODS_OrderItems\ALL_Rejects.Inputs[Union All Input 3].Columns[shipping_limit_date]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="shipping_limit_date"
+                      lineageId="Package\DFT_ODS_OrderItems\OLE_SRC_STA_OrderItems.Outputs[OLE DB Source Output].Columns[shipping_limit_date]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\DFT_ODS_OrderItems\ALL_Rejects.Outputs[Union All Output 1].Columns[shipping_limit_date]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\DFT_ODS_OrderItems\ALL_Rejects.Inputs[Union All Input 3].Columns[price]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="price"
+                      lineageId="Package\DFT_ODS_OrderItems\OLE_SRC_STA_OrderItems.Outputs[OLE DB Source Output].Columns[price]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\DFT_ODS_OrderItems\ALL_Rejects.Outputs[Union All Output 1].Columns[price]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\DFT_ODS_OrderItems\ALL_Rejects.Inputs[Union All Input 3].Columns[freight_value]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="freight_value"
+                      lineageId="Package\DFT_ODS_OrderItems\OLE_SRC_STA_OrderItems.Outputs[OLE DB Source Output].Columns[freight_value]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\DFT_ODS_OrderItems\ALL_Rejects.Outputs[Union All Output 1].Columns[freight_value]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\DFT_ODS_OrderItems\ALL_Rejects.Inputs[Union All Input 3].Columns[ErrorCode]"
+                      cachedDataType="i4"
+                      cachedName="ErrorCode"
+                      lineageId="Package\DFT_ODS_OrderItems\DCNV_ShippingDate_Date.Outputs[Data Conversion Error Output].Columns[ErrorCode]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\DFT_ODS_OrderItems\ALL_Rejects.Outputs[Union All Output 1].Columns[ErrorCode]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\DFT_ODS_OrderItems\ALL_Rejects.Inputs[Union All Input 3].Columns[ErrorColumn]"
+                      cachedDataType="i4"
+                      cachedName="ErrorColumn"
+                      lineageId="Package\DFT_ODS_OrderItems\DCNV_ShippingDate_Date.Outputs[Data Conversion Error Output].Columns[ErrorColumn]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\DFT_ODS_OrderItems\ALL_Rejects.Outputs[Union All Output 1].Columns[ErrorColumn]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\DFT_ODS_OrderItems\ALL_Rejects.Inputs[Union All Input 3].Columns[RejectsDate]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="RejectsDate"
+                      lineageId="Package\DFT_ODS_OrderItems\DER_ShippingDate_Rejects.Outputs[Derived Column Output].Columns[RejectsDate]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\DFT_ODS_OrderItems\ALL_Rejects.Outputs[Union All Output 1].Columns[RejectsDate]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\DFT_ODS_OrderItems\ALL_Rejects.Inputs[Union All Input 3].Columns[RejectsPkgAndTask]"
+                      cachedDataType="wstr"
+                      cachedLength="100"
+                      cachedName="RejectsPkgAndTask"
+                      lineageId="Package\DFT_ODS_OrderItems\DER_ShippingDate_Rejects.Outputs[Derived Column Output].Columns[RejectsPkgAndTask]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\DFT_ODS_OrderItems\ALL_Rejects.Outputs[Union All Output 1].Columns[RejectsPkgAndTask]}</property>
+                      </properties>
+                    </inputColumn>
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+                <input
+                  refId="Package\DFT_ODS_OrderItems\ALL_Rejects.Inputs[Union All Input 4]"
+                  dangling="true"
+                  hasSideEffects="true"
+                  name="Union All Input 4">
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\DFT_ODS_OrderItems\ALL_Rejects.Outputs[Union All Output 1]"
+                  name="Union All Output 1">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DFT_ODS_OrderItems\ALL_Rejects.Outputs[Union All Output 1].Columns[order_id]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      lineageId="Package\DFT_ODS_OrderItems\ALL_Rejects.Outputs[Union All Output 1].Columns[order_id]"
+                      name="order_id" />
+                    <outputColumn
+                      refId="Package\DFT_ODS_OrderItems\ALL_Rejects.Outputs[Union All Output 1].Columns[order_item_id]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      lineageId="Package\DFT_ODS_OrderItems\ALL_Rejects.Outputs[Union All Output 1].Columns[order_item_id]"
+                      name="order_item_id" />
+                    <outputColumn
+                      refId="Package\DFT_ODS_OrderItems\ALL_Rejects.Outputs[Union All Output 1].Columns[product_id]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      lineageId="Package\DFT_ODS_OrderItems\ALL_Rejects.Outputs[Union All Output 1].Columns[product_id]"
+                      name="product_id" />
+                    <outputColumn
+                      refId="Package\DFT_ODS_OrderItems\ALL_Rejects.Outputs[Union All Output 1].Columns[seller_id]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      lineageId="Package\DFT_ODS_OrderItems\ALL_Rejects.Outputs[Union All Output 1].Columns[seller_id]"
+                      name="seller_id" />
+                    <outputColumn
+                      refId="Package\DFT_ODS_OrderItems\ALL_Rejects.Outputs[Union All Output 1].Columns[shipping_limit_date]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      lineageId="Package\DFT_ODS_OrderItems\ALL_Rejects.Outputs[Union All Output 1].Columns[shipping_limit_date]"
+                      name="shipping_limit_date" />
+                    <outputColumn
+                      refId="Package\DFT_ODS_OrderItems\ALL_Rejects.Outputs[Union All Output 1].Columns[price]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      lineageId="Package\DFT_ODS_OrderItems\ALL_Rejects.Outputs[Union All Output 1].Columns[price]"
+                      name="price" />
+                    <outputColumn
+                      refId="Package\DFT_ODS_OrderItems\ALL_Rejects.Outputs[Union All Output 1].Columns[freight_value]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      lineageId="Package\DFT_ODS_OrderItems\ALL_Rejects.Outputs[Union All Output 1].Columns[freight_value]"
+                      name="freight_value" />
+                    <outputColumn
+                      refId="Package\DFT_ODS_OrderItems\ALL_Rejects.Outputs[Union All Output 1].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\DFT_ODS_OrderItems\ALL_Rejects.Outputs[Union All Output 1].Columns[ErrorCode]"
+                      name="ErrorCode" />
+                    <outputColumn
+                      refId="Package\DFT_ODS_OrderItems\ALL_Rejects.Outputs[Union All Output 1].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\DFT_ODS_OrderItems\ALL_Rejects.Outputs[Union All Output 1].Columns[ErrorColumn]"
+                      name="ErrorColumn" />
+                    <outputColumn
+                      refId="Package\DFT_ODS_OrderItems\ALL_Rejects.Outputs[Union All Output 1].Columns[RejectsDate]"
+                      dataType="dbTimeStamp"
+                      lineageId="Package\DFT_ODS_OrderItems\ALL_Rejects.Outputs[Union All Output 1].Columns[RejectsDate]"
+                      name="RejectsDate" />
+                    <outputColumn
+                      refId="Package\DFT_ODS_OrderItems\ALL_Rejects.Outputs[Union All Output 1].Columns[RejectsPkgAndTask]"
+                      dataType="wstr"
+                      length="100"
+                      lineageId="Package\DFT_ODS_OrderItems\ALL_Rejects.Outputs[Union All Output 1].Columns[RejectsPkgAndTask]"
+                      name="RejectsPkgAndTask" />
+                    <outputColumn
+                      refId="Package\DFT_ODS_OrderItems\ALL_Rejects.Outputs[Union All Output 1].Columns[RejectColumn]"
+                      dataType="wstr"
+                      length="5"
+                      lineageId="Package\DFT_ODS_OrderItems\ALL_Rejects.Outputs[Union All Output 1].Columns[RejectColumn]"
+                      name="RejectColumn" />
+                    <outputColumn
+                      refId="Package\DFT_ODS_OrderItems\ALL_Rejects.Outputs[Union All Output 1].Columns[RejectDescription]"
+                      dataType="wstr"
+                      length="79"
+                      lineageId="Package\DFT_ODS_OrderItems\ALL_Rejects.Outputs[Union All Output 1].Columns[RejectDescription]"
+                      name="RejectDescription" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\DFT_ODS_OrderItems\DCNV_Freight_Dec"
               componentClassID="Microsoft.DataConvert"
               contactInfo="Data Conversion;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
               description="Data Conversion"
-              name="DCNV_FreightDec"
+              name="DCNV_Freight_Dec"
               usesDispositions="true">
               <inputs>
                 <input
-                  refId="Package\DFT_ODS_OrderItems\DCNV_FreightDec.Inputs[Data Conversion Input]"
+                  refId="Package\DFT_ODS_OrderItems\DCNV_Freight_Dec.Inputs[Data Conversion Input]"
                   name="Data Conversion Input">
                   <inputColumns>
                     <inputColumn
-                      refId="Package\DFT_ODS_OrderItems\DCNV_FreightDec.Inputs[Data Conversion Input].Columns[freight_value]"
+                      refId="Package\DFT_ODS_OrderItems\DCNV_Freight_Dec.Inputs[Data Conversion Input].Columns[freight_value]"
                       cachedCodepage="1252"
                       cachedDataType="str"
                       cachedLength="50"
@@ -56,17 +676,17 @@
               </inputs>
               <outputs>
                 <output
-                  refId="Package\DFT_ODS_OrderItems\DCNV_FreightDec.Outputs[Data Conversion Output]"
+                  refId="Package\DFT_ODS_OrderItems\DCNV_Freight_Dec.Outputs[Data Conversion Output]"
                   exclusionGroup="1"
                   name="Data Conversion Output"
-                  synchronousInputId="Package\DFT_ODS_OrderItems\DCNV_FreightDec.Inputs[Data Conversion Input]">
+                  synchronousInputId="Package\DFT_ODS_OrderItems\DCNV_Freight_Dec.Inputs[Data Conversion Input]">
                   <outputColumns>
                     <outputColumn
-                      refId="Package\DFT_ODS_OrderItems\DCNV_FreightDec.Outputs[Data Conversion Output].Columns[freight_value_D]"
+                      refId="Package\DFT_ODS_OrderItems\DCNV_Freight_Dec.Outputs[Data Conversion Output].Columns[freight_value_D]"
                       dataType="decimal"
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="RedirectRow"
-                      lineageId="Package\DFT_ODS_OrderItems\DCNV_FreightDec.Outputs[Data Conversion Output].Columns[freight_value_D]"
+                      lineageId="Package\DFT_ODS_OrderItems\DCNV_Freight_Dec.Outputs[Data Conversion Output].Columns[freight_value_D]"
                       name="freight_value_D"
                       scale="2"
                       truncationRowDisposition="RedirectRow">
@@ -86,22 +706,22 @@
                   <externalMetadataColumns />
                 </output>
                 <output
-                  refId="Package\DFT_ODS_OrderItems\DCNV_FreightDec.Outputs[Data Conversion Error Output]"
+                  refId="Package\DFT_ODS_OrderItems\DCNV_Freight_Dec.Outputs[Data Conversion Error Output]"
                   exclusionGroup="1"
                   isErrorOut="true"
                   name="Data Conversion Error Output"
-                  synchronousInputId="Package\DFT_ODS_OrderItems\DCNV_FreightDec.Inputs[Data Conversion Input]">
+                  synchronousInputId="Package\DFT_ODS_OrderItems\DCNV_Freight_Dec.Inputs[Data Conversion Input]">
                   <outputColumns>
                     <outputColumn
-                      refId="Package\DFT_ODS_OrderItems\DCNV_FreightDec.Outputs[Data Conversion Error Output].Columns[ErrorCode]"
+                      refId="Package\DFT_ODS_OrderItems\DCNV_Freight_Dec.Outputs[Data Conversion Error Output].Columns[ErrorCode]"
                       dataType="i4"
-                      lineageId="Package\DFT_ODS_OrderItems\DCNV_FreightDec.Outputs[Data Conversion Error Output].Columns[ErrorCode]"
+                      lineageId="Package\DFT_ODS_OrderItems\DCNV_Freight_Dec.Outputs[Data Conversion Error Output].Columns[ErrorCode]"
                       name="ErrorCode"
                       specialFlags="1" />
                     <outputColumn
-                      refId="Package\DFT_ODS_OrderItems\DCNV_FreightDec.Outputs[Data Conversion Error Output].Columns[ErrorColumn]"
+                      refId="Package\DFT_ODS_OrderItems\DCNV_Freight_Dec.Outputs[Data Conversion Error Output].Columns[ErrorColumn]"
                       dataType="i4"
-                      lineageId="Package\DFT_ODS_OrderItems\DCNV_FreightDec.Outputs[Data Conversion Error Output].Columns[ErrorColumn]"
+                      lineageId="Package\DFT_ODS_OrderItems\DCNV_Freight_Dec.Outputs[Data Conversion Error Output].Columns[ErrorColumn]"
                       name="ErrorColumn"
                       specialFlags="2" />
                   </outputColumns>
@@ -110,19 +730,19 @@
               </outputs>
             </component>
             <component
-              refId="Package\DFT_ODS_OrderItems\DCNV_PriceDec"
+              refId="Package\DFT_ODS_OrderItems\DCNV_Price_Dec"
               componentClassID="Microsoft.DataConvert"
               contactInfo="Data Conversion;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
               description="Data Conversion"
-              name="DCNV_PriceDec"
+              name="DCNV_Price_Dec"
               usesDispositions="true">
               <inputs>
                 <input
-                  refId="Package\DFT_ODS_OrderItems\DCNV_PriceDec.Inputs[Data Conversion Input]"
+                  refId="Package\DFT_ODS_OrderItems\DCNV_Price_Dec.Inputs[Data Conversion Input]"
                   name="Data Conversion Input">
                   <inputColumns>
                     <inputColumn
-                      refId="Package\DFT_ODS_OrderItems\DCNV_PriceDec.Inputs[Data Conversion Input].Columns[price]"
+                      refId="Package\DFT_ODS_OrderItems\DCNV_Price_Dec.Inputs[Data Conversion Input].Columns[price]"
                       cachedCodepage="1252"
                       cachedDataType="str"
                       cachedLength="50"
@@ -134,17 +754,17 @@
               </inputs>
               <outputs>
                 <output
-                  refId="Package\DFT_ODS_OrderItems\DCNV_PriceDec.Outputs[Data Conversion Output]"
+                  refId="Package\DFT_ODS_OrderItems\DCNV_Price_Dec.Outputs[Data Conversion Output]"
                   exclusionGroup="1"
                   name="Data Conversion Output"
-                  synchronousInputId="Package\DFT_ODS_OrderItems\DCNV_PriceDec.Inputs[Data Conversion Input]">
+                  synchronousInputId="Package\DFT_ODS_OrderItems\DCNV_Price_Dec.Inputs[Data Conversion Input]">
                   <outputColumns>
                     <outputColumn
-                      refId="Package\DFT_ODS_OrderItems\DCNV_PriceDec.Outputs[Data Conversion Output].Columns[price_D]"
+                      refId="Package\DFT_ODS_OrderItems\DCNV_Price_Dec.Outputs[Data Conversion Output].Columns[price_D]"
                       dataType="decimal"
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="RedirectRow"
-                      lineageId="Package\DFT_ODS_OrderItems\DCNV_PriceDec.Outputs[Data Conversion Output].Columns[price_D]"
+                      lineageId="Package\DFT_ODS_OrderItems\DCNV_Price_Dec.Outputs[Data Conversion Output].Columns[price_D]"
                       name="price_D"
                       scale="2"
                       truncationRowDisposition="RedirectRow">
@@ -164,22 +784,22 @@
                   <externalMetadataColumns />
                 </output>
                 <output
-                  refId="Package\DFT_ODS_OrderItems\DCNV_PriceDec.Outputs[Data Conversion Error Output]"
+                  refId="Package\DFT_ODS_OrderItems\DCNV_Price_Dec.Outputs[Data Conversion Error Output]"
                   exclusionGroup="1"
                   isErrorOut="true"
                   name="Data Conversion Error Output"
-                  synchronousInputId="Package\DFT_ODS_OrderItems\DCNV_PriceDec.Inputs[Data Conversion Input]">
+                  synchronousInputId="Package\DFT_ODS_OrderItems\DCNV_Price_Dec.Inputs[Data Conversion Input]">
                   <outputColumns>
                     <outputColumn
-                      refId="Package\DFT_ODS_OrderItems\DCNV_PriceDec.Outputs[Data Conversion Error Output].Columns[ErrorCode]"
+                      refId="Package\DFT_ODS_OrderItems\DCNV_Price_Dec.Outputs[Data Conversion Error Output].Columns[ErrorCode]"
                       dataType="i4"
-                      lineageId="Package\DFT_ODS_OrderItems\DCNV_PriceDec.Outputs[Data Conversion Error Output].Columns[ErrorCode]"
+                      lineageId="Package\DFT_ODS_OrderItems\DCNV_Price_Dec.Outputs[Data Conversion Error Output].Columns[ErrorCode]"
                       name="ErrorCode"
                       specialFlags="1" />
                     <outputColumn
-                      refId="Package\DFT_ODS_OrderItems\DCNV_PriceDec.Outputs[Data Conversion Error Output].Columns[ErrorColumn]"
+                      refId="Package\DFT_ODS_OrderItems\DCNV_Price_Dec.Outputs[Data Conversion Error Output].Columns[ErrorColumn]"
                       dataType="i4"
-                      lineageId="Package\DFT_ODS_OrderItems\DCNV_PriceDec.Outputs[Data Conversion Error Output].Columns[ErrorColumn]"
+                      lineageId="Package\DFT_ODS_OrderItems\DCNV_Price_Dec.Outputs[Data Conversion Error Output].Columns[ErrorColumn]"
                       name="ErrorColumn"
                       specialFlags="2" />
                   </outputColumns>
@@ -267,19 +887,19 @@
               </outputs>
             </component>
             <component
-              refId="Package\DFT_ODS_OrderItems\DCNV_ShippingDate"
+              refId="Package\DFT_ODS_OrderItems\DCNV_ShippingDate_Date"
               componentClassID="Microsoft.DataConvert"
               contactInfo="Data Conversion;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
               description="Data Conversion"
-              name="DCNV_ShippingDate"
+              name="DCNV_ShippingDate_Date"
               usesDispositions="true">
               <inputs>
                 <input
-                  refId="Package\DFT_ODS_OrderItems\DCNV_ShippingDate.Inputs[Data Conversion Input]"
+                  refId="Package\DFT_ODS_OrderItems\DCNV_ShippingDate_Date.Inputs[Data Conversion Input]"
                   name="Data Conversion Input">
                   <inputColumns>
                     <inputColumn
-                      refId="Package\DFT_ODS_OrderItems\DCNV_ShippingDate.Inputs[Data Conversion Input].Columns[shipping_limit_date]"
+                      refId="Package\DFT_ODS_OrderItems\DCNV_ShippingDate_Date.Inputs[Data Conversion Input].Columns[shipping_limit_date]"
                       cachedCodepage="1252"
                       cachedDataType="str"
                       cachedLength="50"
@@ -291,17 +911,17 @@
               </inputs>
               <outputs>
                 <output
-                  refId="Package\DFT_ODS_OrderItems\DCNV_ShippingDate.Outputs[Data Conversion Output]"
+                  refId="Package\DFT_ODS_OrderItems\DCNV_ShippingDate_Date.Outputs[Data Conversion Output]"
                   exclusionGroup="1"
                   name="Data Conversion Output"
-                  synchronousInputId="Package\DFT_ODS_OrderItems\DCNV_ShippingDate.Inputs[Data Conversion Input]">
+                  synchronousInputId="Package\DFT_ODS_OrderItems\DCNV_ShippingDate_Date.Inputs[Data Conversion Input]">
                   <outputColumns>
                     <outputColumn
-                      refId="Package\DFT_ODS_OrderItems\DCNV_ShippingDate.Outputs[Data Conversion Output].Columns[shipping_limit_date_DATE]"
+                      refId="Package\DFT_ODS_OrderItems\DCNV_ShippingDate_Date.Outputs[Data Conversion Output].Columns[shipping_limit_date_DATE]"
                       dataType="date"
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="RedirectRow"
-                      lineageId="Package\DFT_ODS_OrderItems\DCNV_ShippingDate.Outputs[Data Conversion Output].Columns[shipping_limit_date_DATE]"
+                      lineageId="Package\DFT_ODS_OrderItems\DCNV_ShippingDate_Date.Outputs[Data Conversion Output].Columns[shipping_limit_date_DATE]"
                       name="shipping_limit_date_DATE"
                       truncationRowDisposition="RedirectRow">
                       <properties>
@@ -320,22 +940,22 @@
                   <externalMetadataColumns />
                 </output>
                 <output
-                  refId="Package\DFT_ODS_OrderItems\DCNV_ShippingDate.Outputs[Data Conversion Error Output]"
+                  refId="Package\DFT_ODS_OrderItems\DCNV_ShippingDate_Date.Outputs[Data Conversion Error Output]"
                   exclusionGroup="1"
                   isErrorOut="true"
                   name="Data Conversion Error Output"
-                  synchronousInputId="Package\DFT_ODS_OrderItems\DCNV_ShippingDate.Inputs[Data Conversion Input]">
+                  synchronousInputId="Package\DFT_ODS_OrderItems\DCNV_ShippingDate_Date.Inputs[Data Conversion Input]">
                   <outputColumns>
                     <outputColumn
-                      refId="Package\DFT_ODS_OrderItems\DCNV_ShippingDate.Outputs[Data Conversion Error Output].Columns[ErrorCode]"
+                      refId="Package\DFT_ODS_OrderItems\DCNV_ShippingDate_Date.Outputs[Data Conversion Error Output].Columns[ErrorCode]"
                       dataType="i4"
-                      lineageId="Package\DFT_ODS_OrderItems\DCNV_ShippingDate.Outputs[Data Conversion Error Output].Columns[ErrorCode]"
+                      lineageId="Package\DFT_ODS_OrderItems\DCNV_ShippingDate_Date.Outputs[Data Conversion Error Output].Columns[ErrorCode]"
                       name="ErrorCode"
                       specialFlags="1" />
                     <outputColumn
-                      refId="Package\DFT_ODS_OrderItems\DCNV_ShippingDate.Outputs[Data Conversion Error Output].Columns[ErrorColumn]"
+                      refId="Package\DFT_ODS_OrderItems\DCNV_ShippingDate_Date.Outputs[Data Conversion Error Output].Columns[ErrorColumn]"
                       dataType="i4"
-                      lineageId="Package\DFT_ODS_OrderItems\DCNV_ShippingDate.Outputs[Data Conversion Error Output].Columns[ErrorColumn]"
+                      lineageId="Package\DFT_ODS_OrderItems\DCNV_ShippingDate_Date.Outputs[Data Conversion Error Output].Columns[ErrorColumn]"
                       name="ErrorColumn"
                       specialFlags="2" />
                   </outputColumns>
@@ -873,28 +1493,28 @@
                       cachedDataType="dbTimeStamp"
                       cachedName="RejectsDate"
                       externalMetadataColumnId="Package\DFT_ODS_OrderItems\OLE_DST_ADM_TechnicalRejects.Inputs[OLE DB Destination Input].ExternalColumns[RejectsDate]"
-                      lineageId="Package\DFT_ODS_OrderItems\Union All.Outputs[Union All Output 1].Columns[RejectsDate]" />
+                      lineageId="Package\DFT_ODS_OrderItems\ALL_Rejects.Outputs[Union All Output 1].Columns[RejectsDate]" />
                     <inputColumn
                       refId="Package\DFT_ODS_OrderItems\OLE_DST_ADM_TechnicalRejects.Inputs[OLE DB Destination Input].Columns[RejectsPkgAndTask]"
                       cachedDataType="wstr"
                       cachedLength="100"
                       cachedName="RejectsPkgAndTask"
                       externalMetadataColumnId="Package\DFT_ODS_OrderItems\OLE_DST_ADM_TechnicalRejects.Inputs[OLE DB Destination Input].ExternalColumns[RejectsPkgAndTask]"
-                      lineageId="Package\DFT_ODS_OrderItems\Union All.Outputs[Union All Output 1].Columns[RejectsPkgAndTask]" />
+                      lineageId="Package\DFT_ODS_OrderItems\ALL_Rejects.Outputs[Union All Output 1].Columns[RejectsPkgAndTask]" />
                     <inputColumn
                       refId="Package\DFT_ODS_OrderItems\OLE_DST_ADM_TechnicalRejects.Inputs[OLE DB Destination Input].Columns[RejectColumn]"
                       cachedDataType="wstr"
                       cachedLength="5"
                       cachedName="RejectColumn"
                       externalMetadataColumnId="Package\DFT_ODS_OrderItems\OLE_DST_ADM_TechnicalRejects.Inputs[OLE DB Destination Input].ExternalColumns[RejectColumn]"
-                      lineageId="Package\DFT_ODS_OrderItems\Union All.Outputs[Union All Output 1].Columns[RejectColumn]" />
+                      lineageId="Package\DFT_ODS_OrderItems\ALL_Rejects.Outputs[Union All Output 1].Columns[RejectColumn]" />
                     <inputColumn
                       refId="Package\DFT_ODS_OrderItems\OLE_DST_ADM_TechnicalRejects.Inputs[OLE DB Destination Input].Columns[RejectDescription]"
                       cachedDataType="wstr"
                       cachedLength="79"
                       cachedName="RejectDescription"
                       externalMetadataColumnId="Package\DFT_ODS_OrderItems\OLE_DST_ADM_TechnicalRejects.Inputs[OLE DB Destination Input].ExternalColumns[RejectDescription]"
-                      lineageId="Package\DFT_ODS_OrderItems\Union All.Outputs[Union All Output 1].Columns[RejectDescription]" />
+                      lineageId="Package\DFT_ODS_OrderItems\ALL_Rejects.Outputs[Union All Output 1].Columns[RejectDescription]" />
                   </inputColumns>
                   <externalMetadataColumns
                     isUsed="True">
@@ -1054,21 +1674,21 @@
                       cachedDataType="date"
                       cachedName="shipping_limit_date_DATE"
                       externalMetadataColumnId="Package\DFT_ODS_OrderItems\OLE_DST_ODS_OrderItems.Inputs[OLE DB Destination Input].ExternalColumns[shipping_limit_date]"
-                      lineageId="Package\DFT_ODS_OrderItems\DCNV_ShippingDate.Outputs[Data Conversion Output].Columns[shipping_limit_date_DATE]" />
+                      lineageId="Package\DFT_ODS_OrderItems\DCNV_ShippingDate_Date.Outputs[Data Conversion Output].Columns[shipping_limit_date_DATE]" />
                     <inputColumn
                       refId="Package\DFT_ODS_OrderItems\OLE_DST_ODS_OrderItems.Inputs[OLE DB Destination Input].Columns[price_D]"
                       cachedDataType="decimal"
                       cachedName="price_D"
                       cachedScale="2"
                       externalMetadataColumnId="Package\DFT_ODS_OrderItems\OLE_DST_ODS_OrderItems.Inputs[OLE DB Destination Input].ExternalColumns[price]"
-                      lineageId="Package\DFT_ODS_OrderItems\DCNV_PriceDec.Outputs[Data Conversion Output].Columns[price_D]" />
+                      lineageId="Package\DFT_ODS_OrderItems\DCNV_Price_Dec.Outputs[Data Conversion Output].Columns[price_D]" />
                     <inputColumn
                       refId="Package\DFT_ODS_OrderItems\OLE_DST_ODS_OrderItems.Inputs[OLE DB Destination Input].Columns[freight_value_D]"
                       cachedDataType="decimal"
                       cachedName="freight_value_D"
                       cachedScale="2"
                       externalMetadataColumnId="Package\DFT_ODS_OrderItems\OLE_DST_ODS_OrderItems.Inputs[OLE DB Destination Input].ExternalColumns[freight_value]"
-                      lineageId="Package\DFT_ODS_OrderItems\DCNV_FreightDec.Outputs[Data Conversion Output].Columns[freight_value_D]" />
+                      lineageId="Package\DFT_ODS_OrderItems\DCNV_Freight_Dec.Outputs[Data Conversion Output].Columns[freight_value_D]" />
                   </inputColumns>
                   <externalMetadataColumns
                     isUsed="True">
@@ -1396,658 +2016,38 @@
                 </output>
               </outputs>
             </component>
-            <component
-              refId="Package\DFT_ODS_OrderItems\Union All"
-              componentClassID="Microsoft.UnionAll"
-              contactInfo="Union All;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;1"
-              description="Combines rows from multiple data flows without sorting. For example, add rows back to a data flow after correction of errors. If sorting is important, we recommend using the Merge transformation."
-              name="Union All"
-              version="1">
-              <inputs>
-                <input
-                  refId="Package\DFT_ODS_OrderItems\Union All.Inputs[Union All Input 1]"
-                  name="Union All Input 1">
-                  <inputColumns>
-                    <inputColumn
-                      refId="Package\DFT_ODS_OrderItems\Union All.Inputs[Union All Input 1].Columns[order_id]"
-                      cachedCodepage="1252"
-                      cachedDataType="str"
-                      cachedLength="50"
-                      cachedName="order_id"
-                      lineageId="Package\DFT_ODS_OrderItems\OLE_SRC_STA_OrderItems.Outputs[OLE DB Source Output].Columns[order_id]">
-                      <properties>
-                        <property
-                          containsID="true"
-                          dataType="System.Int32"
-                          description="Output column lineage ID"
-                          name="OutputColumnLineageID">#{Package\DFT_ODS_OrderItems\Union All.Outputs[Union All Output 1].Columns[order_id]}</property>
-                      </properties>
-                    </inputColumn>
-                    <inputColumn
-                      refId="Package\DFT_ODS_OrderItems\Union All.Inputs[Union All Input 1].Columns[order_item_id]"
-                      cachedCodepage="1252"
-                      cachedDataType="str"
-                      cachedLength="50"
-                      cachedName="order_item_id"
-                      lineageId="Package\DFT_ODS_OrderItems\OLE_SRC_STA_OrderItems.Outputs[OLE DB Source Output].Columns[order_item_id]">
-                      <properties>
-                        <property
-                          containsID="true"
-                          dataType="System.Int32"
-                          description="Output column lineage ID"
-                          name="OutputColumnLineageID">#{Package\DFT_ODS_OrderItems\Union All.Outputs[Union All Output 1].Columns[order_item_id]}</property>
-                      </properties>
-                    </inputColumn>
-                    <inputColumn
-                      refId="Package\DFT_ODS_OrderItems\Union All.Inputs[Union All Input 1].Columns[product_id]"
-                      cachedCodepage="1252"
-                      cachedDataType="str"
-                      cachedLength="50"
-                      cachedName="product_id"
-                      lineageId="Package\DFT_ODS_OrderItems\OLE_SRC_STA_OrderItems.Outputs[OLE DB Source Output].Columns[product_id]">
-                      <properties>
-                        <property
-                          containsID="true"
-                          dataType="System.Int32"
-                          description="Output column lineage ID"
-                          name="OutputColumnLineageID">#{Package\DFT_ODS_OrderItems\Union All.Outputs[Union All Output 1].Columns[product_id]}</property>
-                      </properties>
-                    </inputColumn>
-                    <inputColumn
-                      refId="Package\DFT_ODS_OrderItems\Union All.Inputs[Union All Input 1].Columns[seller_id]"
-                      cachedCodepage="1252"
-                      cachedDataType="str"
-                      cachedLength="50"
-                      cachedName="seller_id"
-                      lineageId="Package\DFT_ODS_OrderItems\OLE_SRC_STA_OrderItems.Outputs[OLE DB Source Output].Columns[seller_id]">
-                      <properties>
-                        <property
-                          containsID="true"
-                          dataType="System.Int32"
-                          description="Output column lineage ID"
-                          name="OutputColumnLineageID">#{Package\DFT_ODS_OrderItems\Union All.Outputs[Union All Output 1].Columns[seller_id]}</property>
-                      </properties>
-                    </inputColumn>
-                    <inputColumn
-                      refId="Package\DFT_ODS_OrderItems\Union All.Inputs[Union All Input 1].Columns[shipping_limit_date]"
-                      cachedCodepage="1252"
-                      cachedDataType="str"
-                      cachedLength="50"
-                      cachedName="shipping_limit_date"
-                      lineageId="Package\DFT_ODS_OrderItems\OLE_SRC_STA_OrderItems.Outputs[OLE DB Source Output].Columns[shipping_limit_date]">
-                      <properties>
-                        <property
-                          containsID="true"
-                          dataType="System.Int32"
-                          description="Output column lineage ID"
-                          name="OutputColumnLineageID">#{Package\DFT_ODS_OrderItems\Union All.Outputs[Union All Output 1].Columns[shipping_limit_date]}</property>
-                      </properties>
-                    </inputColumn>
-                    <inputColumn
-                      refId="Package\DFT_ODS_OrderItems\Union All.Inputs[Union All Input 1].Columns[price]"
-                      cachedCodepage="1252"
-                      cachedDataType="str"
-                      cachedLength="50"
-                      cachedName="price"
-                      lineageId="Package\DFT_ODS_OrderItems\OLE_SRC_STA_OrderItems.Outputs[OLE DB Source Output].Columns[price]">
-                      <properties>
-                        <property
-                          containsID="true"
-                          dataType="System.Int32"
-                          description="Output column lineage ID"
-                          name="OutputColumnLineageID">#{Package\DFT_ODS_OrderItems\Union All.Outputs[Union All Output 1].Columns[price]}</property>
-                      </properties>
-                    </inputColumn>
-                    <inputColumn
-                      refId="Package\DFT_ODS_OrderItems\Union All.Inputs[Union All Input 1].Columns[freight_value]"
-                      cachedCodepage="1252"
-                      cachedDataType="str"
-                      cachedLength="50"
-                      cachedName="freight_value"
-                      lineageId="Package\DFT_ODS_OrderItems\OLE_SRC_STA_OrderItems.Outputs[OLE DB Source Output].Columns[freight_value]">
-                      <properties>
-                        <property
-                          containsID="true"
-                          dataType="System.Int32"
-                          description="Output column lineage ID"
-                          name="OutputColumnLineageID">#{Package\DFT_ODS_OrderItems\Union All.Outputs[Union All Output 1].Columns[freight_value]}</property>
-                      </properties>
-                    </inputColumn>
-                    <inputColumn
-                      refId="Package\DFT_ODS_OrderItems\Union All.Inputs[Union All Input 1].Columns[ErrorCode]"
-                      cachedDataType="i4"
-                      cachedName="ErrorCode"
-                      lineageId="Package\DFT_ODS_OrderItems\DCNV_PriceDec.Outputs[Data Conversion Error Output].Columns[ErrorCode]">
-                      <properties>
-                        <property
-                          containsID="true"
-                          dataType="System.Int32"
-                          description="Output column lineage ID"
-                          name="OutputColumnLineageID">#{Package\DFT_ODS_OrderItems\Union All.Outputs[Union All Output 1].Columns[ErrorCode]}</property>
-                      </properties>
-                    </inputColumn>
-                    <inputColumn
-                      refId="Package\DFT_ODS_OrderItems\Union All.Inputs[Union All Input 1].Columns[ErrorColumn]"
-                      cachedDataType="i4"
-                      cachedName="ErrorColumn"
-                      lineageId="Package\DFT_ODS_OrderItems\DCNV_PriceDec.Outputs[Data Conversion Error Output].Columns[ErrorColumn]">
-                      <properties>
-                        <property
-                          containsID="true"
-                          dataType="System.Int32"
-                          description="Output column lineage ID"
-                          name="OutputColumnLineageID">#{Package\DFT_ODS_OrderItems\Union All.Outputs[Union All Output 1].Columns[ErrorColumn]}</property>
-                      </properties>
-                    </inputColumn>
-                    <inputColumn
-                      refId="Package\DFT_ODS_OrderItems\Union All.Inputs[Union All Input 1].Columns[RejectsDate]"
-                      cachedDataType="dbTimeStamp"
-                      cachedName="RejectsDate"
-                      lineageId="Package\DFT_ODS_OrderItems\DER_Price_Rejects.Outputs[Derived Column Output].Columns[RejectsDate]">
-                      <properties>
-                        <property
-                          containsID="true"
-                          dataType="System.Int32"
-                          description="Output column lineage ID"
-                          name="OutputColumnLineageID">#{Package\DFT_ODS_OrderItems\Union All.Outputs[Union All Output 1].Columns[RejectsDate]}</property>
-                      </properties>
-                    </inputColumn>
-                    <inputColumn
-                      refId="Package\DFT_ODS_OrderItems\Union All.Inputs[Union All Input 1].Columns[RejectsPkgAndTask]"
-                      cachedDataType="wstr"
-                      cachedLength="100"
-                      cachedName="RejectsPkgAndTask"
-                      lineageId="Package\DFT_ODS_OrderItems\DER_Price_Rejects.Outputs[Derived Column Output].Columns[RejectsPkgAndTask]">
-                      <properties>
-                        <property
-                          containsID="true"
-                          dataType="System.Int32"
-                          description="Output column lineage ID"
-                          name="OutputColumnLineageID">#{Package\DFT_ODS_OrderItems\Union All.Outputs[Union All Output 1].Columns[RejectsPkgAndTask]}</property>
-                      </properties>
-                    </inputColumn>
-                    <inputColumn
-                      refId="Package\DFT_ODS_OrderItems\Union All.Inputs[Union All Input 1].Columns[RejectColumn]"
-                      cachedDataType="wstr"
-                      cachedLength="5"
-                      cachedName="RejectColumn"
-                      lineageId="Package\DFT_ODS_OrderItems\DER_Price_Rejects.Outputs[Derived Column Output].Columns[RejectColumn]">
-                      <properties>
-                        <property
-                          containsID="true"
-                          dataType="System.Int32"
-                          description="Output column lineage ID"
-                          name="OutputColumnLineageID">#{Package\DFT_ODS_OrderItems\Union All.Outputs[Union All Output 1].Columns[RejectColumn]}</property>
-                      </properties>
-                    </inputColumn>
-                    <inputColumn
-                      refId="Package\DFT_ODS_OrderItems\Union All.Inputs[Union All Input 1].Columns[RejectDescription]"
-                      cachedDataType="wstr"
-                      cachedLength="79"
-                      cachedName="RejectDescription"
-                      lineageId="Package\DFT_ODS_OrderItems\DER_Price_Rejects.Outputs[Derived Column Output].Columns[RejectDescription]">
-                      <properties>
-                        <property
-                          containsID="true"
-                          dataType="System.Int32"
-                          description="Output column lineage ID"
-                          name="OutputColumnLineageID">#{Package\DFT_ODS_OrderItems\Union All.Outputs[Union All Output 1].Columns[RejectDescription]}</property>
-                      </properties>
-                    </inputColumn>
-                  </inputColumns>
-                  <externalMetadataColumns />
-                </input>
-                <input
-                  refId="Package\DFT_ODS_OrderItems\Union All.Inputs[Union All Input 2]"
-                  hasSideEffects="true"
-                  name="Union All Input 2">
-                  <inputColumns>
-                    <inputColumn
-                      refId="Package\DFT_ODS_OrderItems\Union All.Inputs[Union All Input 2].Columns[order_id]"
-                      cachedCodepage="1252"
-                      cachedDataType="str"
-                      cachedLength="50"
-                      cachedName="order_id"
-                      lineageId="Package\DFT_ODS_OrderItems\OLE_SRC_STA_OrderItems.Outputs[OLE DB Source Output].Columns[order_id]">
-                      <properties>
-                        <property
-                          containsID="true"
-                          dataType="System.Int32"
-                          description="Output column lineage ID"
-                          name="OutputColumnLineageID">#{Package\DFT_ODS_OrderItems\Union All.Outputs[Union All Output 1].Columns[order_id]}</property>
-                      </properties>
-                    </inputColumn>
-                    <inputColumn
-                      refId="Package\DFT_ODS_OrderItems\Union All.Inputs[Union All Input 2].Columns[order_item_id]"
-                      cachedCodepage="1252"
-                      cachedDataType="str"
-                      cachedLength="50"
-                      cachedName="order_item_id"
-                      lineageId="Package\DFT_ODS_OrderItems\OLE_SRC_STA_OrderItems.Outputs[OLE DB Source Output].Columns[order_item_id]">
-                      <properties>
-                        <property
-                          containsID="true"
-                          dataType="System.Int32"
-                          description="Output column lineage ID"
-                          name="OutputColumnLineageID">#{Package\DFT_ODS_OrderItems\Union All.Outputs[Union All Output 1].Columns[order_item_id]}</property>
-                      </properties>
-                    </inputColumn>
-                    <inputColumn
-                      refId="Package\DFT_ODS_OrderItems\Union All.Inputs[Union All Input 2].Columns[product_id]"
-                      cachedCodepage="1252"
-                      cachedDataType="str"
-                      cachedLength="50"
-                      cachedName="product_id"
-                      lineageId="Package\DFT_ODS_OrderItems\OLE_SRC_STA_OrderItems.Outputs[OLE DB Source Output].Columns[product_id]">
-                      <properties>
-                        <property
-                          containsID="true"
-                          dataType="System.Int32"
-                          description="Output column lineage ID"
-                          name="OutputColumnLineageID">#{Package\DFT_ODS_OrderItems\Union All.Outputs[Union All Output 1].Columns[product_id]}</property>
-                      </properties>
-                    </inputColumn>
-                    <inputColumn
-                      refId="Package\DFT_ODS_OrderItems\Union All.Inputs[Union All Input 2].Columns[seller_id]"
-                      cachedCodepage="1252"
-                      cachedDataType="str"
-                      cachedLength="50"
-                      cachedName="seller_id"
-                      lineageId="Package\DFT_ODS_OrderItems\OLE_SRC_STA_OrderItems.Outputs[OLE DB Source Output].Columns[seller_id]">
-                      <properties>
-                        <property
-                          containsID="true"
-                          dataType="System.Int32"
-                          description="Output column lineage ID"
-                          name="OutputColumnLineageID">#{Package\DFT_ODS_OrderItems\Union All.Outputs[Union All Output 1].Columns[seller_id]}</property>
-                      </properties>
-                    </inputColumn>
-                    <inputColumn
-                      refId="Package\DFT_ODS_OrderItems\Union All.Inputs[Union All Input 2].Columns[shipping_limit_date]"
-                      cachedCodepage="1252"
-                      cachedDataType="str"
-                      cachedLength="50"
-                      cachedName="shipping_limit_date"
-                      lineageId="Package\DFT_ODS_OrderItems\OLE_SRC_STA_OrderItems.Outputs[OLE DB Source Output].Columns[shipping_limit_date]">
-                      <properties>
-                        <property
-                          containsID="true"
-                          dataType="System.Int32"
-                          description="Output column lineage ID"
-                          name="OutputColumnLineageID">#{Package\DFT_ODS_OrderItems\Union All.Outputs[Union All Output 1].Columns[shipping_limit_date]}</property>
-                      </properties>
-                    </inputColumn>
-                    <inputColumn
-                      refId="Package\DFT_ODS_OrderItems\Union All.Inputs[Union All Input 2].Columns[price]"
-                      cachedCodepage="1252"
-                      cachedDataType="str"
-                      cachedLength="50"
-                      cachedName="price"
-                      lineageId="Package\DFT_ODS_OrderItems\OLE_SRC_STA_OrderItems.Outputs[OLE DB Source Output].Columns[price]">
-                      <properties>
-                        <property
-                          containsID="true"
-                          dataType="System.Int32"
-                          description="Output column lineage ID"
-                          name="OutputColumnLineageID">#{Package\DFT_ODS_OrderItems\Union All.Outputs[Union All Output 1].Columns[price]}</property>
-                      </properties>
-                    </inputColumn>
-                    <inputColumn
-                      refId="Package\DFT_ODS_OrderItems\Union All.Inputs[Union All Input 2].Columns[freight_value]"
-                      cachedCodepage="1252"
-                      cachedDataType="str"
-                      cachedLength="50"
-                      cachedName="freight_value"
-                      lineageId="Package\DFT_ODS_OrderItems\OLE_SRC_STA_OrderItems.Outputs[OLE DB Source Output].Columns[freight_value]">
-                      <properties>
-                        <property
-                          containsID="true"
-                          dataType="System.Int32"
-                          description="Output column lineage ID"
-                          name="OutputColumnLineageID">#{Package\DFT_ODS_OrderItems\Union All.Outputs[Union All Output 1].Columns[freight_value]}</property>
-                      </properties>
-                    </inputColumn>
-                    <inputColumn
-                      refId="Package\DFT_ODS_OrderItems\Union All.Inputs[Union All Input 2].Columns[ErrorCode]"
-                      cachedDataType="i4"
-                      cachedName="ErrorCode"
-                      lineageId="Package\DFT_ODS_OrderItems\DCNV_FreightDec.Outputs[Data Conversion Error Output].Columns[ErrorCode]">
-                      <properties>
-                        <property
-                          containsID="true"
-                          dataType="System.Int32"
-                          description="Output column lineage ID"
-                          name="OutputColumnLineageID">#{Package\DFT_ODS_OrderItems\Union All.Outputs[Union All Output 1].Columns[ErrorCode]}</property>
-                      </properties>
-                    </inputColumn>
-                    <inputColumn
-                      refId="Package\DFT_ODS_OrderItems\Union All.Inputs[Union All Input 2].Columns[ErrorColumn]"
-                      cachedDataType="i4"
-                      cachedName="ErrorColumn"
-                      lineageId="Package\DFT_ODS_OrderItems\DCNV_FreightDec.Outputs[Data Conversion Error Output].Columns[ErrorColumn]">
-                      <properties>
-                        <property
-                          containsID="true"
-                          dataType="System.Int32"
-                          description="Output column lineage ID"
-                          name="OutputColumnLineageID">#{Package\DFT_ODS_OrderItems\Union All.Outputs[Union All Output 1].Columns[ErrorColumn]}</property>
-                      </properties>
-                    </inputColumn>
-                    <inputColumn
-                      refId="Package\DFT_ODS_OrderItems\Union All.Inputs[Union All Input 2].Columns[RejectsPkgAndTask]"
-                      cachedDataType="wstr"
-                      cachedLength="100"
-                      cachedName="RejectsPkgAndTask"
-                      lineageId="Package\DFT_ODS_OrderItems\DER_Freight_Rejects.Outputs[Derived Column Output].Columns[RejectsPkgAndTask]">
-                      <properties>
-                        <property
-                          containsID="true"
-                          dataType="System.Int32"
-                          description="Output column lineage ID"
-                          name="OutputColumnLineageID">#{Package\DFT_ODS_OrderItems\Union All.Outputs[Union All Output 1].Columns[RejectsPkgAndTask]}</property>
-                      </properties>
-                    </inputColumn>
-                  </inputColumns>
-                  <externalMetadataColumns />
-                </input>
-                <input
-                  refId="Package\DFT_ODS_OrderItems\Union All.Inputs[Union All Input 3]"
-                  hasSideEffects="true"
-                  name="Union All Input 3">
-                  <inputColumns>
-                    <inputColumn
-                      refId="Package\DFT_ODS_OrderItems\Union All.Inputs[Union All Input 3].Columns[order_id]"
-                      cachedCodepage="1252"
-                      cachedDataType="str"
-                      cachedLength="50"
-                      cachedName="order_id"
-                      lineageId="Package\DFT_ODS_OrderItems\OLE_SRC_STA_OrderItems.Outputs[OLE DB Source Output].Columns[order_id]">
-                      <properties>
-                        <property
-                          containsID="true"
-                          dataType="System.Int32"
-                          description="Output column lineage ID"
-                          name="OutputColumnLineageID">#{Package\DFT_ODS_OrderItems\Union All.Outputs[Union All Output 1].Columns[order_id]}</property>
-                      </properties>
-                    </inputColumn>
-                    <inputColumn
-                      refId="Package\DFT_ODS_OrderItems\Union All.Inputs[Union All Input 3].Columns[order_item_id]"
-                      cachedCodepage="1252"
-                      cachedDataType="str"
-                      cachedLength="50"
-                      cachedName="order_item_id"
-                      lineageId="Package\DFT_ODS_OrderItems\OLE_SRC_STA_OrderItems.Outputs[OLE DB Source Output].Columns[order_item_id]">
-                      <properties>
-                        <property
-                          containsID="true"
-                          dataType="System.Int32"
-                          description="Output column lineage ID"
-                          name="OutputColumnLineageID">#{Package\DFT_ODS_OrderItems\Union All.Outputs[Union All Output 1].Columns[order_item_id]}</property>
-                      </properties>
-                    </inputColumn>
-                    <inputColumn
-                      refId="Package\DFT_ODS_OrderItems\Union All.Inputs[Union All Input 3].Columns[product_id]"
-                      cachedCodepage="1252"
-                      cachedDataType="str"
-                      cachedLength="50"
-                      cachedName="product_id"
-                      lineageId="Package\DFT_ODS_OrderItems\OLE_SRC_STA_OrderItems.Outputs[OLE DB Source Output].Columns[product_id]">
-                      <properties>
-                        <property
-                          containsID="true"
-                          dataType="System.Int32"
-                          description="Output column lineage ID"
-                          name="OutputColumnLineageID">#{Package\DFT_ODS_OrderItems\Union All.Outputs[Union All Output 1].Columns[product_id]}</property>
-                      </properties>
-                    </inputColumn>
-                    <inputColumn
-                      refId="Package\DFT_ODS_OrderItems\Union All.Inputs[Union All Input 3].Columns[seller_id]"
-                      cachedCodepage="1252"
-                      cachedDataType="str"
-                      cachedLength="50"
-                      cachedName="seller_id"
-                      lineageId="Package\DFT_ODS_OrderItems\OLE_SRC_STA_OrderItems.Outputs[OLE DB Source Output].Columns[seller_id]">
-                      <properties>
-                        <property
-                          containsID="true"
-                          dataType="System.Int32"
-                          description="Output column lineage ID"
-                          name="OutputColumnLineageID">#{Package\DFT_ODS_OrderItems\Union All.Outputs[Union All Output 1].Columns[seller_id]}</property>
-                      </properties>
-                    </inputColumn>
-                    <inputColumn
-                      refId="Package\DFT_ODS_OrderItems\Union All.Inputs[Union All Input 3].Columns[shipping_limit_date]"
-                      cachedCodepage="1252"
-                      cachedDataType="str"
-                      cachedLength="50"
-                      cachedName="shipping_limit_date"
-                      lineageId="Package\DFT_ODS_OrderItems\OLE_SRC_STA_OrderItems.Outputs[OLE DB Source Output].Columns[shipping_limit_date]">
-                      <properties>
-                        <property
-                          containsID="true"
-                          dataType="System.Int32"
-                          description="Output column lineage ID"
-                          name="OutputColumnLineageID">#{Package\DFT_ODS_OrderItems\Union All.Outputs[Union All Output 1].Columns[shipping_limit_date]}</property>
-                      </properties>
-                    </inputColumn>
-                    <inputColumn
-                      refId="Package\DFT_ODS_OrderItems\Union All.Inputs[Union All Input 3].Columns[price]"
-                      cachedCodepage="1252"
-                      cachedDataType="str"
-                      cachedLength="50"
-                      cachedName="price"
-                      lineageId="Package\DFT_ODS_OrderItems\OLE_SRC_STA_OrderItems.Outputs[OLE DB Source Output].Columns[price]">
-                      <properties>
-                        <property
-                          containsID="true"
-                          dataType="System.Int32"
-                          description="Output column lineage ID"
-                          name="OutputColumnLineageID">#{Package\DFT_ODS_OrderItems\Union All.Outputs[Union All Output 1].Columns[price]}</property>
-                      </properties>
-                    </inputColumn>
-                    <inputColumn
-                      refId="Package\DFT_ODS_OrderItems\Union All.Inputs[Union All Input 3].Columns[freight_value]"
-                      cachedCodepage="1252"
-                      cachedDataType="str"
-                      cachedLength="50"
-                      cachedName="freight_value"
-                      lineageId="Package\DFT_ODS_OrderItems\OLE_SRC_STA_OrderItems.Outputs[OLE DB Source Output].Columns[freight_value]">
-                      <properties>
-                        <property
-                          containsID="true"
-                          dataType="System.Int32"
-                          description="Output column lineage ID"
-                          name="OutputColumnLineageID">#{Package\DFT_ODS_OrderItems\Union All.Outputs[Union All Output 1].Columns[freight_value]}</property>
-                      </properties>
-                    </inputColumn>
-                    <inputColumn
-                      refId="Package\DFT_ODS_OrderItems\Union All.Inputs[Union All Input 3].Columns[ErrorCode]"
-                      cachedDataType="i4"
-                      cachedName="ErrorCode"
-                      lineageId="Package\DFT_ODS_OrderItems\DCNV_ShippingDate.Outputs[Data Conversion Error Output].Columns[ErrorCode]">
-                      <properties>
-                        <property
-                          containsID="true"
-                          dataType="System.Int32"
-                          description="Output column lineage ID"
-                          name="OutputColumnLineageID">#{Package\DFT_ODS_OrderItems\Union All.Outputs[Union All Output 1].Columns[ErrorCode]}</property>
-                      </properties>
-                    </inputColumn>
-                    <inputColumn
-                      refId="Package\DFT_ODS_OrderItems\Union All.Inputs[Union All Input 3].Columns[ErrorColumn]"
-                      cachedDataType="i4"
-                      cachedName="ErrorColumn"
-                      lineageId="Package\DFT_ODS_OrderItems\DCNV_ShippingDate.Outputs[Data Conversion Error Output].Columns[ErrorColumn]">
-                      <properties>
-                        <property
-                          containsID="true"
-                          dataType="System.Int32"
-                          description="Output column lineage ID"
-                          name="OutputColumnLineageID">#{Package\DFT_ODS_OrderItems\Union All.Outputs[Union All Output 1].Columns[ErrorColumn]}</property>
-                      </properties>
-                    </inputColumn>
-                    <inputColumn
-                      refId="Package\DFT_ODS_OrderItems\Union All.Inputs[Union All Input 3].Columns[RejectsDate]"
-                      cachedDataType="dbTimeStamp"
-                      cachedName="RejectsDate"
-                      lineageId="Package\DFT_ODS_OrderItems\DER_ShippingDate_Rejects.Outputs[Derived Column Output].Columns[RejectsDate]">
-                      <properties>
-                        <property
-                          containsID="true"
-                          dataType="System.Int32"
-                          description="Output column lineage ID"
-                          name="OutputColumnLineageID">#{Package\DFT_ODS_OrderItems\Union All.Outputs[Union All Output 1].Columns[RejectsDate]}</property>
-                      </properties>
-                    </inputColumn>
-                    <inputColumn
-                      refId="Package\DFT_ODS_OrderItems\Union All.Inputs[Union All Input 3].Columns[RejectsPkgAndTask]"
-                      cachedDataType="wstr"
-                      cachedLength="100"
-                      cachedName="RejectsPkgAndTask"
-                      lineageId="Package\DFT_ODS_OrderItems\DER_ShippingDate_Rejects.Outputs[Derived Column Output].Columns[RejectsPkgAndTask]">
-                      <properties>
-                        <property
-                          containsID="true"
-                          dataType="System.Int32"
-                          description="Output column lineage ID"
-                          name="OutputColumnLineageID">#{Package\DFT_ODS_OrderItems\Union All.Outputs[Union All Output 1].Columns[RejectsPkgAndTask]}</property>
-                      </properties>
-                    </inputColumn>
-                  </inputColumns>
-                  <externalMetadataColumns />
-                </input>
-                <input
-                  refId="Package\DFT_ODS_OrderItems\Union All.Inputs[Union All Input 4]"
-                  dangling="true"
-                  hasSideEffects="true"
-                  name="Union All Input 4">
-                  <externalMetadataColumns />
-                </input>
-              </inputs>
-              <outputs>
-                <output
-                  refId="Package\DFT_ODS_OrderItems\Union All.Outputs[Union All Output 1]"
-                  name="Union All Output 1">
-                  <outputColumns>
-                    <outputColumn
-                      refId="Package\DFT_ODS_OrderItems\Union All.Outputs[Union All Output 1].Columns[order_id]"
-                      codePage="1252"
-                      dataType="str"
-                      length="50"
-                      lineageId="Package\DFT_ODS_OrderItems\Union All.Outputs[Union All Output 1].Columns[order_id]"
-                      name="order_id" />
-                    <outputColumn
-                      refId="Package\DFT_ODS_OrderItems\Union All.Outputs[Union All Output 1].Columns[order_item_id]"
-                      codePage="1252"
-                      dataType="str"
-                      length="50"
-                      lineageId="Package\DFT_ODS_OrderItems\Union All.Outputs[Union All Output 1].Columns[order_item_id]"
-                      name="order_item_id" />
-                    <outputColumn
-                      refId="Package\DFT_ODS_OrderItems\Union All.Outputs[Union All Output 1].Columns[product_id]"
-                      codePage="1252"
-                      dataType="str"
-                      length="50"
-                      lineageId="Package\DFT_ODS_OrderItems\Union All.Outputs[Union All Output 1].Columns[product_id]"
-                      name="product_id" />
-                    <outputColumn
-                      refId="Package\DFT_ODS_OrderItems\Union All.Outputs[Union All Output 1].Columns[seller_id]"
-                      codePage="1252"
-                      dataType="str"
-                      length="50"
-                      lineageId="Package\DFT_ODS_OrderItems\Union All.Outputs[Union All Output 1].Columns[seller_id]"
-                      name="seller_id" />
-                    <outputColumn
-                      refId="Package\DFT_ODS_OrderItems\Union All.Outputs[Union All Output 1].Columns[shipping_limit_date]"
-                      codePage="1252"
-                      dataType="str"
-                      length="50"
-                      lineageId="Package\DFT_ODS_OrderItems\Union All.Outputs[Union All Output 1].Columns[shipping_limit_date]"
-                      name="shipping_limit_date" />
-                    <outputColumn
-                      refId="Package\DFT_ODS_OrderItems\Union All.Outputs[Union All Output 1].Columns[price]"
-                      codePage="1252"
-                      dataType="str"
-                      length="50"
-                      lineageId="Package\DFT_ODS_OrderItems\Union All.Outputs[Union All Output 1].Columns[price]"
-                      name="price" />
-                    <outputColumn
-                      refId="Package\DFT_ODS_OrderItems\Union All.Outputs[Union All Output 1].Columns[freight_value]"
-                      codePage="1252"
-                      dataType="str"
-                      length="50"
-                      lineageId="Package\DFT_ODS_OrderItems\Union All.Outputs[Union All Output 1].Columns[freight_value]"
-                      name="freight_value" />
-                    <outputColumn
-                      refId="Package\DFT_ODS_OrderItems\Union All.Outputs[Union All Output 1].Columns[ErrorCode]"
-                      dataType="i4"
-                      lineageId="Package\DFT_ODS_OrderItems\Union All.Outputs[Union All Output 1].Columns[ErrorCode]"
-                      name="ErrorCode" />
-                    <outputColumn
-                      refId="Package\DFT_ODS_OrderItems\Union All.Outputs[Union All Output 1].Columns[ErrorColumn]"
-                      dataType="i4"
-                      lineageId="Package\DFT_ODS_OrderItems\Union All.Outputs[Union All Output 1].Columns[ErrorColumn]"
-                      name="ErrorColumn" />
-                    <outputColumn
-                      refId="Package\DFT_ODS_OrderItems\Union All.Outputs[Union All Output 1].Columns[RejectsDate]"
-                      dataType="dbTimeStamp"
-                      lineageId="Package\DFT_ODS_OrderItems\Union All.Outputs[Union All Output 1].Columns[RejectsDate]"
-                      name="RejectsDate" />
-                    <outputColumn
-                      refId="Package\DFT_ODS_OrderItems\Union All.Outputs[Union All Output 1].Columns[RejectsPkgAndTask]"
-                      dataType="wstr"
-                      length="100"
-                      lineageId="Package\DFT_ODS_OrderItems\Union All.Outputs[Union All Output 1].Columns[RejectsPkgAndTask]"
-                      name="RejectsPkgAndTask" />
-                    <outputColumn
-                      refId="Package\DFT_ODS_OrderItems\Union All.Outputs[Union All Output 1].Columns[RejectColumn]"
-                      dataType="wstr"
-                      length="5"
-                      lineageId="Package\DFT_ODS_OrderItems\Union All.Outputs[Union All Output 1].Columns[RejectColumn]"
-                      name="RejectColumn" />
-                    <outputColumn
-                      refId="Package\DFT_ODS_OrderItems\Union All.Outputs[Union All Output 1].Columns[RejectDescription]"
-                      dataType="wstr"
-                      length="79"
-                      lineageId="Package\DFT_ODS_OrderItems\Union All.Outputs[Union All Output 1].Columns[RejectDescription]"
-                      name="RejectDescription" />
-                  </outputColumns>
-                  <externalMetadataColumns />
-                </output>
-              </outputs>
-            </component>
           </components>
           <paths>
             <path
               refId="Package\DFT_ODS_OrderItems.Paths[Data Conversion Error Output]"
               endId="Package\DFT_ODS_OrderItems\DER_Price_Rejects.Inputs[Derived Column Input]"
               name="Data Conversion Error Output"
-              startId="Package\DFT_ODS_OrderItems\DCNV_PriceDec.Outputs[Data Conversion Error Output]" />
+              startId="Package\DFT_ODS_OrderItems\DCNV_Price_Dec.Outputs[Data Conversion Error Output]" />
             <path
               refId="Package\DFT_ODS_OrderItems.Paths[Data Conversion Error Output1]"
               endId="Package\DFT_ODS_OrderItems\DER_Freight_Rejects.Inputs[Derived Column Input]"
               name="Data Conversion Error Output"
-              startId="Package\DFT_ODS_OrderItems\DCNV_FreightDec.Outputs[Data Conversion Error Output]" />
+              startId="Package\DFT_ODS_OrderItems\DCNV_Freight_Dec.Outputs[Data Conversion Error Output]" />
             <path
               refId="Package\DFT_ODS_OrderItems.Paths[Data Conversion Error Output2]"
               endId="Package\DFT_ODS_OrderItems\DER_ShippingDate_Rejects.Inputs[Derived Column Input]"
               name="Data Conversion Error Output"
-              startId="Package\DFT_ODS_OrderItems\DCNV_ShippingDate.Outputs[Data Conversion Error Output]" />
+              startId="Package\DFT_ODS_OrderItems\DCNV_ShippingDate_Date.Outputs[Data Conversion Error Output]" />
             <path
               refId="Package\DFT_ODS_OrderItems.Paths[Data Conversion Output]"
-              endId="Package\DFT_ODS_OrderItems\DCNV_FreightDec.Inputs[Data Conversion Input]"
+              endId="Package\DFT_ODS_OrderItems\DCNV_Freight_Dec.Inputs[Data Conversion Input]"
               name="Data Conversion Output"
-              startId="Package\DFT_ODS_OrderItems\DCNV_PriceDec.Outputs[Data Conversion Output]" />
+              startId="Package\DFT_ODS_OrderItems\DCNV_Price_Dec.Outputs[Data Conversion Output]" />
             <path
               refId="Package\DFT_ODS_OrderItems.Paths[Data Conversion Output1]"
-              endId="Package\DFT_ODS_OrderItems\DCNV_ShippingDate.Inputs[Data Conversion Input]"
+              endId="Package\DFT_ODS_OrderItems\DCNV_ShippingDate_Date.Inputs[Data Conversion Input]"
               name="Data Conversion Output"
-              startId="Package\DFT_ODS_OrderItems\DCNV_FreightDec.Outputs[Data Conversion Output]" />
+              startId="Package\DFT_ODS_OrderItems\DCNV_Freight_Dec.Outputs[Data Conversion Output]" />
             <path
               refId="Package\DFT_ODS_OrderItems.Paths[Data Conversion Output2]"
               endId="Package\DFT_ODS_OrderItems\DCNV_Resizing.Inputs[Data Conversion Input]"
               name="Data Conversion Output"
-              startId="Package\DFT_ODS_OrderItems\DCNV_ShippingDate.Outputs[Data Conversion Output]" />
+              startId="Package\DFT_ODS_OrderItems\DCNV_ShippingDate_Date.Outputs[Data Conversion Output]" />
             <path
               refId="Package\DFT_ODS_OrderItems.Paths[Data Conversion Output3]"
               endId="Package\DFT_ODS_OrderItems\OLE_DST_ODS_OrderItems.Inputs[OLE DB Destination Input]"
@@ -2055,29 +2055,29 @@
               startId="Package\DFT_ODS_OrderItems\DCNV_Resizing.Outputs[Data Conversion Output]" />
             <path
               refId="Package\DFT_ODS_OrderItems.Paths[Derived Column Output]"
-              endId="Package\DFT_ODS_OrderItems\Union All.Inputs[Union All Input 1]"
+              endId="Package\DFT_ODS_OrderItems\ALL_Rejects.Inputs[Union All Input 1]"
               name="Derived Column Output"
               startId="Package\DFT_ODS_OrderItems\DER_Price_Rejects.Outputs[Derived Column Output]" />
             <path
               refId="Package\DFT_ODS_OrderItems.Paths[Derived Column Output1]"
-              endId="Package\DFT_ODS_OrderItems\Union All.Inputs[Union All Input 2]"
+              endId="Package\DFT_ODS_OrderItems\ALL_Rejects.Inputs[Union All Input 2]"
               name="Derived Column Output"
               startId="Package\DFT_ODS_OrderItems\DER_Freight_Rejects.Outputs[Derived Column Output]" />
             <path
               refId="Package\DFT_ODS_OrderItems.Paths[Derived Column Output2]"
-              endId="Package\DFT_ODS_OrderItems\Union All.Inputs[Union All Input 3]"
+              endId="Package\DFT_ODS_OrderItems\ALL_Rejects.Inputs[Union All Input 3]"
               name="Derived Column Output"
               startId="Package\DFT_ODS_OrderItems\DER_ShippingDate_Rejects.Outputs[Derived Column Output]" />
             <path
               refId="Package\DFT_ODS_OrderItems.Paths[OLE DB Source Output]"
-              endId="Package\DFT_ODS_OrderItems\DCNV_PriceDec.Inputs[Data Conversion Input]"
+              endId="Package\DFT_ODS_OrderItems\DCNV_Price_Dec.Inputs[Data Conversion Input]"
               name="OLE DB Source Output"
               startId="Package\DFT_ODS_OrderItems\OLE_SRC_STA_OrderItems.Outputs[OLE DB Source Output]" />
             <path
               refId="Package\DFT_ODS_OrderItems.Paths[Union All Output 1]"
               endId="Package\DFT_ODS_OrderItems\OLE_DST_ADM_TechnicalRejects.Inputs[OLE DB Destination Input]"
               name="Union All Output 1"
-              startId="Package\DFT_ODS_OrderItems\Union All.Outputs[Union All Output 1]" />
+              startId="Package\DFT_ODS_OrderItems\ALL_Rejects.Outputs[Union All Output 1]" />
           </paths>
         </pipeline>
       </DTS:ObjectData>
@@ -2177,12 +2177,12 @@
           Id="Package\DFT_ODS_OrderItems\OLE_SRC_STA_OrderItems"
           TopLeft="87,40" />
         <NodeLayout
-          Size="161,42"
-          Id="Package\DFT_ODS_OrderItems\DCNV_PriceDec"
+          Size="167,42"
+          Id="Package\DFT_ODS_OrderItems\DCNV_Price_Dec"
           TopLeft="114,139" />
         <EdgeLayout
           Id="Package\DFT_ODS_OrderItems.Paths[OLE DB Source Output]"
-          TopLeft="195.5,82">
+          TopLeft="197,82">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
@@ -2203,12 +2203,12 @@
           </EdgeLayout.Labels>
         </EdgeLayout>
         <NodeLayout
-          Size="170,42"
-          Id="Package\DFT_ODS_OrderItems\DCNV_FreightDec"
+          Size="176,42"
+          Id="Package\DFT_ODS_OrderItems\DCNV_Freight_Dec"
           TopLeft="110,246" />
         <EdgeLayout
           Id="Package\DFT_ODS_OrderItems.Paths[Data Conversion Output]"
-          TopLeft="194.75,181">
+          TopLeft="197.75,181">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
@@ -2229,23 +2229,35 @@
           </EdgeLayout.Labels>
         </EdgeLayout>
         <NodeLayout
-          Size="182,42"
-          Id="Package\DFT_ODS_OrderItems\DCNV_ShippingDate"
+          Size="212,42"
+          Id="Package\DFT_ODS_OrderItems\DCNV_ShippingDate_Date"
           TopLeft="106,351" />
         <EdgeLayout
           Id="Package\DFT_ODS_OrderItems.Paths[Data Conversion Output1]"
-          TopLeft="196,288">
+          TopLeft="198,288">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,63"
+              EndConnector="14,63"
               Start="0,0"
-              End="0,55.5">
+              End="14,55.5">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,55.5" />
+                    End="0,27.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,27.5"
+                    Point2="0,31.5"
+                    Point3="4,31.5" />
+                  <mssgle:LineSegment
+                    End="10,31.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="10,31.5"
+                    Point2="14,31.5"
+                    Point3="14,35.5" />
+                  <mssgle:LineSegment
+                    End="14,55.5" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -2260,18 +2272,30 @@
           TopLeft="117,446" />
         <EdgeLayout
           Id="Package\DFT_ODS_OrderItems.Paths[Data Conversion Output2]"
-          TopLeft="196.75,393">
+          TopLeft="212,393">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,53"
+              EndConnector="-15.5,53"
               Start="0,0"
-              End="0,45.5">
+              End="-15.5,45.5">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,45.5" />
+                    End="0,22.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,22.5"
+                    Point2="0,26.5"
+                    Point3="-4,26.5" />
+                  <mssgle:LineSegment
+                    End="-11.5,26.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-11.5,26.5"
+                    Point2="-15.5,26.5"
+                    Point3="-15.5,30.5" />
+                  <mssgle:LineSegment
+                    End="-15.5,45.5" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -2320,79 +2344,79 @@
           TopLeft="392,250" />
         <EdgeLayout
           Id="Package\DFT_ODS_OrderItems.Paths[Data Conversion Error Output]"
-          TopLeft="275,161">
+          TopLeft="281,161">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="121,0"
+              EndConnector="115,0"
               Start="0,0"
-              End="113.5,0">
+              End="107.5,0">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="113.5,0" />
+                    End="107.5,0" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
             <mssgm:EdgeLabel
-              BoundingBox="-9.33638671874999,5,132.1727734375,11.43359375"
+              BoundingBox="-12.33638671875,5,132.1727734375,11.43359375"
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
           Id="Package\DFT_ODS_OrderItems.Paths[Data Conversion Error Output1]"
-          TopLeft="280,269">
+          TopLeft="286,269">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="112,0"
+              EndConnector="106,0"
               Start="0,0"
-              End="104.5,0">
+              End="98.5,0">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="104.5,0" />
+                    End="98.5,0" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
             <mssgm:EdgeLabel
-              BoundingBox="-13.83638671875,5,132.1727734375,11.43359375"
+              BoundingBox="-16.83638671875,5,132.1727734375,11.43359375"
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
           Id="Package\DFT_ODS_OrderItems.Paths[Data Conversion Error Output2]"
-          TopLeft="288,372.5">
+          TopLeft="318,372.5">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="100,0"
+              EndConnector="70,0"
               Start="0,0"
-              End="92.5,0">
+              End="62.5,0">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="92.5,0" />
+                    End="62.5,0" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
             <mssgm:EdgeLabel
-              BoundingBox="-19.83638671875,5,132.1727734375,11.43359375"
+              BoundingBox="-34.83638671875,5,132.1727734375,11.43359375"
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <NodeLayout
-          Size="123,42"
-          Id="Package\DFT_ODS_OrderItems\Union All"
+          Size="141,42"
+          Id="Package\DFT_ODS_OrderItems\ALL_Rejects"
           TopLeft="682,250" />
         <EdgeLayout
           Id="Package\DFT_ODS_OrderItems.Paths[Derived Column Output]"
@@ -2400,9 +2424,9 @@
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="259.5,67"
+              EndConnector="268.5,67"
               Start="0,0"
-              End="259.5,59.5">
+              End="268.5,59.5">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
@@ -2413,13 +2437,13 @@
                     Point2="0,33.5"
                     Point3="4,33.5" />
                   <mssgle:LineSegment
-                    End="255.5,33.5" />
+                    End="264.5,33.5" />
                   <mssgle:CubicBezierSegment
-                    Point1="255.5,33.5"
-                    Point2="259.5,33.5"
-                    Point3="259.5,37.5" />
+                    Point1="264.5,33.5"
+                    Point2="268.5,33.5"
+                    Point3="268.5,37.5" />
                   <mssgle:LineSegment
-                    End="259.5,59.5" />
+                    End="268.5,59.5" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -2456,26 +2480,26 @@
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="247,-60"
+              EndConnector="233.833333333333,-60"
               Start="0,0"
-              End="247,-52.5">
+              End="233.833333333333,-52.5">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,-26" />
+                    End="0,-31.5960729312763" />
                   <mssgle:CubicBezierSegment
-                    Point1="0,-26"
-                    Point2="0,-30"
-                    Point3="4,-30" />
+                    Point1="0,-31.5960729312763"
+                    Point2="0,-35.5960729312763"
+                    Point3="4,-35.5960729312763" />
                   <mssgle:LineSegment
-                    End="243,-30" />
+                    End="229.833333333333,-35.5960729312763" />
                   <mssgle:CubicBezierSegment
-                    Point1="243,-30"
-                    Point2="247,-30"
-                    Point3="247,-34" />
+                    Point1="229.833333333333,-35.5960729312763"
+                    Point2="233.833333333333,-35.5960729312763"
+                    Point3="233.833333333333,-39.5960729312763" />
                   <mssgle:LineSegment
-                    End="247,-52.5" />
+                    End="233.833333333333,-52.5" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -2487,33 +2511,33 @@
         <NodeLayout
           Size="250,42"
           Id="Package\DFT_ODS_OrderItems\OLE_DST_ADM_TechnicalRejects"
-          TopLeft="513,498" />
+          TopLeft="513,500" />
         <EdgeLayout
           Id="Package\DFT_ODS_OrderItems.Paths[Union All Output 1]"
-          TopLeft="762.666666666667,292">
+          TopLeft="774.666666666667,292">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="-124.666666666667,206"
+              EndConnector="-136.666666666667,208"
               Start="0,0"
-              End="-124.666666666667,198.5">
+              End="-136.666666666667,200.5">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,79.9871589085073" />
+                    End="0,80.6002805049089" />
                   <mssgle:CubicBezierSegment
-                    Point1="0,79.9871589085073"
-                    Point2="0,83.9871589085073"
-                    Point3="-4,83.9871589085073" />
+                    Point1="0,80.6002805049089"
+                    Point2="0,84.6002805049089"
+                    Point3="-4,84.6002805049089" />
                   <mssgle:LineSegment
-                    End="-120.666666666667,83.9871589085073" />
+                    End="-132.666666666667,84.6002805049089" />
                   <mssgle:CubicBezierSegment
-                    Point1="-120.666666666667,83.9871589085073"
-                    Point2="-124.666666666667,83.9871589085073"
-                    Point3="-124.666666666667,87.9871589085073" />
+                    Point1="-132.666666666667,84.6002805049089"
+                    Point2="-136.666666666667,84.6002805049089"
+                    Point3="-136.666666666667,88.6002805049089" />
                   <mssgle:LineSegment
-                    End="-124.666666666667,198.5" />
+                    End="-136.666666666667,200.5" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>

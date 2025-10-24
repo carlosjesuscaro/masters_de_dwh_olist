@@ -4,7 +4,13 @@ SELECT TOP 10 *
 FROM STA_Customers;
 
 SELECT TOP 10 *
-FROM STA_OrderItems
+FROM STA_OrderItems;
+
+SELECT TOP 10 *
+FROM STA_OrderPayments;
+
+SELECT DISTINCT payment_type --12
+FROM STA_OrderPayments;
 
 SELECT DISTINCT order_item_id
 FROM STA_OrderItems;
@@ -12,8 +18,26 @@ FROM STA_OrderItems;
 SELECT DISTINCT customer_state
 FROM STA_Customers;
 
+
+
 -----------------------------------------------------------------------------------
 USE OLIST_ODS;
+
+-- OrderPayments
+
+CREATE TABLE dbo.[ODS_OrderPayments] (
+    [order_id] varchar(50),
+    [payment_sequential] int,
+    [payment_type] varchar(12),
+    [payment_installments] int,
+    [payment_value] decimal(28,2)
+)
+
+SELECT *
+FROM ODS_OrderPayments;
+
+SELECT COUNT(DISTINCT order_id)
+FROM ODS_OrderPayments;
 
 -- Customers
 CREATE TABLE dbo.[ODS_Customers] (
@@ -54,7 +78,7 @@ DROP TABLE ODS_OrderItems;
 
 -----------------------------------------------------------------------------------
 
-USE OLIST_ADM
+USE OLIST_ADM;
 CREATE TABLE dbo.[TechnicalRejects] (
     [RejectsDate] datetime,
     [RejectsPkgAndTask] nvarchar(100),
