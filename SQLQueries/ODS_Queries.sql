@@ -1,6 +1,9 @@
 USE OLIST_STA;
 
 SELECT TOP 10 *
+FROM STA_OrderReviews;
+
+SELECT TOP 10 *
 FROM STA_Customers;
 
 SELECT TOP 10 *
@@ -9,7 +12,7 @@ FROM STA_OrderItems;
 SELECT TOP 10 *
 FROM STA_OrderPayments;
 
-SELECT DISTINCT payment_type --12
+SELECT DISTINCT payment_type
 FROM STA_OrderPayments;
 
 SELECT DISTINCT order_item_id
@@ -22,6 +25,25 @@ FROM STA_Customers;
 
 -----------------------------------------------------------------------------------
 USE OLIST_ODS;
+
+-- OrderReviews
+
+CREATE TABLE dbo.[ODS_OrderReviews] (
+    [review_id] nvarchar(255),
+    [order_id] nvarchar(255),
+    [review_score] int,
+    [review_comment_title] nvarchar(255),
+    [review_comment_message] nvarchar(max),
+    [review_creation_date] datetime,
+    [review_answer_timestamp] datetime
+)
+
+SELECT *
+FROM ODS_OrderReviews;
+
+SELECT COUNT(DISTINCT order_id)
+FROM ODS_OrderReviews;
+
 
 -- OrderPayments
 
