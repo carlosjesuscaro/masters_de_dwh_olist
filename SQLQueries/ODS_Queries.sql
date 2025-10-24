@@ -1,6 +1,9 @@
 USE OLIST_STA;
 
 SELECT TOP 10 *
+FROM STA_Orders;
+
+SELECT TOP 10 *
 FROM STA_OrderReviews;
 
 SELECT TOP 10 *
@@ -25,6 +28,27 @@ FROM STA_Customers;
 
 -----------------------------------------------------------------------------------
 USE OLIST_ODS;
+
+-- Orders
+
+CREATE TABLE dbo.[ODS_Orders] (
+    [order_id] varchar(50),
+    [customer_id] varchar(50),
+    [order_status] varchar(50),
+    [order_purchase_timestamp] datetime,
+    [order_approved_at] datetime,
+    [order_delivered_carrier_date] datetime,
+    [order_delivered_customer_date] datetime,
+    [order_estimated_delivery_date] datetime,
+)
+
+DROP TABLE dbo.OLE_DST_ODS_Orders;
+
+SELECT *
+FROM ODS_Orders;
+
+SELECT COUNT(DISTINCT order_id)
+FROM ODS_Orders;
 
 -- OrderReviews
 
