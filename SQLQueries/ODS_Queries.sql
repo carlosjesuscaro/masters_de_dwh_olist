@@ -1,6 +1,9 @@
 USE OLIST_STA;
 
 SELECT TOP 10 *
+FROM STA_Products;
+
+SELECT TOP 10 *
 FROM STA_Orders;
 
 SELECT TOP 10 *
@@ -24,10 +27,59 @@ FROM STA_OrderItems;
 SELECT DISTINCT customer_state
 FROM STA_Customers;
 
+SELECT DISTINCT product_category_name
+FROM STA_Products;
 
+SELECT product_category_name, product_category_name_english
+FROM STA_ProductTranslations;
+
+SELECT *
+FROM STA_Products
+WHERE product_id = 'c8316575e7ce05609496b6d0b9bce6bd'
+
+SELECT *
+FROM STA_Products
+WHERE product_category_name IS NULL;
+
+SELECT *
+FROM STA_Products
+WHERE product_description_lenght = '';
+
+SELECT *
+FROM STA_Products
+WHERE product_name_lenght = '';
 
 -----------------------------------------------------------------------------------
 USE OLIST_ODS;
+
+-- Products
+
+CREATE TABLE dbo.[ODS_Products] (
+    [product_id] varchar(50),
+    [product_category_name_english] varchar(50),
+    [product_category_name_portuguese] varchar(50),
+    [product_name_lenght] int,
+    [product_description_lenght] int,
+    [product_photos_qty] int,
+    [product_weight_g] decimal(28, 2),
+    [product_length_cm] decimal(28, 2),
+    [product_height_cm] decimal(28, 2),
+    [product_width_cm] decimal(28, 2)
+);
+
+SELECT *
+FROM ODS_Products;
+
+SELECT *
+FROM ODS_Products
+WHERE product_category_name_english = '';
+
+SELECT COUNT(DISTINCT product_id)
+FROM ODS_Products;
+
+DROP TABLE dbo.ODS_Products;
+
+TRUNCATE TABLE dbo.ODS_Products;
 
 -- Orders
 
@@ -40,9 +92,7 @@ CREATE TABLE dbo.[ODS_Orders] (
     [order_delivered_carrier_date] datetime,
     [order_delivered_customer_date] datetime,
     [order_estimated_delivery_date] datetime,
-)
-
-DROP TABLE dbo.OLE_DST_ODS_Orders;
+);
 
 SELECT *
 FROM ODS_Orders;
@@ -60,7 +110,7 @@ CREATE TABLE dbo.[ODS_OrderReviews] (
     [review_comment_message] nvarchar(max),
     [review_creation_date] datetime,
     [review_answer_timestamp] datetime
-)
+);
 
 SELECT *
 FROM ODS_OrderReviews;
@@ -77,7 +127,7 @@ CREATE TABLE dbo.[ODS_OrderPayments] (
     [payment_type] varchar(12),
     [payment_installments] int,
     [payment_value] decimal(28,2)
-)
+);
 
 SELECT *
 FROM ODS_OrderPayments;
@@ -92,7 +142,7 @@ CREATE TABLE dbo.[ODS_Customers] (
     [customer_zip_code_prefix] varchar(5),
     [customer_city] varchar(50),
     [customer_state] varchar(2)
-)
+);
 
 SELECT *
 FROM ODS_Customers;
@@ -110,7 +160,7 @@ CREATE TABLE dbo.[ODS_OrderItems] (
     [shipping_limit_date] datetime,
     [price] decimal(28,2),
     [freight_value] decimal(28,2),
-)
+);
 
 SELECT *
 FROM ODS_OrderItems;
@@ -125,6 +175,7 @@ DROP TABLE ODS_OrderItems;
 -----------------------------------------------------------------------------------
 
 USE OLIST_ADM;
+
 CREATE TABLE dbo.[TechnicalRejects] (
     [RejectsDate] datetime,
     [RejectsPkgAndTask] nvarchar(100),
@@ -134,3 +185,5 @@ CREATE TABLE dbo.[TechnicalRejects] (
 
 SELECT *
 FROM TechnicalRejects;
+
+TRUNCATE TABLE TechnicalRejects;
