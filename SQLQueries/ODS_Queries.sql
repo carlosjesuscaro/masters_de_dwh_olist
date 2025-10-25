@@ -1,6 +1,9 @@
 USE OLIST_STA;
 
 SELECT TOP 10 *
+FROM STA_Sellers;
+
+SELECT TOP 10 *
 FROM STA_Products;
 
 SELECT TOP 10 *
@@ -51,6 +54,21 @@ WHERE product_name_lenght = '';
 
 -----------------------------------------------------------------------------------
 USE OLIST_ODS;
+
+-- Sellers
+
+CREATE TABLE dbo.[ODS_Sellers] (
+    [seller_id] varchar(50),
+    [seller_zip_code_prefix] varchar(5),
+    [seller_city] varchar(50),
+    [seller_state] varchar(2)
+);
+
+SELECT *
+FROM ODS_Sellers;
+
+SELECT COUNT(DISTINCT seller_id)
+FROM ODS_Sellers;
 
 -- Products
 
