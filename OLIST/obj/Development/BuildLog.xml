@@ -2,7 +2,7 @@
 <BuildLog xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
   <ProjectInfo>
     <Name>OLIST</Name>
-    <LastWriteTime>2025-10-25T07:52:34.9428529Z</LastWriteTime>
+    <LastWriteTime>2025-10-25T20:07:58.8297159Z</LastWriteTime>
     <LastKnownProtectionLevel>EncryptSensitiveWithUserKey</LastKnownProtectionLevel>
   </ProjectInfo>
   <LastBuildInfos>
@@ -79,6 +79,11 @@
     <ProjectBuildItemInfo>
       <Name>ODS_Sellers.dtsx</Name>
       <LastWriteTime>2025-10-25T07:54:36.4722907Z</LastWriteTime>
+      <LastKnownProtectionLevel>EncryptSensitiveWithUserKey</LastKnownProtectionLevel>
+    </ProjectBuildItemInfo>
+    <ProjectBuildItemInfo>
+      <Name>DWH_DimCustomers.dtsx</Name>
+      <LastWriteTime>2025-10-25T20:07:58.7882942Z</LastWriteTime>
       <LastKnownProtectionLevel>EncryptSensitiveWithUserKey</LastKnownProtectionLevel>
     </ProjectBuildItemInfo>
   </LastBuildInfos>

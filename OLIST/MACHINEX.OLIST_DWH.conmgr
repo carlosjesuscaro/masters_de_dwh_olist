@@ -1,0 +1,12 @@
+﻿<?xml version="1.0"?>
+<DTS:ConnectionManager xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:ObjectName="MACHINEX.OLIST_DWH"
+  DTS:DTSID="{B69E558A-C9B8-4F53-92A9-616941D79363}"
+  DTS:CreationName="OLEDB">
+  <DTS:ObjectData>
+    <DTS:ConnectionManager
+      DTS:ConnectRetryCount="1"
+      DTS:ConnectRetryInterval="5"
+      DTS:ConnectionString="Data Source=MACHINEX;Initial Catalog=OLIST_DWH;Provider=SQLOLEDB.1;Integrated Security=SSPI;Application Name=SSIS-OLIST-{B69E558A-C9B8-4F53-92A9-616941D79363}MACHINEX.OLIST_DWH;Auto Translate=False;" />
+  </DTS:ObjectData>
+</DTS:ConnectionManager>
