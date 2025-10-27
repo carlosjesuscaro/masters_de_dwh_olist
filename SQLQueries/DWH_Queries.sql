@@ -1,5 +1,35 @@
 USE OLIST_DWH;
 
+-- Date
+SELECT *
+FROM DWH_DimDate;
+
+-- OrderItems
+
+CREATE TABLE dbo.[DWH_DimOrderItems] (
+    [order_item_key] INT PRIMARY KEY IDENTITY(1, 1),
+    [order_id] varchar(50),
+    [order_item_id] varchar(4),
+    [product_id] varchar(50),
+    [seller_id] varchar(50),
+    [shipping_limit_date] datetime,
+    [price] decimal(28,2),
+    [freight_value] decimal(28,2),
+    IsInferred BIT NOT NULL DEFAULT 0
+);
+
+DROP TABLE DWH_DimOrderItems;
+
+SELECT *
+FROM DWH_DimOrderItems;
+
+SELECT COUNT(DISTINCT order_item_key)
+FROM DWH_DimOrderItems;
+
+SELECT COUNT(DISTINCT order_id)
+FROM DWH_DimOrderItems;
+
+TRUNCATE TABLE DWH_DimOrderItems;
 -- Customers
 
 CREATE TABLE dbo.[DWH_DimCustomers] (

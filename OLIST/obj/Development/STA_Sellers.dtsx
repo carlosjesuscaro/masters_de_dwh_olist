@@ -11,8 +11,8 @@
   DTS:LocaleID="4105"
   DTS:ObjectName="Package1"
   DTS:PackageType="5"
-  DTS:VersionBuild="3"
-  DTS:VersionGUID="{29AF1F5C-ED5F-44F7-AD27-03ACFB302B2A}">
+  DTS:VersionBuild="4"
+  DTS:VersionGUID="{F347C632-EF72-4FB6-AF10-1555BBCF1092}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -479,37 +479,25 @@
         <NodeLayout
           Size="168,42"
           Id="Package\DFT_STA_Sellers"
-          TopLeft="294,194" />
+          TopLeft="285,193" />
         <NodeLayout
           Size="218,42"
           Id="Package\SQL_Truncate_STA_Sellers"
           TopLeft="253,56" />
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint]"
-          TopLeft="362,98">
+          TopLeft="365.5,98">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="16,96"
+              EndConnector="0,95"
               Start="0,0"
-              End="16,88.5">
+              End="0,87.5">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,44" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,44"
-                    Point2="0,48"
-                    Point3="4,48" />
-                  <mssgle:LineSegment
-                    End="12,48" />
-                  <mssgle:CubicBezierSegment
-                    Point1="12,48"
-                    Point2="16,48"
-                    Point3="16,52" />
-                  <mssgle:LineSegment
-                    End="16,88.5" />
+                    End="0,87.5" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -525,15 +513,15 @@
     design-time-name="Package\DFT_STA_Sellers">
     <LayoutInfo>
       <GraphLayout
-        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
-        <NodeLayout
-          Size="168,42"
-          Id="Package\DFT_STA_Sellers\FFT_SRC_Sellers"
-          TopLeft="311,140" />
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
           Size="157,42"
           Id="Package\DFT_STA_Sellers\OLE_DST_STA"
           TopLeft="301,334" />
+        <NodeLayout
+          Size="168,42"
+          Id="Package\DFT_STA_Sellers\FFT_SRC_Sellers"
+          TopLeft="311,140" />
         <EdgeLayout
           Id="Package\DFT_STA_Sellers.Paths[Flat File Source Output]"
           TopLeft="395,182">
@@ -565,7 +553,9 @@
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>
