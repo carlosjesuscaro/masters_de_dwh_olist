@@ -26,7 +26,7 @@
           <SSIS:Property SSIS:Name="CreatorComputerName">MACHINEX</SSIS:Property>
           <SSIS:Property SSIS:Name="Description">
           </SSIS:Property>
-          <SSIS:Property SSIS:Name="PasswordVerifier" SSIS:Sensitive="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAA+40ZesNyCEeT80d89XctugAAAAACAAAAAAAQZgAAAAEAACAAAABtRWB7VKCfgM6jbKAkfRJyvP7ip+gYl7rAmL0lUleEFgAAAAAOgAAAAAIAACAAAABxFyaT4uJo81DWRwghn+r8jY04/FMsOKCoVVzJYaq7ppAAAABEcXzpOBLm10wq2xV77eCEVQqGwgxh7yadW/dMfaS1y4uqarujo3FXquH5APj/yOi1MqcXD9dM8pIbzDVKMWWMl5U5NJc4iCWWG6qgUGWmUeH/ktq4651hYJaHHUOufarI9qbAurbkassMQPcAq/5X+bdcJRaw9gXZF5CFIJgKPCf0z8EN0mjKYgU7+r2j2jdAAAAAqb+m1QnDgplfWSSB7lRSpDON9rEOc0uEBpLotc0L4ya6TFNCfeCzfrApMeBUKPw1j6b/hm+fMc43cJR1PMUaug==</SSIS:Property>
+          <SSIS:Property SSIS:Name="PasswordVerifier" SSIS:Sensitive="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAA+40ZesNyCEeT80d89XctugAAAAACAAAAAAAQZgAAAAEAACAAAACsVPoRq4NUMAdhimstC7EGhA6REFtc7I/Inb4gbor/jgAAAAAOgAAAAAIAACAAAADQM7ujg7bLuFjU+MgMZyY425CZcQuPw+UcNn6pBvF43pAAAACxWKSiIBzw1Es09FKtT9+jWINz7p2ELXuwgyD1FylDPUiMk6tECWc8W+TKgYlArXtfxXo2Voccw5tQ7dxIj7K18V7XD0+vfEyDVxaHm240FmKKH9frAqBrVVm5F+eKEYnRVN8nZjPSaKMAgutyyUadfHnb4cq3v/HQ+eo/mZOG0cj/c+zTdSqf1m63UMBSHvhAAAAAzZy1snuvRuGz9i2jI2InlgHA5FV66A3Epstl3sHPlhavxwPGn0+zymZm5SzH/es94jQrtVvCwx1HkcXdcz0w/w==</SSIS:Property>
           <SSIS:Property SSIS:Name="FormatVersion">1</SSIS:Property>
         </SSIS:Properties>
         <SSIS:Packages>
@@ -47,6 +47,7 @@
           <SSIS:Package SSIS:Name="ODS_Sellers.dtsx" SSIS:EntryPoint="1" />
           <SSIS:Package SSIS:Name="DWH_DimCustomers.dtsx" SSIS:EntryPoint="1" />
           <SSIS:Package SSIS:Name="DWH_DimOrderItems.dtsx" SSIS:EntryPoint="1" />
+          <SSIS:Package SSIS:Name="DWH_DimOrderPayments.dtsx" SSIS:EntryPoint="1" />
         </SSIS:Packages>
         <SSIS:ConnectionManagers>
           <SSIS:ConnectionManager SSIS:Name="MACHINEX.OLIST_STA.conmgr" />
@@ -1934,10 +1935,10 @@
                 <SSIS:Property SSIS:Name="Name">Package1</SSIS:Property>
                 <SSIS:Property SSIS:Name="VersionMajor">1</SSIS:Property>
                 <SSIS:Property SSIS:Name="VersionMinor">0</SSIS:Property>
-                <SSIS:Property SSIS:Name="VersionBuild">4</SSIS:Property>
+                <SSIS:Property SSIS:Name="VersionBuild">3</SSIS:Property>
                 <SSIS:Property SSIS:Name="VersionComments">
                 </SSIS:Property>
-                <SSIS:Property SSIS:Name="VersionGUID">{F347C632-EF72-4FB6-AF10-1555BBCF1092}</SSIS:Property>
+                <SSIS:Property SSIS:Name="VersionGUID">{29AF1F5C-ED5F-44F7-AD27-03ACFB302B2A}</SSIS:Property>
                 <SSIS:Property SSIS:Name="PackageFormatVersion">8</SSIS:Property>
                 <SSIS:Property SSIS:Name="Description">
                 </SSIS:Property>
@@ -2106,8 +2107,6 @@
                     <SSIS:Property SSIS:Name="IncludeInDebugDump">0</SSIS:Property>
                     <SSIS:Property SSIS:Name="Required">0</SSIS:Property>
                     <SSIS:Property SSIS:Name="Sensitive">0</SSIS:Property>
-                    <SSIS:Property SSIS:Name="Value">
-                    </SSIS:Property>
                     <SSIS:Property SSIS:Name="DataType">18</SSIS:Property>
                   </SSIS:Properties>
                 </SSIS:Parameter>
@@ -2502,6 +2501,23 @@
                 <SSIS:Property SSIS:Name="VersionComments">
                 </SSIS:Property>
                 <SSIS:Property SSIS:Name="VersionGUID">{31DF0BF6-D71E-462F-81C5-FFF86526FCE9}</SSIS:Property>
+                <SSIS:Property SSIS:Name="PackageFormatVersion">8</SSIS:Property>
+                <SSIS:Property SSIS:Name="Description">
+                </SSIS:Property>
+                <SSIS:Property SSIS:Name="ProtectionLevel">1</SSIS:Property>
+              </SSIS:Properties>
+              <SSIS:Parameters />
+            </SSIS:PackageMetaData>
+            <SSIS:PackageMetaData SSIS:Name="DWH_DimOrderPayments.dtsx">
+              <SSIS:Properties>
+                <SSIS:Property SSIS:Name="ID">{DDEE985C-EDF8-4EB1-AF68-5190E1A2CC51}</SSIS:Property>
+                <SSIS:Property SSIS:Name="Name">Package1</SSIS:Property>
+                <SSIS:Property SSIS:Name="VersionMajor">1</SSIS:Property>
+                <SSIS:Property SSIS:Name="VersionMinor">0</SSIS:Property>
+                <SSIS:Property SSIS:Name="VersionBuild">4</SSIS:Property>
+                <SSIS:Property SSIS:Name="VersionComments">
+                </SSIS:Property>
+                <SSIS:Property SSIS:Name="VersionGUID">{CB6D080C-0CCF-49F7-90E1-B96A549A36F9}</SSIS:Property>
                 <SSIS:Property SSIS:Name="PackageFormatVersion">8</SSIS:Property>
                 <SSIS:Property SSIS:Name="Description">
                 </SSIS:Property>

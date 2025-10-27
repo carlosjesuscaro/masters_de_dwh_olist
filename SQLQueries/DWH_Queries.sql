@@ -1,5 +1,26 @@
 USE OLIST_DWH;
 
+-- PrderPayments
+
+CREATE TABLE dbo.[DWH_DimOrderPayments] (
+    [order_payment_key] INT PRIMARY KEY IDENTITY(1, 1),
+    [order_id] varchar(50),
+    [payment_sequential] int,
+    [payment_type] varchar(12),
+    [payment_installments] int,
+    [payment_value] decimal(28,2),
+    IsInferred BIT NOT NULL DEFAULT 0
+);
+
+SELECT *
+FROM DWH_DimOrderPayments;
+
+SELECT COUNT(DISTINCT order_payment_key)
+FROM DWH_DimOrderPayments;
+
+SELECT COUNT(DISTINCT order_id)
+FROM DWH_DimOrderPayments;
+
 -- Date
 SELECT *
 FROM DWH_DimDate;

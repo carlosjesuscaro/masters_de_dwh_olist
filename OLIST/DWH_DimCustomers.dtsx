@@ -11,8 +11,8 @@
   DTS:LocaleID="4105"
   DTS:ObjectName="DWH_DimCustomers"
   DTS:PackageType="5"
-  DTS:VersionBuild="5"
-  DTS:VersionGUID="{8DF42A7F-4B8C-4D52-8843-56B5FA6D596B}">
+  DTS:VersionBuild="6"
+  DTS:VersionGUID="{A72F5C01-7692-474D-8587-ADB65B443268}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:Variables />
@@ -258,194 +258,11 @@
               </outputs>
             </component>
             <component
-              refId="Package\DFT_DWH_DimCustomers\OLE DB Command"
+              refId="Package\DFT_DWH_DimCustomers\CMD_Inference"
               componentClassID="Microsoft.OLEDBCommand"
               contactInfo="OLE DB Command;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;2"
               description="Runs an SQL statement for each row in a data flow. For example, call a 'new employee setup' stored procedure for each row in the 'new employees' table. Note: running an SQL statement for each row of a large data flow may take a long time."
-              name="OLE DB Command"
-              usesDispositions="true"
-              version="2">
-              <properties>
-                <property
-                  dataType="System.Int32"
-                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
-                  name="CommandTimeout">0</property>
-                <property
-                  dataType="System.String"
-                  description="The SQL command to be executed."
-                  expressionType="Notify"
-                  name="SqlCommand"
-                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">UPDATE [dbo].[DWH_DimCustomers] SET [customer_city] = ?,[customer_state] = ?,[customer_unique_id] = ?,[customer_zip_code_prefix] = ?,[IsInferred] = '0' WHERE [customer_id] = ? AND [IsInferred] = '1'</property>
-                <property
-                  dataType="System.Int32"
-                  description="Specifies the column code page to use when code page information is unavailable from the data source."
-                  name="DefaultCodePage">1252</property>
-              </properties>
-              <connections>
-                <connection
-                  refId="Package\DFT_DWH_DimCustomers\OLE DB Command.Connections[OleDbConnection]"
-                  connectionManagerID="{B69E558A-C9B8-4F53-92A9-616941D79363}:external"
-                  connectionManagerRefId="Project.ConnectionManagers[MACHINEX.OLIST_DWH]"
-                  description="The OLE DB runtime connection used to access the database."
-                  name="OleDbConnection" />
-              </connections>
-              <inputs>
-                <input
-                  refId="Package\DFT_DWH_DimCustomers\OLE DB Command.Inputs[OLE DB Command Input]"
-                  errorOrTruncationOperation="Command Execution"
-                  errorRowDisposition="FailComponent"
-                  hasSideEffects="true"
-                  name="OLE DB Command Input">
-                  <inputColumns>
-                    <inputColumn
-                      refId="Package\DFT_DWH_DimCustomers\OLE DB Command.Inputs[OLE DB Command Input].Columns[customer_city]"
-                      cachedCodepage="1252"
-                      cachedDataType="str"
-                      cachedLength="50"
-                      cachedName="customer_city"
-                      externalMetadataColumnId="Package\DFT_DWH_DimCustomers\OLE DB Command.Inputs[OLE DB Command Input].ExternalColumns[Param_0]"
-                      lineageId="Package\DFT_DWH_DimCustomers\OLE_SRC_ODS_Customers.Outputs[OLE DB Source Output].Columns[customer_city]" />
-                    <inputColumn
-                      refId="Package\DFT_DWH_DimCustomers\OLE DB Command.Inputs[OLE DB Command Input].Columns[customer_id]"
-                      cachedCodepage="1252"
-                      cachedDataType="str"
-                      cachedLength="50"
-                      cachedName="customer_id"
-                      externalMetadataColumnId="Package\DFT_DWH_DimCustomers\OLE DB Command.Inputs[OLE DB Command Input].ExternalColumns[Param_4]"
-                      lineageId="Package\DFT_DWH_DimCustomers\OLE_SRC_ODS_Customers.Outputs[OLE DB Source Output].Columns[customer_id]" />
-                    <inputColumn
-                      refId="Package\DFT_DWH_DimCustomers\OLE DB Command.Inputs[OLE DB Command Input].Columns[customer_state]"
-                      cachedCodepage="1252"
-                      cachedDataType="str"
-                      cachedLength="2"
-                      cachedName="customer_state"
-                      externalMetadataColumnId="Package\DFT_DWH_DimCustomers\OLE DB Command.Inputs[OLE DB Command Input].ExternalColumns[Param_1]"
-                      lineageId="Package\DFT_DWH_DimCustomers\OLE_SRC_ODS_Customers.Outputs[OLE DB Source Output].Columns[customer_state]" />
-                    <inputColumn
-                      refId="Package\DFT_DWH_DimCustomers\OLE DB Command.Inputs[OLE DB Command Input].Columns[customer_unique_id]"
-                      cachedCodepage="1252"
-                      cachedDataType="str"
-                      cachedLength="50"
-                      cachedName="customer_unique_id"
-                      externalMetadataColumnId="Package\DFT_DWH_DimCustomers\OLE DB Command.Inputs[OLE DB Command Input].ExternalColumns[Param_2]"
-                      lineageId="Package\DFT_DWH_DimCustomers\OLE_SRC_ODS_Customers.Outputs[OLE DB Source Output].Columns[customer_unique_id]" />
-                    <inputColumn
-                      refId="Package\DFT_DWH_DimCustomers\OLE DB Command.Inputs[OLE DB Command Input].Columns[customer_zip_code_prefix]"
-                      cachedCodepage="1252"
-                      cachedDataType="str"
-                      cachedLength="5"
-                      cachedName="customer_zip_code_prefix"
-                      externalMetadataColumnId="Package\DFT_DWH_DimCustomers\OLE DB Command.Inputs[OLE DB Command Input].ExternalColumns[Param_3]"
-                      lineageId="Package\DFT_DWH_DimCustomers\OLE_SRC_ODS_Customers.Outputs[OLE DB Source Output].Columns[customer_zip_code_prefix]" />
-                  </inputColumns>
-                  <externalMetadataColumns
-                    isUsed="True">
-                    <externalMetadataColumn
-                      refId="Package\DFT_DWH_DimCustomers\OLE DB Command.Inputs[OLE DB Command Input].ExternalColumns[Param_0]"
-                      codePage="1252"
-                      dataType="str"
-                      length="50"
-                      name="Param_0">
-                      <properties>
-                        <property
-                          dataType="System.Int32"
-                          description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
-                          name="DBParamInfoFlags">65</property>
-                      </properties>
-                    </externalMetadataColumn>
-                    <externalMetadataColumn
-                      refId="Package\DFT_DWH_DimCustomers\OLE DB Command.Inputs[OLE DB Command Input].ExternalColumns[Param_1]"
-                      codePage="1252"
-                      dataType="str"
-                      length="2"
-                      name="Param_1">
-                      <properties>
-                        <property
-                          dataType="System.Int32"
-                          description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
-                          name="DBParamInfoFlags">65</property>
-                      </properties>
-                    </externalMetadataColumn>
-                    <externalMetadataColumn
-                      refId="Package\DFT_DWH_DimCustomers\OLE DB Command.Inputs[OLE DB Command Input].ExternalColumns[Param_2]"
-                      codePage="1252"
-                      dataType="str"
-                      length="50"
-                      name="Param_2">
-                      <properties>
-                        <property
-                          dataType="System.Int32"
-                          description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
-                          name="DBParamInfoFlags">65</property>
-                      </properties>
-                    </externalMetadataColumn>
-                    <externalMetadataColumn
-                      refId="Package\DFT_DWH_DimCustomers\OLE DB Command.Inputs[OLE DB Command Input].ExternalColumns[Param_3]"
-                      codePage="1252"
-                      dataType="str"
-                      length="5"
-                      name="Param_3">
-                      <properties>
-                        <property
-                          dataType="System.Int32"
-                          description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
-                          name="DBParamInfoFlags">65</property>
-                      </properties>
-                    </externalMetadataColumn>
-                    <externalMetadataColumn
-                      refId="Package\DFT_DWH_DimCustomers\OLE DB Command.Inputs[OLE DB Command Input].ExternalColumns[Param_4]"
-                      codePage="1252"
-                      dataType="str"
-                      length="50"
-                      name="Param_4">
-                      <properties>
-                        <property
-                          dataType="System.Int32"
-                          description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
-                          name="DBParamInfoFlags">65</property>
-                      </properties>
-                    </externalMetadataColumn>
-                  </externalMetadataColumns>
-                </input>
-              </inputs>
-              <outputs>
-                <output
-                  refId="Package\DFT_DWH_DimCustomers\OLE DB Command.Outputs[OLE DB Command Output]"
-                  exclusionGroup="1"
-                  name="OLE DB Command Output"
-                  synchronousInputId="Package\DFT_DWH_DimCustomers\OLE DB Command.Inputs[OLE DB Command Input]">
-                  <externalMetadataColumns />
-                </output>
-                <output
-                  refId="Package\DFT_DWH_DimCustomers\OLE DB Command.Outputs[OLE DB Command Error Output]"
-                  exclusionGroup="1"
-                  isErrorOut="true"
-                  name="OLE DB Command Error Output"
-                  synchronousInputId="Package\DFT_DWH_DimCustomers\OLE DB Command.Inputs[OLE DB Command Input]">
-                  <outputColumns>
-                    <outputColumn
-                      refId="Package\DFT_DWH_DimCustomers\OLE DB Command.Outputs[OLE DB Command Error Output].Columns[ErrorCode]"
-                      dataType="i4"
-                      lineageId="Package\DFT_DWH_DimCustomers\OLE DB Command.Outputs[OLE DB Command Error Output].Columns[ErrorCode]"
-                      name="ErrorCode"
-                      specialFlags="1" />
-                    <outputColumn
-                      refId="Package\DFT_DWH_DimCustomers\OLE DB Command.Outputs[OLE DB Command Error Output].Columns[ErrorColumn]"
-                      dataType="i4"
-                      lineageId="Package\DFT_DWH_DimCustomers\OLE DB Command.Outputs[OLE DB Command Error Output].Columns[ErrorColumn]"
-                      name="ErrorColumn"
-                      specialFlags="2" />
-                  </outputColumns>
-                  <externalMetadataColumns />
-                </output>
-              </outputs>
-            </component>
-            <component
-              refId="Package\DFT_DWH_DimCustomers\OLE DB Command 1"
-              componentClassID="Microsoft.OLEDBCommand"
-              contactInfo="OLE DB Command;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;2"
-              description="Runs an SQL statement for each row in a data flow. For example, call a 'new employee setup' stored procedure for each row in the 'new employees' table. Note: running an SQL statement for each row of a large data flow may take a long time."
-              name="OLE DB Command 1"
+              name="CMD_Inference"
               usesDispositions="true"
               version="2">
               <properties>
@@ -466,7 +283,7 @@
               </properties>
               <connections>
                 <connection
-                  refId="Package\DFT_DWH_DimCustomers\OLE DB Command 1.Connections[OleDbConnection]"
+                  refId="Package\DFT_DWH_DimCustomers\CMD_Inference.Connections[OleDbConnection]"
                   connectionManagerID="{B69E558A-C9B8-4F53-92A9-616941D79363}:external"
                   connectionManagerRefId="Project.ConnectionManagers[MACHINEX.OLIST_DWH]"
                   description="The OLE DB runtime connection used to access the database."
@@ -474,57 +291,57 @@
               </connections>
               <inputs>
                 <input
-                  refId="Package\DFT_DWH_DimCustomers\OLE DB Command 1.Inputs[OLE DB Command Input]"
+                  refId="Package\DFT_DWH_DimCustomers\CMD_Inference.Inputs[OLE DB Command Input]"
                   errorOrTruncationOperation="Command Execution"
                   errorRowDisposition="FailComponent"
                   hasSideEffects="true"
                   name="OLE DB Command Input">
                   <inputColumns>
                     <inputColumn
-                      refId="Package\DFT_DWH_DimCustomers\OLE DB Command 1.Inputs[OLE DB Command Input].Columns[customer_city]"
+                      refId="Package\DFT_DWH_DimCustomers\CMD_Inference.Inputs[OLE DB Command Input].Columns[customer_city]"
                       cachedCodepage="1252"
                       cachedDataType="str"
                       cachedLength="50"
                       cachedName="customer_city"
-                      externalMetadataColumnId="Package\DFT_DWH_DimCustomers\OLE DB Command 1.Inputs[OLE DB Command Input].ExternalColumns[Param_0]"
+                      externalMetadataColumnId="Package\DFT_DWH_DimCustomers\CMD_Inference.Inputs[OLE DB Command Input].ExternalColumns[Param_0]"
                       lineageId="Package\DFT_DWH_DimCustomers\OLE_SRC_ODS_Customers.Outputs[OLE DB Source Output].Columns[customer_city]" />
                     <inputColumn
-                      refId="Package\DFT_DWH_DimCustomers\OLE DB Command 1.Inputs[OLE DB Command Input].Columns[customer_id]"
+                      refId="Package\DFT_DWH_DimCustomers\CMD_Inference.Inputs[OLE DB Command Input].Columns[customer_id]"
                       cachedCodepage="1252"
                       cachedDataType="str"
                       cachedLength="50"
                       cachedName="customer_id"
-                      externalMetadataColumnId="Package\DFT_DWH_DimCustomers\OLE DB Command 1.Inputs[OLE DB Command Input].ExternalColumns[Param_4]"
+                      externalMetadataColumnId="Package\DFT_DWH_DimCustomers\CMD_Inference.Inputs[OLE DB Command Input].ExternalColumns[Param_4]"
                       lineageId="Package\DFT_DWH_DimCustomers\OLE_SRC_ODS_Customers.Outputs[OLE DB Source Output].Columns[customer_id]" />
                     <inputColumn
-                      refId="Package\DFT_DWH_DimCustomers\OLE DB Command 1.Inputs[OLE DB Command Input].Columns[customer_state]"
+                      refId="Package\DFT_DWH_DimCustomers\CMD_Inference.Inputs[OLE DB Command Input].Columns[customer_state]"
                       cachedCodepage="1252"
                       cachedDataType="str"
                       cachedLength="2"
                       cachedName="customer_state"
-                      externalMetadataColumnId="Package\DFT_DWH_DimCustomers\OLE DB Command 1.Inputs[OLE DB Command Input].ExternalColumns[Param_1]"
+                      externalMetadataColumnId="Package\DFT_DWH_DimCustomers\CMD_Inference.Inputs[OLE DB Command Input].ExternalColumns[Param_1]"
                       lineageId="Package\DFT_DWH_DimCustomers\OLE_SRC_ODS_Customers.Outputs[OLE DB Source Output].Columns[customer_state]" />
                     <inputColumn
-                      refId="Package\DFT_DWH_DimCustomers\OLE DB Command 1.Inputs[OLE DB Command Input].Columns[customer_unique_id]"
+                      refId="Package\DFT_DWH_DimCustomers\CMD_Inference.Inputs[OLE DB Command Input].Columns[customer_unique_id]"
                       cachedCodepage="1252"
                       cachedDataType="str"
                       cachedLength="50"
                       cachedName="customer_unique_id"
-                      externalMetadataColumnId="Package\DFT_DWH_DimCustomers\OLE DB Command 1.Inputs[OLE DB Command Input].ExternalColumns[Param_2]"
+                      externalMetadataColumnId="Package\DFT_DWH_DimCustomers\CMD_Inference.Inputs[OLE DB Command Input].ExternalColumns[Param_2]"
                       lineageId="Package\DFT_DWH_DimCustomers\OLE_SRC_ODS_Customers.Outputs[OLE DB Source Output].Columns[customer_unique_id]" />
                     <inputColumn
-                      refId="Package\DFT_DWH_DimCustomers\OLE DB Command 1.Inputs[OLE DB Command Input].Columns[customer_zip_code_prefix]"
+                      refId="Package\DFT_DWH_DimCustomers\CMD_Inference.Inputs[OLE DB Command Input].Columns[customer_zip_code_prefix]"
                       cachedCodepage="1252"
                       cachedDataType="str"
                       cachedLength="5"
                       cachedName="customer_zip_code_prefix"
-                      externalMetadataColumnId="Package\DFT_DWH_DimCustomers\OLE DB Command 1.Inputs[OLE DB Command Input].ExternalColumns[Param_3]"
+                      externalMetadataColumnId="Package\DFT_DWH_DimCustomers\CMD_Inference.Inputs[OLE DB Command Input].ExternalColumns[Param_3]"
                       lineageId="Package\DFT_DWH_DimCustomers\OLE_SRC_ODS_Customers.Outputs[OLE DB Source Output].Columns[customer_zip_code_prefix]" />
                   </inputColumns>
                   <externalMetadataColumns
                     isUsed="True">
                     <externalMetadataColumn
-                      refId="Package\DFT_DWH_DimCustomers\OLE DB Command 1.Inputs[OLE DB Command Input].ExternalColumns[Param_0]"
+                      refId="Package\DFT_DWH_DimCustomers\CMD_Inference.Inputs[OLE DB Command Input].ExternalColumns[Param_0]"
                       codePage="1252"
                       dataType="str"
                       length="50"
@@ -537,7 +354,7 @@
                       </properties>
                     </externalMetadataColumn>
                     <externalMetadataColumn
-                      refId="Package\DFT_DWH_DimCustomers\OLE DB Command 1.Inputs[OLE DB Command Input].ExternalColumns[Param_1]"
+                      refId="Package\DFT_DWH_DimCustomers\CMD_Inference.Inputs[OLE DB Command Input].ExternalColumns[Param_1]"
                       codePage="1252"
                       dataType="str"
                       length="2"
@@ -550,7 +367,7 @@
                       </properties>
                     </externalMetadataColumn>
                     <externalMetadataColumn
-                      refId="Package\DFT_DWH_DimCustomers\OLE DB Command 1.Inputs[OLE DB Command Input].ExternalColumns[Param_2]"
+                      refId="Package\DFT_DWH_DimCustomers\CMD_Inference.Inputs[OLE DB Command Input].ExternalColumns[Param_2]"
                       codePage="1252"
                       dataType="str"
                       length="50"
@@ -563,7 +380,7 @@
                       </properties>
                     </externalMetadataColumn>
                     <externalMetadataColumn
-                      refId="Package\DFT_DWH_DimCustomers\OLE DB Command 1.Inputs[OLE DB Command Input].ExternalColumns[Param_3]"
+                      refId="Package\DFT_DWH_DimCustomers\CMD_Inference.Inputs[OLE DB Command Input].ExternalColumns[Param_3]"
                       codePage="1252"
                       dataType="str"
                       length="5"
@@ -576,7 +393,7 @@
                       </properties>
                     </externalMetadataColumn>
                     <externalMetadataColumn
-                      refId="Package\DFT_DWH_DimCustomers\OLE DB Command 1.Inputs[OLE DB Command Input].ExternalColumns[Param_4]"
+                      refId="Package\DFT_DWH_DimCustomers\CMD_Inference.Inputs[OLE DB Command Input].ExternalColumns[Param_4]"
                       codePage="1252"
                       dataType="str"
                       length="50"
@@ -593,29 +410,212 @@
               </inputs>
               <outputs>
                 <output
-                  refId="Package\DFT_DWH_DimCustomers\OLE DB Command 1.Outputs[OLE DB Command Output]"
+                  refId="Package\DFT_DWH_DimCustomers\CMD_Inference.Outputs[OLE DB Command Output]"
                   exclusionGroup="1"
                   name="OLE DB Command Output"
-                  synchronousInputId="Package\DFT_DWH_DimCustomers\OLE DB Command 1.Inputs[OLE DB Command Input]">
+                  synchronousInputId="Package\DFT_DWH_DimCustomers\CMD_Inference.Inputs[OLE DB Command Input]">
                   <externalMetadataColumns />
                 </output>
                 <output
-                  refId="Package\DFT_DWH_DimCustomers\OLE DB Command 1.Outputs[OLE DB Command Error Output]"
+                  refId="Package\DFT_DWH_DimCustomers\CMD_Inference.Outputs[OLE DB Command Error Output]"
                   exclusionGroup="1"
                   isErrorOut="true"
                   name="OLE DB Command Error Output"
-                  synchronousInputId="Package\DFT_DWH_DimCustomers\OLE DB Command 1.Inputs[OLE DB Command Input]">
+                  synchronousInputId="Package\DFT_DWH_DimCustomers\CMD_Inference.Inputs[OLE DB Command Input]">
                   <outputColumns>
                     <outputColumn
-                      refId="Package\DFT_DWH_DimCustomers\OLE DB Command 1.Outputs[OLE DB Command Error Output].Columns[ErrorCode]"
+                      refId="Package\DFT_DWH_DimCustomers\CMD_Inference.Outputs[OLE DB Command Error Output].Columns[ErrorCode]"
                       dataType="i4"
-                      lineageId="Package\DFT_DWH_DimCustomers\OLE DB Command 1.Outputs[OLE DB Command Error Output].Columns[ErrorCode]"
+                      lineageId="Package\DFT_DWH_DimCustomers\CMD_Inference.Outputs[OLE DB Command Error Output].Columns[ErrorCode]"
                       name="ErrorCode"
                       specialFlags="1" />
                     <outputColumn
-                      refId="Package\DFT_DWH_DimCustomers\OLE DB Command 1.Outputs[OLE DB Command Error Output].Columns[ErrorColumn]"
+                      refId="Package\DFT_DWH_DimCustomers\CMD_Inference.Outputs[OLE DB Command Error Output].Columns[ErrorColumn]"
                       dataType="i4"
-                      lineageId="Package\DFT_DWH_DimCustomers\OLE DB Command 1.Outputs[OLE DB Command Error Output].Columns[ErrorColumn]"
+                      lineageId="Package\DFT_DWH_DimCustomers\CMD_Inference.Outputs[OLE DB Command Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\DFT_DWH_DimCustomers\CMD_Updates"
+              componentClassID="Microsoft.OLEDBCommand"
+              contactInfo="OLE DB Command;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;2"
+              description="Runs an SQL statement for each row in a data flow. For example, call a 'new employee setup' stored procedure for each row in the 'new employees' table. Note: running an SQL statement for each row of a large data flow may take a long time."
+              name="CMD_Updates"
+              usesDispositions="true"
+              version="2">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  expressionType="Notify"
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">UPDATE [dbo].[DWH_DimCustomers] SET [customer_city] = ?,[customer_state] = ?,[customer_unique_id] = ?,[customer_zip_code_prefix] = ?,[IsInferred] = '0' WHERE [customer_id] = ? AND [IsInferred] = '1'</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\DFT_DWH_DimCustomers\CMD_Updates.Connections[OleDbConnection]"
+                  connectionManagerID="{B69E558A-C9B8-4F53-92A9-616941D79363}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[MACHINEX.OLIST_DWH]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\DFT_DWH_DimCustomers\CMD_Updates.Inputs[OLE DB Command Input]"
+                  errorOrTruncationOperation="Command Execution"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="OLE DB Command Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\DFT_DWH_DimCustomers\CMD_Updates.Inputs[OLE DB Command Input].Columns[customer_city]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="customer_city"
+                      externalMetadataColumnId="Package\DFT_DWH_DimCustomers\CMD_Updates.Inputs[OLE DB Command Input].ExternalColumns[Param_0]"
+                      lineageId="Package\DFT_DWH_DimCustomers\OLE_SRC_ODS_Customers.Outputs[OLE DB Source Output].Columns[customer_city]" />
+                    <inputColumn
+                      refId="Package\DFT_DWH_DimCustomers\CMD_Updates.Inputs[OLE DB Command Input].Columns[customer_id]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="customer_id"
+                      externalMetadataColumnId="Package\DFT_DWH_DimCustomers\CMD_Updates.Inputs[OLE DB Command Input].ExternalColumns[Param_4]"
+                      lineageId="Package\DFT_DWH_DimCustomers\OLE_SRC_ODS_Customers.Outputs[OLE DB Source Output].Columns[customer_id]" />
+                    <inputColumn
+                      refId="Package\DFT_DWH_DimCustomers\CMD_Updates.Inputs[OLE DB Command Input].Columns[customer_state]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="2"
+                      cachedName="customer_state"
+                      externalMetadataColumnId="Package\DFT_DWH_DimCustomers\CMD_Updates.Inputs[OLE DB Command Input].ExternalColumns[Param_1]"
+                      lineageId="Package\DFT_DWH_DimCustomers\OLE_SRC_ODS_Customers.Outputs[OLE DB Source Output].Columns[customer_state]" />
+                    <inputColumn
+                      refId="Package\DFT_DWH_DimCustomers\CMD_Updates.Inputs[OLE DB Command Input].Columns[customer_unique_id]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="customer_unique_id"
+                      externalMetadataColumnId="Package\DFT_DWH_DimCustomers\CMD_Updates.Inputs[OLE DB Command Input].ExternalColumns[Param_2]"
+                      lineageId="Package\DFT_DWH_DimCustomers\OLE_SRC_ODS_Customers.Outputs[OLE DB Source Output].Columns[customer_unique_id]" />
+                    <inputColumn
+                      refId="Package\DFT_DWH_DimCustomers\CMD_Updates.Inputs[OLE DB Command Input].Columns[customer_zip_code_prefix]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="5"
+                      cachedName="customer_zip_code_prefix"
+                      externalMetadataColumnId="Package\DFT_DWH_DimCustomers\CMD_Updates.Inputs[OLE DB Command Input].ExternalColumns[Param_3]"
+                      lineageId="Package\DFT_DWH_DimCustomers\OLE_SRC_ODS_Customers.Outputs[OLE DB Source Output].Columns[customer_zip_code_prefix]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\DFT_DWH_DimCustomers\CMD_Updates.Inputs[OLE DB Command Input].ExternalColumns[Param_0]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="Param_0">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                          name="DBParamInfoFlags">65</property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\DFT_DWH_DimCustomers\CMD_Updates.Inputs[OLE DB Command Input].ExternalColumns[Param_1]"
+                      codePage="1252"
+                      dataType="str"
+                      length="2"
+                      name="Param_1">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                          name="DBParamInfoFlags">65</property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\DFT_DWH_DimCustomers\CMD_Updates.Inputs[OLE DB Command Input].ExternalColumns[Param_2]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="Param_2">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                          name="DBParamInfoFlags">65</property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\DFT_DWH_DimCustomers\CMD_Updates.Inputs[OLE DB Command Input].ExternalColumns[Param_3]"
+                      codePage="1252"
+                      dataType="str"
+                      length="5"
+                      name="Param_3">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                          name="DBParamInfoFlags">65</property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\DFT_DWH_DimCustomers\CMD_Updates.Inputs[OLE DB Command Input].ExternalColumns[Param_4]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="Param_4">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                          name="DBParamInfoFlags">65</property>
+                      </properties>
+                    </externalMetadataColumn>
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\DFT_DWH_DimCustomers\CMD_Updates.Outputs[OLE DB Command Output]"
+                  exclusionGroup="1"
+                  name="OLE DB Command Output"
+                  synchronousInputId="Package\DFT_DWH_DimCustomers\CMD_Updates.Inputs[OLE DB Command Input]">
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\DFT_DWH_DimCustomers\CMD_Updates.Outputs[OLE DB Command Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="OLE DB Command Error Output"
+                  synchronousInputId="Package\DFT_DWH_DimCustomers\CMD_Updates.Inputs[OLE DB Command Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DFT_DWH_DimCustomers\CMD_Updates.Outputs[OLE DB Command Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\DFT_DWH_DimCustomers\CMD_Updates.Outputs[OLE DB Command Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\DFT_DWH_DimCustomers\CMD_Updates.Outputs[OLE DB Command Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\DFT_DWH_DimCustomers\CMD_Updates.Outputs[OLE DB Command Error Output].Columns[ErrorColumn]"
                       name="ErrorColumn"
                       specialFlags="2" />
                   </outputColumns>
@@ -1423,12 +1423,12 @@
           <paths>
             <path
               refId="Package\DFT_DWH_DimCustomers.Paths[Changing Attribute Updates Output]"
-              endId="Package\DFT_DWH_DimCustomers\OLE DB Command 1.Inputs[OLE DB Command Input]"
+              endId="Package\DFT_DWH_DimCustomers\CMD_Inference.Inputs[OLE DB Command Input]"
               name="Changing Attribute Updates Output"
               startId="Package\DFT_DWH_DimCustomers\SDC_DWH_DimCustomers.Outputs[Changing Attribute Updates Output]" />
             <path
               refId="Package\DFT_DWH_DimCustomers.Paths[Inferred Member Updates Output]"
-              endId="Package\DFT_DWH_DimCustomers\OLE DB Command.Inputs[OLE DB Command Input]"
+              endId="Package\DFT_DWH_DimCustomers\CMD_Updates.Inputs[OLE DB Command Input]"
               name="Inferred Member Updates Output"
               startId="Package\DFT_DWH_DimCustomers\SDC_DWH_DimCustomers.Outputs[Inferred Member Updates Output]" />
             <path
@@ -1440,12 +1440,12 @@
               refId="Package\DFT_DWH_DimCustomers.Paths[OLE DB Command Output]"
               endId="Package\DFT_DWH_DimCustomers\ALL_Updates.Inputs[Union All Input 1]"
               name="OLE DB Command Output"
-              startId="Package\DFT_DWH_DimCustomers\OLE DB Command.Outputs[OLE DB Command Output]" />
+              startId="Package\DFT_DWH_DimCustomers\CMD_Updates.Outputs[OLE DB Command Output]" />
             <path
               refId="Package\DFT_DWH_DimCustomers.Paths[OLE DB Command Output1]"
               endId="Package\DFT_DWH_DimCustomers\ALL_Updates.Inputs[Union All Input 2]"
               name="OLE DB Command Output"
-              startId="Package\DFT_DWH_DimCustomers\OLE DB Command 1.Outputs[OLE DB Command Output]" />
+              startId="Package\DFT_DWH_DimCustomers\CMD_Inference.Outputs[OLE DB Command Output]" />
             <path
               refId="Package\DFT_DWH_DimCustomers.Paths[OLE DB Source Output]"
               endId="Package\DFT_DWH_DimCustomers\SDC_DWH_DimCustomers.Inputs[Slowly Changing Dimension Input]"
@@ -1486,13 +1486,55 @@
       <GraphLayout
         Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
+          Size="151,42"
+          Id="Package\DFT_DWH_DimCustomers\CMD_Updates"
+          TopLeft="256.5,292.5" />
+        <NodeLayout
+          Size="240,42"
+          Id="Package\DFT_DWH_DimCustomers\OLE_DST_DWH_DimCustomers"
+          TopLeft="26.5000000000001,213.5" />
+        <NodeLayout
+          Size="287,42"
+          Id="Package\DFT_DWH_DimCustomers\OLE_DST_DWH_DimCustomers_Updates"
+          TopLeft="365,492" />
+        <NodeLayout
+          Size="156,42"
+          Id="Package\DFT_DWH_DimCustomers\CMD_Inference"
+          TopLeft="497,296.5" />
+        <NodeLayout
           Size="219,42"
           Id="Package\DFT_DWH_DimCustomers\OLE_SRC_ODS_Customers"
           TopLeft="229.5,9.49999999999989" />
         <NodeLayout
+          Size="146,42"
+          Id="Package\DFT_DWH_DimCustomers\ALL_Updates"
+          TopLeft="434,392" />
+        <NodeLayout
           Size="213,42"
           Id="Package\DFT_DWH_DimCustomers\SDC_DWH_DimCustomers"
           TopLeft="232.5,111.5" />
+        <EdgeLayout
+          Id="Package\DFT_DWH_DimCustomers.Paths[Union All Output 1]"
+          TopLeft="507.75,434">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,58"
+              Start="0,0"
+              End="0,50.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,50.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
         <EdgeLayout
           Id="Package\DFT_DWH_DimCustomers.Paths[OLE DB Source Output]"
           TopLeft="339,51.4999999999999">
@@ -1515,10 +1557,74 @@
             <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
-        <NodeLayout
-          Size="240,42"
-          Id="Package\DFT_DWH_DimCustomers\OLE_DST_DWH_DimCustomers"
-          TopLeft="26.5000000000001,213.5" />
+        <EdgeLayout
+          Id="Package\DFT_DWH_DimCustomers.Paths[OLE DB Command Output1]"
+          TopLeft="575,338.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-45,53.5"
+              Start="0,0"
+              End="-45,46">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,27.7520325203252" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,27.7520325203252"
+                    Point2="0,31.7520325203252"
+                    Point3="-4,31.7520325203252" />
+                  <mssgle:LineSegment
+                    End="-41,31.7520325203252" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-41,31.7520325203252"
+                    Point2="-45,31.7520325203252"
+                    Point3="-45,35.7520325203252" />
+                  <mssgle:LineSegment
+                    End="-45,46" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\DFT_DWH_DimCustomers.Paths[OLE DB Command Output]"
+          TopLeft="332,334.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="152,57.5"
+              Start="0,0"
+              End="152,50">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,30.1260162601626" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,30.1260162601626"
+                    Point2="0,34.1260162601626"
+                    Point3="4,34.1260162601626" />
+                  <mssgle:LineSegment
+                    End="148,34.1260162601626" />
+                  <mssgle:CubicBezierSegment
+                    Point1="148,34.1260162601626"
+                    Point2="152,34.1260162601626"
+                    Point3="152,38.1260162601626" />
+                  <mssgle:LineSegment
+                    End="152,50" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
         <EdgeLayout
           Id="Package\DFT_DWH_DimCustomers.Paths[New Output]"
           TopLeft="287.75,153.5">
@@ -1555,13 +1661,9 @@
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
-        <NodeLayout
-          Size="173,42"
-          Id="Package\DFT_DWH_DimCustomers\OLE DB Command"
-          TopLeft="253.5,292.5" />
         <EdgeLayout
           Id="Package\DFT_DWH_DimCustomers.Paths[Inferred Member Updates Output]"
-          TopLeft="339.5,153.5">
+          TopLeft="335.5,153.5">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
@@ -1583,19 +1685,15 @@
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
-        <NodeLayout
-          Size="182,42"
-          Id="Package\DFT_DWH_DimCustomers\OLE DB Command 1"
-          TopLeft="497,296.5" />
         <EdgeLayout
           Id="Package\DFT_DWH_DimCustomers.Paths[Changing Attribute Updates Output]"
           TopLeft="390.25,153.5">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="197.75,143"
+              EndConnector="184.75,143"
               Start="0,0"
-              End="197.75,135.5">
+              End="184.75,135.5">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
@@ -1606,119 +1704,21 @@
                     Point2="0,48.8454404945904"
                     Point3="4,48.8454404945904" />
                   <mssgle:LineSegment
-                    End="193.75,48.8454404945904" />
+                    End="180.75,48.8454404945904" />
                   <mssgle:CubicBezierSegment
-                    Point1="193.75,48.8454404945904"
-                    Point2="197.75,48.8454404945904"
-                    Point3="197.75,52.8454404945904" />
+                    Point1="180.75,48.8454404945904"
+                    Point2="184.75,48.8454404945904"
+                    Point3="184.75,52.8454404945904" />
                   <mssgle:LineSegment
-                    End="197.75,135.5" />
+                    End="184.75,135.5" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
             <mssgm:EdgeLabel
-              BoundingBox="20.34109375,53.8454404945904,157.0678125,11.6630859375"
+              BoundingBox="13.84109375,53.8454404945904,157.0678125,11.6630859375"
               RelativePosition="Any" />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <NodeLayout
-          Size="146,42"
-          Id="Package\DFT_DWH_DimCustomers\ALL_Updates"
-          TopLeft="434,392" />
-        <EdgeLayout
-          Id="Package\DFT_DWH_DimCustomers.Paths[OLE DB Command Output]"
-          TopLeft="340,334.5">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="144,57.5000000000001"
-              Start="0,0"
-              End="144,50.0000000000001">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,30.1260162601627" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,30.1260162601627"
-                    Point2="0,34.1260162601627"
-                    Point3="4,34.1260162601627" />
-                  <mssgle:LineSegment
-                    End="140,34.1260162601627" />
-                  <mssgle:CubicBezierSegment
-                    Point1="140,34.1260162601627"
-                    Point2="144,34.1260162601627"
-                    Point3="144,38.1260162601627" />
-                  <mssgle:LineSegment
-                    End="144,50.0000000000001" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\DFT_DWH_DimCustomers.Paths[OLE DB Command Output1]"
-          TopLeft="588,338.5">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="-58,53.5000000000001"
-              Start="0,0"
-              End="-58,46.0000000000001">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,27.7520325203253" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,27.7520325203253"
-                    Point2="0,31.7520325203253"
-                    Point3="-4,31.7520325203253" />
-                  <mssgle:LineSegment
-                    End="-54,31.7520325203253" />
-                  <mssgle:CubicBezierSegment
-                    Point1="-54,31.7520325203253"
-                    Point2="-58,31.7520325203253"
-                    Point3="-58,35.7520325203253" />
-                  <mssgle:LineSegment
-                    End="-58,46.0000000000001" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <NodeLayout
-          Size="287,42"
-          Id="Package\DFT_DWH_DimCustomers\OLE_DST_DWH_DimCustomers_Updates"
-          TopLeft="365,492" />
-        <EdgeLayout
-          Id="Package\DFT_DWH_DimCustomers.Paths[Union All Output 1]"
-          TopLeft="507.75,434">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,58"
-              Start="0,0"
-              End="0,50.5">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,50.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>
