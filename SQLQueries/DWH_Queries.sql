@@ -1,5 +1,25 @@
 USE OLIST_DWH;
 
+-- Sellers
+
+CREATE TABLE dbo.[DWH_DimSellers] (
+    [seller_key] INT PRIMARY KEY IDENTITY(1, 1),
+    [seller_id] varchar(50),
+    [seller_zip_code_prefix] varchar(5),
+    [seller_city] varchar(50),
+    [seller_state] varchar(2),
+    IsInferred BIT NOT NULL DEFAULT 0
+);
+
+SELECT *
+FROM DWH_DimSellers;
+
+SELECT COUNT(DISTINCT seller_key)
+FROM DWH_DimSellers;
+
+SELECT COUNT(DISTINCT seller_id)
+FROM DWH_DimSellers;
+
 -- Products
 
 CREATE TABLE dbo.[DWH_DimProducts] (
