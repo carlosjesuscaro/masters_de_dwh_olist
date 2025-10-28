@@ -1,5 +1,28 @@
 USE OLIST_DWH;
 
+-- Orders
+
+CREATE TABLE dbo.[DWH_FactOrders] (
+    [order_id] varchar(50) NULL,
+    [customer_key] varchar(50) NULL,
+    [order_status] varchar(50) NULL,
+    [order_purchase_timestamp] datetime NULL,
+    [order_purchase_datekey] INT NULL,
+    [order_approved_at] datetime NULL,
+    [order_approved_datekey] INT NULL,
+    [order_delivered_carrier_date] datetime NULL,
+    [order_delivered_carrier_datekey] INT NULL,
+    [order_delivered_customer_date] datetime NULL,
+    [order_delivered_customer_datekey] INT NULL,
+    [order_estimated_delivery_date] datetime NULL,
+    [order_estimated_delivery_datekey] INT NULL,
+);
+
+SELECT *
+FROM DWH_FactOrders;
+
+DROP TABLE dbo.DWH_FactOrders;
+
 -- Sellers
 
 CREATE TABLE dbo.[DWH_DimSellers] (
@@ -71,7 +94,7 @@ FROM DWH_DimOrderReviews;
 
 TRUNCATE TABLE DWH_DimOrderReviews;
 
--- PrderPayments
+-- OrderPayments
 
 CREATE TABLE dbo.[DWH_DimOrderPayments] (
     [order_payment_key] INT PRIMARY KEY IDENTITY(1, 1),

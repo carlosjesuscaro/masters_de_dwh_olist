@@ -1,0 +1,2524 @@
+<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="10/27/2025 11:54:20 PM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="MACHINEX"
+  DTS:CreatorName="MACHINEX\carlos"
+  DTS:DTSID="{6A7762F5-90B4-4913-B48D-6D45738AB8A3}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="16.0.5685.2"
+  DTS:LocaleID="4105"
+  DTS:ObjectName="DWH_FactOrders"
+  DTS:PackageType="5"
+  DTS:VersionBuild="16"
+  DTS:VersionGUID="{20779361-9088-4139-BC56-7DC158865929}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:Variables />
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\DFT_DWH_FactOrders"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Data Flow Task"
+      DTS:DTSID="{4392854D-97FD-40C6-B7EF-F68C0AD2ECCC}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="DFT_DWH_FactOrders"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\DFT_DWH_FactOrders\DER_OrderApproved_DateKey"
+              componentClassID="Microsoft.DerivedColumn"
+              contactInfo="Derived Column;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+              description="Creates new column values by applying expressions to transformation input columns. Create new columns or overwrite existing ones. For example, concatenate the values from the 'first name' and 'last name' column to make a 'full name' column."
+              name="DER_OrderApproved_DateKey"
+              usesDispositions="true">
+              <inputs>
+                <input
+                  refId="Package\DFT_DWH_FactOrders\DER_OrderApproved_DateKey.Inputs[Derived Column Input]"
+                  description="Input to the Derived Column Transformation"
+                  name="Derived Column Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\DFT_DWH_FactOrders\DER_OrderApproved_DateKey.Inputs[Derived Column Input].Columns[order_approved_at]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="order_approved_at"
+                      lineageId="Package\DFT_DWH_FactOrders\OLE_SRC_ODS_Orders.Outputs[OLE DB Source Output].Columns[order_approved_at]" />
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\DFT_DWH_FactOrders\DER_OrderApproved_DateKey.Outputs[Derived Column Output]"
+                  description="Default Output of the Derived Column Transformation"
+                  exclusionGroup="1"
+                  name="Derived Column Output"
+                  synchronousInputId="Package\DFT_DWH_FactOrders\DER_OrderApproved_DateKey.Inputs[Derived Column Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DFT_DWH_FactOrders\DER_OrderApproved_DateKey.Outputs[Derived Column Output].Columns[order_approved_datekey]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Computation"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\DFT_DWH_FactOrders\DER_OrderApproved_DateKey.Outputs[Derived Column Output].Columns[order_approved_datekey]"
+                      name="order_approved_datekey"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Expression"
+                          name="Expression">(DT_I4)([YEAR](#{Package\DFT_DWH_FactOrders\OLE_SRC_ODS_Orders.Outputs[OLE DB Source Output].Columns[order_approved_at]}) * 10000 + [MONTH](#{Package\DFT_DWH_FactOrders\OLE_SRC_ODS_Orders.Outputs[OLE DB Source Output].Columns[order_approved_at]}) * 100 + [DAY](#{Package\DFT_DWH_FactOrders\OLE_SRC_ODS_Orders.Outputs[OLE DB Source Output].Columns[order_approved_at]}))</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Friendly Expression"
+                          expressionType="Notify"
+                          name="FriendlyExpression">(DT_I4)(YEAR(order_approved_at) * 10000 + MONTH(order_approved_at) * 100 + DAY(order_approved_at))</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\DFT_DWH_FactOrders\DER_OrderApproved_DateKey.Outputs[Derived Column Error Output]"
+                  description="Error Output of the Derived Column Transformation"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Derived Column Error Output"
+                  synchronousInputId="Package\DFT_DWH_FactOrders\DER_OrderApproved_DateKey.Inputs[Derived Column Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DFT_DWH_FactOrders\DER_OrderApproved_DateKey.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\DFT_DWH_FactOrders\DER_OrderApproved_DateKey.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\DFT_DWH_FactOrders\DER_OrderApproved_DateKey.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\DFT_DWH_FactOrders\DER_OrderApproved_DateKey.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\DFT_DWH_FactOrders\DER_OrderDeliveredCarrier_DateKey"
+              componentClassID="Microsoft.DerivedColumn"
+              contactInfo="Derived Column;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+              description="Creates new column values by applying expressions to transformation input columns. Create new columns or overwrite existing ones. For example, concatenate the values from the 'first name' and 'last name' column to make a 'full name' column."
+              name="DER_OrderDeliveredCarrier_DateKey"
+              usesDispositions="true">
+              <inputs>
+                <input
+                  refId="Package\DFT_DWH_FactOrders\DER_OrderDeliveredCarrier_DateKey.Inputs[Derived Column Input]"
+                  description="Input to the Derived Column Transformation"
+                  name="Derived Column Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\DFT_DWH_FactOrders\DER_OrderDeliveredCarrier_DateKey.Inputs[Derived Column Input].Columns[order_delivered_carrier_date]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="order_delivered_carrier_date"
+                      lineageId="Package\DFT_DWH_FactOrders\OLE_SRC_ODS_Orders.Outputs[OLE DB Source Output].Columns[order_delivered_carrier_date]" />
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\DFT_DWH_FactOrders\DER_OrderDeliveredCarrier_DateKey.Outputs[Derived Column Output]"
+                  description="Default Output of the Derived Column Transformation"
+                  exclusionGroup="1"
+                  name="Derived Column Output"
+                  synchronousInputId="Package\DFT_DWH_FactOrders\DER_OrderDeliveredCarrier_DateKey.Inputs[Derived Column Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DFT_DWH_FactOrders\DER_OrderDeliveredCarrier_DateKey.Outputs[Derived Column Output].Columns[order_delivered_carrier_datekey]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Computation"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\DFT_DWH_FactOrders\DER_OrderDeliveredCarrier_DateKey.Outputs[Derived Column Output].Columns[order_delivered_carrier_datekey]"
+                      name="order_delivered_carrier_datekey"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Expression"
+                          name="Expression">(DT_I4)([YEAR](#{Package\DFT_DWH_FactOrders\OLE_SRC_ODS_Orders.Outputs[OLE DB Source Output].Columns[order_delivered_carrier_date]}) * 10000 + [MONTH](#{Package\DFT_DWH_FactOrders\OLE_SRC_ODS_Orders.Outputs[OLE DB Source Output].Columns[order_delivered_carrier_date]}) * 100 + [DAY](#{Package\DFT_DWH_FactOrders\OLE_SRC_ODS_Orders.Outputs[OLE DB Source Output].Columns[order_delivered_carrier_date]}))</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Friendly Expression"
+                          expressionType="Notify"
+                          name="FriendlyExpression">(DT_I4)(YEAR(order_delivered_carrier_date) * 10000 + MONTH(order_delivered_carrier_date) * 100 + DAY(order_delivered_carrier_date))</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\DFT_DWH_FactOrders\DER_OrderDeliveredCarrier_DateKey.Outputs[Derived Column Error Output]"
+                  description="Error Output of the Derived Column Transformation"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Derived Column Error Output"
+                  synchronousInputId="Package\DFT_DWH_FactOrders\DER_OrderDeliveredCarrier_DateKey.Inputs[Derived Column Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DFT_DWH_FactOrders\DER_OrderDeliveredCarrier_DateKey.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\DFT_DWH_FactOrders\DER_OrderDeliveredCarrier_DateKey.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\DFT_DWH_FactOrders\DER_OrderDeliveredCarrier_DateKey.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\DFT_DWH_FactOrders\DER_OrderDeliveredCarrier_DateKey.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\DFT_DWH_FactOrders\DER_OrderDeliveredCustomer_DateKey"
+              componentClassID="Microsoft.DerivedColumn"
+              contactInfo="Derived Column;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+              description="Creates new column values by applying expressions to transformation input columns. Create new columns or overwrite existing ones. For example, concatenate the values from the 'first name' and 'last name' column to make a 'full name' column."
+              name="DER_OrderDeliveredCustomer_DateKey"
+              usesDispositions="true">
+              <inputs>
+                <input
+                  refId="Package\DFT_DWH_FactOrders\DER_OrderDeliveredCustomer_DateKey.Inputs[Derived Column Input]"
+                  description="Input to the Derived Column Transformation"
+                  name="Derived Column Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\DFT_DWH_FactOrders\DER_OrderDeliveredCustomer_DateKey.Inputs[Derived Column Input].Columns[order_delivered_customer_date]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="order_delivered_customer_date"
+                      lineageId="Package\DFT_DWH_FactOrders\OLE_SRC_ODS_Orders.Outputs[OLE DB Source Output].Columns[order_delivered_customer_date]" />
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\DFT_DWH_FactOrders\DER_OrderDeliveredCustomer_DateKey.Outputs[Derived Column Output]"
+                  description="Default Output of the Derived Column Transformation"
+                  exclusionGroup="1"
+                  name="Derived Column Output"
+                  synchronousInputId="Package\DFT_DWH_FactOrders\DER_OrderDeliveredCustomer_DateKey.Inputs[Derived Column Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DFT_DWH_FactOrders\DER_OrderDeliveredCustomer_DateKey.Outputs[Derived Column Output].Columns[order_delivered_customer_datekey]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Computation"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\DFT_DWH_FactOrders\DER_OrderDeliveredCustomer_DateKey.Outputs[Derived Column Output].Columns[order_delivered_customer_datekey]"
+                      name="order_delivered_customer_datekey"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Expression"
+                          name="Expression">(DT_I4)([YEAR](#{Package\DFT_DWH_FactOrders\OLE_SRC_ODS_Orders.Outputs[OLE DB Source Output].Columns[order_delivered_customer_date]}) * 10000 + [MONTH](#{Package\DFT_DWH_FactOrders\OLE_SRC_ODS_Orders.Outputs[OLE DB Source Output].Columns[order_delivered_customer_date]}) * 100 + [DAY](#{Package\DFT_DWH_FactOrders\OLE_SRC_ODS_Orders.Outputs[OLE DB Source Output].Columns[order_delivered_customer_date]}))</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Friendly Expression"
+                          expressionType="Notify"
+                          name="FriendlyExpression">(DT_I4)(YEAR(order_delivered_customer_date) * 10000 + MONTH(order_delivered_customer_date) * 100 + DAY(order_delivered_customer_date))</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\DFT_DWH_FactOrders\DER_OrderDeliveredCustomer_DateKey.Outputs[Derived Column Error Output]"
+                  description="Error Output of the Derived Column Transformation"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Derived Column Error Output"
+                  synchronousInputId="Package\DFT_DWH_FactOrders\DER_OrderDeliveredCustomer_DateKey.Inputs[Derived Column Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DFT_DWH_FactOrders\DER_OrderDeliveredCustomer_DateKey.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\DFT_DWH_FactOrders\DER_OrderDeliveredCustomer_DateKey.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\DFT_DWH_FactOrders\DER_OrderDeliveredCustomer_DateKey.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\DFT_DWH_FactOrders\DER_OrderDeliveredCustomer_DateKey.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\DFT_DWH_FactOrders\DER_OrderEstimatedDelivery_DateKey"
+              componentClassID="Microsoft.DerivedColumn"
+              contactInfo="Derived Column;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+              description="Creates new column values by applying expressions to transformation input columns. Create new columns or overwrite existing ones. For example, concatenate the values from the 'first name' and 'last name' column to make a 'full name' column."
+              name="DER_OrderEstimatedDelivery_DateKey"
+              usesDispositions="true">
+              <inputs>
+                <input
+                  refId="Package\DFT_DWH_FactOrders\DER_OrderEstimatedDelivery_DateKey.Inputs[Derived Column Input]"
+                  description="Input to the Derived Column Transformation"
+                  name="Derived Column Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\DFT_DWH_FactOrders\DER_OrderEstimatedDelivery_DateKey.Inputs[Derived Column Input].Columns[order_estimated_delivery_date]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="order_estimated_delivery_date"
+                      lineageId="Package\DFT_DWH_FactOrders\OLE_SRC_ODS_Orders.Outputs[OLE DB Source Output].Columns[order_estimated_delivery_date]" />
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\DFT_DWH_FactOrders\DER_OrderEstimatedDelivery_DateKey.Outputs[Derived Column Output]"
+                  description="Default Output of the Derived Column Transformation"
+                  exclusionGroup="1"
+                  name="Derived Column Output"
+                  synchronousInputId="Package\DFT_DWH_FactOrders\DER_OrderEstimatedDelivery_DateKey.Inputs[Derived Column Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DFT_DWH_FactOrders\DER_OrderEstimatedDelivery_DateKey.Outputs[Derived Column Output].Columns[order_estimated_delivery_datekey]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Computation"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\DFT_DWH_FactOrders\DER_OrderEstimatedDelivery_DateKey.Outputs[Derived Column Output].Columns[order_estimated_delivery_datekey]"
+                      name="order_estimated_delivery_datekey"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Expression"
+                          name="Expression">(DT_I4)([YEAR](#{Package\DFT_DWH_FactOrders\OLE_SRC_ODS_Orders.Outputs[OLE DB Source Output].Columns[order_estimated_delivery_date]}) * 10000 + [MONTH](#{Package\DFT_DWH_FactOrders\OLE_SRC_ODS_Orders.Outputs[OLE DB Source Output].Columns[order_estimated_delivery_date]}) * 100 + [DAY](#{Package\DFT_DWH_FactOrders\OLE_SRC_ODS_Orders.Outputs[OLE DB Source Output].Columns[order_estimated_delivery_date]}))</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Friendly Expression"
+                          expressionType="Notify"
+                          name="FriendlyExpression">(DT_I4)(YEAR(order_estimated_delivery_date) * 10000 + MONTH(order_estimated_delivery_date) * 100 + DAY(order_estimated_delivery_date))</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\DFT_DWH_FactOrders\DER_OrderEstimatedDelivery_DateKey.Outputs[Derived Column Error Output]"
+                  description="Error Output of the Derived Column Transformation"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Derived Column Error Output"
+                  synchronousInputId="Package\DFT_DWH_FactOrders\DER_OrderEstimatedDelivery_DateKey.Inputs[Derived Column Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DFT_DWH_FactOrders\DER_OrderEstimatedDelivery_DateKey.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\DFT_DWH_FactOrders\DER_OrderEstimatedDelivery_DateKey.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\DFT_DWH_FactOrders\DER_OrderEstimatedDelivery_DateKey.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\DFT_DWH_FactOrders\DER_OrderEstimatedDelivery_DateKey.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\DFT_DWH_FactOrders\DER_OrderPurchase_DateKey"
+              componentClassID="Microsoft.DerivedColumn"
+              contactInfo="Derived Column;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+              description="Creates new column values by applying expressions to transformation input columns. Create new columns or overwrite existing ones. For example, concatenate the values from the 'first name' and 'last name' column to make a 'full name' column."
+              name="DER_OrderPurchase_DateKey"
+              usesDispositions="true">
+              <inputs>
+                <input
+                  refId="Package\DFT_DWH_FactOrders\DER_OrderPurchase_DateKey.Inputs[Derived Column Input]"
+                  description="Input to the Derived Column Transformation"
+                  name="Derived Column Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\DFT_DWH_FactOrders\DER_OrderPurchase_DateKey.Inputs[Derived Column Input].Columns[order_purchase_timestamp]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="order_purchase_timestamp"
+                      lineageId="Package\DFT_DWH_FactOrders\OLE_SRC_ODS_Orders.Outputs[OLE DB Source Output].Columns[order_purchase_timestamp]" />
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\DFT_DWH_FactOrders\DER_OrderPurchase_DateKey.Outputs[Derived Column Output]"
+                  description="Default Output of the Derived Column Transformation"
+                  exclusionGroup="1"
+                  name="Derived Column Output"
+                  synchronousInputId="Package\DFT_DWH_FactOrders\DER_OrderPurchase_DateKey.Inputs[Derived Column Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DFT_DWH_FactOrders\DER_OrderPurchase_DateKey.Outputs[Derived Column Output].Columns[order_purchase_datekey]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Computation"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\DFT_DWH_FactOrders\DER_OrderPurchase_DateKey.Outputs[Derived Column Output].Columns[order_purchase_datekey]"
+                      name="order_purchase_datekey"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Expression"
+                          name="Expression">(DT_I4)([YEAR](#{Package\DFT_DWH_FactOrders\OLE_SRC_ODS_Orders.Outputs[OLE DB Source Output].Columns[order_purchase_timestamp]}) * 10000 + [MONTH](#{Package\DFT_DWH_FactOrders\OLE_SRC_ODS_Orders.Outputs[OLE DB Source Output].Columns[order_purchase_timestamp]}) * 100 + [DAY](#{Package\DFT_DWH_FactOrders\OLE_SRC_ODS_Orders.Outputs[OLE DB Source Output].Columns[order_purchase_timestamp]}))</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Friendly Expression"
+                          expressionType="Notify"
+                          name="FriendlyExpression">(DT_I4)(YEAR(order_purchase_timestamp) * 10000 + MONTH(order_purchase_timestamp) * 100 + DAY(order_purchase_timestamp))</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\DFT_DWH_FactOrders\DER_OrderPurchase_DateKey.Outputs[Derived Column Error Output]"
+                  description="Error Output of the Derived Column Transformation"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Derived Column Error Output"
+                  synchronousInputId="Package\DFT_DWH_FactOrders\DER_OrderPurchase_DateKey.Inputs[Derived Column Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DFT_DWH_FactOrders\DER_OrderPurchase_DateKey.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\DFT_DWH_FactOrders\DER_OrderPurchase_DateKey.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\DFT_DWH_FactOrders\DER_OrderPurchase_DateKey.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\DFT_DWH_FactOrders\DER_OrderPurchase_DateKey.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\DFT_DWH_FactOrders\LK_CustomerKey"
+              componentClassID="Microsoft.Lookup"
+              contactInfo="Lookup;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;6"
+              description="Joins additional columns to the data flow by looking up values in a table. For example, join to the 'employee id' column the employees table to get 'hire date' and 'employee name'. We recommend this transformation when the lookup table can fit into memory."
+              name="LK_CustomerKey"
+              usesDispositions="true"
+              version="6">
+              <properties>
+                <property
+                  dataType="System.String"
+                  description="Specifies the SQL statement that generates the lookup table."
+                  expressionType="Notify"
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select * from [dbo].[DWH_DimCustomers]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies a SQL statement that uses parameters to generate the lookup table."
+                  expressionType="Notify"
+                  name="SqlCommandParam"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select * from (select * from [dbo].[DWH_DimCustomers]) [refTable]
+where [refTable].[customer_id] = ?</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the type of connection used to access the reference dataset."
+                  name="ConnectionType"
+                  typeConverter="LookupConnectionType">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the cache type of the lookup table."
+                  name="CacheType"
+                  typeConverter="CacheType">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies how the Lookup transformation handles rows without matching entries in the reference data set."
+                  name="NoMatchBehavior"
+                  typeConverter="LookupNoMatchBehavior">1</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the percentage of the cache that is allocated for rows with no matching entries in the reference dataset."
+                  name="NoMatchCachePercentage">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Maximum Memory Usage for Reference Cache on a 32 bit platform."
+                  name="MaxMemoryUsage">25</property>
+                <property
+                  dataType="System.Int64"
+                  description="Maximum Memory Usage for Reference Cache on a 64 bit platform."
+                  name="MaxMemoryUsage64">25</property>
+                <property
+                  dataType="System.String"
+                  description="Indicates whether to reference metadata in an XML format."
+                  name="ReferenceMetadataXml">&lt;referenceMetadata&gt;&lt;referenceColumns&gt;&lt;referenceColumn name="customer_key" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="customer_id" dataType="DT_STR" length="50" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="customer_unique_id" dataType="DT_STR" length="50" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="customer_zip_code_prefix" dataType="DT_STR" length="5" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="customer_city" dataType="DT_STR" length="50" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="customer_state" dataType="DT_STR" length="2" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="IsInferred" dataType="DT_BOOL" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;/referenceColumns&gt;&lt;/referenceMetadata&gt;</property>
+                <property
+                  containsID="true"
+                  dataType="System.String"
+                  description="Specifies the list of lineage identifiers that map to the parameters that the SQL statement in the SQLCommand property uses. Entries in the list are separated by semicolons."
+                  name="ParameterMap">#{Package\DFT_DWH_FactOrders\OLE_SRC_ODS_Orders.Outputs[OLE DB Source Output].Columns[customer_id]};</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Determines whether duplicate keys in the reference data should be treated as errors when full cache mode is used."
+                  name="TreatDuplicateKeysAsError">false</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\DFT_DWH_FactOrders\LK_CustomerKey.Connections[OleDbConnection]"
+                  connectionManagerID="{B69E558A-C9B8-4F53-92A9-616941D79363}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[MACHINEX.OLIST_DWH]"
+                  description="Connection manager used to access lookup data."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\DFT_DWH_FactOrders\LK_CustomerKey.Inputs[Lookup Input]"
+                  name="Lookup Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\DFT_DWH_FactOrders\LK_CustomerKey.Inputs[Lookup Input].Columns[customer_id]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="customer_id"
+                      lineageId="Package\DFT_DWH_FactOrders\OLE_SRC_ODS_Orders.Outputs[OLE DB Source Output].Columns[customer_id]">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the column in the reference table that a column joins."
+                          name="JoinToReferenceColumn">customer_id</property>
+                        <property
+                          dataType="System.Null"
+                          description="Specifies the column in the reference table from which a column is copied."
+                          name="CopyFromReferenceColumn" />
+                      </properties>
+                    </inputColumn>
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\DFT_DWH_FactOrders\LK_CustomerKey.Outputs[Lookup Match Output]"
+                  errorOrTruncationOperation="Lookup"
+                  exclusionGroup="1"
+                  name="Lookup Match Output"
+                  synchronousInputId="Package\DFT_DWH_FactOrders\LK_CustomerKey.Inputs[Lookup Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DFT_DWH_FactOrders\LK_CustomerKey.Outputs[Lookup Match Output].Columns[customer_key]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Copy Column"
+                      lineageId="Package\DFT_DWH_FactOrders\LK_CustomerKey.Outputs[Lookup Match Output].Columns[customer_key]"
+                      name="customer_key"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the column in the reference table from which a column is copied."
+                          name="CopyFromReferenceColumn">customer_key</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\DFT_DWH_FactOrders\LK_CustomerKey.Outputs[Lookup No Match Output]"
+                  description="The Lookup output that handles rows with no matching entries in the reference dataset. Use this output when the NoMatchBehavior property is set to &quot;Send rows with no matching entries to the no match output.&quot;"
+                  exclusionGroup="1"
+                  name="Lookup No Match Output"
+                  synchronousInputId="Package\DFT_DWH_FactOrders\LK_CustomerKey.Inputs[Lookup Input]">
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\DFT_DWH_FactOrders\LK_CustomerKey.Outputs[Lookup Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Lookup Error Output"
+                  synchronousInputId="Package\DFT_DWH_FactOrders\LK_CustomerKey.Inputs[Lookup Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DFT_DWH_FactOrders\LK_CustomerKey.Outputs[Lookup Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\DFT_DWH_FactOrders\LK_CustomerKey.Outputs[Lookup Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\DFT_DWH_FactOrders\LK_CustomerKey.Outputs[Lookup Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\DFT_DWH_FactOrders\LK_CustomerKey.Outputs[Lookup Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\DFT_DWH_FactOrders\LK_OrderApprovedDateKey"
+              componentClassID="Microsoft.Lookup"
+              contactInfo="Lookup;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;6"
+              description="Joins additional columns to the data flow by looking up values in a table. For example, join to the 'employee id' column the employees table to get 'hire date' and 'employee name'. We recommend this transformation when the lookup table can fit into memory."
+              name="LK_OrderApprovedDateKey"
+              usesDispositions="true"
+              version="6">
+              <properties>
+                <property
+                  dataType="System.String"
+                  description="Specifies the SQL statement that generates the lookup table."
+                  expressionType="Notify"
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select * from [dbo].[DWH_DimDate]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies a SQL statement that uses parameters to generate the lookup table."
+                  expressionType="Notify"
+                  name="SqlCommandParam"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select * from (select * from [dbo].[DWH_DimDate]) [refTable]
+where [refTable].[DateKey] = ?</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the type of connection used to access the reference dataset."
+                  name="ConnectionType"
+                  typeConverter="LookupConnectionType">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the cache type of the lookup table."
+                  name="CacheType"
+                  typeConverter="CacheType">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies how the Lookup transformation handles rows without matching entries in the reference data set."
+                  name="NoMatchBehavior"
+                  typeConverter="LookupNoMatchBehavior">1</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the percentage of the cache that is allocated for rows with no matching entries in the reference dataset."
+                  name="NoMatchCachePercentage">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Maximum Memory Usage for Reference Cache on a 32 bit platform."
+                  name="MaxMemoryUsage">25</property>
+                <property
+                  dataType="System.Int64"
+                  description="Maximum Memory Usage for Reference Cache on a 64 bit platform."
+                  name="MaxMemoryUsage64">25</property>
+                <property
+                  dataType="System.String"
+                  description="Indicates whether to reference metadata in an XML format."
+                  name="ReferenceMetadataXml">&lt;referenceMetadata&gt;&lt;referenceColumns&gt;&lt;referenceColumn name="DateKey" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="FullDate" dataType="DT_WSTR" length="10" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="DayOfMonth" dataType="DT_UI1" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="DayName" dataType="DT_WSTR" length="10" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="DayOfWeek" dataType="DT_UI1" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="DayOfYear" dataType="DT_I2" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="WeekOfYear" dataType="DT_UI1" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="MonthName" dataType="DT_WSTR" length="10" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="MonthOfYear" dataType="DT_UI1" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="Quarter" dataType="DT_UI1" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="Year" dataType="DT_I2" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="YearMonth" dataType="DT_WSTR" length="7" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="YearQuarter" dataType="DT_WSTR" length="7" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="FiscalMonth" dataType="DT_UI1" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="FiscalQuarter" dataType="DT_UI1" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="FiscalYear" dataType="DT_I2" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="FiscalPeriod" dataType="DT_WSTR" length="10" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="IsWeekday" dataType="DT_BOOL" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="IsWeekend" dataType="DT_BOOL" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="IsFirstDayOfMonth" dataType="DT_BOOL" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="IsLastDayOfMonth" dataType="DT_BOOL" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;/referenceColumns&gt;&lt;/referenceMetadata&gt;</property>
+                <property
+                  containsID="true"
+                  dataType="System.String"
+                  description="Specifies the list of lineage identifiers that map to the parameters that the SQL statement in the SQLCommand property uses. Entries in the list are separated by semicolons."
+                  name="ParameterMap">#{Package\DFT_DWH_FactOrders\DER_OrderApproved_DateKey.Outputs[Derived Column Output].Columns[order_approved_datekey]};</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Determines whether duplicate keys in the reference data should be treated as errors when full cache mode is used."
+                  name="TreatDuplicateKeysAsError">false</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\DFT_DWH_FactOrders\LK_OrderApprovedDateKey.Connections[OleDbConnection]"
+                  connectionManagerID="{B69E558A-C9B8-4F53-92A9-616941D79363}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[MACHINEX.OLIST_DWH]"
+                  description="Connection manager used to access lookup data."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\DFT_DWH_FactOrders\LK_OrderApprovedDateKey.Inputs[Lookup Input]"
+                  name="Lookup Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\DFT_DWH_FactOrders\LK_OrderApprovedDateKey.Inputs[Lookup Input].Columns[order_approved_datekey]"
+                      cachedDataType="i4"
+                      cachedName="order_approved_datekey"
+                      lineageId="Package\DFT_DWH_FactOrders\DER_OrderApproved_DateKey.Outputs[Derived Column Output].Columns[order_approved_datekey]">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the column in the reference table that a column joins."
+                          name="JoinToReferenceColumn">DateKey</property>
+                        <property
+                          dataType="System.Null"
+                          description="Specifies the column in the reference table from which a column is copied."
+                          name="CopyFromReferenceColumn" />
+                      </properties>
+                    </inputColumn>
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\DFT_DWH_FactOrders\LK_OrderApprovedDateKey.Outputs[Lookup Match Output]"
+                  errorOrTruncationOperation="Lookup"
+                  exclusionGroup="1"
+                  name="Lookup Match Output"
+                  synchronousInputId="Package\DFT_DWH_FactOrders\LK_OrderApprovedDateKey.Inputs[Lookup Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DFT_DWH_FactOrders\LK_OrderApprovedDateKey.Outputs[Lookup Match Output].Columns[FullDate]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Copy Column"
+                      length="10"
+                      lineageId="Package\DFT_DWH_FactOrders\LK_OrderApprovedDateKey.Outputs[Lookup Match Output].Columns[FullDate]"
+                      name="FullDate"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the column in the reference table from which a column is copied."
+                          name="CopyFromReferenceColumn">FullDate</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\DFT_DWH_FactOrders\LK_OrderApprovedDateKey.Outputs[Lookup No Match Output]"
+                  description="The Lookup output that handles rows with no matching entries in the reference dataset. Use this output when the NoMatchBehavior property is set to &quot;Send rows with no matching entries to the no match output.&quot;"
+                  exclusionGroup="1"
+                  name="Lookup No Match Output"
+                  synchronousInputId="Package\DFT_DWH_FactOrders\LK_OrderApprovedDateKey.Inputs[Lookup Input]">
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\DFT_DWH_FactOrders\LK_OrderApprovedDateKey.Outputs[Lookup Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Lookup Error Output"
+                  synchronousInputId="Package\DFT_DWH_FactOrders\LK_OrderApprovedDateKey.Inputs[Lookup Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DFT_DWH_FactOrders\LK_OrderApprovedDateKey.Outputs[Lookup Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\DFT_DWH_FactOrders\LK_OrderApprovedDateKey.Outputs[Lookup Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\DFT_DWH_FactOrders\LK_OrderApprovedDateKey.Outputs[Lookup Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\DFT_DWH_FactOrders\LK_OrderApprovedDateKey.Outputs[Lookup Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\DFT_DWH_FactOrders\LK_OrderDeliveredCarrierDateKey"
+              componentClassID="Microsoft.Lookup"
+              contactInfo="Lookup;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;6"
+              description="Joins additional columns to the data flow by looking up values in a table. For example, join to the 'employee id' column the employees table to get 'hire date' and 'employee name'. We recommend this transformation when the lookup table can fit into memory."
+              name="LK_OrderDeliveredCarrierDateKey"
+              usesDispositions="true"
+              version="6">
+              <properties>
+                <property
+                  dataType="System.String"
+                  description="Specifies the SQL statement that generates the lookup table."
+                  expressionType="Notify"
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select * from [dbo].[DWH_DimDate]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies a SQL statement that uses parameters to generate the lookup table."
+                  expressionType="Notify"
+                  name="SqlCommandParam"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select * from (select * from [dbo].[DWH_DimDate]) [refTable]
+where [refTable].[DateKey] = ?</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the type of connection used to access the reference dataset."
+                  name="ConnectionType"
+                  typeConverter="LookupConnectionType">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the cache type of the lookup table."
+                  name="CacheType"
+                  typeConverter="CacheType">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies how the Lookup transformation handles rows without matching entries in the reference data set."
+                  name="NoMatchBehavior"
+                  typeConverter="LookupNoMatchBehavior">1</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the percentage of the cache that is allocated for rows with no matching entries in the reference dataset."
+                  name="NoMatchCachePercentage">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Maximum Memory Usage for Reference Cache on a 32 bit platform."
+                  name="MaxMemoryUsage">25</property>
+                <property
+                  dataType="System.Int64"
+                  description="Maximum Memory Usage for Reference Cache on a 64 bit platform."
+                  name="MaxMemoryUsage64">25</property>
+                <property
+                  dataType="System.String"
+                  description="Indicates whether to reference metadata in an XML format."
+                  name="ReferenceMetadataXml">&lt;referenceMetadata&gt;&lt;referenceColumns&gt;&lt;referenceColumn name="DateKey" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="FullDate" dataType="DT_WSTR" length="10" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="DayOfMonth" dataType="DT_UI1" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="DayName" dataType="DT_WSTR" length="10" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="DayOfWeek" dataType="DT_UI1" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="DayOfYear" dataType="DT_I2" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="WeekOfYear" dataType="DT_UI1" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="MonthName" dataType="DT_WSTR" length="10" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="MonthOfYear" dataType="DT_UI1" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="Quarter" dataType="DT_UI1" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="Year" dataType="DT_I2" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="YearMonth" dataType="DT_WSTR" length="7" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="YearQuarter" dataType="DT_WSTR" length="7" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="FiscalMonth" dataType="DT_UI1" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="FiscalQuarter" dataType="DT_UI1" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="FiscalYear" dataType="DT_I2" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="FiscalPeriod" dataType="DT_WSTR" length="10" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="IsWeekday" dataType="DT_BOOL" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="IsWeekend" dataType="DT_BOOL" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="IsFirstDayOfMonth" dataType="DT_BOOL" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="IsLastDayOfMonth" dataType="DT_BOOL" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;/referenceColumns&gt;&lt;/referenceMetadata&gt;</property>
+                <property
+                  containsID="true"
+                  dataType="System.String"
+                  description="Specifies the list of lineage identifiers that map to the parameters that the SQL statement in the SQLCommand property uses. Entries in the list are separated by semicolons."
+                  name="ParameterMap">#{Package\DFT_DWH_FactOrders\DER_OrderDeliveredCarrier_DateKey.Outputs[Derived Column Output].Columns[order_delivered_carrier_datekey]};</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Determines whether duplicate keys in the reference data should be treated as errors when full cache mode is used."
+                  name="TreatDuplicateKeysAsError">false</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\DFT_DWH_FactOrders\LK_OrderDeliveredCarrierDateKey.Connections[OleDbConnection]"
+                  connectionManagerID="{B69E558A-C9B8-4F53-92A9-616941D79363}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[MACHINEX.OLIST_DWH]"
+                  description="Connection manager used to access lookup data."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\DFT_DWH_FactOrders\LK_OrderDeliveredCarrierDateKey.Inputs[Lookup Input]"
+                  name="Lookup Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\DFT_DWH_FactOrders\LK_OrderDeliveredCarrierDateKey.Inputs[Lookup Input].Columns[order_delivered_carrier_datekey]"
+                      cachedDataType="i4"
+                      cachedName="order_delivered_carrier_datekey"
+                      lineageId="Package\DFT_DWH_FactOrders\DER_OrderDeliveredCarrier_DateKey.Outputs[Derived Column Output].Columns[order_delivered_carrier_datekey]">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the column in the reference table that a column joins."
+                          name="JoinToReferenceColumn">DateKey</property>
+                        <property
+                          dataType="System.Null"
+                          description="Specifies the column in the reference table from which a column is copied."
+                          name="CopyFromReferenceColumn" />
+                      </properties>
+                    </inputColumn>
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\DFT_DWH_FactOrders\LK_OrderDeliveredCarrierDateKey.Outputs[Lookup Match Output]"
+                  errorOrTruncationOperation="Lookup"
+                  exclusionGroup="1"
+                  name="Lookup Match Output"
+                  synchronousInputId="Package\DFT_DWH_FactOrders\LK_OrderDeliveredCarrierDateKey.Inputs[Lookup Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DFT_DWH_FactOrders\LK_OrderDeliveredCarrierDateKey.Outputs[Lookup Match Output].Columns[FullDate]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Copy Column"
+                      length="10"
+                      lineageId="Package\DFT_DWH_FactOrders\LK_OrderDeliveredCarrierDateKey.Outputs[Lookup Match Output].Columns[FullDate]"
+                      name="FullDate"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the column in the reference table from which a column is copied."
+                          name="CopyFromReferenceColumn">FullDate</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\DFT_DWH_FactOrders\LK_OrderDeliveredCarrierDateKey.Outputs[Lookup No Match Output]"
+                  description="The Lookup output that handles rows with no matching entries in the reference dataset. Use this output when the NoMatchBehavior property is set to &quot;Send rows with no matching entries to the no match output.&quot;"
+                  exclusionGroup="1"
+                  name="Lookup No Match Output"
+                  synchronousInputId="Package\DFT_DWH_FactOrders\LK_OrderDeliveredCarrierDateKey.Inputs[Lookup Input]">
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\DFT_DWH_FactOrders\LK_OrderDeliveredCarrierDateKey.Outputs[Lookup Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Lookup Error Output"
+                  synchronousInputId="Package\DFT_DWH_FactOrders\LK_OrderDeliveredCarrierDateKey.Inputs[Lookup Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DFT_DWH_FactOrders\LK_OrderDeliveredCarrierDateKey.Outputs[Lookup Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\DFT_DWH_FactOrders\LK_OrderDeliveredCarrierDateKey.Outputs[Lookup Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\DFT_DWH_FactOrders\LK_OrderDeliveredCarrierDateKey.Outputs[Lookup Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\DFT_DWH_FactOrders\LK_OrderDeliveredCarrierDateKey.Outputs[Lookup Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\DFT_DWH_FactOrders\LK_OrderDeliveredCustomerDateKey"
+              componentClassID="Microsoft.Lookup"
+              contactInfo="Lookup;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;6"
+              description="Joins additional columns to the data flow by looking up values in a table. For example, join to the 'employee id' column the employees table to get 'hire date' and 'employee name'. We recommend this transformation when the lookup table can fit into memory."
+              name="LK_OrderDeliveredCustomerDateKey"
+              usesDispositions="true"
+              version="6">
+              <properties>
+                <property
+                  dataType="System.String"
+                  description="Specifies the SQL statement that generates the lookup table."
+                  expressionType="Notify"
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select * from [dbo].[DWH_DimDate]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies a SQL statement that uses parameters to generate the lookup table."
+                  expressionType="Notify"
+                  name="SqlCommandParam"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select * from (select * from [dbo].[DWH_DimDate]) [refTable]
+where [refTable].[DateKey] = ?</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the type of connection used to access the reference dataset."
+                  name="ConnectionType"
+                  typeConverter="LookupConnectionType">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the cache type of the lookup table."
+                  name="CacheType"
+                  typeConverter="CacheType">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies how the Lookup transformation handles rows without matching entries in the reference data set."
+                  name="NoMatchBehavior"
+                  typeConverter="LookupNoMatchBehavior">1</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the percentage of the cache that is allocated for rows with no matching entries in the reference dataset."
+                  name="NoMatchCachePercentage">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Maximum Memory Usage for Reference Cache on a 32 bit platform."
+                  name="MaxMemoryUsage">25</property>
+                <property
+                  dataType="System.Int64"
+                  description="Maximum Memory Usage for Reference Cache on a 64 bit platform."
+                  name="MaxMemoryUsage64">25</property>
+                <property
+                  dataType="System.String"
+                  description="Indicates whether to reference metadata in an XML format."
+                  name="ReferenceMetadataXml">&lt;referenceMetadata&gt;&lt;referenceColumns&gt;&lt;referenceColumn name="DateKey" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="FullDate" dataType="DT_WSTR" length="10" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="DayOfMonth" dataType="DT_UI1" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="DayName" dataType="DT_WSTR" length="10" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="DayOfWeek" dataType="DT_UI1" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="DayOfYear" dataType="DT_I2" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="WeekOfYear" dataType="DT_UI1" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="MonthName" dataType="DT_WSTR" length="10" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="MonthOfYear" dataType="DT_UI1" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="Quarter" dataType="DT_UI1" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="Year" dataType="DT_I2" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="YearMonth" dataType="DT_WSTR" length="7" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="YearQuarter" dataType="DT_WSTR" length="7" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="FiscalMonth" dataType="DT_UI1" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="FiscalQuarter" dataType="DT_UI1" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="FiscalYear" dataType="DT_I2" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="FiscalPeriod" dataType="DT_WSTR" length="10" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="IsWeekday" dataType="DT_BOOL" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="IsWeekend" dataType="DT_BOOL" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="IsFirstDayOfMonth" dataType="DT_BOOL" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="IsLastDayOfMonth" dataType="DT_BOOL" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;/referenceColumns&gt;&lt;/referenceMetadata&gt;</property>
+                <property
+                  containsID="true"
+                  dataType="System.String"
+                  description="Specifies the list of lineage identifiers that map to the parameters that the SQL statement in the SQLCommand property uses. Entries in the list are separated by semicolons."
+                  name="ParameterMap">#{Package\DFT_DWH_FactOrders\DER_OrderDeliveredCustomer_DateKey.Outputs[Derived Column Output].Columns[order_delivered_customer_datekey]};</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Determines whether duplicate keys in the reference data should be treated as errors when full cache mode is used."
+                  name="TreatDuplicateKeysAsError">false</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\DFT_DWH_FactOrders\LK_OrderDeliveredCustomerDateKey.Connections[OleDbConnection]"
+                  connectionManagerID="{B69E558A-C9B8-4F53-92A9-616941D79363}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[MACHINEX.OLIST_DWH]"
+                  description="Connection manager used to access lookup data."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\DFT_DWH_FactOrders\LK_OrderDeliveredCustomerDateKey.Inputs[Lookup Input]"
+                  name="Lookup Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\DFT_DWH_FactOrders\LK_OrderDeliveredCustomerDateKey.Inputs[Lookup Input].Columns[order_delivered_customer_datekey]"
+                      cachedDataType="i4"
+                      cachedName="order_delivered_customer_datekey"
+                      lineageId="Package\DFT_DWH_FactOrders\DER_OrderDeliveredCustomer_DateKey.Outputs[Derived Column Output].Columns[order_delivered_customer_datekey]">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the column in the reference table that a column joins."
+                          name="JoinToReferenceColumn">DateKey</property>
+                        <property
+                          dataType="System.Null"
+                          description="Specifies the column in the reference table from which a column is copied."
+                          name="CopyFromReferenceColumn" />
+                      </properties>
+                    </inputColumn>
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\DFT_DWH_FactOrders\LK_OrderDeliveredCustomerDateKey.Outputs[Lookup Match Output]"
+                  errorOrTruncationOperation="Lookup"
+                  exclusionGroup="1"
+                  name="Lookup Match Output"
+                  synchronousInputId="Package\DFT_DWH_FactOrders\LK_OrderDeliveredCustomerDateKey.Inputs[Lookup Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DFT_DWH_FactOrders\LK_OrderDeliveredCustomerDateKey.Outputs[Lookup Match Output].Columns[FullDate]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Copy Column"
+                      length="10"
+                      lineageId="Package\DFT_DWH_FactOrders\LK_OrderDeliveredCustomerDateKey.Outputs[Lookup Match Output].Columns[FullDate]"
+                      name="FullDate"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the column in the reference table from which a column is copied."
+                          name="CopyFromReferenceColumn">FullDate</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\DFT_DWH_FactOrders\LK_OrderDeliveredCustomerDateKey.Outputs[Lookup No Match Output]"
+                  description="The Lookup output that handles rows with no matching entries in the reference dataset. Use this output when the NoMatchBehavior property is set to &quot;Send rows with no matching entries to the no match output.&quot;"
+                  exclusionGroup="1"
+                  name="Lookup No Match Output"
+                  synchronousInputId="Package\DFT_DWH_FactOrders\LK_OrderDeliveredCustomerDateKey.Inputs[Lookup Input]">
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\DFT_DWH_FactOrders\LK_OrderDeliveredCustomerDateKey.Outputs[Lookup Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Lookup Error Output"
+                  synchronousInputId="Package\DFT_DWH_FactOrders\LK_OrderDeliveredCustomerDateKey.Inputs[Lookup Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DFT_DWH_FactOrders\LK_OrderDeliveredCustomerDateKey.Outputs[Lookup Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\DFT_DWH_FactOrders\LK_OrderDeliveredCustomerDateKey.Outputs[Lookup Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\DFT_DWH_FactOrders\LK_OrderDeliveredCustomerDateKey.Outputs[Lookup Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\DFT_DWH_FactOrders\LK_OrderDeliveredCustomerDateKey.Outputs[Lookup Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\DFT_DWH_FactOrders\LK_OrderEstimatedDeliveryDateKey"
+              componentClassID="Microsoft.Lookup"
+              contactInfo="Lookup;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;6"
+              description="Joins additional columns to the data flow by looking up values in a table. For example, join to the 'employee id' column the employees table to get 'hire date' and 'employee name'. We recommend this transformation when the lookup table can fit into memory."
+              name="LK_OrderEstimatedDeliveryDateKey"
+              usesDispositions="true"
+              version="6">
+              <properties>
+                <property
+                  dataType="System.String"
+                  description="Specifies the SQL statement that generates the lookup table."
+                  expressionType="Notify"
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select * from [dbo].[DWH_DimDate]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies a SQL statement that uses parameters to generate the lookup table."
+                  expressionType="Notify"
+                  name="SqlCommandParam"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select * from (select * from [dbo].[DWH_DimDate]) [refTable]
+where [refTable].[DateKey] = ?</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the type of connection used to access the reference dataset."
+                  name="ConnectionType"
+                  typeConverter="LookupConnectionType">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the cache type of the lookup table."
+                  name="CacheType"
+                  typeConverter="CacheType">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies how the Lookup transformation handles rows without matching entries in the reference data set."
+                  name="NoMatchBehavior"
+                  typeConverter="LookupNoMatchBehavior">1</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the percentage of the cache that is allocated for rows with no matching entries in the reference dataset."
+                  name="NoMatchCachePercentage">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Maximum Memory Usage for Reference Cache on a 32 bit platform."
+                  name="MaxMemoryUsage">25</property>
+                <property
+                  dataType="System.Int64"
+                  description="Maximum Memory Usage for Reference Cache on a 64 bit platform."
+                  name="MaxMemoryUsage64">25</property>
+                <property
+                  dataType="System.String"
+                  description="Indicates whether to reference metadata in an XML format."
+                  name="ReferenceMetadataXml">&lt;referenceMetadata&gt;&lt;referenceColumns&gt;&lt;referenceColumn name="DateKey" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="FullDate" dataType="DT_WSTR" length="10" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="DayOfMonth" dataType="DT_UI1" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="DayName" dataType="DT_WSTR" length="10" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="DayOfWeek" dataType="DT_UI1" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="DayOfYear" dataType="DT_I2" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="WeekOfYear" dataType="DT_UI1" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="MonthName" dataType="DT_WSTR" length="10" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="MonthOfYear" dataType="DT_UI1" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="Quarter" dataType="DT_UI1" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="Year" dataType="DT_I2" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="YearMonth" dataType="DT_WSTR" length="7" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="YearQuarter" dataType="DT_WSTR" length="7" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="FiscalMonth" dataType="DT_UI1" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="FiscalQuarter" dataType="DT_UI1" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="FiscalYear" dataType="DT_I2" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="FiscalPeriod" dataType="DT_WSTR" length="10" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="IsWeekday" dataType="DT_BOOL" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="IsWeekend" dataType="DT_BOOL" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="IsFirstDayOfMonth" dataType="DT_BOOL" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="IsLastDayOfMonth" dataType="DT_BOOL" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;/referenceColumns&gt;&lt;/referenceMetadata&gt;</property>
+                <property
+                  containsID="true"
+                  dataType="System.String"
+                  description="Specifies the list of lineage identifiers that map to the parameters that the SQL statement in the SQLCommand property uses. Entries in the list are separated by semicolons."
+                  name="ParameterMap">#{Package\DFT_DWH_FactOrders\DER_OrderDeliveredCustomer_DateKey.Outputs[Derived Column Output].Columns[order_delivered_customer_datekey]};</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Determines whether duplicate keys in the reference data should be treated as errors when full cache mode is used."
+                  name="TreatDuplicateKeysAsError">false</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\DFT_DWH_FactOrders\LK_OrderEstimatedDeliveryDateKey.Connections[OleDbConnection]"
+                  connectionManagerID="{B69E558A-C9B8-4F53-92A9-616941D79363}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[MACHINEX.OLIST_DWH]"
+                  description="Connection manager used to access lookup data."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\DFT_DWH_FactOrders\LK_OrderEstimatedDeliveryDateKey.Inputs[Lookup Input]"
+                  name="Lookup Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\DFT_DWH_FactOrders\LK_OrderEstimatedDeliveryDateKey.Inputs[Lookup Input].Columns[order_delivered_customer_datekey]"
+                      cachedDataType="i4"
+                      cachedName="order_delivered_customer_datekey"
+                      lineageId="Package\DFT_DWH_FactOrders\DER_OrderDeliveredCustomer_DateKey.Outputs[Derived Column Output].Columns[order_delivered_customer_datekey]">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the column in the reference table that a column joins."
+                          name="JoinToReferenceColumn">DateKey</property>
+                        <property
+                          dataType="System.Null"
+                          description="Specifies the column in the reference table from which a column is copied."
+                          name="CopyFromReferenceColumn" />
+                      </properties>
+                    </inputColumn>
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\DFT_DWH_FactOrders\LK_OrderEstimatedDeliveryDateKey.Outputs[Lookup Match Output]"
+                  errorOrTruncationOperation="Lookup"
+                  exclusionGroup="1"
+                  name="Lookup Match Output"
+                  synchronousInputId="Package\DFT_DWH_FactOrders\LK_OrderEstimatedDeliveryDateKey.Inputs[Lookup Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DFT_DWH_FactOrders\LK_OrderEstimatedDeliveryDateKey.Outputs[Lookup Match Output].Columns[FullDate]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Copy Column"
+                      length="10"
+                      lineageId="Package\DFT_DWH_FactOrders\LK_OrderEstimatedDeliveryDateKey.Outputs[Lookup Match Output].Columns[FullDate]"
+                      name="FullDate"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the column in the reference table from which a column is copied."
+                          name="CopyFromReferenceColumn">FullDate</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\DFT_DWH_FactOrders\LK_OrderEstimatedDeliveryDateKey.Outputs[Lookup No Match Output]"
+                  description="The Lookup output that handles rows with no matching entries in the reference dataset. Use this output when the NoMatchBehavior property is set to &quot;Send rows with no matching entries to the no match output.&quot;"
+                  exclusionGroup="1"
+                  name="Lookup No Match Output"
+                  synchronousInputId="Package\DFT_DWH_FactOrders\LK_OrderEstimatedDeliveryDateKey.Inputs[Lookup Input]">
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\DFT_DWH_FactOrders\LK_OrderEstimatedDeliveryDateKey.Outputs[Lookup Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Lookup Error Output"
+                  synchronousInputId="Package\DFT_DWH_FactOrders\LK_OrderEstimatedDeliveryDateKey.Inputs[Lookup Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DFT_DWH_FactOrders\LK_OrderEstimatedDeliveryDateKey.Outputs[Lookup Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\DFT_DWH_FactOrders\LK_OrderEstimatedDeliveryDateKey.Outputs[Lookup Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\DFT_DWH_FactOrders\LK_OrderEstimatedDeliveryDateKey.Outputs[Lookup Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\DFT_DWH_FactOrders\LK_OrderEstimatedDeliveryDateKey.Outputs[Lookup Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\DFT_DWH_FactOrders\LK_OrderPurchaseDateKey"
+              componentClassID="Microsoft.Lookup"
+              contactInfo="Lookup;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;6"
+              description="Joins additional columns to the data flow by looking up values in a table. For example, join to the 'employee id' column the employees table to get 'hire date' and 'employee name'. We recommend this transformation when the lookup table can fit into memory."
+              name="LK_OrderPurchaseDateKey"
+              usesDispositions="true"
+              version="6">
+              <properties>
+                <property
+                  dataType="System.String"
+                  description="Specifies the SQL statement that generates the lookup table."
+                  expressionType="Notify"
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select * from [dbo].[DWH_DimDate]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies a SQL statement that uses parameters to generate the lookup table."
+                  expressionType="Notify"
+                  name="SqlCommandParam"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select * from (select * from [dbo].[DWH_DimDate]) [refTable]
+where [refTable].[DateKey] = ?</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the type of connection used to access the reference dataset."
+                  name="ConnectionType"
+                  typeConverter="LookupConnectionType">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the cache type of the lookup table."
+                  name="CacheType"
+                  typeConverter="CacheType">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies how the Lookup transformation handles rows without matching entries in the reference data set."
+                  name="NoMatchBehavior"
+                  typeConverter="LookupNoMatchBehavior">1</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the percentage of the cache that is allocated for rows with no matching entries in the reference dataset."
+                  name="NoMatchCachePercentage">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Maximum Memory Usage for Reference Cache on a 32 bit platform."
+                  name="MaxMemoryUsage">25</property>
+                <property
+                  dataType="System.Int64"
+                  description="Maximum Memory Usage for Reference Cache on a 64 bit platform."
+                  name="MaxMemoryUsage64">25</property>
+                <property
+                  dataType="System.String"
+                  description="Indicates whether to reference metadata in an XML format."
+                  name="ReferenceMetadataXml">&lt;referenceMetadata&gt;&lt;referenceColumns&gt;&lt;referenceColumn name="DateKey" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="FullDate" dataType="DT_WSTR" length="10" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="DayOfMonth" dataType="DT_UI1" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="DayName" dataType="DT_WSTR" length="10" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="DayOfWeek" dataType="DT_UI1" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="DayOfYear" dataType="DT_I2" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="WeekOfYear" dataType="DT_UI1" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="MonthName" dataType="DT_WSTR" length="10" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="MonthOfYear" dataType="DT_UI1" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="Quarter" dataType="DT_UI1" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="Year" dataType="DT_I2" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="YearMonth" dataType="DT_WSTR" length="7" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="YearQuarter" dataType="DT_WSTR" length="7" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="FiscalMonth" dataType="DT_UI1" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="FiscalQuarter" dataType="DT_UI1" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="FiscalYear" dataType="DT_I2" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="FiscalPeriod" dataType="DT_WSTR" length="10" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="IsWeekday" dataType="DT_BOOL" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="IsWeekend" dataType="DT_BOOL" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="IsFirstDayOfMonth" dataType="DT_BOOL" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="IsLastDayOfMonth" dataType="DT_BOOL" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;/referenceColumns&gt;&lt;/referenceMetadata&gt;</property>
+                <property
+                  containsID="true"
+                  dataType="System.String"
+                  description="Specifies the list of lineage identifiers that map to the parameters that the SQL statement in the SQLCommand property uses. Entries in the list are separated by semicolons."
+                  name="ParameterMap">#{Package\DFT_DWH_FactOrders\DER_OrderPurchase_DateKey.Outputs[Derived Column Output].Columns[order_purchase_datekey]};</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Determines whether duplicate keys in the reference data should be treated as errors when full cache mode is used."
+                  name="TreatDuplicateKeysAsError">false</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\DFT_DWH_FactOrders\LK_OrderPurchaseDateKey.Connections[OleDbConnection]"
+                  connectionManagerID="{B69E558A-C9B8-4F53-92A9-616941D79363}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[MACHINEX.OLIST_DWH]"
+                  description="Connection manager used to access lookup data."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\DFT_DWH_FactOrders\LK_OrderPurchaseDateKey.Inputs[Lookup Input]"
+                  name="Lookup Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\DFT_DWH_FactOrders\LK_OrderPurchaseDateKey.Inputs[Lookup Input].Columns[order_purchase_datekey]"
+                      cachedDataType="i4"
+                      cachedName="order_purchase_datekey"
+                      lineageId="Package\DFT_DWH_FactOrders\DER_OrderPurchase_DateKey.Outputs[Derived Column Output].Columns[order_purchase_datekey]">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the column in the reference table that a column joins."
+                          name="JoinToReferenceColumn">DateKey</property>
+                        <property
+                          dataType="System.Null"
+                          description="Specifies the column in the reference table from which a column is copied."
+                          name="CopyFromReferenceColumn" />
+                      </properties>
+                    </inputColumn>
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\DFT_DWH_FactOrders\LK_OrderPurchaseDateKey.Outputs[Lookup Match Output]"
+                  errorOrTruncationOperation="Lookup"
+                  exclusionGroup="1"
+                  name="Lookup Match Output"
+                  synchronousInputId="Package\DFT_DWH_FactOrders\LK_OrderPurchaseDateKey.Inputs[Lookup Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DFT_DWH_FactOrders\LK_OrderPurchaseDateKey.Outputs[Lookup Match Output].Columns[FullDate]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Copy Column"
+                      length="10"
+                      lineageId="Package\DFT_DWH_FactOrders\LK_OrderPurchaseDateKey.Outputs[Lookup Match Output].Columns[FullDate]"
+                      name="FullDate"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the column in the reference table from which a column is copied."
+                          name="CopyFromReferenceColumn">FullDate</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\DFT_DWH_FactOrders\LK_OrderPurchaseDateKey.Outputs[Lookup No Match Output]"
+                  description="The Lookup output that handles rows with no matching entries in the reference dataset. Use this output when the NoMatchBehavior property is set to &quot;Send rows with no matching entries to the no match output.&quot;"
+                  exclusionGroup="1"
+                  name="Lookup No Match Output"
+                  synchronousInputId="Package\DFT_DWH_FactOrders\LK_OrderPurchaseDateKey.Inputs[Lookup Input]">
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\DFT_DWH_FactOrders\LK_OrderPurchaseDateKey.Outputs[Lookup Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Lookup Error Output"
+                  synchronousInputId="Package\DFT_DWH_FactOrders\LK_OrderPurchaseDateKey.Inputs[Lookup Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DFT_DWH_FactOrders\LK_OrderPurchaseDateKey.Outputs[Lookup Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\DFT_DWH_FactOrders\LK_OrderPurchaseDateKey.Outputs[Lookup Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\DFT_DWH_FactOrders\LK_OrderPurchaseDateKey.Outputs[Lookup Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\DFT_DWH_FactOrders\LK_OrderPurchaseDateKey.Outputs[Lookup Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\DFT_DWH_FactOrders\OLE_SRC_DWH_FactOrders"
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+              description="OLE DB Destination"
+              name="OLE_SRC_DWH_FactOrders"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[dbo].[DWH_FactOrders]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">3</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                  name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\DFT_DWH_FactOrders\OLE_SRC_DWH_FactOrders.Connections[OleDbConnection]"
+                  connectionManagerID="{B69E558A-C9B8-4F53-92A9-616941D79363}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[MACHINEX.OLIST_DWH]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\DFT_DWH_FactOrders\OLE_SRC_DWH_FactOrders.Inputs[OLE DB Destination Input]"
+                  errorOrTruncationOperation="Insert"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="OLE DB Destination Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\DFT_DWH_FactOrders\OLE_SRC_DWH_FactOrders.Inputs[OLE DB Destination Input].Columns[order_id]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="order_id"
+                      externalMetadataColumnId="Package\DFT_DWH_FactOrders\OLE_SRC_DWH_FactOrders.Inputs[OLE DB Destination Input].ExternalColumns[order_id]"
+                      lineageId="Package\DFT_DWH_FactOrders\OLE_SRC_ODS_Orders.Outputs[OLE DB Source Output].Columns[order_id]" />
+                    <inputColumn
+                      refId="Package\DFT_DWH_FactOrders\OLE_SRC_DWH_FactOrders.Inputs[OLE DB Destination Input].Columns[order_status]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="order_status"
+                      externalMetadataColumnId="Package\DFT_DWH_FactOrders\OLE_SRC_DWH_FactOrders.Inputs[OLE DB Destination Input].ExternalColumns[order_status]"
+                      lineageId="Package\DFT_DWH_FactOrders\OLE_SRC_ODS_Orders.Outputs[OLE DB Source Output].Columns[order_status]" />
+                    <inputColumn
+                      refId="Package\DFT_DWH_FactOrders\OLE_SRC_DWH_FactOrders.Inputs[OLE DB Destination Input].Columns[order_purchase_timestamp]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="order_purchase_timestamp"
+                      externalMetadataColumnId="Package\DFT_DWH_FactOrders\OLE_SRC_DWH_FactOrders.Inputs[OLE DB Destination Input].ExternalColumns[order_purchase_timestamp]"
+                      lineageId="Package\DFT_DWH_FactOrders\OLE_SRC_ODS_Orders.Outputs[OLE DB Source Output].Columns[order_purchase_timestamp]" />
+                    <inputColumn
+                      refId="Package\DFT_DWH_FactOrders\OLE_SRC_DWH_FactOrders.Inputs[OLE DB Destination Input].Columns[order_approved_at]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="order_approved_at"
+                      externalMetadataColumnId="Package\DFT_DWH_FactOrders\OLE_SRC_DWH_FactOrders.Inputs[OLE DB Destination Input].ExternalColumns[order_approved_at]"
+                      lineageId="Package\DFT_DWH_FactOrders\OLE_SRC_ODS_Orders.Outputs[OLE DB Source Output].Columns[order_approved_at]" />
+                    <inputColumn
+                      refId="Package\DFT_DWH_FactOrders\OLE_SRC_DWH_FactOrders.Inputs[OLE DB Destination Input].Columns[order_delivered_carrier_date]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="order_delivered_carrier_date"
+                      externalMetadataColumnId="Package\DFT_DWH_FactOrders\OLE_SRC_DWH_FactOrders.Inputs[OLE DB Destination Input].ExternalColumns[order_delivered_carrier_date]"
+                      lineageId="Package\DFT_DWH_FactOrders\OLE_SRC_ODS_Orders.Outputs[OLE DB Source Output].Columns[order_delivered_carrier_date]" />
+                    <inputColumn
+                      refId="Package\DFT_DWH_FactOrders\OLE_SRC_DWH_FactOrders.Inputs[OLE DB Destination Input].Columns[order_delivered_customer_date]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="order_delivered_customer_date"
+                      externalMetadataColumnId="Package\DFT_DWH_FactOrders\OLE_SRC_DWH_FactOrders.Inputs[OLE DB Destination Input].ExternalColumns[order_delivered_customer_date]"
+                      lineageId="Package\DFT_DWH_FactOrders\OLE_SRC_ODS_Orders.Outputs[OLE DB Source Output].Columns[order_delivered_customer_date]" />
+                    <inputColumn
+                      refId="Package\DFT_DWH_FactOrders\OLE_SRC_DWH_FactOrders.Inputs[OLE DB Destination Input].Columns[order_estimated_delivery_date]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="order_estimated_delivery_date"
+                      externalMetadataColumnId="Package\DFT_DWH_FactOrders\OLE_SRC_DWH_FactOrders.Inputs[OLE DB Destination Input].ExternalColumns[order_estimated_delivery_date]"
+                      lineageId="Package\DFT_DWH_FactOrders\OLE_SRC_ODS_Orders.Outputs[OLE DB Source Output].Columns[order_estimated_delivery_date]" />
+                    <inputColumn
+                      refId="Package\DFT_DWH_FactOrders\OLE_SRC_DWH_FactOrders.Inputs[OLE DB Destination Input].Columns[order_purchase_datekey]"
+                      cachedDataType="i4"
+                      cachedName="order_purchase_datekey"
+                      externalMetadataColumnId="Package\DFT_DWH_FactOrders\OLE_SRC_DWH_FactOrders.Inputs[OLE DB Destination Input].ExternalColumns[order_purchase_datekey]"
+                      lineageId="Package\DFT_DWH_FactOrders\DER_OrderPurchase_DateKey.Outputs[Derived Column Output].Columns[order_purchase_datekey]" />
+                    <inputColumn
+                      refId="Package\DFT_DWH_FactOrders\OLE_SRC_DWH_FactOrders.Inputs[OLE DB Destination Input].Columns[order_approved_datekey]"
+                      cachedDataType="i4"
+                      cachedName="order_approved_datekey"
+                      externalMetadataColumnId="Package\DFT_DWH_FactOrders\OLE_SRC_DWH_FactOrders.Inputs[OLE DB Destination Input].ExternalColumns[order_approved_datekey]"
+                      lineageId="Package\DFT_DWH_FactOrders\DER_OrderApproved_DateKey.Outputs[Derived Column Output].Columns[order_approved_datekey]" />
+                    <inputColumn
+                      refId="Package\DFT_DWH_FactOrders\OLE_SRC_DWH_FactOrders.Inputs[OLE DB Destination Input].Columns[order_delivered_carrier_datekey]"
+                      cachedDataType="i4"
+                      cachedName="order_delivered_carrier_datekey"
+                      externalMetadataColumnId="Package\DFT_DWH_FactOrders\OLE_SRC_DWH_FactOrders.Inputs[OLE DB Destination Input].ExternalColumns[order_delivered_carrier_datekey]"
+                      lineageId="Package\DFT_DWH_FactOrders\DER_OrderDeliveredCarrier_DateKey.Outputs[Derived Column Output].Columns[order_delivered_carrier_datekey]" />
+                    <inputColumn
+                      refId="Package\DFT_DWH_FactOrders\OLE_SRC_DWH_FactOrders.Inputs[OLE DB Destination Input].Columns[order_delivered_customer_datekey]"
+                      cachedDataType="i4"
+                      cachedName="order_delivered_customer_datekey"
+                      externalMetadataColumnId="Package\DFT_DWH_FactOrders\OLE_SRC_DWH_FactOrders.Inputs[OLE DB Destination Input].ExternalColumns[order_delivered_customer_datekey]"
+                      lineageId="Package\DFT_DWH_FactOrders\DER_OrderDeliveredCustomer_DateKey.Outputs[Derived Column Output].Columns[order_delivered_customer_datekey]" />
+                    <inputColumn
+                      refId="Package\DFT_DWH_FactOrders\OLE_SRC_DWH_FactOrders.Inputs[OLE DB Destination Input].Columns[order_estimated_delivery_datekey]"
+                      cachedDataType="i4"
+                      cachedName="order_estimated_delivery_datekey"
+                      externalMetadataColumnId="Package\DFT_DWH_FactOrders\OLE_SRC_DWH_FactOrders.Inputs[OLE DB Destination Input].ExternalColumns[order_estimated_delivery_datekey]"
+                      lineageId="Package\DFT_DWH_FactOrders\DER_OrderEstimatedDelivery_DateKey.Outputs[Derived Column Output].Columns[order_estimated_delivery_datekey]" />
+                    <inputColumn
+                      refId="Package\DFT_DWH_FactOrders\OLE_SRC_DWH_FactOrders.Inputs[OLE DB Destination Input].Columns[customer_key]"
+                      cachedDataType="i4"
+                      cachedName="customer_key"
+                      externalMetadataColumnId="Package\DFT_DWH_FactOrders\OLE_SRC_DWH_FactOrders.Inputs[OLE DB Destination Input].ExternalColumns[customer_key]"
+                      lineageId="Package\DFT_DWH_FactOrders\LK_CustomerKey.Outputs[Lookup Match Output].Columns[customer_key]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\DFT_DWH_FactOrders\OLE_SRC_DWH_FactOrders.Inputs[OLE DB Destination Input].ExternalColumns[order_id]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="order_id" />
+                    <externalMetadataColumn
+                      refId="Package\DFT_DWH_FactOrders\OLE_SRC_DWH_FactOrders.Inputs[OLE DB Destination Input].ExternalColumns[customer_key]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="customer_key" />
+                    <externalMetadataColumn
+                      refId="Package\DFT_DWH_FactOrders\OLE_SRC_DWH_FactOrders.Inputs[OLE DB Destination Input].ExternalColumns[order_status]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="order_status" />
+                    <externalMetadataColumn
+                      refId="Package\DFT_DWH_FactOrders\OLE_SRC_DWH_FactOrders.Inputs[OLE DB Destination Input].ExternalColumns[order_purchase_timestamp]"
+                      dataType="dbTimeStamp"
+                      name="order_purchase_timestamp" />
+                    <externalMetadataColumn
+                      refId="Package\DFT_DWH_FactOrders\OLE_SRC_DWH_FactOrders.Inputs[OLE DB Destination Input].ExternalColumns[order_purchase_datekey]"
+                      dataType="i4"
+                      name="order_purchase_datekey" />
+                    <externalMetadataColumn
+                      refId="Package\DFT_DWH_FactOrders\OLE_SRC_DWH_FactOrders.Inputs[OLE DB Destination Input].ExternalColumns[order_approved_at]"
+                      dataType="dbTimeStamp"
+                      name="order_approved_at" />
+                    <externalMetadataColumn
+                      refId="Package\DFT_DWH_FactOrders\OLE_SRC_DWH_FactOrders.Inputs[OLE DB Destination Input].ExternalColumns[order_approved_datekey]"
+                      dataType="i4"
+                      name="order_approved_datekey" />
+                    <externalMetadataColumn
+                      refId="Package\DFT_DWH_FactOrders\OLE_SRC_DWH_FactOrders.Inputs[OLE DB Destination Input].ExternalColumns[order_delivered_carrier_date]"
+                      dataType="dbTimeStamp"
+                      name="order_delivered_carrier_date" />
+                    <externalMetadataColumn
+                      refId="Package\DFT_DWH_FactOrders\OLE_SRC_DWH_FactOrders.Inputs[OLE DB Destination Input].ExternalColumns[order_delivered_carrier_datekey]"
+                      dataType="i4"
+                      name="order_delivered_carrier_datekey" />
+                    <externalMetadataColumn
+                      refId="Package\DFT_DWH_FactOrders\OLE_SRC_DWH_FactOrders.Inputs[OLE DB Destination Input].ExternalColumns[order_delivered_customer_date]"
+                      dataType="dbTimeStamp"
+                      name="order_delivered_customer_date" />
+                    <externalMetadataColumn
+                      refId="Package\DFT_DWH_FactOrders\OLE_SRC_DWH_FactOrders.Inputs[OLE DB Destination Input].ExternalColumns[order_delivered_customer_datekey]"
+                      dataType="i4"
+                      name="order_delivered_customer_datekey" />
+                    <externalMetadataColumn
+                      refId="Package\DFT_DWH_FactOrders\OLE_SRC_DWH_FactOrders.Inputs[OLE DB Destination Input].ExternalColumns[order_estimated_delivery_date]"
+                      dataType="dbTimeStamp"
+                      name="order_estimated_delivery_date" />
+                    <externalMetadataColumn
+                      refId="Package\DFT_DWH_FactOrders\OLE_SRC_DWH_FactOrders.Inputs[OLE DB Destination Input].ExternalColumns[order_estimated_delivery_datekey]"
+                      dataType="i4"
+                      name="order_estimated_delivery_datekey" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\DFT_DWH_FactOrders\OLE_SRC_DWH_FactOrders.Outputs[OLE DB Destination Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="OLE DB Destination Error Output"
+                  synchronousInputId="Package\DFT_DWH_FactOrders\OLE_SRC_DWH_FactOrders.Inputs[OLE DB Destination Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DFT_DWH_FactOrders\OLE_SRC_DWH_FactOrders.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\DFT_DWH_FactOrders\OLE_SRC_DWH_FactOrders.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\DFT_DWH_FactOrders\OLE_SRC_DWH_FactOrders.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\DFT_DWH_FactOrders\OLE_SRC_DWH_FactOrders.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\DFT_DWH_FactOrders\OLE_SRC_ODS_Orders"
+              componentClassID="Microsoft.OLEDBSource"
+              contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
+              description="OLE DB Source"
+              name="OLE_SRC_ODS_Orders"
+              usesDispositions="true"
+              version="7">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[dbo].[ODS_Orders]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.String"
+                  description="The variable that contains the SQL command to be executed."
+                  name="SqlCommandVariable"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">0</property>
+                <property
+                  dataType="System.String"
+                  description="The mappings between the parameters in the SQL command and variables."
+                  name="ParameterMapping"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\DFT_DWH_FactOrders\OLE_SRC_ODS_Orders.Connections[OleDbConnection]"
+                  connectionManagerID="{FCA130BA-6604-41D4-BADD-EFC0E9A4B4AE}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[MACHINEX.OLIST_ODS]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\DFT_DWH_FactOrders\OLE_SRC_ODS_Orders.Outputs[OLE DB Source Output]"
+                  name="OLE DB Source Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DFT_DWH_FactOrders\OLE_SRC_ODS_Orders.Outputs[OLE DB Source Output].Columns[order_id]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT_DWH_FactOrders\OLE_SRC_ODS_Orders.Outputs[OLE DB Source Output].ExternalColumns[order_id]"
+                      length="50"
+                      lineageId="Package\DFT_DWH_FactOrders\OLE_SRC_ODS_Orders.Outputs[OLE DB Source Output].Columns[order_id]"
+                      name="order_id"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT_DWH_FactOrders\OLE_SRC_ODS_Orders.Outputs[OLE DB Source Output].Columns[customer_id]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT_DWH_FactOrders\OLE_SRC_ODS_Orders.Outputs[OLE DB Source Output].ExternalColumns[customer_id]"
+                      length="50"
+                      lineageId="Package\DFT_DWH_FactOrders\OLE_SRC_ODS_Orders.Outputs[OLE DB Source Output].Columns[customer_id]"
+                      name="customer_id"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT_DWH_FactOrders\OLE_SRC_ODS_Orders.Outputs[OLE DB Source Output].Columns[order_status]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT_DWH_FactOrders\OLE_SRC_ODS_Orders.Outputs[OLE DB Source Output].ExternalColumns[order_status]"
+                      length="50"
+                      lineageId="Package\DFT_DWH_FactOrders\OLE_SRC_ODS_Orders.Outputs[OLE DB Source Output].Columns[order_status]"
+                      name="order_status"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT_DWH_FactOrders\OLE_SRC_ODS_Orders.Outputs[OLE DB Source Output].Columns[order_purchase_timestamp]"
+                      dataType="dbTimeStamp"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT_DWH_FactOrders\OLE_SRC_ODS_Orders.Outputs[OLE DB Source Output].ExternalColumns[order_purchase_timestamp]"
+                      lineageId="Package\DFT_DWH_FactOrders\OLE_SRC_ODS_Orders.Outputs[OLE DB Source Output].Columns[order_purchase_timestamp]"
+                      name="order_purchase_timestamp"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT_DWH_FactOrders\OLE_SRC_ODS_Orders.Outputs[OLE DB Source Output].Columns[order_approved_at]"
+                      dataType="dbTimeStamp"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT_DWH_FactOrders\OLE_SRC_ODS_Orders.Outputs[OLE DB Source Output].ExternalColumns[order_approved_at]"
+                      lineageId="Package\DFT_DWH_FactOrders\OLE_SRC_ODS_Orders.Outputs[OLE DB Source Output].Columns[order_approved_at]"
+                      name="order_approved_at"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT_DWH_FactOrders\OLE_SRC_ODS_Orders.Outputs[OLE DB Source Output].Columns[order_delivered_carrier_date]"
+                      dataType="dbTimeStamp"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT_DWH_FactOrders\OLE_SRC_ODS_Orders.Outputs[OLE DB Source Output].ExternalColumns[order_delivered_carrier_date]"
+                      lineageId="Package\DFT_DWH_FactOrders\OLE_SRC_ODS_Orders.Outputs[OLE DB Source Output].Columns[order_delivered_carrier_date]"
+                      name="order_delivered_carrier_date"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT_DWH_FactOrders\OLE_SRC_ODS_Orders.Outputs[OLE DB Source Output].Columns[order_delivered_customer_date]"
+                      dataType="dbTimeStamp"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT_DWH_FactOrders\OLE_SRC_ODS_Orders.Outputs[OLE DB Source Output].ExternalColumns[order_delivered_customer_date]"
+                      lineageId="Package\DFT_DWH_FactOrders\OLE_SRC_ODS_Orders.Outputs[OLE DB Source Output].Columns[order_delivered_customer_date]"
+                      name="order_delivered_customer_date"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT_DWH_FactOrders\OLE_SRC_ODS_Orders.Outputs[OLE DB Source Output].Columns[order_estimated_delivery_date]"
+                      dataType="dbTimeStamp"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT_DWH_FactOrders\OLE_SRC_ODS_Orders.Outputs[OLE DB Source Output].ExternalColumns[order_estimated_delivery_date]"
+                      lineageId="Package\DFT_DWH_FactOrders\OLE_SRC_ODS_Orders.Outputs[OLE DB Source Output].Columns[order_estimated_delivery_date]"
+                      name="order_estimated_delivery_date"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\DFT_DWH_FactOrders\OLE_SRC_ODS_Orders.Outputs[OLE DB Source Output].ExternalColumns[order_id]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="order_id" />
+                    <externalMetadataColumn
+                      refId="Package\DFT_DWH_FactOrders\OLE_SRC_ODS_Orders.Outputs[OLE DB Source Output].ExternalColumns[customer_id]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="customer_id" />
+                    <externalMetadataColumn
+                      refId="Package\DFT_DWH_FactOrders\OLE_SRC_ODS_Orders.Outputs[OLE DB Source Output].ExternalColumns[order_status]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="order_status" />
+                    <externalMetadataColumn
+                      refId="Package\DFT_DWH_FactOrders\OLE_SRC_ODS_Orders.Outputs[OLE DB Source Output].ExternalColumns[order_purchase_timestamp]"
+                      dataType="dbTimeStamp"
+                      name="order_purchase_timestamp" />
+                    <externalMetadataColumn
+                      refId="Package\DFT_DWH_FactOrders\OLE_SRC_ODS_Orders.Outputs[OLE DB Source Output].ExternalColumns[order_approved_at]"
+                      dataType="dbTimeStamp"
+                      name="order_approved_at" />
+                    <externalMetadataColumn
+                      refId="Package\DFT_DWH_FactOrders\OLE_SRC_ODS_Orders.Outputs[OLE DB Source Output].ExternalColumns[order_delivered_carrier_date]"
+                      dataType="dbTimeStamp"
+                      name="order_delivered_carrier_date" />
+                    <externalMetadataColumn
+                      refId="Package\DFT_DWH_FactOrders\OLE_SRC_ODS_Orders.Outputs[OLE DB Source Output].ExternalColumns[order_delivered_customer_date]"
+                      dataType="dbTimeStamp"
+                      name="order_delivered_customer_date" />
+                    <externalMetadataColumn
+                      refId="Package\DFT_DWH_FactOrders\OLE_SRC_ODS_Orders.Outputs[OLE DB Source Output].ExternalColumns[order_estimated_delivery_date]"
+                      dataType="dbTimeStamp"
+                      name="order_estimated_delivery_date" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\DFT_DWH_FactOrders\OLE_SRC_ODS_Orders.Outputs[OLE DB Source Error Output]"
+                  isErrorOut="true"
+                  name="OLE DB Source Error Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DFT_DWH_FactOrders\OLE_SRC_ODS_Orders.Outputs[OLE DB Source Error Output].Columns[order_id]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      lineageId="Package\DFT_DWH_FactOrders\OLE_SRC_ODS_Orders.Outputs[OLE DB Source Error Output].Columns[order_id]"
+                      name="order_id" />
+                    <outputColumn
+                      refId="Package\DFT_DWH_FactOrders\OLE_SRC_ODS_Orders.Outputs[OLE DB Source Error Output].Columns[customer_id]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      lineageId="Package\DFT_DWH_FactOrders\OLE_SRC_ODS_Orders.Outputs[OLE DB Source Error Output].Columns[customer_id]"
+                      name="customer_id" />
+                    <outputColumn
+                      refId="Package\DFT_DWH_FactOrders\OLE_SRC_ODS_Orders.Outputs[OLE DB Source Error Output].Columns[order_status]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      lineageId="Package\DFT_DWH_FactOrders\OLE_SRC_ODS_Orders.Outputs[OLE DB Source Error Output].Columns[order_status]"
+                      name="order_status" />
+                    <outputColumn
+                      refId="Package\DFT_DWH_FactOrders\OLE_SRC_ODS_Orders.Outputs[OLE DB Source Error Output].Columns[order_purchase_timestamp]"
+                      dataType="dbTimeStamp"
+                      lineageId="Package\DFT_DWH_FactOrders\OLE_SRC_ODS_Orders.Outputs[OLE DB Source Error Output].Columns[order_purchase_timestamp]"
+                      name="order_purchase_timestamp" />
+                    <outputColumn
+                      refId="Package\DFT_DWH_FactOrders\OLE_SRC_ODS_Orders.Outputs[OLE DB Source Error Output].Columns[order_approved_at]"
+                      dataType="dbTimeStamp"
+                      lineageId="Package\DFT_DWH_FactOrders\OLE_SRC_ODS_Orders.Outputs[OLE DB Source Error Output].Columns[order_approved_at]"
+                      name="order_approved_at" />
+                    <outputColumn
+                      refId="Package\DFT_DWH_FactOrders\OLE_SRC_ODS_Orders.Outputs[OLE DB Source Error Output].Columns[order_delivered_carrier_date]"
+                      dataType="dbTimeStamp"
+                      lineageId="Package\DFT_DWH_FactOrders\OLE_SRC_ODS_Orders.Outputs[OLE DB Source Error Output].Columns[order_delivered_carrier_date]"
+                      name="order_delivered_carrier_date" />
+                    <outputColumn
+                      refId="Package\DFT_DWH_FactOrders\OLE_SRC_ODS_Orders.Outputs[OLE DB Source Error Output].Columns[order_delivered_customer_date]"
+                      dataType="dbTimeStamp"
+                      lineageId="Package\DFT_DWH_FactOrders\OLE_SRC_ODS_Orders.Outputs[OLE DB Source Error Output].Columns[order_delivered_customer_date]"
+                      name="order_delivered_customer_date" />
+                    <outputColumn
+                      refId="Package\DFT_DWH_FactOrders\OLE_SRC_ODS_Orders.Outputs[OLE DB Source Error Output].Columns[order_estimated_delivery_date]"
+                      dataType="dbTimeStamp"
+                      lineageId="Package\DFT_DWH_FactOrders\OLE_SRC_ODS_Orders.Outputs[OLE DB Source Error Output].Columns[order_estimated_delivery_date]"
+                      name="order_estimated_delivery_date" />
+                    <outputColumn
+                      refId="Package\DFT_DWH_FactOrders\OLE_SRC_ODS_Orders.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\DFT_DWH_FactOrders\OLE_SRC_ODS_Orders.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\DFT_DWH_FactOrders\OLE_SRC_ODS_Orders.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\DFT_DWH_FactOrders\OLE_SRC_ODS_Orders.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\DFT_DWH_FactOrders.Paths[Derived Column Output]"
+              endId="Package\DFT_DWH_FactOrders\DER_OrderApproved_DateKey.Inputs[Derived Column Input]"
+              name="Derived Column Output"
+              startId="Package\DFT_DWH_FactOrders\DER_OrderPurchase_DateKey.Outputs[Derived Column Output]" />
+            <path
+              refId="Package\DFT_DWH_FactOrders.Paths[Derived Column Output1]"
+              endId="Package\DFT_DWH_FactOrders\DER_OrderDeliveredCarrier_DateKey.Inputs[Derived Column Input]"
+              name="Derived Column Output"
+              startId="Package\DFT_DWH_FactOrders\DER_OrderApproved_DateKey.Outputs[Derived Column Output]" />
+            <path
+              refId="Package\DFT_DWH_FactOrders.Paths[Derived Column Output2]"
+              endId="Package\DFT_DWH_FactOrders\DER_OrderDeliveredCustomer_DateKey.Inputs[Derived Column Input]"
+              name="Derived Column Output"
+              startId="Package\DFT_DWH_FactOrders\DER_OrderDeliveredCarrier_DateKey.Outputs[Derived Column Output]" />
+            <path
+              refId="Package\DFT_DWH_FactOrders.Paths[Derived Column Output3]"
+              endId="Package\DFT_DWH_FactOrders\DER_OrderEstimatedDelivery_DateKey.Inputs[Derived Column Input]"
+              name="Derived Column Output"
+              startId="Package\DFT_DWH_FactOrders\DER_OrderDeliveredCustomer_DateKey.Outputs[Derived Column Output]" />
+            <path
+              refId="Package\DFT_DWH_FactOrders.Paths[Derived Column Output4]"
+              endId="Package\DFT_DWH_FactOrders\LK_CustomerKey.Inputs[Lookup Input]"
+              name="Derived Column Output"
+              startId="Package\DFT_DWH_FactOrders\DER_OrderEstimatedDelivery_DateKey.Outputs[Derived Column Output]" />
+            <path
+              refId="Package\DFT_DWH_FactOrders.Paths[Lookup Match Output]"
+              endId="Package\DFT_DWH_FactOrders\LK_OrderPurchaseDateKey.Inputs[Lookup Input]"
+              name="Lookup Match Output"
+              startId="Package\DFT_DWH_FactOrders\LK_CustomerKey.Outputs[Lookup Match Output]" />
+            <path
+              refId="Package\DFT_DWH_FactOrders.Paths[Lookup Match Output1]"
+              endId="Package\DFT_DWH_FactOrders\LK_OrderApprovedDateKey.Inputs[Lookup Input]"
+              name="Lookup Match Output"
+              startId="Package\DFT_DWH_FactOrders\LK_OrderPurchaseDateKey.Outputs[Lookup Match Output]" />
+            <path
+              refId="Package\DFT_DWH_FactOrders.Paths[Lookup Match Output2]"
+              endId="Package\DFT_DWH_FactOrders\LK_OrderDeliveredCarrierDateKey.Inputs[Lookup Input]"
+              name="Lookup Match Output"
+              startId="Package\DFT_DWH_FactOrders\LK_OrderApprovedDateKey.Outputs[Lookup Match Output]" />
+            <path
+              refId="Package\DFT_DWH_FactOrders.Paths[Lookup Match Output3]"
+              endId="Package\DFT_DWH_FactOrders\LK_OrderDeliveredCustomerDateKey.Inputs[Lookup Input]"
+              name="Lookup Match Output"
+              startId="Package\DFT_DWH_FactOrders\LK_OrderDeliveredCarrierDateKey.Outputs[Lookup Match Output]" />
+            <path
+              refId="Package\DFT_DWH_FactOrders.Paths[Lookup Match Output4]"
+              endId="Package\DFT_DWH_FactOrders\LK_OrderEstimatedDeliveryDateKey.Inputs[Lookup Input]"
+              name="Lookup Match Output"
+              startId="Package\DFT_DWH_FactOrders\LK_OrderDeliveredCustomerDateKey.Outputs[Lookup Match Output]" />
+            <path
+              refId="Package\DFT_DWH_FactOrders.Paths[Lookup Match Output5]"
+              endId="Package\DFT_DWH_FactOrders\OLE_SRC_DWH_FactOrders.Inputs[OLE DB Destination Input]"
+              name="Lookup Match Output"
+              startId="Package\DFT_DWH_FactOrders\LK_OrderEstimatedDeliveryDateKey.Outputs[Lookup Match Output]" />
+            <path
+              refId="Package\DFT_DWH_FactOrders.Paths[OLE DB Source Output]"
+              endId="Package\DFT_DWH_FactOrders\DER_OrderPurchase_DateKey.Inputs[Derived Column Input]"
+              name="OLE DB Source Output"
+              startId="Package\DFT_DWH_FactOrders\OLE_SRC_ODS_Orders.Outputs[OLE DB Source Output]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="8">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph">
+        <NodeLayout
+          Size="194,42"
+          Id="Package\DFT_DWH_FactOrders"
+          TopLeft="332,74" />
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <TaskHost
+    design-time-name="Package\DFT_DWH_FactOrders">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="32" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        <NodeLayout
+          Size="200,42"
+          Id="Package\DFT_DWH_FactOrders\OLE_SRC_ODS_Orders"
+          TopLeft="132,22" />
+        <NodeLayout
+          Size="231,42"
+          Id="Package\DFT_DWH_FactOrders\DER_OrderPurchase_DateKey"
+          TopLeft="114,89" />
+        <EdgeLayout
+          Id="Package\DFT_DWH_FactOrders.Paths[OLE DB Source Output]"
+          TopLeft="230.75,64">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,25"
+              Start="0,0"
+              End="0,17.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,17.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="232,42"
+          Id="Package\DFT_DWH_FactOrders\DER_OrderApproved_DateKey"
+          TopLeft="117,145" />
+        <EdgeLayout
+          Id="Package\DFT_DWH_FactOrders.Paths[Derived Column Output]"
+          TopLeft="114,110">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="3,56"
+              Start="0,0"
+              End="-4.5,56">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="-18.5,0" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-18.5,0"
+                    Point2="-22.5,0"
+                    Point3="-22.5,4" />
+                  <mssgle:LineSegment
+                    End="-22.5,52" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-22.5,52"
+                    Point2="-22.5,56"
+                    Point3="-18.5,56" />
+                  <mssgle:LineSegment
+                    End="-4.5,56" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="265,42"
+          Id="Package\DFT_DWH_FactOrders\DER_OrderDeliveredCarrier_DateKey"
+          TopLeft="103,208" />
+        <EdgeLayout
+          Id="Package\DFT_DWH_FactOrders.Paths[Derived Column Output1]"
+          TopLeft="117,171.666666666667">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-14,57.3333333333333"
+              Start="0,0"
+              End="-21.5,57.3333333333333">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="-32.5,0" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-32.5,0"
+                    Point2="-36.5,0"
+                    Point3="-36.5,4" />
+                  <mssgle:LineSegment
+                    End="-36.5,53.3333333333333" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-36.5,53.3333333333333"
+                    Point2="-36.5,57.3333333333333"
+                    Point3="-32.5,57.3333333333333" />
+                  <mssgle:LineSegment
+                    End="-21.5,57.3333333333333" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="279,42"
+          Id="Package\DFT_DWH_FactOrders\DER_OrderDeliveredCustomer_DateKey"
+          TopLeft="92,269" />
+        <EdgeLayout
+          Id="Package\DFT_DWH_FactOrders.Paths[Derived Column Output2]"
+          TopLeft="368,229">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="3,61"
+              Start="0,0"
+              End="10.5,61">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="21.5,0" />
+                  <mssgle:CubicBezierSegment
+                    Point1="21.5,0"
+                    Point2="25.5,0"
+                    Point3="25.5,4" />
+                  <mssgle:LineSegment
+                    End="25.5,57" />
+                  <mssgle:CubicBezierSegment
+                    Point1="25.5,57"
+                    Point2="25.5,61"
+                    Point3="21.5,61" />
+                  <mssgle:LineSegment
+                    End="10.5,61" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="273,42"
+          Id="Package\DFT_DWH_FactOrders\DER_OrderEstimatedDelivery_DateKey"
+          TopLeft="97,329" />
+        <EdgeLayout
+          Id="Package\DFT_DWH_FactOrders.Paths[Derived Column Output3]"
+          TopLeft="92,290">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="5,60"
+              Start="0,0"
+              End="-2.5,60">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="-18.5,0" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-18.5,0"
+                    Point2="-22.5,0"
+                    Point3="-22.5,4" />
+                  <mssgle:LineSegment
+                    End="-22.5,56" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-22.5,56"
+                    Point2="-22.5,60"
+                    Point3="-18.5,60" />
+                  <mssgle:LineSegment
+                    End="-2.5,60" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="165,42"
+          Id="Package\DFT_DWH_FactOrders\LK_CustomerKey"
+          TopLeft="152,397" />
+        <EdgeLayout
+          Id="Package\DFT_DWH_FactOrders.Paths[Derived Column Output4]"
+          TopLeft="234,371">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,26"
+              Start="0,0"
+              End="0,18.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,18.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="215,42"
+          Id="Package\DFT_DWH_FactOrders\LK_OrderPurchaseDateKey"
+          TopLeft="127,467" />
+        <EdgeLayout
+          Id="Package\DFT_DWH_FactOrders.Paths[Lookup Match Output]"
+          TopLeft="234.5,439">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,28"
+              Start="0,0"
+              End="0,20.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,20.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-48.19138671875,4.4453125,96.3827734375,11.609375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="216,42"
+          Id="Package\DFT_DWH_FactOrders\LK_OrderApprovedDateKey"
+          TopLeft="126,532" />
+        <EdgeLayout
+          Id="Package\DFT_DWH_FactOrders.Paths[Lookup Match Output1]"
+          TopLeft="234.25,509">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,23"
+              Start="0,0"
+              End="0,15.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,15.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-48.19138671875,1.9453125,96.3827734375,11.609375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="249,42"
+          Id="Package\DFT_DWH_FactOrders\LK_OrderDeliveredCarrierDateKey"
+          TopLeft="113,592" />
+        <EdgeLayout
+          Id="Package\DFT_DWH_FactOrders.Paths[Lookup Match Output2]"
+          TopLeft="126,553">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-13,60"
+              Start="0,0"
+              End="-20.5,60">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="-31.5,0" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-31.5,0"
+                    Point2="-35.5,0"
+                    Point3="-35.5,4" />
+                  <mssgle:LineSegment
+                    End="-35.5,56" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-35.5,56"
+                    Point2="-35.5,60"
+                    Point3="-31.5,60" />
+                  <mssgle:LineSegment
+                    End="-20.5,60" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-83.69138671875,-17.609375,96.3827734375,11.609375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="263,42"
+          Id="Package\DFT_DWH_FactOrders\LK_OrderDeliveredCustomerDateKey"
+          TopLeft="106,655" />
+        <EdgeLayout
+          Id="Package\DFT_DWH_FactOrders.Paths[Lookup Match Output3]"
+          TopLeft="113,618.666666666667">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-7,51.6666666666667"
+              Start="0,0"
+              End="-14.5,51.6666666666667">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="-25.5,0" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-25.5,0"
+                    Point2="-29.5,0"
+                    Point3="-29.5,4" />
+                  <mssgle:LineSegment
+                    End="-29.5,47.6666666666667" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-29.5,47.6666666666667"
+                    Point2="-29.5,51.6666666666667"
+                    Point3="-25.5,51.6666666666667" />
+                  <mssgle:LineSegment
+                    End="-14.5,51.6666666666667" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-77.69138671875,-17.609375,96.3827734375,11.609375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="258,42"
+          Id="Package\DFT_DWH_FactOrders\LK_OrderEstimatedDeliveryDateKey"
+          TopLeft="116,712" />
+        <EdgeLayout
+          Id="Package\DFT_DWH_FactOrders.Paths[Lookup Match Output4]"
+          TopLeft="106,681.666666666667">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="10,51.3333333333334"
+              Start="0,0"
+              End="2.5,51.3333333333334">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="-18.5,0" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-18.5,0"
+                    Point2="-22.5,0"
+                    Point3="-22.5,4" />
+                  <mssgle:LineSegment
+                    End="-22.5,47.3333333333334" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-22.5,47.3333333333334"
+                    Point2="-22.5,51.3333333333334"
+                    Point3="-18.5,51.3333333333334" />
+                  <mssgle:LineSegment
+                    End="2.5,51.3333333333334" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-70.69138671875,-17.609375,96.3827734375,11.609375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="224,42"
+          Id="Package\DFT_DWH_FactOrders\OLE_SRC_DWH_FactOrders"
+          TopLeft="138,792" />
+        <EdgeLayout
+          Id="Package\DFT_DWH_FactOrders.Paths[Lookup Match Output5]"
+          TopLeft="247.5,754">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,38"
+              Start="0,0"
+              End="0,30.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,30.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-48.19138671875,9.4453125,96.3827734375,11.609375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\DFT_DWH_FactOrders\OLE_SRC_ODS_Orders">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\DFT_DWH_FactOrders\LK_CustomerKey">
+    <Properties>
+      <Property>
+        <Name>OverwriteParamsSQLProp</Name>
+        <Value
+          type="q2:boolean">false</Value>
+      </Property>
+      <Property>
+        <Name>UsedTableName</Name>
+        <Value
+          type="q3:string">[dbo].[DWH_DimCustomers]</Value>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q4:int">0</Value>
+      </Property>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\DFT_DWH_FactOrders\LK_OrderPurchaseDateKey">
+    <Properties>
+      <Property>
+        <Name>OverwriteParamsSQLProp</Name>
+        <Value
+          type="q2:boolean">false</Value>
+      </Property>
+      <Property>
+        <Name>UsedTableName</Name>
+        <Value
+          type="q3:string">[dbo].[DWH_DimDate]</Value>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q4:int">0</Value>
+      </Property>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\DFT_DWH_FactOrders\LK_OrderApprovedDateKey">
+    <Properties>
+      <Property>
+        <Name>OverwriteParamsSQLProp</Name>
+        <Value
+          type="q2:boolean">false</Value>
+      </Property>
+      <Property>
+        <Name>UsedTableName</Name>
+        <Value
+          type="q3:string">[dbo].[DWH_DimDate]</Value>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q4:int">0</Value>
+      </Property>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\DFT_DWH_FactOrders\LK_OrderDeliveredCarrierDateKey">
+    <Properties>
+      <Property>
+        <Name>OverwriteParamsSQLProp</Name>
+        <Value
+          type="q2:boolean">false</Value>
+      </Property>
+      <Property>
+        <Name>UsedTableName</Name>
+        <Value
+          type="q3:string">[dbo].[DWH_DimDate]</Value>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q4:int">0</Value>
+      </Property>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\DFT_DWH_FactOrders\LK_OrderDeliveredCustomerDateKey">
+    <Properties>
+      <Property>
+        <Name>OverwriteParamsSQLProp</Name>
+        <Value
+          type="q2:boolean">false</Value>
+      </Property>
+      <Property>
+        <Name>UsedTableName</Name>
+        <Value
+          type="q3:string">[dbo].[DWH_DimDate]</Value>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q4:int">0</Value>
+      </Property>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\DFT_DWH_FactOrders\OLE_SRC_DWH_FactOrders">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>
