@@ -1,5 +1,31 @@
 USE OLIST_DWH;
 
+-- Products
+
+CREATE TABLE dbo.[DWH_DimProducts] (
+    [product_key] INT PRIMARY KEY IDENTITY(1, 1),
+    [product_id] varchar(50),
+    [product_category_name_english] varchar(50),
+    [product_category_name_portuguese] varchar(50),
+    [product_name_lenght] int,
+    [product_description_lenght] int,
+    [product_photos_qty] int,
+    [product_weight_g] decimal(28, 2),
+    [product_length_cm] decimal(28, 2),
+    [product_height_cm] decimal(28, 2),
+    [product_width_cm] decimal(28, 2),
+    IsInferred BIT NOT NULL DEFAULT 0
+);
+
+SELECT *
+FROM DWH_DimProducts;
+
+SELECT COUNT(DISTINCT product_key)
+FROM DWH_DimProducts;
+
+SELECT COUNT(DISTINCT product_id)
+FROM DWH_DimProducts;
+
 -- OrderReviews
 
 CREATE TABLE dbo.[DWH_DimOrderReviews] (
