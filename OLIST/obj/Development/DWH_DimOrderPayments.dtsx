@@ -11,8 +11,8 @@
   DTS:LocaleID="4105"
   DTS:ObjectName="Package1"
   DTS:PackageType="5"
-  DTS:VersionBuild="4"
-  DTS:VersionGUID="{CB6D080C-0CCF-49F7-90E1-B96A549A36F9}">
+  DTS:VersionBuild="5"
+  DTS:VersionGUID="{5F44316A-7313-4BE4-83A4-94583075C168}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:Variables />
@@ -246,186 +246,11 @@
               </outputs>
             </component>
             <component
-              refId="Package\DFT_DWH_DimOrderPayments\OLE DB Command"
+              refId="Package\DFT_DWH_DimOrderPayments\CMD_Inference"
               componentClassID="Microsoft.OLEDBCommand"
               contactInfo="OLE DB Command;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;2"
               description="Runs an SQL statement for each row in a data flow. For example, call a 'new employee setup' stored procedure for each row in the 'new employees' table. Note: running an SQL statement for each row of a large data flow may take a long time."
-              name="OLE DB Command"
-              usesDispositions="true"
-              version="2">
-              <properties>
-                <property
-                  dataType="System.Int32"
-                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
-                  name="CommandTimeout">0</property>
-                <property
-                  dataType="System.String"
-                  description="The SQL command to be executed."
-                  expressionType="Notify"
-                  name="SqlCommand"
-                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">UPDATE [dbo].[DWH_DimOrderPayments] SET [payment_installments] = ?,[payment_sequential] = ?,[payment_type] = ?,[payment_value] = ?,[IsInferred] = '0' WHERE [order_id] = ? AND [IsInferred] = '1'</property>
-                <property
-                  dataType="System.Int32"
-                  description="Specifies the column code page to use when code page information is unavailable from the data source."
-                  name="DefaultCodePage">1252</property>
-              </properties>
-              <connections>
-                <connection
-                  refId="Package\DFT_DWH_DimOrderPayments\OLE DB Command.Connections[OleDbConnection]"
-                  connectionManagerID="{B69E558A-C9B8-4F53-92A9-616941D79363}:external"
-                  connectionManagerRefId="Project.ConnectionManagers[MACHINEX.OLIST_DWH]"
-                  description="The OLE DB runtime connection used to access the database."
-                  name="OleDbConnection" />
-              </connections>
-              <inputs>
-                <input
-                  refId="Package\DFT_DWH_DimOrderPayments\OLE DB Command.Inputs[OLE DB Command Input]"
-                  errorOrTruncationOperation="Command Execution"
-                  errorRowDisposition="FailComponent"
-                  hasSideEffects="true"
-                  name="OLE DB Command Input">
-                  <inputColumns>
-                    <inputColumn
-                      refId="Package\DFT_DWH_DimOrderPayments\OLE DB Command.Inputs[OLE DB Command Input].Columns[order_id]"
-                      cachedCodepage="1252"
-                      cachedDataType="str"
-                      cachedLength="50"
-                      cachedName="order_id"
-                      externalMetadataColumnId="Package\DFT_DWH_DimOrderPayments\OLE DB Command.Inputs[OLE DB Command Input].ExternalColumns[Param_4]"
-                      lineageId="Package\DFT_DWH_DimOrderPayments\OLE_SRC_ODS_OrderPayments.Outputs[OLE DB Source Output].Columns[order_id]" />
-                    <inputColumn
-                      refId="Package\DFT_DWH_DimOrderPayments\OLE DB Command.Inputs[OLE DB Command Input].Columns[payment_installments]"
-                      cachedDataType="i4"
-                      cachedName="payment_installments"
-                      externalMetadataColumnId="Package\DFT_DWH_DimOrderPayments\OLE DB Command.Inputs[OLE DB Command Input].ExternalColumns[Param_0]"
-                      lineageId="Package\DFT_DWH_DimOrderPayments\OLE_SRC_ODS_OrderPayments.Outputs[OLE DB Source Output].Columns[payment_installments]" />
-                    <inputColumn
-                      refId="Package\DFT_DWH_DimOrderPayments\OLE DB Command.Inputs[OLE DB Command Input].Columns[payment_sequential]"
-                      cachedDataType="i4"
-                      cachedName="payment_sequential"
-                      externalMetadataColumnId="Package\DFT_DWH_DimOrderPayments\OLE DB Command.Inputs[OLE DB Command Input].ExternalColumns[Param_1]"
-                      lineageId="Package\DFT_DWH_DimOrderPayments\OLE_SRC_ODS_OrderPayments.Outputs[OLE DB Source Output].Columns[payment_sequential]" />
-                    <inputColumn
-                      refId="Package\DFT_DWH_DimOrderPayments\OLE DB Command.Inputs[OLE DB Command Input].Columns[payment_type]"
-                      cachedCodepage="1252"
-                      cachedDataType="str"
-                      cachedLength="12"
-                      cachedName="payment_type"
-                      externalMetadataColumnId="Package\DFT_DWH_DimOrderPayments\OLE DB Command.Inputs[OLE DB Command Input].ExternalColumns[Param_2]"
-                      lineageId="Package\DFT_DWH_DimOrderPayments\OLE_SRC_ODS_OrderPayments.Outputs[OLE DB Source Output].Columns[payment_type]" />
-                    <inputColumn
-                      refId="Package\DFT_DWH_DimOrderPayments\OLE DB Command.Inputs[OLE DB Command Input].Columns[payment_value]"
-                      cachedDataType="numeric"
-                      cachedName="payment_value"
-                      cachedPrecision="28"
-                      cachedScale="2"
-                      externalMetadataColumnId="Package\DFT_DWH_DimOrderPayments\OLE DB Command.Inputs[OLE DB Command Input].ExternalColumns[Param_3]"
-                      lineageId="Package\DFT_DWH_DimOrderPayments\OLE_SRC_ODS_OrderPayments.Outputs[OLE DB Source Output].Columns[payment_value]" />
-                  </inputColumns>
-                  <externalMetadataColumns
-                    isUsed="True">
-                    <externalMetadataColumn
-                      refId="Package\DFT_DWH_DimOrderPayments\OLE DB Command.Inputs[OLE DB Command Input].ExternalColumns[Param_0]"
-                      dataType="i4"
-                      name="Param_0">
-                      <properties>
-                        <property
-                          dataType="System.Int32"
-                          description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
-                          name="DBParamInfoFlags">81</property>
-                      </properties>
-                    </externalMetadataColumn>
-                    <externalMetadataColumn
-                      refId="Package\DFT_DWH_DimOrderPayments\OLE DB Command.Inputs[OLE DB Command Input].ExternalColumns[Param_1]"
-                      dataType="i4"
-                      name="Param_1">
-                      <properties>
-                        <property
-                          dataType="System.Int32"
-                          description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
-                          name="DBParamInfoFlags">81</property>
-                      </properties>
-                    </externalMetadataColumn>
-                    <externalMetadataColumn
-                      refId="Package\DFT_DWH_DimOrderPayments\OLE DB Command.Inputs[OLE DB Command Input].ExternalColumns[Param_2]"
-                      codePage="1252"
-                      dataType="str"
-                      length="12"
-                      name="Param_2">
-                      <properties>
-                        <property
-                          dataType="System.Int32"
-                          description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
-                          name="DBParamInfoFlags">65</property>
-                      </properties>
-                    </externalMetadataColumn>
-                    <externalMetadataColumn
-                      refId="Package\DFT_DWH_DimOrderPayments\OLE DB Command.Inputs[OLE DB Command Input].ExternalColumns[Param_3]"
-                      dataType="numeric"
-                      name="Param_3"
-                      precision="28"
-                      scale="2">
-                      <properties>
-                        <property
-                          dataType="System.Int32"
-                          description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
-                          name="DBParamInfoFlags">81</property>
-                      </properties>
-                    </externalMetadataColumn>
-                    <externalMetadataColumn
-                      refId="Package\DFT_DWH_DimOrderPayments\OLE DB Command.Inputs[OLE DB Command Input].ExternalColumns[Param_4]"
-                      codePage="1252"
-                      dataType="str"
-                      length="50"
-                      name="Param_4">
-                      <properties>
-                        <property
-                          dataType="System.Int32"
-                          description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
-                          name="DBParamInfoFlags">65</property>
-                      </properties>
-                    </externalMetadataColumn>
-                  </externalMetadataColumns>
-                </input>
-              </inputs>
-              <outputs>
-                <output
-                  refId="Package\DFT_DWH_DimOrderPayments\OLE DB Command.Outputs[OLE DB Command Output]"
-                  exclusionGroup="1"
-                  name="OLE DB Command Output"
-                  synchronousInputId="Package\DFT_DWH_DimOrderPayments\OLE DB Command.Inputs[OLE DB Command Input]">
-                  <externalMetadataColumns />
-                </output>
-                <output
-                  refId="Package\DFT_DWH_DimOrderPayments\OLE DB Command.Outputs[OLE DB Command Error Output]"
-                  exclusionGroup="1"
-                  isErrorOut="true"
-                  name="OLE DB Command Error Output"
-                  synchronousInputId="Package\DFT_DWH_DimOrderPayments\OLE DB Command.Inputs[OLE DB Command Input]">
-                  <outputColumns>
-                    <outputColumn
-                      refId="Package\DFT_DWH_DimOrderPayments\OLE DB Command.Outputs[OLE DB Command Error Output].Columns[ErrorCode]"
-                      dataType="i4"
-                      lineageId="Package\DFT_DWH_DimOrderPayments\OLE DB Command.Outputs[OLE DB Command Error Output].Columns[ErrorCode]"
-                      name="ErrorCode"
-                      specialFlags="1" />
-                    <outputColumn
-                      refId="Package\DFT_DWH_DimOrderPayments\OLE DB Command.Outputs[OLE DB Command Error Output].Columns[ErrorColumn]"
-                      dataType="i4"
-                      lineageId="Package\DFT_DWH_DimOrderPayments\OLE DB Command.Outputs[OLE DB Command Error Output].Columns[ErrorColumn]"
-                      name="ErrorColumn"
-                      specialFlags="2" />
-                  </outputColumns>
-                  <externalMetadataColumns />
-                </output>
-              </outputs>
-            </component>
-            <component
-              refId="Package\DFT_DWH_DimOrderPayments\OLE DB Command 1"
-              componentClassID="Microsoft.OLEDBCommand"
-              contactInfo="OLE DB Command;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;2"
-              description="Runs an SQL statement for each row in a data flow. For example, call a 'new employee setup' stored procedure for each row in the 'new employees' table. Note: running an SQL statement for each row of a large data flow may take a long time."
-              name="OLE DB Command 1"
+              name="CMD_Inference"
               usesDispositions="true"
               version="2">
               <properties>
@@ -446,7 +271,7 @@
               </properties>
               <connections>
                 <connection
-                  refId="Package\DFT_DWH_DimOrderPayments\OLE DB Command 1.Connections[OleDbConnection]"
+                  refId="Package\DFT_DWH_DimOrderPayments\CMD_Inference.Connections[OleDbConnection]"
                   connectionManagerID="{B69E558A-C9B8-4F53-92A9-616941D79363}:external"
                   connectionManagerRefId="Project.ConnectionManagers[MACHINEX.OLIST_DWH]"
                   description="The OLE DB runtime connection used to access the database."
@@ -454,53 +279,53 @@
               </connections>
               <inputs>
                 <input
-                  refId="Package\DFT_DWH_DimOrderPayments\OLE DB Command 1.Inputs[OLE DB Command Input]"
+                  refId="Package\DFT_DWH_DimOrderPayments\CMD_Inference.Inputs[OLE DB Command Input]"
                   errorOrTruncationOperation="Command Execution"
                   errorRowDisposition="FailComponent"
                   hasSideEffects="true"
                   name="OLE DB Command Input">
                   <inputColumns>
                     <inputColumn
-                      refId="Package\DFT_DWH_DimOrderPayments\OLE DB Command 1.Inputs[OLE DB Command Input].Columns[order_id]"
+                      refId="Package\DFT_DWH_DimOrderPayments\CMD_Inference.Inputs[OLE DB Command Input].Columns[order_id]"
                       cachedCodepage="1252"
                       cachedDataType="str"
                       cachedLength="50"
                       cachedName="order_id"
-                      externalMetadataColumnId="Package\DFT_DWH_DimOrderPayments\OLE DB Command 1.Inputs[OLE DB Command Input].ExternalColumns[Param_4]"
+                      externalMetadataColumnId="Package\DFT_DWH_DimOrderPayments\CMD_Inference.Inputs[OLE DB Command Input].ExternalColumns[Param_4]"
                       lineageId="Package\DFT_DWH_DimOrderPayments\OLE_SRC_ODS_OrderPayments.Outputs[OLE DB Source Output].Columns[order_id]" />
                     <inputColumn
-                      refId="Package\DFT_DWH_DimOrderPayments\OLE DB Command 1.Inputs[OLE DB Command Input].Columns[payment_installments]"
+                      refId="Package\DFT_DWH_DimOrderPayments\CMD_Inference.Inputs[OLE DB Command Input].Columns[payment_installments]"
                       cachedDataType="i4"
                       cachedName="payment_installments"
-                      externalMetadataColumnId="Package\DFT_DWH_DimOrderPayments\OLE DB Command 1.Inputs[OLE DB Command Input].ExternalColumns[Param_0]"
+                      externalMetadataColumnId="Package\DFT_DWH_DimOrderPayments\CMD_Inference.Inputs[OLE DB Command Input].ExternalColumns[Param_0]"
                       lineageId="Package\DFT_DWH_DimOrderPayments\OLE_SRC_ODS_OrderPayments.Outputs[OLE DB Source Output].Columns[payment_installments]" />
                     <inputColumn
-                      refId="Package\DFT_DWH_DimOrderPayments\OLE DB Command 1.Inputs[OLE DB Command Input].Columns[payment_sequential]"
+                      refId="Package\DFT_DWH_DimOrderPayments\CMD_Inference.Inputs[OLE DB Command Input].Columns[payment_sequential]"
                       cachedDataType="i4"
                       cachedName="payment_sequential"
-                      externalMetadataColumnId="Package\DFT_DWH_DimOrderPayments\OLE DB Command 1.Inputs[OLE DB Command Input].ExternalColumns[Param_1]"
+                      externalMetadataColumnId="Package\DFT_DWH_DimOrderPayments\CMD_Inference.Inputs[OLE DB Command Input].ExternalColumns[Param_1]"
                       lineageId="Package\DFT_DWH_DimOrderPayments\OLE_SRC_ODS_OrderPayments.Outputs[OLE DB Source Output].Columns[payment_sequential]" />
                     <inputColumn
-                      refId="Package\DFT_DWH_DimOrderPayments\OLE DB Command 1.Inputs[OLE DB Command Input].Columns[payment_type]"
+                      refId="Package\DFT_DWH_DimOrderPayments\CMD_Inference.Inputs[OLE DB Command Input].Columns[payment_type]"
                       cachedCodepage="1252"
                       cachedDataType="str"
                       cachedLength="12"
                       cachedName="payment_type"
-                      externalMetadataColumnId="Package\DFT_DWH_DimOrderPayments\OLE DB Command 1.Inputs[OLE DB Command Input].ExternalColumns[Param_2]"
+                      externalMetadataColumnId="Package\DFT_DWH_DimOrderPayments\CMD_Inference.Inputs[OLE DB Command Input].ExternalColumns[Param_2]"
                       lineageId="Package\DFT_DWH_DimOrderPayments\OLE_SRC_ODS_OrderPayments.Outputs[OLE DB Source Output].Columns[payment_type]" />
                     <inputColumn
-                      refId="Package\DFT_DWH_DimOrderPayments\OLE DB Command 1.Inputs[OLE DB Command Input].Columns[payment_value]"
+                      refId="Package\DFT_DWH_DimOrderPayments\CMD_Inference.Inputs[OLE DB Command Input].Columns[payment_value]"
                       cachedDataType="numeric"
                       cachedName="payment_value"
                       cachedPrecision="28"
                       cachedScale="2"
-                      externalMetadataColumnId="Package\DFT_DWH_DimOrderPayments\OLE DB Command 1.Inputs[OLE DB Command Input].ExternalColumns[Param_3]"
+                      externalMetadataColumnId="Package\DFT_DWH_DimOrderPayments\CMD_Inference.Inputs[OLE DB Command Input].ExternalColumns[Param_3]"
                       lineageId="Package\DFT_DWH_DimOrderPayments\OLE_SRC_ODS_OrderPayments.Outputs[OLE DB Source Output].Columns[payment_value]" />
                   </inputColumns>
                   <externalMetadataColumns
                     isUsed="True">
                     <externalMetadataColumn
-                      refId="Package\DFT_DWH_DimOrderPayments\OLE DB Command 1.Inputs[OLE DB Command Input].ExternalColumns[Param_0]"
+                      refId="Package\DFT_DWH_DimOrderPayments\CMD_Inference.Inputs[OLE DB Command Input].ExternalColumns[Param_0]"
                       dataType="i4"
                       name="Param_0">
                       <properties>
@@ -511,7 +336,7 @@
                       </properties>
                     </externalMetadataColumn>
                     <externalMetadataColumn
-                      refId="Package\DFT_DWH_DimOrderPayments\OLE DB Command 1.Inputs[OLE DB Command Input].ExternalColumns[Param_1]"
+                      refId="Package\DFT_DWH_DimOrderPayments\CMD_Inference.Inputs[OLE DB Command Input].ExternalColumns[Param_1]"
                       dataType="i4"
                       name="Param_1">
                       <properties>
@@ -522,7 +347,7 @@
                       </properties>
                     </externalMetadataColumn>
                     <externalMetadataColumn
-                      refId="Package\DFT_DWH_DimOrderPayments\OLE DB Command 1.Inputs[OLE DB Command Input].ExternalColumns[Param_2]"
+                      refId="Package\DFT_DWH_DimOrderPayments\CMD_Inference.Inputs[OLE DB Command Input].ExternalColumns[Param_2]"
                       codePage="1252"
                       dataType="str"
                       length="12"
@@ -535,7 +360,7 @@
                       </properties>
                     </externalMetadataColumn>
                     <externalMetadataColumn
-                      refId="Package\DFT_DWH_DimOrderPayments\OLE DB Command 1.Inputs[OLE DB Command Input].ExternalColumns[Param_3]"
+                      refId="Package\DFT_DWH_DimOrderPayments\CMD_Inference.Inputs[OLE DB Command Input].ExternalColumns[Param_3]"
                       dataType="numeric"
                       name="Param_3"
                       precision="28"
@@ -548,7 +373,7 @@
                       </properties>
                     </externalMetadataColumn>
                     <externalMetadataColumn
-                      refId="Package\DFT_DWH_DimOrderPayments\OLE DB Command 1.Inputs[OLE DB Command Input].ExternalColumns[Param_4]"
+                      refId="Package\DFT_DWH_DimOrderPayments\CMD_Inference.Inputs[OLE DB Command Input].ExternalColumns[Param_4]"
                       codePage="1252"
                       dataType="str"
                       length="50"
@@ -565,29 +390,204 @@
               </inputs>
               <outputs>
                 <output
-                  refId="Package\DFT_DWH_DimOrderPayments\OLE DB Command 1.Outputs[OLE DB Command Output]"
+                  refId="Package\DFT_DWH_DimOrderPayments\CMD_Inference.Outputs[OLE DB Command Output]"
                   exclusionGroup="1"
                   name="OLE DB Command Output"
-                  synchronousInputId="Package\DFT_DWH_DimOrderPayments\OLE DB Command 1.Inputs[OLE DB Command Input]">
+                  synchronousInputId="Package\DFT_DWH_DimOrderPayments\CMD_Inference.Inputs[OLE DB Command Input]">
                   <externalMetadataColumns />
                 </output>
                 <output
-                  refId="Package\DFT_DWH_DimOrderPayments\OLE DB Command 1.Outputs[OLE DB Command Error Output]"
+                  refId="Package\DFT_DWH_DimOrderPayments\CMD_Inference.Outputs[OLE DB Command Error Output]"
                   exclusionGroup="1"
                   isErrorOut="true"
                   name="OLE DB Command Error Output"
-                  synchronousInputId="Package\DFT_DWH_DimOrderPayments\OLE DB Command 1.Inputs[OLE DB Command Input]">
+                  synchronousInputId="Package\DFT_DWH_DimOrderPayments\CMD_Inference.Inputs[OLE DB Command Input]">
                   <outputColumns>
                     <outputColumn
-                      refId="Package\DFT_DWH_DimOrderPayments\OLE DB Command 1.Outputs[OLE DB Command Error Output].Columns[ErrorCode]"
+                      refId="Package\DFT_DWH_DimOrderPayments\CMD_Inference.Outputs[OLE DB Command Error Output].Columns[ErrorCode]"
                       dataType="i4"
-                      lineageId="Package\DFT_DWH_DimOrderPayments\OLE DB Command 1.Outputs[OLE DB Command Error Output].Columns[ErrorCode]"
+                      lineageId="Package\DFT_DWH_DimOrderPayments\CMD_Inference.Outputs[OLE DB Command Error Output].Columns[ErrorCode]"
                       name="ErrorCode"
                       specialFlags="1" />
                     <outputColumn
-                      refId="Package\DFT_DWH_DimOrderPayments\OLE DB Command 1.Outputs[OLE DB Command Error Output].Columns[ErrorColumn]"
+                      refId="Package\DFT_DWH_DimOrderPayments\CMD_Inference.Outputs[OLE DB Command Error Output].Columns[ErrorColumn]"
                       dataType="i4"
-                      lineageId="Package\DFT_DWH_DimOrderPayments\OLE DB Command 1.Outputs[OLE DB Command Error Output].Columns[ErrorColumn]"
+                      lineageId="Package\DFT_DWH_DimOrderPayments\CMD_Inference.Outputs[OLE DB Command Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\DFT_DWH_DimOrderPayments\CMD_Updates"
+              componentClassID="Microsoft.OLEDBCommand"
+              contactInfo="OLE DB Command;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;2"
+              description="Runs an SQL statement for each row in a data flow. For example, call a 'new employee setup' stored procedure for each row in the 'new employees' table. Note: running an SQL statement for each row of a large data flow may take a long time."
+              name="CMD_Updates"
+              usesDispositions="true"
+              version="2">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  expressionType="Notify"
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">UPDATE [dbo].[DWH_DimOrderPayments] SET [payment_installments] = ?,[payment_sequential] = ?,[payment_type] = ?,[payment_value] = ?,[IsInferred] = '0' WHERE [order_id] = ? AND [IsInferred] = '1'</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\DFT_DWH_DimOrderPayments\CMD_Updates.Connections[OleDbConnection]"
+                  connectionManagerID="{B69E558A-C9B8-4F53-92A9-616941D79363}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[MACHINEX.OLIST_DWH]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\DFT_DWH_DimOrderPayments\CMD_Updates.Inputs[OLE DB Command Input]"
+                  errorOrTruncationOperation="Command Execution"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="OLE DB Command Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\DFT_DWH_DimOrderPayments\CMD_Updates.Inputs[OLE DB Command Input].Columns[order_id]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="order_id"
+                      externalMetadataColumnId="Package\DFT_DWH_DimOrderPayments\CMD_Updates.Inputs[OLE DB Command Input].ExternalColumns[Param_4]"
+                      lineageId="Package\DFT_DWH_DimOrderPayments\OLE_SRC_ODS_OrderPayments.Outputs[OLE DB Source Output].Columns[order_id]" />
+                    <inputColumn
+                      refId="Package\DFT_DWH_DimOrderPayments\CMD_Updates.Inputs[OLE DB Command Input].Columns[payment_installments]"
+                      cachedDataType="i4"
+                      cachedName="payment_installments"
+                      externalMetadataColumnId="Package\DFT_DWH_DimOrderPayments\CMD_Updates.Inputs[OLE DB Command Input].ExternalColumns[Param_0]"
+                      lineageId="Package\DFT_DWH_DimOrderPayments\OLE_SRC_ODS_OrderPayments.Outputs[OLE DB Source Output].Columns[payment_installments]" />
+                    <inputColumn
+                      refId="Package\DFT_DWH_DimOrderPayments\CMD_Updates.Inputs[OLE DB Command Input].Columns[payment_sequential]"
+                      cachedDataType="i4"
+                      cachedName="payment_sequential"
+                      externalMetadataColumnId="Package\DFT_DWH_DimOrderPayments\CMD_Updates.Inputs[OLE DB Command Input].ExternalColumns[Param_1]"
+                      lineageId="Package\DFT_DWH_DimOrderPayments\OLE_SRC_ODS_OrderPayments.Outputs[OLE DB Source Output].Columns[payment_sequential]" />
+                    <inputColumn
+                      refId="Package\DFT_DWH_DimOrderPayments\CMD_Updates.Inputs[OLE DB Command Input].Columns[payment_type]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="12"
+                      cachedName="payment_type"
+                      externalMetadataColumnId="Package\DFT_DWH_DimOrderPayments\CMD_Updates.Inputs[OLE DB Command Input].ExternalColumns[Param_2]"
+                      lineageId="Package\DFT_DWH_DimOrderPayments\OLE_SRC_ODS_OrderPayments.Outputs[OLE DB Source Output].Columns[payment_type]" />
+                    <inputColumn
+                      refId="Package\DFT_DWH_DimOrderPayments\CMD_Updates.Inputs[OLE DB Command Input].Columns[payment_value]"
+                      cachedDataType="numeric"
+                      cachedName="payment_value"
+                      cachedPrecision="28"
+                      cachedScale="2"
+                      externalMetadataColumnId="Package\DFT_DWH_DimOrderPayments\CMD_Updates.Inputs[OLE DB Command Input].ExternalColumns[Param_3]"
+                      lineageId="Package\DFT_DWH_DimOrderPayments\OLE_SRC_ODS_OrderPayments.Outputs[OLE DB Source Output].Columns[payment_value]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\DFT_DWH_DimOrderPayments\CMD_Updates.Inputs[OLE DB Command Input].ExternalColumns[Param_0]"
+                      dataType="i4"
+                      name="Param_0">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                          name="DBParamInfoFlags">81</property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\DFT_DWH_DimOrderPayments\CMD_Updates.Inputs[OLE DB Command Input].ExternalColumns[Param_1]"
+                      dataType="i4"
+                      name="Param_1">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                          name="DBParamInfoFlags">81</property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\DFT_DWH_DimOrderPayments\CMD_Updates.Inputs[OLE DB Command Input].ExternalColumns[Param_2]"
+                      codePage="1252"
+                      dataType="str"
+                      length="12"
+                      name="Param_2">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                          name="DBParamInfoFlags">65</property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\DFT_DWH_DimOrderPayments\CMD_Updates.Inputs[OLE DB Command Input].ExternalColumns[Param_3]"
+                      dataType="numeric"
+                      name="Param_3"
+                      precision="28"
+                      scale="2">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                          name="DBParamInfoFlags">81</property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\DFT_DWH_DimOrderPayments\CMD_Updates.Inputs[OLE DB Command Input].ExternalColumns[Param_4]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="Param_4">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                          name="DBParamInfoFlags">65</property>
+                      </properties>
+                    </externalMetadataColumn>
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\DFT_DWH_DimOrderPayments\CMD_Updates.Outputs[OLE DB Command Output]"
+                  exclusionGroup="1"
+                  name="OLE DB Command Output"
+                  synchronousInputId="Package\DFT_DWH_DimOrderPayments\CMD_Updates.Inputs[OLE DB Command Input]">
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\DFT_DWH_DimOrderPayments\CMD_Updates.Outputs[OLE DB Command Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="OLE DB Command Error Output"
+                  synchronousInputId="Package\DFT_DWH_DimOrderPayments\CMD_Updates.Inputs[OLE DB Command Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DFT_DWH_DimOrderPayments\CMD_Updates.Outputs[OLE DB Command Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\DFT_DWH_DimOrderPayments\CMD_Updates.Outputs[OLE DB Command Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\DFT_DWH_DimOrderPayments\CMD_Updates.Outputs[OLE DB Command Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\DFT_DWH_DimOrderPayments\CMD_Updates.Outputs[OLE DB Command Error Output].Columns[ErrorColumn]"
                       name="ErrorColumn"
                       specialFlags="2" />
                   </outputColumns>
@@ -1359,12 +1359,12 @@
           <paths>
             <path
               refId="Package\DFT_DWH_DimOrderPayments.Paths[Changing Attribute Updates Output]"
-              endId="Package\DFT_DWH_DimOrderPayments\OLE DB Command 1.Inputs[OLE DB Command Input]"
+              endId="Package\DFT_DWH_DimOrderPayments\CMD_Inference.Inputs[OLE DB Command Input]"
               name="Changing Attribute Updates Output"
               startId="Package\DFT_DWH_DimOrderPayments\SDC_DWH_DimOrderPayments.Outputs[Changing Attribute Updates Output]" />
             <path
               refId="Package\DFT_DWH_DimOrderPayments.Paths[Inferred Member Updates Output]"
-              endId="Package\DFT_DWH_DimOrderPayments\OLE DB Command.Inputs[OLE DB Command Input]"
+              endId="Package\DFT_DWH_DimOrderPayments\CMD_Updates.Inputs[OLE DB Command Input]"
               name="Inferred Member Updates Output"
               startId="Package\DFT_DWH_DimOrderPayments\SDC_DWH_DimOrderPayments.Outputs[Inferred Member Updates Output]" />
             <path
@@ -1376,12 +1376,12 @@
               refId="Package\DFT_DWH_DimOrderPayments.Paths[OLE DB Command Output]"
               endId="Package\DFT_DWH_DimOrderPayments\ALL_Updates.Inputs[Union All Input 1]"
               name="OLE DB Command Output"
-              startId="Package\DFT_DWH_DimOrderPayments\OLE DB Command.Outputs[OLE DB Command Output]" />
+              startId="Package\DFT_DWH_DimOrderPayments\CMD_Updates.Outputs[OLE DB Command Output]" />
             <path
               refId="Package\DFT_DWH_DimOrderPayments.Paths[OLE DB Command Output1]"
               endId="Package\DFT_DWH_DimOrderPayments\ALL_Updates.Inputs[Union All Input 2]"
               name="OLE DB Command Output"
-              startId="Package\DFT_DWH_DimOrderPayments\OLE DB Command 1.Outputs[OLE DB Command Output]" />
+              startId="Package\DFT_DWH_DimOrderPayments\CMD_Inference.Outputs[OLE DB Command Output]" />
             <path
               refId="Package\DFT_DWH_DimOrderPayments.Paths[OLE DB Source Output]"
               endId="Package\DFT_DWH_DimOrderPayments\SDC_DWH_DimOrderPayments.Inputs[Slowly Changing Dimension Input]"
@@ -1492,8 +1492,8 @@
           </EdgeLayout.Labels>
         </EdgeLayout>
         <NodeLayout
-          Size="173,42"
-          Id="Package\DFT_DWH_DimOrderPayments\OLE DB Command"
+          Size="151,42"
+          Id="Package\DFT_DWH_DimOrderPayments\CMD_Updates"
           TopLeft="298.5,208.5" />
         <EdgeLayout
           Id="Package\DFT_DWH_DimOrderPayments.Paths[Inferred Member Updates Output]"
@@ -1501,9 +1501,9 @@
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="67.0000000000001,59"
+              EndConnector="56.0000000000001,59"
               Start="0,0"
-              End="67.0000000000001,51.5">
+              End="56.0000000000001,51.5">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
@@ -1514,26 +1514,26 @@
                     Point2="0,29.5"
                     Point3="4,29.5" />
                   <mssgle:LineSegment
-                    End="63.0000000000001,29.5" />
+                    End="52.0000000000001,29.5" />
                   <mssgle:CubicBezierSegment
-                    Point1="63.0000000000001,29.5"
-                    Point2="67.0000000000001,29.5"
-                    Point3="67.0000000000001,33.5" />
+                    Point1="52.0000000000001,29.5"
+                    Point2="56.0000000000001,29.5"
+                    Point3="56.0000000000001,33.5" />
                   <mssgle:LineSegment
-                    End="67.0000000000001,51.5" />
+                    End="56.0000000000001,51.5" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
             <mssgm:EdgeLabel
-              BoundingBox="-40.90298828125,34.5,148.8059765625,11.658203125"
+              BoundingBox="-46.40298828125,34.5,148.8059765625,11.658203125"
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <NodeLayout
-          Size="182,42"
-          Id="Package\DFT_DWH_DimOrderPayments\OLE DB Command 1"
+          Size="156,42"
+          Id="Package\DFT_DWH_DimOrderPayments\CMD_Inference"
           TopLeft="546,211.5" />
         <EdgeLayout
           Id="Package\DFT_DWH_DimOrderPayments.Paths[Changing Attribute Updates Output]"
@@ -1541,9 +1541,9 @@
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="261.75,62"
+              EndConnector="248.75,62"
               Start="0,0"
-              End="261.75,54.5">
+              End="248.75,54.5">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
@@ -1554,20 +1554,20 @@
                     Point2="0,21.1265646731572"
                     Point3="4,21.1265646731572" />
                   <mssgle:LineSegment
-                    End="257.75,21.1265646731572" />
+                    End="244.75,21.1265646731572" />
                   <mssgle:CubicBezierSegment
-                    Point1="257.75,21.1265646731572"
-                    Point2="261.75,21.1265646731572"
-                    Point3="261.75,25.1265646731572" />
+                    Point1="244.75,21.1265646731572"
+                    Point2="248.75,21.1265646731572"
+                    Point3="248.75,25.1265646731572" />
                   <mssgle:LineSegment
-                    End="261.75,54.5" />
+                    End="248.75,54.5" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
             <mssgm:EdgeLabel
-              BoundingBox="52.34109375,26.1265646731572,157.0678125,11.6630859375"
+              BoundingBox="45.84109375,26.1265646731572,157.0678125,11.6630859375"
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
@@ -1577,13 +1577,13 @@
           TopLeft="449,287" />
         <EdgeLayout
           Id="Package\DFT_DWH_DimOrderPayments.Paths[OLE DB Command Output]"
-          TopLeft="385,250.5">
+          TopLeft="374,250.5">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="114,36.5000000000001"
+              EndConnector="125,36.5000000000001"
               Start="0,0"
-              End="114,29.0000000000001">
+              End="125,29.0000000000001">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
@@ -1594,13 +1594,13 @@
                     Point2="0,21.6626016260163"
                     Point3="4,21.6626016260163" />
                   <mssgle:LineSegment
-                    End="110,21.6626016260163" />
+                    End="121,21.6626016260163" />
                   <mssgle:CubicBezierSegment
-                    Point1="110,21.6626016260163"
-                    Point2="114,21.6626016260163"
-                    Point3="114,25.6626016260163" />
+                    Point1="121,21.6626016260163"
+                    Point2="125,21.6626016260163"
+                    Point3="125,25.6626016260163" />
                   <mssgle:LineSegment
-                    End="114,29.0000000000001" />
+                    End="125,29.0000000000001" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -1611,13 +1611,13 @@
         </EdgeLayout>
         <EdgeLayout
           Id="Package\DFT_DWH_DimOrderPayments.Paths[OLE DB Command Output1]"
-          TopLeft="637,253.5">
+          TopLeft="624,253.5">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="-92,33.5000000000001"
+              EndConnector="-79,33.5000000000001"
               Start="0,0"
-              End="-92,26.0000000000001">
+              End="-79,26.0000000000001">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
@@ -1628,13 +1628,13 @@
                     Point2="0,19.8821138211383"
                     Point3="-4,19.8821138211383" />
                   <mssgle:LineSegment
-                    End="-88,19.8821138211383" />
+                    End="-75,19.8821138211383" />
                   <mssgle:CubicBezierSegment
-                    Point1="-88,19.8821138211383"
-                    Point2="-92,19.8821138211383"
-                    Point3="-92,23.8821138211383" />
+                    Point1="-75,19.8821138211383"
+                    Point2="-79,19.8821138211383"
+                    Point3="-79,23.8821138211383" />
                   <mssgle:LineSegment
-                    End="-92,26.0000000000001" />
+                    End="-79,26.0000000000001" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>

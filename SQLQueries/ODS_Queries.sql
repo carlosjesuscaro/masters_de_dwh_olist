@@ -15,6 +15,10 @@ FROM STA_OrderReviews;
 SELECT TOP 10 *
 FROM STA_Customers;
 
+SELECT *
+FROM STA_OrderReviews
+WHERE review_comment_message IS NOT NULL;
+
 SELECT TOP 10 *
 FROM STA_OrderItems;
 

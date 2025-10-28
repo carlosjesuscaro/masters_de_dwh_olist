@@ -1,5 +1,30 @@
 USE OLIST_DWH;
 
+-- OrderReviews
+
+CREATE TABLE dbo.[DWH_DimOrderReviews] (
+    [order_review_key] INT PRIMARY KEY IDENTITY(1, 1),
+    [review_id] nvarchar(255),
+    [order_id] nvarchar(255),
+    [review_score] int,
+    [review_comment_title] nvarchar(255),
+    [review_comment_message] nvarchar(max),
+    [review_creation_date] datetime,
+    [review_answer_timestamp] datetime,
+    IsInferred BIT NOT NULL DEFAULT 0
+);
+
+SELECT *
+FROM DWH_DimOrderReviews;
+
+SELECT COUNT(DISTINCT review_id)
+FROM DWH_DimOrderReviews;
+
+SELECT COUNT(DISTINCT order_review_key)
+FROM DWH_DimOrderReviews;
+
+TRUNCATE TABLE DWH_DimOrderReviews;
+
 -- PrderPayments
 
 CREATE TABLE dbo.[DWH_DimOrderPayments] (
