@@ -13,6 +13,9 @@ WHERE
 SELECT TOP 10 *
 FROM DWH_FactOrders;
 
+SELECT COUNT(DISTINCT order_id)
+FROM DWH_FactOrders;
+
 SELECT TOP 10 *
 FROM DWH_DimOrderPayments;
 

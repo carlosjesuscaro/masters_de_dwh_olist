@@ -11,8 +11,8 @@
   DTS:LocaleID="4105"
   DTS:ObjectName="DWH_FactOrders"
   DTS:PackageType="5"
-  DTS:VersionBuild="16"
-  DTS:VersionGUID="{20779361-9088-4139-BC56-7DC158865929}">
+  DTS:VersionBuild="33"
+  DTS:VersionGUID="{2E1642C0-A7F9-4878-89EC-F3F511106696}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:Variables />
@@ -31,6 +31,940 @@
         <pipeline
           version="1">
           <components>
+            <component
+              refId="Package\DFT_DWH_FactOrders\AGG_GroupBy_CustomerKey"
+              componentClassID="Microsoft.Aggregate"
+              contactInfo="Aggregate;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;3"
+              description="Aggregates data with functions such as Average, Sum, Count, Max, and Min. For example, group data to compute the sum of sales per product or the average visits per day."
+              name="AGG_GroupBy_CustomerKey"
+              version="3">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the approximate number of group by keys that the aggregation produces. Low indicates 500,000 key values, Medium indicates 5 million key values, and High indicates more than 25 million key values. Unspecified indicates no KeyScale value is used."
+                  name="KeyScale"
+                  typeConverter="KeyScaleType">0</property>
+                <property
+                  dataType="System.Null"
+                  description="Specifies the exact number of group by keys that the aggregation produces. If a KeyScale value is specified, the value in Keys takes precedence."
+                  name="Keys" />
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the approximate number of distinct values in a column that the aggregation counts distinctly. Low indicates 500,000 key values, Medium indicates 5 million key values, and High indicates more than 25 million key values. Unspecified indicates no CountDistinctScale value is used."
+                  name="CountDistinctScale"
+                  typeConverter="KeyScaleType">0</property>
+                <property
+                  dataType="System.Null"
+                  description="Specifies the exact number of distinct values in a column that the aggregation counts distinctly. If a CountDistinctScale value is specified, the value in CountDistinctKeys takes precedence."
+                  name="CountDistinctKeys" />
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the percentage by which memory can be extended during the aggregation. Valid values are between 1 and 100."
+                  name="AutoExtendFactor">25</property>
+              </properties>
+              <inputs>
+                <input
+                  refId="Package\DFT_DWH_FactOrders\AGG_GroupBy_CustomerKey.Inputs[Aggregate Input 1]"
+                  name="Aggregate Input 1">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\DFT_DWH_FactOrders\AGG_GroupBy_CustomerKey.Inputs[Aggregate Input 1].Columns[RejectsDate]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="RejectsDate"
+                      lineageId="Package\DFT_DWH_FactOrders\DER_CustomerKey_FunctionalRejects.Outputs[Derived Column Output].Columns[RejectsDate]" />
+                    <inputColumn
+                      refId="Package\DFT_DWH_FactOrders\AGG_GroupBy_CustomerKey.Inputs[Aggregate Input 1].Columns[RejectsPkgAndTask]"
+                      cachedDataType="wstr"
+                      cachedLength="100"
+                      cachedName="RejectsPkgAndTask"
+                      lineageId="Package\DFT_DWH_FactOrders\DER_CustomerKey_FunctionalRejects.Outputs[Derived Column Output].Columns[RejectsPkgAndTask]" />
+                    <inputColumn
+                      refId="Package\DFT_DWH_FactOrders\AGG_GroupBy_CustomerKey.Inputs[Aggregate Input 1].Columns[RejectColumn]"
+                      cachedDataType="wstr"
+                      cachedLength="11"
+                      cachedName="RejectColumn"
+                      lineageId="Package\DFT_DWH_FactOrders\DER_CustomerKey_FunctionalRejects.Outputs[Derived Column Output].Columns[RejectColumn]" />
+                    <inputColumn
+                      refId="Package\DFT_DWH_FactOrders\AGG_GroupBy_CustomerKey.Inputs[Aggregate Input 1].Columns[RejectDescription]"
+                      cachedDataType="wstr"
+                      cachedLength="80"
+                      cachedName="RejectDescription"
+                      lineageId="Package\DFT_DWH_FactOrders\DER_CustomerKey_FunctionalRejects.Outputs[Derived Column Output].Columns[RejectDescription]" />
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\DFT_DWH_FactOrders\AGG_GroupBy_CustomerKey.Outputs[Aggregate Output 1]"
+                  name="Aggregate Output 1">
+                  <properties>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the approximate number of group by keys that the aggregation produces. Low indicates 500,000 key values, Medium indicates 5 million key values, and High indicates more than 25 million key values. Unspecified indicates no KeyScale value is used."
+                      name="KeyScale"
+                      typeConverter="KeyScaleType">0</property>
+                    <property
+                      dataType="System.Null"
+                      description="Specifies the exact number of group by keys that the aggregation produces. If a KeyScale value is specified, the value in Keys takes precedence."
+                      name="Keys" />
+                  </properties>
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DFT_DWH_FactOrders\AGG_GroupBy_CustomerKey.Outputs[Aggregate Output 1].Columns[RejectsDate]"
+                      dataType="dbTimeStamp"
+                      lineageId="Package\DFT_DWH_FactOrders\AGG_GroupBy_CustomerKey.Outputs[Aggregate Output 1].Columns[RejectsDate]"
+                      name="RejectsDate">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the ID of the input column used in the aggregation."
+                          name="AggregationColumnId">#{Package\DFT_DWH_FactOrders\DER_CustomerKey_FunctionalRejects.Outputs[Derived Column Output].Columns[RejectsDate]}</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the type of aggregation."
+                          name="AggregationType"
+                          typeConverter="AggregationType">7</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Indicates whether the column requires special handling because it may contain oversized data or it requires precision beyond a float data type."
+                          name="IsBig">1</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the string comparison options."
+                          name="AggregationComparisonFlags">0</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DFT_DWH_FactOrders\AGG_GroupBy_CustomerKey.Outputs[Aggregate Output 1].Columns[RejectsPkgAndTask]"
+                      dataType="wstr"
+                      length="100"
+                      lineageId="Package\DFT_DWH_FactOrders\AGG_GroupBy_CustomerKey.Outputs[Aggregate Output 1].Columns[RejectsPkgAndTask]"
+                      name="RejectsPkgAndTask">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the ID of the input column used in the aggregation."
+                          name="AggregationColumnId">#{Package\DFT_DWH_FactOrders\DER_CustomerKey_FunctionalRejects.Outputs[Derived Column Output].Columns[RejectsPkgAndTask]}</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the type of aggregation."
+                          name="AggregationType"
+                          typeConverter="AggregationType">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Indicates whether the column requires special handling because it may contain oversized data or it requires precision beyond a float data type."
+                          name="IsBig">1</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the string comparison options."
+                          name="AggregationComparisonFlags">0</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DFT_DWH_FactOrders\AGG_GroupBy_CustomerKey.Outputs[Aggregate Output 1].Columns[RejectColumn]"
+                      dataType="wstr"
+                      length="11"
+                      lineageId="Package\DFT_DWH_FactOrders\AGG_GroupBy_CustomerKey.Outputs[Aggregate Output 1].Columns[RejectColumn]"
+                      name="RejectColumn">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the ID of the input column used in the aggregation."
+                          name="AggregationColumnId">#{Package\DFT_DWH_FactOrders\DER_CustomerKey_FunctionalRejects.Outputs[Derived Column Output].Columns[RejectColumn]}</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the type of aggregation."
+                          name="AggregationType"
+                          typeConverter="AggregationType">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Indicates whether the column requires special handling because it may contain oversized data or it requires precision beyond a float data type."
+                          name="IsBig">1</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the string comparison options."
+                          name="AggregationComparisonFlags">0</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DFT_DWH_FactOrders\AGG_GroupBy_CustomerKey.Outputs[Aggregate Output 1].Columns[RejectDescription]"
+                      dataType="wstr"
+                      length="80"
+                      lineageId="Package\DFT_DWH_FactOrders\AGG_GroupBy_CustomerKey.Outputs[Aggregate Output 1].Columns[RejectDescription]"
+                      name="RejectDescription">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the ID of the input column used in the aggregation."
+                          name="AggregationColumnId">#{Package\DFT_DWH_FactOrders\DER_CustomerKey_FunctionalRejects.Outputs[Derived Column Output].Columns[RejectDescription]}</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the type of aggregation."
+                          name="AggregationType"
+                          typeConverter="AggregationType">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Indicates whether the column requires special handling because it may contain oversized data or it requires precision beyond a float data type."
+                          name="IsBig">1</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the string comparison options."
+                          name="AggregationComparisonFlags">0</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DFT_DWH_FactOrders\AGG_GroupBy_CustomerKey.Outputs[Aggregate Output 1].Columns[Count all]"
+                      dataType="ui8"
+                      lineageId="Package\DFT_DWH_FactOrders\AGG_GroupBy_CustomerKey.Outputs[Aggregate Output 1].Columns[Count all]"
+                      name="Count all">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the ID of the input column used in the aggregation."
+                          name="AggregationColumnId">#{Package\DFT_DWH_FactOrders\0:invalid}</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the type of aggregation."
+                          name="AggregationType"
+                          typeConverter="AggregationType">2</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Indicates whether the column requires special handling because it may contain oversized data or it requires precision beyond a float data type."
+                          name="IsBig">1</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the string comparison options."
+                          name="AggregationComparisonFlags">0</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\DFT_DWH_FactOrders\ALL_CustomerKey"
+              componentClassID="Microsoft.UnionAll"
+              contactInfo="Union All;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;1"
+              description="Combines rows from multiple data flows without sorting. For example, add rows back to a data flow after correction of errors. If sorting is important, we recommend using the Merge transformation."
+              name="ALL_CustomerKey"
+              version="1">
+              <inputs>
+                <input
+                  refId="Package\DFT_DWH_FactOrders\ALL_CustomerKey.Inputs[Union All Input 1]"
+                  name="Union All Input 1">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\DFT_DWH_FactOrders\ALL_CustomerKey.Inputs[Union All Input 1].Columns[order_id]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="order_id"
+                      lineageId="Package\DFT_DWH_FactOrders\OLE_SRC_ODS_Orders.Outputs[OLE DB Source Output].Columns[order_id]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\DFT_DWH_FactOrders\ALL_CustomerKey.Outputs[Union All Output 1].Columns[order_id]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\DFT_DWH_FactOrders\ALL_CustomerKey.Inputs[Union All Input 1].Columns[customer_id]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="customer_id"
+                      lineageId="Package\DFT_DWH_FactOrders\OLE_SRC_ODS_Orders.Outputs[OLE DB Source Output].Columns[customer_id]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\DFT_DWH_FactOrders\ALL_CustomerKey.Outputs[Union All Output 1].Columns[customer_id]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\DFT_DWH_FactOrders\ALL_CustomerKey.Inputs[Union All Input 1].Columns[order_status]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="order_status"
+                      lineageId="Package\DFT_DWH_FactOrders\OLE_SRC_ODS_Orders.Outputs[OLE DB Source Output].Columns[order_status]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\DFT_DWH_FactOrders\ALL_CustomerKey.Outputs[Union All Output 1].Columns[order_status]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\DFT_DWH_FactOrders\ALL_CustomerKey.Inputs[Union All Input 1].Columns[order_purchase_timestamp]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="order_purchase_timestamp"
+                      lineageId="Package\DFT_DWH_FactOrders\OLE_SRC_ODS_Orders.Outputs[OLE DB Source Output].Columns[order_purchase_timestamp]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\DFT_DWH_FactOrders\ALL_CustomerKey.Outputs[Union All Output 1].Columns[order_purchase_timestamp]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\DFT_DWH_FactOrders\ALL_CustomerKey.Inputs[Union All Input 1].Columns[order_approved_at]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="order_approved_at"
+                      lineageId="Package\DFT_DWH_FactOrders\OLE_SRC_ODS_Orders.Outputs[OLE DB Source Output].Columns[order_approved_at]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\DFT_DWH_FactOrders\ALL_CustomerKey.Outputs[Union All Output 1].Columns[order_approved_at]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\DFT_DWH_FactOrders\ALL_CustomerKey.Inputs[Union All Input 1].Columns[order_delivered_carrier_date]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="order_delivered_carrier_date"
+                      lineageId="Package\DFT_DWH_FactOrders\OLE_SRC_ODS_Orders.Outputs[OLE DB Source Output].Columns[order_delivered_carrier_date]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\DFT_DWH_FactOrders\ALL_CustomerKey.Outputs[Union All Output 1].Columns[order_delivered_carrier_date]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\DFT_DWH_FactOrders\ALL_CustomerKey.Inputs[Union All Input 1].Columns[order_delivered_customer_date]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="order_delivered_customer_date"
+                      lineageId="Package\DFT_DWH_FactOrders\OLE_SRC_ODS_Orders.Outputs[OLE DB Source Output].Columns[order_delivered_customer_date]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\DFT_DWH_FactOrders\ALL_CustomerKey.Outputs[Union All Output 1].Columns[order_delivered_customer_date]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\DFT_DWH_FactOrders\ALL_CustomerKey.Inputs[Union All Input 1].Columns[order_estimated_delivery_date]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="order_estimated_delivery_date"
+                      lineageId="Package\DFT_DWH_FactOrders\OLE_SRC_ODS_Orders.Outputs[OLE DB Source Output].Columns[order_estimated_delivery_date]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\DFT_DWH_FactOrders\ALL_CustomerKey.Outputs[Union All Output 1].Columns[order_estimated_delivery_date]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\DFT_DWH_FactOrders\ALL_CustomerKey.Inputs[Union All Input 1].Columns[order_purchase_datekey]"
+                      cachedDataType="i4"
+                      cachedName="order_purchase_datekey"
+                      lineageId="Package\DFT_DWH_FactOrders\DER_OrderPurchase_DateKey.Outputs[Derived Column Output].Columns[order_purchase_datekey]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\DFT_DWH_FactOrders\ALL_CustomerKey.Outputs[Union All Output 1].Columns[order_purchase_datekey]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\DFT_DWH_FactOrders\ALL_CustomerKey.Inputs[Union All Input 1].Columns[order_approved_datekey]"
+                      cachedDataType="i4"
+                      cachedName="order_approved_datekey"
+                      lineageId="Package\DFT_DWH_FactOrders\DER_OrderApproved_DateKey.Outputs[Derived Column Output].Columns[order_approved_datekey]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\DFT_DWH_FactOrders\ALL_CustomerKey.Outputs[Union All Output 1].Columns[order_approved_datekey]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\DFT_DWH_FactOrders\ALL_CustomerKey.Inputs[Union All Input 1].Columns[order_delivered_carrier_datekey]"
+                      cachedDataType="i4"
+                      cachedName="order_delivered_carrier_datekey"
+                      lineageId="Package\DFT_DWH_FactOrders\DER_OrderDeliveredCarrier_DateKey.Outputs[Derived Column Output].Columns[order_delivered_carrier_datekey]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\DFT_DWH_FactOrders\ALL_CustomerKey.Outputs[Union All Output 1].Columns[order_delivered_carrier_datekey]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\DFT_DWH_FactOrders\ALL_CustomerKey.Inputs[Union All Input 1].Columns[order_delivered_customer_datekey]"
+                      cachedDataType="i4"
+                      cachedName="order_delivered_customer_datekey"
+                      lineageId="Package\DFT_DWH_FactOrders\DER_OrderDeliveredCustomer_DateKey.Outputs[Derived Column Output].Columns[order_delivered_customer_datekey]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\DFT_DWH_FactOrders\ALL_CustomerKey.Outputs[Union All Output 1].Columns[order_delivered_customer_datekey]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\DFT_DWH_FactOrders\ALL_CustomerKey.Inputs[Union All Input 1].Columns[order_estimated_delivery_datekey]"
+                      cachedDataType="i4"
+                      cachedName="order_estimated_delivery_datekey"
+                      lineageId="Package\DFT_DWH_FactOrders\DER_OrderEstimatedDelivery_DateKey.Outputs[Derived Column Output].Columns[order_estimated_delivery_datekey]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\DFT_DWH_FactOrders\ALL_CustomerKey.Outputs[Union All Output 1].Columns[order_estimated_delivery_datekey]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\DFT_DWH_FactOrders\ALL_CustomerKey.Inputs[Union All Input 1].Columns[customer_key]"
+                      cachedDataType="i4"
+                      cachedName="customer_key"
+                      lineageId="Package\DFT_DWH_FactOrders\DER_CustomerKey.Outputs[Derived Column Output].Columns[customer_key]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\DFT_DWH_FactOrders\ALL_CustomerKey.Outputs[Union All Output 1].Columns[customer_key]}</property>
+                      </properties>
+                    </inputColumn>
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+                <input
+                  refId="Package\DFT_DWH_FactOrders\ALL_CustomerKey.Inputs[Union All Input 2]"
+                  hasSideEffects="true"
+                  name="Union All Input 2">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\DFT_DWH_FactOrders\ALL_CustomerKey.Inputs[Union All Input 2].Columns[order_id]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="order_id"
+                      lineageId="Package\DFT_DWH_FactOrders\OLE_SRC_ODS_Orders.Outputs[OLE DB Source Output].Columns[order_id]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\DFT_DWH_FactOrders\ALL_CustomerKey.Outputs[Union All Output 1].Columns[order_id]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\DFT_DWH_FactOrders\ALL_CustomerKey.Inputs[Union All Input 2].Columns[customer_id]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="customer_id"
+                      lineageId="Package\DFT_DWH_FactOrders\OLE_SRC_ODS_Orders.Outputs[OLE DB Source Output].Columns[customer_id]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\DFT_DWH_FactOrders\ALL_CustomerKey.Outputs[Union All Output 1].Columns[customer_id]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\DFT_DWH_FactOrders\ALL_CustomerKey.Inputs[Union All Input 2].Columns[order_status]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="order_status"
+                      lineageId="Package\DFT_DWH_FactOrders\OLE_SRC_ODS_Orders.Outputs[OLE DB Source Output].Columns[order_status]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\DFT_DWH_FactOrders\ALL_CustomerKey.Outputs[Union All Output 1].Columns[order_status]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\DFT_DWH_FactOrders\ALL_CustomerKey.Inputs[Union All Input 2].Columns[order_purchase_timestamp]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="order_purchase_timestamp"
+                      lineageId="Package\DFT_DWH_FactOrders\OLE_SRC_ODS_Orders.Outputs[OLE DB Source Output].Columns[order_purchase_timestamp]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\DFT_DWH_FactOrders\ALL_CustomerKey.Outputs[Union All Output 1].Columns[order_purchase_timestamp]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\DFT_DWH_FactOrders\ALL_CustomerKey.Inputs[Union All Input 2].Columns[order_approved_at]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="order_approved_at"
+                      lineageId="Package\DFT_DWH_FactOrders\OLE_SRC_ODS_Orders.Outputs[OLE DB Source Output].Columns[order_approved_at]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\DFT_DWH_FactOrders\ALL_CustomerKey.Outputs[Union All Output 1].Columns[order_approved_at]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\DFT_DWH_FactOrders\ALL_CustomerKey.Inputs[Union All Input 2].Columns[order_delivered_carrier_date]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="order_delivered_carrier_date"
+                      lineageId="Package\DFT_DWH_FactOrders\OLE_SRC_ODS_Orders.Outputs[OLE DB Source Output].Columns[order_delivered_carrier_date]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\DFT_DWH_FactOrders\ALL_CustomerKey.Outputs[Union All Output 1].Columns[order_delivered_carrier_date]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\DFT_DWH_FactOrders\ALL_CustomerKey.Inputs[Union All Input 2].Columns[order_delivered_customer_date]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="order_delivered_customer_date"
+                      lineageId="Package\DFT_DWH_FactOrders\OLE_SRC_ODS_Orders.Outputs[OLE DB Source Output].Columns[order_delivered_customer_date]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\DFT_DWH_FactOrders\ALL_CustomerKey.Outputs[Union All Output 1].Columns[order_delivered_customer_date]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\DFT_DWH_FactOrders\ALL_CustomerKey.Inputs[Union All Input 2].Columns[order_estimated_delivery_date]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="order_estimated_delivery_date"
+                      lineageId="Package\DFT_DWH_FactOrders\OLE_SRC_ODS_Orders.Outputs[OLE DB Source Output].Columns[order_estimated_delivery_date]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\DFT_DWH_FactOrders\ALL_CustomerKey.Outputs[Union All Output 1].Columns[order_estimated_delivery_date]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\DFT_DWH_FactOrders\ALL_CustomerKey.Inputs[Union All Input 2].Columns[order_purchase_datekey]"
+                      cachedDataType="i4"
+                      cachedName="order_purchase_datekey"
+                      lineageId="Package\DFT_DWH_FactOrders\DER_OrderPurchase_DateKey.Outputs[Derived Column Output].Columns[order_purchase_datekey]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\DFT_DWH_FactOrders\ALL_CustomerKey.Outputs[Union All Output 1].Columns[order_purchase_datekey]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\DFT_DWH_FactOrders\ALL_CustomerKey.Inputs[Union All Input 2].Columns[order_approved_datekey]"
+                      cachedDataType="i4"
+                      cachedName="order_approved_datekey"
+                      lineageId="Package\DFT_DWH_FactOrders\DER_OrderApproved_DateKey.Outputs[Derived Column Output].Columns[order_approved_datekey]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\DFT_DWH_FactOrders\ALL_CustomerKey.Outputs[Union All Output 1].Columns[order_approved_datekey]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\DFT_DWH_FactOrders\ALL_CustomerKey.Inputs[Union All Input 2].Columns[order_delivered_carrier_datekey]"
+                      cachedDataType="i4"
+                      cachedName="order_delivered_carrier_datekey"
+                      lineageId="Package\DFT_DWH_FactOrders\DER_OrderDeliveredCarrier_DateKey.Outputs[Derived Column Output].Columns[order_delivered_carrier_datekey]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\DFT_DWH_FactOrders\ALL_CustomerKey.Outputs[Union All Output 1].Columns[order_delivered_carrier_datekey]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\DFT_DWH_FactOrders\ALL_CustomerKey.Inputs[Union All Input 2].Columns[order_delivered_customer_datekey]"
+                      cachedDataType="i4"
+                      cachedName="order_delivered_customer_datekey"
+                      lineageId="Package\DFT_DWH_FactOrders\DER_OrderDeliveredCustomer_DateKey.Outputs[Derived Column Output].Columns[order_delivered_customer_datekey]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\DFT_DWH_FactOrders\ALL_CustomerKey.Outputs[Union All Output 1].Columns[order_delivered_customer_datekey]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\DFT_DWH_FactOrders\ALL_CustomerKey.Inputs[Union All Input 2].Columns[order_estimated_delivery_datekey]"
+                      cachedDataType="i4"
+                      cachedName="order_estimated_delivery_datekey"
+                      lineageId="Package\DFT_DWH_FactOrders\DER_OrderEstimatedDelivery_DateKey.Outputs[Derived Column Output].Columns[order_estimated_delivery_datekey]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\DFT_DWH_FactOrders\ALL_CustomerKey.Outputs[Union All Output 1].Columns[order_estimated_delivery_datekey]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\DFT_DWH_FactOrders\ALL_CustomerKey.Inputs[Union All Input 2].Columns[customer_key]"
+                      cachedDataType="i4"
+                      cachedName="customer_key"
+                      lineageId="Package\DFT_DWH_FactOrders\LK_CustomerKey.Outputs[Lookup Match Output].Columns[customer_key]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\DFT_DWH_FactOrders\ALL_CustomerKey.Outputs[Union All Output 1].Columns[customer_key]}</property>
+                      </properties>
+                    </inputColumn>
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+                <input
+                  refId="Package\DFT_DWH_FactOrders\ALL_CustomerKey.Inputs[Union All Input 3]"
+                  dangling="true"
+                  hasSideEffects="true"
+                  name="Union All Input 3">
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\DFT_DWH_FactOrders\ALL_CustomerKey.Outputs[Union All Output 1]"
+                  name="Union All Output 1">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DFT_DWH_FactOrders\ALL_CustomerKey.Outputs[Union All Output 1].Columns[order_id]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      lineageId="Package\DFT_DWH_FactOrders\ALL_CustomerKey.Outputs[Union All Output 1].Columns[order_id]"
+                      name="order_id" />
+                    <outputColumn
+                      refId="Package\DFT_DWH_FactOrders\ALL_CustomerKey.Outputs[Union All Output 1].Columns[customer_id]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      lineageId="Package\DFT_DWH_FactOrders\ALL_CustomerKey.Outputs[Union All Output 1].Columns[customer_id]"
+                      name="customer_id" />
+                    <outputColumn
+                      refId="Package\DFT_DWH_FactOrders\ALL_CustomerKey.Outputs[Union All Output 1].Columns[order_status]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      lineageId="Package\DFT_DWH_FactOrders\ALL_CustomerKey.Outputs[Union All Output 1].Columns[order_status]"
+                      name="order_status" />
+                    <outputColumn
+                      refId="Package\DFT_DWH_FactOrders\ALL_CustomerKey.Outputs[Union All Output 1].Columns[order_purchase_timestamp]"
+                      dataType="dbTimeStamp"
+                      lineageId="Package\DFT_DWH_FactOrders\ALL_CustomerKey.Outputs[Union All Output 1].Columns[order_purchase_timestamp]"
+                      name="order_purchase_timestamp" />
+                    <outputColumn
+                      refId="Package\DFT_DWH_FactOrders\ALL_CustomerKey.Outputs[Union All Output 1].Columns[order_approved_at]"
+                      dataType="dbTimeStamp"
+                      lineageId="Package\DFT_DWH_FactOrders\ALL_CustomerKey.Outputs[Union All Output 1].Columns[order_approved_at]"
+                      name="order_approved_at" />
+                    <outputColumn
+                      refId="Package\DFT_DWH_FactOrders\ALL_CustomerKey.Outputs[Union All Output 1].Columns[order_delivered_carrier_date]"
+                      dataType="dbTimeStamp"
+                      lineageId="Package\DFT_DWH_FactOrders\ALL_CustomerKey.Outputs[Union All Output 1].Columns[order_delivered_carrier_date]"
+                      name="order_delivered_carrier_date" />
+                    <outputColumn
+                      refId="Package\DFT_DWH_FactOrders\ALL_CustomerKey.Outputs[Union All Output 1].Columns[order_delivered_customer_date]"
+                      dataType="dbTimeStamp"
+                      lineageId="Package\DFT_DWH_FactOrders\ALL_CustomerKey.Outputs[Union All Output 1].Columns[order_delivered_customer_date]"
+                      name="order_delivered_customer_date" />
+                    <outputColumn
+                      refId="Package\DFT_DWH_FactOrders\ALL_CustomerKey.Outputs[Union All Output 1].Columns[order_estimated_delivery_date]"
+                      dataType="dbTimeStamp"
+                      lineageId="Package\DFT_DWH_FactOrders\ALL_CustomerKey.Outputs[Union All Output 1].Columns[order_estimated_delivery_date]"
+                      name="order_estimated_delivery_date" />
+                    <outputColumn
+                      refId="Package\DFT_DWH_FactOrders\ALL_CustomerKey.Outputs[Union All Output 1].Columns[order_purchase_datekey]"
+                      dataType="i4"
+                      lineageId="Package\DFT_DWH_FactOrders\ALL_CustomerKey.Outputs[Union All Output 1].Columns[order_purchase_datekey]"
+                      name="order_purchase_datekey" />
+                    <outputColumn
+                      refId="Package\DFT_DWH_FactOrders\ALL_CustomerKey.Outputs[Union All Output 1].Columns[order_approved_datekey]"
+                      dataType="i4"
+                      lineageId="Package\DFT_DWH_FactOrders\ALL_CustomerKey.Outputs[Union All Output 1].Columns[order_approved_datekey]"
+                      name="order_approved_datekey" />
+                    <outputColumn
+                      refId="Package\DFT_DWH_FactOrders\ALL_CustomerKey.Outputs[Union All Output 1].Columns[order_delivered_carrier_datekey]"
+                      dataType="i4"
+                      lineageId="Package\DFT_DWH_FactOrders\ALL_CustomerKey.Outputs[Union All Output 1].Columns[order_delivered_carrier_datekey]"
+                      name="order_delivered_carrier_datekey" />
+                    <outputColumn
+                      refId="Package\DFT_DWH_FactOrders\ALL_CustomerKey.Outputs[Union All Output 1].Columns[order_delivered_customer_datekey]"
+                      dataType="i4"
+                      lineageId="Package\DFT_DWH_FactOrders\ALL_CustomerKey.Outputs[Union All Output 1].Columns[order_delivered_customer_datekey]"
+                      name="order_delivered_customer_datekey" />
+                    <outputColumn
+                      refId="Package\DFT_DWH_FactOrders\ALL_CustomerKey.Outputs[Union All Output 1].Columns[order_estimated_delivery_datekey]"
+                      dataType="i4"
+                      lineageId="Package\DFT_DWH_FactOrders\ALL_CustomerKey.Outputs[Union All Output 1].Columns[order_estimated_delivery_datekey]"
+                      name="order_estimated_delivery_datekey" />
+                    <outputColumn
+                      refId="Package\DFT_DWH_FactOrders\ALL_CustomerKey.Outputs[Union All Output 1].Columns[customer_key]"
+                      dataType="i4"
+                      lineageId="Package\DFT_DWH_FactOrders\ALL_CustomerKey.Outputs[Union All Output 1].Columns[customer_key]"
+                      name="customer_key" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\DFT_DWH_FactOrders\DER_CustomerKey"
+              componentClassID="Microsoft.DerivedColumn"
+              contactInfo="Derived Column;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+              description="Creates new column values by applying expressions to transformation input columns. Create new columns or overwrite existing ones. For example, concatenate the values from the 'first name' and 'last name' column to make a 'full name' column."
+              name="DER_CustomerKey"
+              usesDispositions="true">
+              <inputs>
+                <input
+                  refId="Package\DFT_DWH_FactOrders\DER_CustomerKey.Inputs[Derived Column Input]"
+                  description="Input to the Derived Column Transformation"
+                  name="Derived Column Input">
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\DFT_DWH_FactOrders\DER_CustomerKey.Outputs[Derived Column Output]"
+                  description="Default Output of the Derived Column Transformation"
+                  exclusionGroup="1"
+                  name="Derived Column Output"
+                  synchronousInputId="Package\DFT_DWH_FactOrders\DER_CustomerKey.Inputs[Derived Column Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DFT_DWH_FactOrders\DER_CustomerKey.Outputs[Derived Column Output].Columns[customer_key]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Computation"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\DFT_DWH_FactOrders\DER_CustomerKey.Outputs[Derived Column Output].Columns[customer_key]"
+                      name="customer_key"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Expression"
+                          name="Expression">-1</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Friendly Expression"
+                          expressionType="Notify"
+                          name="FriendlyExpression">-1</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\DFT_DWH_FactOrders\DER_CustomerKey.Outputs[Derived Column Error Output]"
+                  description="Error Output of the Derived Column Transformation"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Derived Column Error Output"
+                  synchronousInputId="Package\DFT_DWH_FactOrders\DER_CustomerKey.Inputs[Derived Column Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DFT_DWH_FactOrders\DER_CustomerKey.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\DFT_DWH_FactOrders\DER_CustomerKey.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\DFT_DWH_FactOrders\DER_CustomerKey.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\DFT_DWH_FactOrders\DER_CustomerKey.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\DFT_DWH_FactOrders\DER_CustomerKey_FunctionalRejects"
+              componentClassID="Microsoft.DerivedColumn"
+              contactInfo="Derived Column;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+              description="Creates new column values by applying expressions to transformation input columns. Create new columns or overwrite existing ones. For example, concatenate the values from the 'first name' and 'last name' column to make a 'full name' column."
+              name="DER_CustomerKey_FunctionalRejects"
+              usesDispositions="true">
+              <inputs>
+                <input
+                  refId="Package\DFT_DWH_FactOrders\DER_CustomerKey_FunctionalRejects.Inputs[Derived Column Input]"
+                  description="Input to the Derived Column Transformation"
+                  name="Derived Column Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\DFT_DWH_FactOrders\DER_CustomerKey_FunctionalRejects.Inputs[Derived Column Input].Columns[customer_id]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="customer_id"
+                      lineageId="Package\DFT_DWH_FactOrders\OLE_SRC_ODS_Orders.Outputs[OLE DB Source Output].Columns[customer_id]" />
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\DFT_DWH_FactOrders\DER_CustomerKey_FunctionalRejects.Outputs[Derived Column Output]"
+                  description="Default Output of the Derived Column Transformation"
+                  exclusionGroup="1"
+                  name="Derived Column Output"
+                  synchronousInputId="Package\DFT_DWH_FactOrders\DER_CustomerKey_FunctionalRejects.Inputs[Derived Column Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DFT_DWH_FactOrders\DER_CustomerKey_FunctionalRejects.Outputs[Derived Column Output].Columns[RejectsDate]"
+                      dataType="dbTimeStamp"
+                      errorOrTruncationOperation="Computation"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\DFT_DWH_FactOrders\DER_CustomerKey_FunctionalRejects.Outputs[Derived Column Output].Columns[RejectsDate]"
+                      name="RejectsDate"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Expression"
+                          name="Expression">[GETDATE]()</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Friendly Expression"
+                          expressionType="Notify"
+                          name="FriendlyExpression">GETDATE()</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DFT_DWH_FactOrders\DER_CustomerKey_FunctionalRejects.Outputs[Derived Column Output].Columns[RejectsPkgAndTask]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Computation"
+                      errorRowDisposition="FailComponent"
+                      length="100"
+                      lineageId="Package\DFT_DWH_FactOrders\DER_CustomerKey_FunctionalRejects.Outputs[Derived Column Output].Columns[RejectsPkgAndTask]"
+                      name="RejectsPkgAndTask"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Expression"
+                          name="Expression">(DT_WSTR,50)@[System::PackageName] + (DT_WSTR,50)@[System::TaskName]</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Friendly Expression"
+                          expressionType="Notify"
+                          name="FriendlyExpression">(DT_WSTR,50)@[System::PackageName] + (DT_WSTR,50)@[System::TaskName]</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DFT_DWH_FactOrders\DER_CustomerKey_FunctionalRejects.Outputs[Derived Column Output].Columns[RejectColumn]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Computation"
+                      errorRowDisposition="FailComponent"
+                      length="11"
+                      lineageId="Package\DFT_DWH_FactOrders\DER_CustomerKey_FunctionalRejects.Outputs[Derived Column Output].Columns[RejectColumn]"
+                      name="RejectColumn"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Expression"
+                          name="Expression">"CustomerKey"</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Friendly Expression"
+                          expressionType="Notify"
+                          name="FriendlyExpression">"CustomerKey"</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DFT_DWH_FactOrders\DER_CustomerKey_FunctionalRejects.Outputs[Derived Column Output].Columns[RejectDescription]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Computation"
+                      errorRowDisposition="FailComponent"
+                      length="80"
+                      lineageId="Package\DFT_DWH_FactOrders\DER_CustomerKey_FunctionalRejects.Outputs[Derived Column Output].Columns[RejectDescription]"
+                      name="RejectDescription"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Expression"
+                          name="Expression">"The value " + (DT_WSTR,39)#{Package\DFT_DWH_FactOrders\OLE_SRC_ODS_Orders.Outputs[OLE DB Source Output].Columns[customer_id]} + " doesn't exists on DimCustomers"</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Friendly Expression"
+                          expressionType="Notify"
+                          name="FriendlyExpression">"The value " + (DT_WSTR,39)customer_id + " doesn't exists on DimCustomers"</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\DFT_DWH_FactOrders\DER_CustomerKey_FunctionalRejects.Outputs[Derived Column Error Output]"
+                  description="Error Output of the Derived Column Transformation"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Derived Column Error Output"
+                  synchronousInputId="Package\DFT_DWH_FactOrders\DER_CustomerKey_FunctionalRejects.Inputs[Derived Column Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DFT_DWH_FactOrders\DER_CustomerKey_FunctionalRejects.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\DFT_DWH_FactOrders\DER_CustomerKey_FunctionalRejects.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\DFT_DWH_FactOrders\DER_CustomerKey_FunctionalRejects.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\DFT_DWH_FactOrders\DER_CustomerKey_FunctionalRejects.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
             <component
               refId="Package\DFT_DWH_FactOrders\DER_OrderApproved_DateKey"
               componentClassID="Microsoft.DerivedColumn"
@@ -674,7 +1608,7 @@ where [refTable].[DateKey] = ?</property>
                       refId="Package\DFT_DWH_FactOrders\LK_OrderApprovedDateKey.Inputs[Lookup Input].Columns[order_approved_datekey]"
                       cachedDataType="i4"
                       cachedName="order_approved_datekey"
-                      lineageId="Package\DFT_DWH_FactOrders\DER_OrderApproved_DateKey.Outputs[Derived Column Output].Columns[order_approved_datekey]">
+                      lineageId="Package\DFT_DWH_FactOrders\ALL_CustomerKey.Outputs[Union All Output 1].Columns[order_approved_datekey]">
                       <properties>
                         <property
                           dataType="System.String"
@@ -832,7 +1766,7 @@ where [refTable].[DateKey] = ?</property>
                       refId="Package\DFT_DWH_FactOrders\LK_OrderDeliveredCarrierDateKey.Inputs[Lookup Input].Columns[order_delivered_carrier_datekey]"
                       cachedDataType="i4"
                       cachedName="order_delivered_carrier_datekey"
-                      lineageId="Package\DFT_DWH_FactOrders\DER_OrderDeliveredCarrier_DateKey.Outputs[Derived Column Output].Columns[order_delivered_carrier_datekey]">
+                      lineageId="Package\DFT_DWH_FactOrders\ALL_CustomerKey.Outputs[Union All Output 1].Columns[order_delivered_carrier_datekey]">
                       <properties>
                         <property
                           dataType="System.String"
@@ -990,7 +1924,7 @@ where [refTable].[DateKey] = ?</property>
                       refId="Package\DFT_DWH_FactOrders\LK_OrderDeliveredCustomerDateKey.Inputs[Lookup Input].Columns[order_delivered_customer_datekey]"
                       cachedDataType="i4"
                       cachedName="order_delivered_customer_datekey"
-                      lineageId="Package\DFT_DWH_FactOrders\DER_OrderDeliveredCustomer_DateKey.Outputs[Derived Column Output].Columns[order_delivered_customer_datekey]">
+                      lineageId="Package\DFT_DWH_FactOrders\ALL_CustomerKey.Outputs[Union All Output 1].Columns[order_delivered_customer_datekey]">
                       <properties>
                         <property
                           dataType="System.String"
@@ -1148,7 +2082,7 @@ where [refTable].[DateKey] = ?</property>
                       refId="Package\DFT_DWH_FactOrders\LK_OrderEstimatedDeliveryDateKey.Inputs[Lookup Input].Columns[order_delivered_customer_datekey]"
                       cachedDataType="i4"
                       cachedName="order_delivered_customer_datekey"
-                      lineageId="Package\DFT_DWH_FactOrders\DER_OrderDeliveredCustomer_DateKey.Outputs[Derived Column Output].Columns[order_delivered_customer_datekey]">
+                      lineageId="Package\DFT_DWH_FactOrders\ALL_CustomerKey.Outputs[Union All Output 1].Columns[order_delivered_customer_datekey]">
                       <properties>
                         <property
                           dataType="System.String"
@@ -1306,7 +2240,7 @@ where [refTable].[DateKey] = ?</property>
                       refId="Package\DFT_DWH_FactOrders\LK_OrderPurchaseDateKey.Inputs[Lookup Input].Columns[order_purchase_datekey]"
                       cachedDataType="i4"
                       cachedName="order_purchase_datekey"
-                      lineageId="Package\DFT_DWH_FactOrders\DER_OrderPurchase_DateKey.Outputs[Derived Column Output].Columns[order_purchase_datekey]">
+                      lineageId="Package\DFT_DWH_FactOrders\ALL_CustomerKey.Outputs[Union All Output 1].Columns[order_purchase_datekey]">
                       <properties>
                         <property
                           dataType="System.String"
@@ -1373,6 +2307,193 @@ where [refTable].[DateKey] = ?</property>
                       refId="Package\DFT_DWH_FactOrders\LK_OrderPurchaseDateKey.Outputs[Lookup Error Output].Columns[ErrorColumn]"
                       dataType="i4"
                       lineageId="Package\DFT_DWH_FactOrders\LK_OrderPurchaseDateKey.Outputs[Lookup Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\DFT_DWH_FactOrders\MLT_CustomerKey"
+              componentClassID="Microsoft.Multicast"
+              contactInfo="Multicast;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+              description="Distributes every input row to every row in one or more outputs. For example, branch your data flow to make a copy of data so that some values can be masked before sharing with external partners."
+              name="MLT_CustomerKey">
+              <inputs>
+                <input
+                  refId="Package\DFT_DWH_FactOrders\MLT_CustomerKey.Inputs[Multicast Input 1]"
+                  name="Multicast Input 1">
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\DFT_DWH_FactOrders\MLT_CustomerKey.Outputs[Multicast Output 1]"
+                  deleteOutputOnPathDetached="true"
+                  name="Multicast Output 1"
+                  synchronousInputId="Package\DFT_DWH_FactOrders\MLT_CustomerKey.Inputs[Multicast Input 1]">
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\DFT_DWH_FactOrders\MLT_CustomerKey.Outputs[Multicast Output 2]"
+                  deleteOutputOnPathDetached="true"
+                  name="Multicast Output 2"
+                  synchronousInputId="Package\DFT_DWH_FactOrders\MLT_CustomerKey.Inputs[Multicast Input 1]">
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\DFT_DWH_FactOrders\MLT_CustomerKey.Outputs[Multicast Output 3]"
+                  dangling="true"
+                  deleteOutputOnPathDetached="true"
+                  name="Multicast Output 3"
+                  synchronousInputId="Package\DFT_DWH_FactOrders\MLT_CustomerKey.Inputs[Multicast Input 1]">
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\DFT_DWH_FactOrders\OLE_DST_ADM_FunctionalRejects_I"
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+              description="OLE DB Destination"
+              name="OLE_DST_ADM_FunctionalRejects_I"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[dbo].[FunctionalRejects]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">3</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                  name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\DFT_DWH_FactOrders\OLE_DST_ADM_FunctionalRejects_I.Connections[OleDbConnection]"
+                  connectionManagerID="{2110CE29-D337-42CE-A509-65703320B4EE}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[MACHINEX.OLIST_ADM]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\DFT_DWH_FactOrders\OLE_DST_ADM_FunctionalRejects_I.Inputs[OLE DB Destination Input]"
+                  errorOrTruncationOperation="Insert"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="OLE DB Destination Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\DFT_DWH_FactOrders\OLE_DST_ADM_FunctionalRejects_I.Inputs[OLE DB Destination Input].Columns[RejectsDate]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="RejectsDate"
+                      externalMetadataColumnId="Package\DFT_DWH_FactOrders\OLE_DST_ADM_FunctionalRejects_I.Inputs[OLE DB Destination Input].ExternalColumns[RejectsDate]"
+                      lineageId="Package\DFT_DWH_FactOrders\AGG_GroupBy_CustomerKey.Outputs[Aggregate Output 1].Columns[RejectsDate]" />
+                    <inputColumn
+                      refId="Package\DFT_DWH_FactOrders\OLE_DST_ADM_FunctionalRejects_I.Inputs[OLE DB Destination Input].Columns[RejectsPkgAndTask]"
+                      cachedDataType="wstr"
+                      cachedLength="100"
+                      cachedName="RejectsPkgAndTask"
+                      externalMetadataColumnId="Package\DFT_DWH_FactOrders\OLE_DST_ADM_FunctionalRejects_I.Inputs[OLE DB Destination Input].ExternalColumns[RejectsPkgAndTask]"
+                      lineageId="Package\DFT_DWH_FactOrders\AGG_GroupBy_CustomerKey.Outputs[Aggregate Output 1].Columns[RejectsPkgAndTask]" />
+                    <inputColumn
+                      refId="Package\DFT_DWH_FactOrders\OLE_DST_ADM_FunctionalRejects_I.Inputs[OLE DB Destination Input].Columns[RejectColumn]"
+                      cachedDataType="wstr"
+                      cachedLength="11"
+                      cachedName="RejectColumn"
+                      externalMetadataColumnId="Package\DFT_DWH_FactOrders\OLE_DST_ADM_FunctionalRejects_I.Inputs[OLE DB Destination Input].ExternalColumns[RejectColumn]"
+                      lineageId="Package\DFT_DWH_FactOrders\AGG_GroupBy_CustomerKey.Outputs[Aggregate Output 1].Columns[RejectColumn]" />
+                    <inputColumn
+                      refId="Package\DFT_DWH_FactOrders\OLE_DST_ADM_FunctionalRejects_I.Inputs[OLE DB Destination Input].Columns[RejectDescription]"
+                      cachedDataType="wstr"
+                      cachedLength="80"
+                      cachedName="RejectDescription"
+                      externalMetadataColumnId="Package\DFT_DWH_FactOrders\OLE_DST_ADM_FunctionalRejects_I.Inputs[OLE DB Destination Input].ExternalColumns[RejectDescription]"
+                      lineageId="Package\DFT_DWH_FactOrders\AGG_GroupBy_CustomerKey.Outputs[Aggregate Output 1].Columns[RejectDescription]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\DFT_DWH_FactOrders\OLE_DST_ADM_FunctionalRejects_I.Inputs[OLE DB Destination Input].ExternalColumns[RejectsDate]"
+                      dataType="dbTimeStamp"
+                      name="RejectsDate" />
+                    <externalMetadataColumn
+                      refId="Package\DFT_DWH_FactOrders\OLE_DST_ADM_FunctionalRejects_I.Inputs[OLE DB Destination Input].ExternalColumns[RejectsPkgAndTask]"
+                      dataType="wstr"
+                      length="100"
+                      name="RejectsPkgAndTask" />
+                    <externalMetadataColumn
+                      refId="Package\DFT_DWH_FactOrders\OLE_DST_ADM_FunctionalRejects_I.Inputs[OLE DB Destination Input].ExternalColumns[RejectColumn]"
+                      dataType="wstr"
+                      length="90"
+                      name="RejectColumn" />
+                    <externalMetadataColumn
+                      refId="Package\DFT_DWH_FactOrders\OLE_DST_ADM_FunctionalRejects_I.Inputs[OLE DB Destination Input].ExternalColumns[RejectDescription]"
+                      dataType="wstr"
+                      length="90"
+                      name="RejectDescription" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\DFT_DWH_FactOrders\OLE_DST_ADM_FunctionalRejects_I.Outputs[OLE DB Destination Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="OLE DB Destination Error Output"
+                  synchronousInputId="Package\DFT_DWH_FactOrders\OLE_DST_ADM_FunctionalRejects_I.Inputs[OLE DB Destination Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DFT_DWH_FactOrders\OLE_DST_ADM_FunctionalRejects_I.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\DFT_DWH_FactOrders\OLE_DST_ADM_FunctionalRejects_I.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\DFT_DWH_FactOrders\OLE_DST_ADM_FunctionalRejects_I.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\DFT_DWH_FactOrders\OLE_DST_ADM_FunctionalRejects_I.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
                       name="ErrorColumn"
                       specialFlags="2" />
                   </outputColumns>
@@ -1459,7 +2580,7 @@ where [refTable].[DateKey] = ?</property>
                       cachedLength="50"
                       cachedName="order_id"
                       externalMetadataColumnId="Package\DFT_DWH_FactOrders\OLE_SRC_DWH_FactOrders.Inputs[OLE DB Destination Input].ExternalColumns[order_id]"
-                      lineageId="Package\DFT_DWH_FactOrders\OLE_SRC_ODS_Orders.Outputs[OLE DB Source Output].Columns[order_id]" />
+                      lineageId="Package\DFT_DWH_FactOrders\ALL_CustomerKey.Outputs[Union All Output 1].Columns[order_id]" />
                     <inputColumn
                       refId="Package\DFT_DWH_FactOrders\OLE_SRC_DWH_FactOrders.Inputs[OLE DB Destination Input].Columns[order_status]"
                       cachedCodepage="1252"
@@ -1467,73 +2588,73 @@ where [refTable].[DateKey] = ?</property>
                       cachedLength="50"
                       cachedName="order_status"
                       externalMetadataColumnId="Package\DFT_DWH_FactOrders\OLE_SRC_DWH_FactOrders.Inputs[OLE DB Destination Input].ExternalColumns[order_status]"
-                      lineageId="Package\DFT_DWH_FactOrders\OLE_SRC_ODS_Orders.Outputs[OLE DB Source Output].Columns[order_status]" />
+                      lineageId="Package\DFT_DWH_FactOrders\ALL_CustomerKey.Outputs[Union All Output 1].Columns[order_status]" />
                     <inputColumn
                       refId="Package\DFT_DWH_FactOrders\OLE_SRC_DWH_FactOrders.Inputs[OLE DB Destination Input].Columns[order_purchase_timestamp]"
                       cachedDataType="dbTimeStamp"
                       cachedName="order_purchase_timestamp"
                       externalMetadataColumnId="Package\DFT_DWH_FactOrders\OLE_SRC_DWH_FactOrders.Inputs[OLE DB Destination Input].ExternalColumns[order_purchase_timestamp]"
-                      lineageId="Package\DFT_DWH_FactOrders\OLE_SRC_ODS_Orders.Outputs[OLE DB Source Output].Columns[order_purchase_timestamp]" />
+                      lineageId="Package\DFT_DWH_FactOrders\ALL_CustomerKey.Outputs[Union All Output 1].Columns[order_purchase_timestamp]" />
                     <inputColumn
                       refId="Package\DFT_DWH_FactOrders\OLE_SRC_DWH_FactOrders.Inputs[OLE DB Destination Input].Columns[order_approved_at]"
                       cachedDataType="dbTimeStamp"
                       cachedName="order_approved_at"
                       externalMetadataColumnId="Package\DFT_DWH_FactOrders\OLE_SRC_DWH_FactOrders.Inputs[OLE DB Destination Input].ExternalColumns[order_approved_at]"
-                      lineageId="Package\DFT_DWH_FactOrders\OLE_SRC_ODS_Orders.Outputs[OLE DB Source Output].Columns[order_approved_at]" />
+                      lineageId="Package\DFT_DWH_FactOrders\ALL_CustomerKey.Outputs[Union All Output 1].Columns[order_approved_at]" />
                     <inputColumn
                       refId="Package\DFT_DWH_FactOrders\OLE_SRC_DWH_FactOrders.Inputs[OLE DB Destination Input].Columns[order_delivered_carrier_date]"
                       cachedDataType="dbTimeStamp"
                       cachedName="order_delivered_carrier_date"
                       externalMetadataColumnId="Package\DFT_DWH_FactOrders\OLE_SRC_DWH_FactOrders.Inputs[OLE DB Destination Input].ExternalColumns[order_delivered_carrier_date]"
-                      lineageId="Package\DFT_DWH_FactOrders\OLE_SRC_ODS_Orders.Outputs[OLE DB Source Output].Columns[order_delivered_carrier_date]" />
+                      lineageId="Package\DFT_DWH_FactOrders\ALL_CustomerKey.Outputs[Union All Output 1].Columns[order_delivered_carrier_date]" />
                     <inputColumn
                       refId="Package\DFT_DWH_FactOrders\OLE_SRC_DWH_FactOrders.Inputs[OLE DB Destination Input].Columns[order_delivered_customer_date]"
                       cachedDataType="dbTimeStamp"
                       cachedName="order_delivered_customer_date"
                       externalMetadataColumnId="Package\DFT_DWH_FactOrders\OLE_SRC_DWH_FactOrders.Inputs[OLE DB Destination Input].ExternalColumns[order_delivered_customer_date]"
-                      lineageId="Package\DFT_DWH_FactOrders\OLE_SRC_ODS_Orders.Outputs[OLE DB Source Output].Columns[order_delivered_customer_date]" />
+                      lineageId="Package\DFT_DWH_FactOrders\ALL_CustomerKey.Outputs[Union All Output 1].Columns[order_delivered_customer_date]" />
                     <inputColumn
                       refId="Package\DFT_DWH_FactOrders\OLE_SRC_DWH_FactOrders.Inputs[OLE DB Destination Input].Columns[order_estimated_delivery_date]"
                       cachedDataType="dbTimeStamp"
                       cachedName="order_estimated_delivery_date"
                       externalMetadataColumnId="Package\DFT_DWH_FactOrders\OLE_SRC_DWH_FactOrders.Inputs[OLE DB Destination Input].ExternalColumns[order_estimated_delivery_date]"
-                      lineageId="Package\DFT_DWH_FactOrders\OLE_SRC_ODS_Orders.Outputs[OLE DB Source Output].Columns[order_estimated_delivery_date]" />
+                      lineageId="Package\DFT_DWH_FactOrders\ALL_CustomerKey.Outputs[Union All Output 1].Columns[order_estimated_delivery_date]" />
                     <inputColumn
                       refId="Package\DFT_DWH_FactOrders\OLE_SRC_DWH_FactOrders.Inputs[OLE DB Destination Input].Columns[order_purchase_datekey]"
                       cachedDataType="i4"
                       cachedName="order_purchase_datekey"
                       externalMetadataColumnId="Package\DFT_DWH_FactOrders\OLE_SRC_DWH_FactOrders.Inputs[OLE DB Destination Input].ExternalColumns[order_purchase_datekey]"
-                      lineageId="Package\DFT_DWH_FactOrders\DER_OrderPurchase_DateKey.Outputs[Derived Column Output].Columns[order_purchase_datekey]" />
+                      lineageId="Package\DFT_DWH_FactOrders\ALL_CustomerKey.Outputs[Union All Output 1].Columns[order_purchase_datekey]" />
                     <inputColumn
                       refId="Package\DFT_DWH_FactOrders\OLE_SRC_DWH_FactOrders.Inputs[OLE DB Destination Input].Columns[order_approved_datekey]"
                       cachedDataType="i4"
                       cachedName="order_approved_datekey"
                       externalMetadataColumnId="Package\DFT_DWH_FactOrders\OLE_SRC_DWH_FactOrders.Inputs[OLE DB Destination Input].ExternalColumns[order_approved_datekey]"
-                      lineageId="Package\DFT_DWH_FactOrders\DER_OrderApproved_DateKey.Outputs[Derived Column Output].Columns[order_approved_datekey]" />
+                      lineageId="Package\DFT_DWH_FactOrders\ALL_CustomerKey.Outputs[Union All Output 1].Columns[order_approved_datekey]" />
                     <inputColumn
                       refId="Package\DFT_DWH_FactOrders\OLE_SRC_DWH_FactOrders.Inputs[OLE DB Destination Input].Columns[order_delivered_carrier_datekey]"
                       cachedDataType="i4"
                       cachedName="order_delivered_carrier_datekey"
                       externalMetadataColumnId="Package\DFT_DWH_FactOrders\OLE_SRC_DWH_FactOrders.Inputs[OLE DB Destination Input].ExternalColumns[order_delivered_carrier_datekey]"
-                      lineageId="Package\DFT_DWH_FactOrders\DER_OrderDeliveredCarrier_DateKey.Outputs[Derived Column Output].Columns[order_delivered_carrier_datekey]" />
+                      lineageId="Package\DFT_DWH_FactOrders\ALL_CustomerKey.Outputs[Union All Output 1].Columns[order_delivered_carrier_datekey]" />
                     <inputColumn
                       refId="Package\DFT_DWH_FactOrders\OLE_SRC_DWH_FactOrders.Inputs[OLE DB Destination Input].Columns[order_delivered_customer_datekey]"
                       cachedDataType="i4"
                       cachedName="order_delivered_customer_datekey"
                       externalMetadataColumnId="Package\DFT_DWH_FactOrders\OLE_SRC_DWH_FactOrders.Inputs[OLE DB Destination Input].ExternalColumns[order_delivered_customer_datekey]"
-                      lineageId="Package\DFT_DWH_FactOrders\DER_OrderDeliveredCustomer_DateKey.Outputs[Derived Column Output].Columns[order_delivered_customer_datekey]" />
+                      lineageId="Package\DFT_DWH_FactOrders\ALL_CustomerKey.Outputs[Union All Output 1].Columns[order_delivered_customer_datekey]" />
                     <inputColumn
                       refId="Package\DFT_DWH_FactOrders\OLE_SRC_DWH_FactOrders.Inputs[OLE DB Destination Input].Columns[order_estimated_delivery_datekey]"
                       cachedDataType="i4"
                       cachedName="order_estimated_delivery_datekey"
                       externalMetadataColumnId="Package\DFT_DWH_FactOrders\OLE_SRC_DWH_FactOrders.Inputs[OLE DB Destination Input].ExternalColumns[order_estimated_delivery_datekey]"
-                      lineageId="Package\DFT_DWH_FactOrders\DER_OrderEstimatedDelivery_DateKey.Outputs[Derived Column Output].Columns[order_estimated_delivery_datekey]" />
+                      lineageId="Package\DFT_DWH_FactOrders\ALL_CustomerKey.Outputs[Union All Output 1].Columns[order_estimated_delivery_datekey]" />
                     <inputColumn
                       refId="Package\DFT_DWH_FactOrders\OLE_SRC_DWH_FactOrders.Inputs[OLE DB Destination Input].Columns[customer_key]"
                       cachedDataType="i4"
                       cachedName="customer_key"
                       externalMetadataColumnId="Package\DFT_DWH_FactOrders\OLE_SRC_DWH_FactOrders.Inputs[OLE DB Destination Input].ExternalColumns[customer_key]"
-                      lineageId="Package\DFT_DWH_FactOrders\LK_CustomerKey.Outputs[Lookup Match Output].Columns[customer_key]" />
+                      lineageId="Package\DFT_DWH_FactOrders\ALL_CustomerKey.Outputs[Union All Output 1].Columns[customer_key]" />
                   </inputColumns>
                   <externalMetadataColumns
                     isUsed="True">
@@ -1876,6 +2997,11 @@ where [refTable].[DateKey] = ?</property>
           </components>
           <paths>
             <path
+              refId="Package\DFT_DWH_FactOrders.Paths[Aggregate Output 1]"
+              endId="Package\DFT_DWH_FactOrders\OLE_DST_ADM_FunctionalRejects_I.Inputs[OLE DB Destination Input]"
+              name="Aggregate Output 1"
+              startId="Package\DFT_DWH_FactOrders\AGG_GroupBy_CustomerKey.Outputs[Aggregate Output 1]" />
+            <path
               refId="Package\DFT_DWH_FactOrders.Paths[Derived Column Output]"
               endId="Package\DFT_DWH_FactOrders\DER_OrderApproved_DateKey.Inputs[Derived Column Input]"
               name="Derived Column Output"
@@ -1901,40 +3027,70 @@ where [refTable].[DateKey] = ?</property>
               name="Derived Column Output"
               startId="Package\DFT_DWH_FactOrders\DER_OrderEstimatedDelivery_DateKey.Outputs[Derived Column Output]" />
             <path
-              refId="Package\DFT_DWH_FactOrders.Paths[Lookup Match Output]"
-              endId="Package\DFT_DWH_FactOrders\LK_OrderPurchaseDateKey.Inputs[Lookup Input]"
+              refId="Package\DFT_DWH_FactOrders.Paths[Derived Column Output6]"
+              endId="Package\DFT_DWH_FactOrders\ALL_CustomerKey.Inputs[Union All Input 1]"
+              name="Derived Column Output"
+              startId="Package\DFT_DWH_FactOrders\DER_CustomerKey.Outputs[Derived Column Output]" />
+            <path
+              refId="Package\DFT_DWH_FactOrders.Paths[Derived Column Output5]"
+              endId="Package\DFT_DWH_FactOrders\AGG_GroupBy_CustomerKey.Inputs[Aggregate Input 1]"
+              name="Derived Column Output"
+              startId="Package\DFT_DWH_FactOrders\DER_CustomerKey_FunctionalRejects.Outputs[Derived Column Output]" />
+            <path
+              refId="Package\DFT_DWH_FactOrders.Paths[Lookup Match Output3]"
+              endId="Package\DFT_DWH_FactOrders\ALL_CustomerKey.Inputs[Union All Input 2]"
               name="Lookup Match Output"
               startId="Package\DFT_DWH_FactOrders\LK_CustomerKey.Outputs[Lookup Match Output]" />
             <path
-              refId="Package\DFT_DWH_FactOrders.Paths[Lookup Match Output1]"
+              refId="Package\DFT_DWH_FactOrders.Paths[Lookup Match Output5]"
               endId="Package\DFT_DWH_FactOrders\LK_OrderApprovedDateKey.Inputs[Lookup Input]"
               name="Lookup Match Output"
               startId="Package\DFT_DWH_FactOrders\LK_OrderPurchaseDateKey.Outputs[Lookup Match Output]" />
             <path
               refId="Package\DFT_DWH_FactOrders.Paths[Lookup Match Output2]"
-              endId="Package\DFT_DWH_FactOrders\LK_OrderDeliveredCarrierDateKey.Inputs[Lookup Input]"
+              endId="Package\DFT_DWH_FactOrders\OLE_SRC_DWH_FactOrders.Inputs[OLE DB Destination Input]"
               name="Lookup Match Output"
-              startId="Package\DFT_DWH_FactOrders\LK_OrderApprovedDateKey.Outputs[Lookup Match Output]" />
+              startId="Package\DFT_DWH_FactOrders\LK_OrderEstimatedDeliveryDateKey.Outputs[Lookup Match Output]" />
             <path
-              refId="Package\DFT_DWH_FactOrders.Paths[Lookup Match Output3]"
+              refId="Package\DFT_DWH_FactOrders.Paths[Lookup Match Output1]"
+              endId="Package\DFT_DWH_FactOrders\LK_OrderEstimatedDeliveryDateKey.Inputs[Lookup Input]"
+              name="Lookup Match Output"
+              startId="Package\DFT_DWH_FactOrders\LK_OrderDeliveredCustomerDateKey.Outputs[Lookup Match Output]" />
+            <path
+              refId="Package\DFT_DWH_FactOrders.Paths[Lookup Match Output]"
               endId="Package\DFT_DWH_FactOrders\LK_OrderDeliveredCustomerDateKey.Inputs[Lookup Input]"
               name="Lookup Match Output"
               startId="Package\DFT_DWH_FactOrders\LK_OrderDeliveredCarrierDateKey.Outputs[Lookup Match Output]" />
             <path
               refId="Package\DFT_DWH_FactOrders.Paths[Lookup Match Output4]"
-              endId="Package\DFT_DWH_FactOrders\LK_OrderEstimatedDeliveryDateKey.Inputs[Lookup Input]"
+              endId="Package\DFT_DWH_FactOrders\LK_OrderDeliveredCarrierDateKey.Inputs[Lookup Input]"
               name="Lookup Match Output"
-              startId="Package\DFT_DWH_FactOrders\LK_OrderDeliveredCustomerDateKey.Outputs[Lookup Match Output]" />
+              startId="Package\DFT_DWH_FactOrders\LK_OrderApprovedDateKey.Outputs[Lookup Match Output]" />
             <path
-              refId="Package\DFT_DWH_FactOrders.Paths[Lookup Match Output5]"
-              endId="Package\DFT_DWH_FactOrders\OLE_SRC_DWH_FactOrders.Inputs[OLE DB Destination Input]"
-              name="Lookup Match Output"
-              startId="Package\DFT_DWH_FactOrders\LK_OrderEstimatedDeliveryDateKey.Outputs[Lookup Match Output]" />
+              refId="Package\DFT_DWH_FactOrders.Paths[Lookup No Match Output]"
+              endId="Package\DFT_DWH_FactOrders\MLT_CustomerKey.Inputs[Multicast Input 1]"
+              name="Lookup No Match Output"
+              startId="Package\DFT_DWH_FactOrders\LK_CustomerKey.Outputs[Lookup No Match Output]" />
+            <path
+              refId="Package\DFT_DWH_FactOrders.Paths[Multicast Output 1]"
+              endId="Package\DFT_DWH_FactOrders\DER_CustomerKey_FunctionalRejects.Inputs[Derived Column Input]"
+              name="Multicast Output 1"
+              startId="Package\DFT_DWH_FactOrders\MLT_CustomerKey.Outputs[Multicast Output 1]" />
+            <path
+              refId="Package\DFT_DWH_FactOrders.Paths[Multicast Output 2]"
+              endId="Package\DFT_DWH_FactOrders\DER_CustomerKey.Inputs[Derived Column Input]"
+              name="Multicast Output 2"
+              startId="Package\DFT_DWH_FactOrders\MLT_CustomerKey.Outputs[Multicast Output 2]" />
             <path
               refId="Package\DFT_DWH_FactOrders.Paths[OLE DB Source Output]"
               endId="Package\DFT_DWH_FactOrders\DER_OrderPurchase_DateKey.Inputs[Derived Column Input]"
               name="OLE DB Source Output"
               startId="Package\DFT_DWH_FactOrders\OLE_SRC_ODS_Orders.Outputs[OLE DB Source Output]" />
+            <path
+              refId="Package\DFT_DWH_FactOrders.Paths[Union All Output 1]"
+              endId="Package\DFT_DWH_FactOrders\LK_OrderPurchaseDateKey.Inputs[Lookup Input]"
+              name="Union All Output 1"
+              startId="Package\DFT_DWH_FactOrders\ALL_CustomerKey.Outputs[Union All Output 1]" />
           </paths>
         </pipeline>
       </DTS:ObjectData>
@@ -1963,422 +3119,630 @@ where [refTable].[DateKey] = ?</property>
     design-time-name="Package\DFT_DWH_FactOrders">
     <LayoutInfo>
       <GraphLayout
-        Capacity="32" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
-        <NodeLayout
-          Size="200,42"
-          Id="Package\DFT_DWH_FactOrders\OLE_SRC_ODS_Orders"
-          TopLeft="132,22" />
-        <NodeLayout
-          Size="231,42"
-          Id="Package\DFT_DWH_FactOrders\DER_OrderPurchase_DateKey"
-          TopLeft="114,89" />
-        <EdgeLayout
-          Id="Package\DFT_DWH_FactOrders.Paths[OLE DB Source Output]"
-          TopLeft="230.75,64">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,25"
-              Start="0,0"
-              End="0,17.5">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,17.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <NodeLayout
-          Size="232,42"
-          Id="Package\DFT_DWH_FactOrders\DER_OrderApproved_DateKey"
-          TopLeft="117,145" />
-        <EdgeLayout
-          Id="Package\DFT_DWH_FactOrders.Paths[Derived Column Output]"
-          TopLeft="114,110">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="3,56"
-              Start="0,0"
-              End="-4.5,56">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="-18.5,0" />
-                  <mssgle:CubicBezierSegment
-                    Point1="-18.5,0"
-                    Point2="-22.5,0"
-                    Point3="-22.5,4" />
-                  <mssgle:LineSegment
-                    End="-22.5,52" />
-                  <mssgle:CubicBezierSegment
-                    Point1="-22.5,52"
-                    Point2="-22.5,56"
-                    Point3="-18.5,56" />
-                  <mssgle:LineSegment
-                    End="-4.5,56" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <NodeLayout
-          Size="265,42"
-          Id="Package\DFT_DWH_FactOrders\DER_OrderDeliveredCarrier_DateKey"
-          TopLeft="103,208" />
-        <EdgeLayout
-          Id="Package\DFT_DWH_FactOrders.Paths[Derived Column Output1]"
-          TopLeft="117,171.666666666667">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="-14,57.3333333333333"
-              Start="0,0"
-              End="-21.5,57.3333333333333">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="-32.5,0" />
-                  <mssgle:CubicBezierSegment
-                    Point1="-32.5,0"
-                    Point2="-36.5,0"
-                    Point3="-36.5,4" />
-                  <mssgle:LineSegment
-                    End="-36.5,53.3333333333333" />
-                  <mssgle:CubicBezierSegment
-                    Point1="-36.5,53.3333333333333"
-                    Point2="-36.5,57.3333333333333"
-                    Point3="-32.5,57.3333333333333" />
-                  <mssgle:LineSegment
-                    End="-21.5,57.3333333333333" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <NodeLayout
-          Size="279,42"
-          Id="Package\DFT_DWH_FactOrders\DER_OrderDeliveredCustomer_DateKey"
-          TopLeft="92,269" />
-        <EdgeLayout
-          Id="Package\DFT_DWH_FactOrders.Paths[Derived Column Output2]"
-          TopLeft="368,229">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="3,61"
-              Start="0,0"
-              End="10.5,61">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="21.5,0" />
-                  <mssgle:CubicBezierSegment
-                    Point1="21.5,0"
-                    Point2="25.5,0"
-                    Point3="25.5,4" />
-                  <mssgle:LineSegment
-                    End="25.5,57" />
-                  <mssgle:CubicBezierSegment
-                    Point1="25.5,57"
-                    Point2="25.5,61"
-                    Point3="21.5,61" />
-                  <mssgle:LineSegment
-                    End="10.5,61" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
+        Capacity="64" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
           Size="273,42"
           Id="Package\DFT_DWH_FactOrders\DER_OrderEstimatedDelivery_DateKey"
-          TopLeft="97,329" />
-        <EdgeLayout
-          Id="Package\DFT_DWH_FactOrders.Paths[Derived Column Output3]"
-          TopLeft="92,290">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="5,60"
-              Start="0,0"
-              End="-2.5,60">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="-18.5,0" />
-                  <mssgle:CubicBezierSegment
-                    Point1="-18.5,0"
-                    Point2="-22.5,0"
-                    Point3="-22.5,4" />
-                  <mssgle:LineSegment
-                    End="-22.5,56" />
-                  <mssgle:CubicBezierSegment
-                    Point1="-22.5,56"
-                    Point2="-22.5,60"
-                    Point3="-18.5,60" />
-                  <mssgle:LineSegment
-                    End="-2.5,60" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <NodeLayout
-          Size="165,42"
-          Id="Package\DFT_DWH_FactOrders\LK_CustomerKey"
-          TopLeft="152,397" />
-        <EdgeLayout
-          Id="Package\DFT_DWH_FactOrders.Paths[Derived Column Output4]"
-          TopLeft="234,371">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,26"
-              Start="0,0"
-              End="0,18.5">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,18.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
+          TopLeft="348,188" />
         <NodeLayout
           Size="215,42"
           Id="Package\DFT_DWH_FactOrders\LK_OrderPurchaseDateKey"
-          TopLeft="127,467" />
+          TopLeft="30,498" />
+        <NodeLayout
+          Size="249,42"
+          Id="Package\DFT_DWH_FactOrders\LK_OrderDeliveredCarrierDateKey"
+          TopLeft="27,604" />
+        <NodeLayout
+          Size="200,42"
+          Id="Package\DFT_DWH_FactOrders\OLE_SRC_ODS_Orders"
+          TopLeft="18,23" />
+        <NodeLayout
+          Size="279,42"
+          Id="Package\DFT_DWH_FactOrders\DER_OrderDeliveredCustomer_DateKey"
+          TopLeft="22,191" />
+        <NodeLayout
+          Size="224,42"
+          Id="Package\DFT_DWH_FactOrders\OLE_SRC_DWH_FactOrders"
+          TopLeft="327,672" />
+        <NodeLayout
+          Size="263,42"
+          Id="Package\DFT_DWH_FactOrders\LK_OrderDeliveredCustomerDateKey"
+          TopLeft="320,602" />
+        <NodeLayout
+          Size="165,42"
+          Id="Package\DFT_DWH_FactOrders\LK_CustomerKey"
+          TopLeft="28,279" />
+        <NodeLayout
+          Size="265,42"
+          Id="Package\DFT_DWH_FactOrders\DER_OrderDeliveredCarrier_DateKey"
+          TopLeft="349,111" />
+        <NodeLayout
+          Size="231,42"
+          Id="Package\DFT_DWH_FactOrders\DER_OrderPurchase_DateKey"
+          TopLeft="356,28" />
+        <NodeLayout
+          Size="258,42"
+          Id="Package\DFT_DWH_FactOrders\LK_OrderEstimatedDeliveryDateKey"
+          TopLeft="26,678" />
+        <NodeLayout
+          Size="216,42"
+          Id="Package\DFT_DWH_FactOrders\LK_OrderApprovedDateKey"
+          TopLeft="318,497" />
+        <NodeLayout
+          Size="232,42"
+          Id="Package\DFT_DWH_FactOrders\DER_OrderApproved_DateKey"
+          TopLeft="16,110" />
         <EdgeLayout
-          Id="Package\DFT_DWH_FactOrders.Paths[Lookup Match Output]"
-          TopLeft="234.5,439">
+          Id="Package\DFT_DWH_FactOrders.Paths[OLE DB Source Output]"
+          TopLeft="218,46.5">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,28"
+              EndConnector="138,0"
               Start="0,0"
-              End="0,20.5">
+              End="130.5,0">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="130.5,0" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\DFT_DWH_FactOrders.Paths[Lookup Match Output2]"
+          TopLeft="284,696">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="43,0"
+              Start="0,0"
+              End="35.5,0">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="35.5,0" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-30.44138671875,5,96.3827734375,11.609375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\DFT_DWH_FactOrders.Paths[Lookup Match Output1]"
+          TopLeft="451.5,644">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-296.5,34"
+              Start="0,0"
+              End="-296.5,26.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,13" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,13"
+                    Point2="0,17"
+                    Point3="-4,17" />
+                  <mssgle:LineSegment
+                    End="-292.5,17" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-292.5,17"
+                    Point2="-296.5,17"
+                    Point3="-296.5,21" />
+                  <mssgle:LineSegment
+                    End="-296.5,26.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-196.44138671875,22,96.3827734375,11.609375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\DFT_DWH_FactOrders.Paths[Lookup Match Output]"
+          TopLeft="276,624">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="44,0"
+              Start="0,0"
+              End="36.5,0">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="36.5,0" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-29.94138671875,5,96.3827734375,11.609375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\DFT_DWH_FactOrders.Paths[Derived Column Output4]"
+          TopLeft="484.5,230">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-374,49"
+              Start="0,0"
+              End="-374,41.5">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
                     End="0,20.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,20.5"
+                    Point2="0,24.5"
+                    Point3="-4,24.5" />
+                  <mssgle:LineSegment
+                    End="-370,24.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-370,24.5"
+                    Point2="-374,24.5"
+                    Point3="-374,28.5" />
+                  <mssgle:LineSegment
+                    End="-374,41.5" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="-48.19138671875,4.4453125,96.3827734375,11.609375"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
-        <NodeLayout
-          Size="216,42"
-          Id="Package\DFT_DWH_FactOrders\LK_OrderApprovedDateKey"
-          TopLeft="126,532" />
         <EdgeLayout
-          Id="Package\DFT_DWH_FactOrders.Paths[Lookup Match Output1]"
-          TopLeft="234.25,509">
+          Id="Package\DFT_DWH_FactOrders.Paths[Derived Column Output3]"
+          TopLeft="301,210.5">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,23"
+              EndConnector="47,0"
               Start="0,0"
-              End="0,15.5">
+              End="39.5,0">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,15.5" />
+                    End="39.5,0" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="-48.19138671875,1.9453125,96.3827734375,11.609375"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
-        <NodeLayout
-          Size="249,42"
-          Id="Package\DFT_DWH_FactOrders\LK_OrderDeliveredCarrierDateKey"
-          TopLeft="113,592" />
         <EdgeLayout
-          Id="Package\DFT_DWH_FactOrders.Paths[Lookup Match Output2]"
-          TopLeft="126,553">
+          Id="Package\DFT_DWH_FactOrders.Paths[Derived Column Output2]"
+          TopLeft="481.5,153">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="-13,60"
+              EndConnector="-320,38"
               Start="0,0"
-              End="-20.5,60">
+              End="-320,30.5">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="-31.5,0" />
+                    End="0,15" />
                   <mssgle:CubicBezierSegment
-                    Point1="-31.5,0"
-                    Point2="-35.5,0"
-                    Point3="-35.5,4" />
+                    Point1="0,15"
+                    Point2="0,19"
+                    Point3="-4,19" />
                   <mssgle:LineSegment
-                    End="-35.5,56" />
+                    End="-316,19" />
                   <mssgle:CubicBezierSegment
-                    Point1="-35.5,56"
-                    Point2="-35.5,60"
-                    Point3="-31.5,60" />
+                    Point1="-316,19"
+                    Point2="-320,19"
+                    Point3="-320,23" />
                   <mssgle:LineSegment
-                    End="-20.5,60" />
+                    End="-320,30.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\DFT_DWH_FactOrders.Paths[Derived Column Output1]"
+          TopLeft="248,131.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="101,0"
+              Start="0,0"
+              End="93.5,0">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="93.5,0" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\DFT_DWH_FactOrders.Paths[Derived Column Output]"
+          TopLeft="471.5,70">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-339.5,40"
+              Start="0,0"
+              End="-339.5,32.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,16" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,16"
+                    Point2="0,20"
+                    Point3="-4,20" />
+                  <mssgle:LineSegment
+                    End="-335.5,20" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-335.5,20"
+                    Point2="-339.5,20"
+                    Point3="-339.5,24" />
+                  <mssgle:LineSegment
+                    End="-339.5,32.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="269,42"
+          Id="Package\DFT_DWH_FactOrders\DER_CustomerKey_FunctionalRejects"
+          TopLeft="426,280" />
+        <NodeLayout
+          Size="174,42"
+          Id="Package\DFT_DWH_FactOrders\MLT_CustomerKey"
+          TopLeft="224,279" />
+        <EdgeLayout
+          Id="Package\DFT_DWH_FactOrders.Paths[Lookup No Match Output]"
+          TopLeft="193,300">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="31,0"
+              Start="0,0"
+              End="23.5,0">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="23.5,0" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
             <mssgm:EdgeLabel
-              BoundingBox="-83.69138671875,-17.609375,96.3827734375,11.609375"
+              BoundingBox="-44.05638671875,5,111.6127734375,11.609375"
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
+        <EdgeLayout
+          Id="Package\DFT_DWH_FactOrders.Paths[Multicast Output 1]"
+          TopLeft="398,300.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="28,0"
+              Start="0,0"
+              End="20.5,0">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="20.5,0" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
         <NodeLayout
-          Size="263,42"
-          Id="Package\DFT_DWH_FactOrders\LK_OrderDeliveredCustomerDateKey"
-          TopLeft="106,655" />
+          Size="171,42"
+          Id="Package\DFT_DWH_FactOrders\ALL_CustomerKey"
+          TopLeft="56,415" />
+        <NodeLayout
+          Size="226,42"
+          Id="Package\DFT_DWH_FactOrders\AGG_GroupBy_CustomerKey"
+          TopLeft="441,355" />
+        <EdgeLayout
+          Id="Package\DFT_DWH_FactOrders.Paths[Derived Column Output5]"
+          TopLeft="557.25,322">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,33"
+              Start="0,0"
+              End="0,25.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,25.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="262,42"
+          Id="Package\DFT_DWH_FactOrders\OLE_DST_ADM_FunctionalRejects_I"
+          TopLeft="420,421" />
+        <EdgeLayout
+          Id="Package\DFT_DWH_FactOrders.Paths[Aggregate Output 1]"
+          TopLeft="552.5,397">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,24"
+              Start="0,0"
+              End="0,16.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,16.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="175,42"
+          Id="Package\DFT_DWH_FactOrders\DER_CustomerKey"
+          TopLeft="229,352" />
+        <EdgeLayout
+          Id="Package\DFT_DWH_FactOrders.Paths[Multicast Output 2]"
+          TopLeft="313.75,321">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,31"
+              Start="0,0"
+              End="0,23.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,23.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\DFT_DWH_FactOrders.Paths[Derived Column Output6]"
+          TopLeft="229,373">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-60.3333333333333,42"
+              Start="0,0"
+              End="-60.3333333333333,34.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="-56.3333333333333,0" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-56.3333333333333,0"
+                    Point2="-60.3333333333333,0"
+                    Point3="-60.3333333333333,4" />
+                  <mssgle:LineSegment
+                    End="-60.3333333333333,34.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
         <EdgeLayout
           Id="Package\DFT_DWH_FactOrders.Paths[Lookup Match Output3]"
-          TopLeft="113,618.666666666667">
+          TopLeft="112.416666666667,321">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="-7,51.6666666666667"
+              EndConnector="0,94"
               Start="0,0"
-              End="-14.5,51.6666666666667">
+              End="0,86.5">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="-25.5,0" />
-                  <mssgle:CubicBezierSegment
-                    Point1="-25.5,0"
-                    Point2="-29.5,0"
-                    Point3="-29.5,4" />
-                  <mssgle:LineSegment
-                    End="-29.5,47.6666666666667" />
-                  <mssgle:CubicBezierSegment
-                    Point1="-29.5,47.6666666666667"
-                    Point2="-29.5,51.6666666666667"
-                    Point3="-25.5,51.6666666666667" />
-                  <mssgle:LineSegment
-                    End="-14.5,51.6666666666667" />
+                    End="0,86.5" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
             <mssgm:EdgeLabel
-              BoundingBox="-77.69138671875,-17.609375,96.3827734375,11.609375"
+              BoundingBox="-48.19138671875,37.4453125,96.3827734375,11.609375"
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
-        <NodeLayout
-          Size="258,42"
-          Id="Package\DFT_DWH_FactOrders\LK_OrderEstimatedDeliveryDateKey"
-          TopLeft="116,712" />
+        <EdgeLayout
+          Id="Package\DFT_DWH_FactOrders.Paths[Union All Output 1]"
+          TopLeft="139.5,457">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,41"
+              Start="0,0"
+              End="0,33.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,33.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
         <EdgeLayout
           Id="Package\DFT_DWH_FactOrders.Paths[Lookup Match Output4]"
-          TopLeft="106,681.666666666667">
+          TopLeft="426,539">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="10,51.3333333333334"
+              EndConnector="-274.5,65"
               Start="0,0"
-              End="2.5,51.3333333333334">
+              End="-274.5,57.5">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="-18.5,0" />
+                    End="0,28.5" />
                   <mssgle:CubicBezierSegment
-                    Point1="-18.5,0"
-                    Point2="-22.5,0"
-                    Point3="-22.5,4" />
+                    Point1="0,28.5"
+                    Point2="0,32.5"
+                    Point3="-4,32.5" />
                   <mssgle:LineSegment
-                    End="-22.5,47.3333333333334" />
+                    End="-270.5,32.5" />
                   <mssgle:CubicBezierSegment
-                    Point1="-22.5,47.3333333333334"
-                    Point2="-22.5,51.3333333333334"
-                    Point3="-18.5,51.3333333333334" />
+                    Point1="-270.5,32.5"
+                    Point2="-274.5,32.5"
+                    Point3="-274.5,36.5" />
                   <mssgle:LineSegment
-                    End="2.5,51.3333333333334" />
+                    End="-274.5,57.5" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
             <mssgm:EdgeLabel
-              BoundingBox="-70.69138671875,-17.609375,96.3827734375,11.609375"
+              BoundingBox="-185.44138671875,37.5,96.3827734375,11.609375"
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
-        <NodeLayout
-          Size="224,42"
-          Id="Package\DFT_DWH_FactOrders\OLE_SRC_DWH_FactOrders"
-          TopLeft="138,792" />
         <EdgeLayout
           Id="Package\DFT_DWH_FactOrders.Paths[Lookup Match Output5]"
-          TopLeft="247.5,754">
+          TopLeft="245,518.5">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,38"
+              EndConnector="73,0"
               Start="0,0"
-              End="0,30.5">
+              End="65.5,0">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,30.5" />
+                    End="65.5,0" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
             <mssgm:EdgeLabel
-              BoundingBox="-48.19138671875,9.4453125,96.3827734375,11.609375"
+              BoundingBox="-15.44138671875,5,96.3827734375,11.609375"
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>
     </LayoutInfo>
   </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\DFT_DWH_FactOrders\LK_OrderPurchaseDateKey">
+    <Properties>
+      <Property>
+        <Name>OverwriteParamsSQLProp</Name>
+        <Value
+          type="q2:string">false</Value>
+      </Property>
+      <Property>
+        <Name>UsedTableName</Name>
+        <Value
+          type="q3:string">[dbo].[DWH_DimDate]</Value>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q4:string">0</Value>
+      </Property>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\DFT_DWH_FactOrders\LK_OrderDeliveredCarrierDateKey">
+    <Properties>
+      <Property>
+        <Name>OverwriteParamsSQLProp</Name>
+        <Value
+          type="q2:string">false</Value>
+      </Property>
+      <Property>
+        <Name>UsedTableName</Name>
+        <Value
+          type="q3:string">[dbo].[DWH_DimDate]</Value>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q4:string">0</Value>
+      </Property>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
   <PipelineComponentMetadata
     design-time-name="Package\DFT_DWH_FactOrders\OLE_SRC_ODS_Orders">
     <Properties>
@@ -2393,35 +3757,25 @@ where [refTable].[DateKey] = ?</property>
     </Properties>
   </PipelineComponentMetadata>
   <PipelineComponentMetadata
-    design-time-name="Package\DFT_DWH_FactOrders\LK_CustomerKey">
+    design-time-name="Package\DFT_DWH_FactOrders\OLE_SRC_DWH_FactOrders">
     <Properties>
       <Property>
-        <Name>OverwriteParamsSQLProp</Name>
-        <Value
-          type="q2:boolean">false</Value>
-      </Property>
-      <Property>
-        <Name>UsedTableName</Name>
-        <Value
-          type="q3:string">[dbo].[DWH_DimCustomers]</Value>
+        <Name>DataSourceViewID</Name>
       </Property>
       <Property>
         <Name>TableInfoObjectType</Name>
         <Value
-          type="q4:int">0</Value>
-      </Property>
-      <Property>
-        <Name>DataSourceViewID</Name>
+          type="q2:string">Table</Value>
       </Property>
     </Properties>
   </PipelineComponentMetadata>
   <PipelineComponentMetadata
-    design-time-name="Package\DFT_DWH_FactOrders\LK_OrderPurchaseDateKey">
+    design-time-name="Package\DFT_DWH_FactOrders\LK_OrderDeliveredCustomerDateKey">
     <Properties>
       <Property>
         <Name>OverwriteParamsSQLProp</Name>
         <Value
-          type="q2:boolean">false</Value>
+          type="q2:string">false</Value>
       </Property>
       <Property>
         <Name>UsedTableName</Name>
@@ -2431,7 +3785,30 @@ where [refTable].[DateKey] = ?</property>
       <Property>
         <Name>TableInfoObjectType</Name>
         <Value
-          type="q4:int">0</Value>
+          type="q4:string">0</Value>
+      </Property>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\DFT_DWH_FactOrders\LK_CustomerKey">
+    <Properties>
+      <Property>
+        <Name>OverwriteParamsSQLProp</Name>
+        <Value
+          type="q2:string">false</Value>
+      </Property>
+      <Property>
+        <Name>UsedTableName</Name>
+        <Value
+          type="q3:string">[dbo].[DWH_DimCustomers]</Value>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q4:string">0</Value>
       </Property>
       <Property>
         <Name>DataSourceViewID</Name>
@@ -2444,7 +3821,7 @@ where [refTable].[DateKey] = ?</property>
       <Property>
         <Name>OverwriteParamsSQLProp</Name>
         <Value
-          type="q2:boolean">false</Value>
+          type="q2:string">false</Value>
       </Property>
       <Property>
         <Name>UsedTableName</Name>
@@ -2454,7 +3831,7 @@ where [refTable].[DateKey] = ?</property>
       <Property>
         <Name>TableInfoObjectType</Name>
         <Value
-          type="q4:int">0</Value>
+          type="q4:string">0</Value>
       </Property>
       <Property>
         <Name>DataSourceViewID</Name>
@@ -2462,53 +3839,7 @@ where [refTable].[DateKey] = ?</property>
     </Properties>
   </PipelineComponentMetadata>
   <PipelineComponentMetadata
-    design-time-name="Package\DFT_DWH_FactOrders\LK_OrderDeliveredCarrierDateKey">
-    <Properties>
-      <Property>
-        <Name>OverwriteParamsSQLProp</Name>
-        <Value
-          type="q2:boolean">false</Value>
-      </Property>
-      <Property>
-        <Name>UsedTableName</Name>
-        <Value
-          type="q3:string">[dbo].[DWH_DimDate]</Value>
-      </Property>
-      <Property>
-        <Name>TableInfoObjectType</Name>
-        <Value
-          type="q4:int">0</Value>
-      </Property>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <PipelineComponentMetadata
-    design-time-name="Package\DFT_DWH_FactOrders\LK_OrderDeliveredCustomerDateKey">
-    <Properties>
-      <Property>
-        <Name>OverwriteParamsSQLProp</Name>
-        <Value
-          type="q2:boolean">false</Value>
-      </Property>
-      <Property>
-        <Name>UsedTableName</Name>
-        <Value
-          type="q3:string">[dbo].[DWH_DimDate]</Value>
-      </Property>
-      <Property>
-        <Name>TableInfoObjectType</Name>
-        <Value
-          type="q4:int">0</Value>
-      </Property>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <PipelineComponentMetadata
-    design-time-name="Package\DFT_DWH_FactOrders\OLE_SRC_DWH_FactOrders">
+    design-time-name="Package\DFT_DWH_FactOrders\OLE_DST_ADM_FunctionalRejects_I">
     <Properties>
       <Property>
         <Name>DataSourceViewID</Name>

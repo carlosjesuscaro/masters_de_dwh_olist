@@ -201,11 +201,25 @@ USE OLIST_ADM;
 CREATE TABLE dbo.[TechnicalRejects] (
     [RejectsDate] datetime,
     [RejectsPkgAndTask] nvarchar(100),
-    [RejectColumn] nvarchar(50),
+    [RejectColumn] nvarchar(90),
+    [RejectDescription] nvarchar(90)
+) WITH (DATA_COMPRESSION = PAGE)
+
+CREATE TABLE dbo.[FunctionalRejects] (
+    [RejectsDate] datetime,
+    [RejectsPkgAndTask] nvarchar(100),
+    [RejectColumn] nvarchar(90),
     [RejectDescription] nvarchar(90)
 ) WITH (DATA_COMPRESSION = PAGE)
 
 SELECT *
 FROM TechnicalRejects;
 
+SELECT *
+FROM FunctionalRejects;
+
 TRUNCATE TABLE TechnicalRejects;
+
+DROP TABLE dbo.TechnicalRejects;
+
+DROP TABLE dbo.FunctionalRejects;

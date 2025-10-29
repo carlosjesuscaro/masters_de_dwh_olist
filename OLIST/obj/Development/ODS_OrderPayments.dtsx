@@ -11,8 +11,8 @@
   DTS:LocaleID="4105"
   DTS:ObjectName="Package1"
   DTS:PackageType="5"
-  DTS:VersionBuild="27"
-  DTS:VersionGUID="{92F37A9E-2D32-427F-8CAE-15D530309B00}">
+  DTS:VersionBuild="29"
+  DTS:VersionGUID="{5159402E-99BF-47FC-88DC-D472810FA320}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:Variables />
@@ -1440,7 +1440,7 @@
               <connections>
                 <connection
                   refId="Package\DFT_ODS_OrderPayments\OLE_DST_ADM_TechnicalRejects.Connections[OleDbConnection]"
-                  connectionManagerID="{EBE512C9-9A7B-4291-ADC7-D5C02C982ECB}:external"
+                  connectionManagerID="{2110CE29-D337-42CE-A509-65703320B4EE}:external"
                   connectionManagerRefId="Project.ConnectionManagers[MACHINEX.OLIST_ADM]"
                   description="The OLE DB runtime connection used to access the database."
                   name="OleDbConnection" />
@@ -1495,7 +1495,7 @@
                     <externalMetadataColumn
                       refId="Package\DFT_ODS_OrderPayments\OLE_DST_ADM_TechnicalRejects.Inputs[OLE DB Destination Input].ExternalColumns[RejectColumn]"
                       dataType="wstr"
-                      length="50"
+                      length="90"
                       name="RejectColumn" />
                     <externalMetadataColumn
                       refId="Package\DFT_ODS_OrderPayments\OLE_DST_ADM_TechnicalRejects.Inputs[OLE DB Destination Input].ExternalColumns[RejectDescription]"
@@ -2047,21 +2047,29 @@
       <GraphLayout
         Capacity="32" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
-          Size="159,42"
-          Id="Package\DFT_ODS_OrderPayments\DCNV_Resizing"
-          TopLeft="70,455" />
+          Size="241,42"
+          Id="Package\DFT_ODS_OrderPayments\OLE_SRC_STA_OrderPayments"
+          TopLeft="18,14" />
         <NodeLayout
           Size="240,42"
           Id="Package\DFT_ODS_OrderPayments\OLE_DST_OLE_OrderPayments"
           TopLeft="30,549" />
         <NodeLayout
-          Size="223,42"
-          Id="Package\DFT_ODS_OrderPayments\DER_PaymentValue_Rejects"
-          TopLeft="337,347" />
+          Size="159,42"
+          Id="Package\DFT_ODS_OrderPayments\DCNV_Resizing"
+          TopLeft="70,455" />
+        <NodeLayout
+          Size="250,42"
+          Id="Package\DFT_ODS_OrderPayments\OLE_DST_ADM_TechnicalRejects"
+          TopLeft="547,551" />
         <NodeLayout
           Size="198,42"
           Id="Package\DFT_ODS_OrderPayments\DCNV_PaymentSeq_Int"
           TopLeft="45,117" />
+        <NodeLayout
+          Size="223,42"
+          Id="Package\DFT_ODS_OrderPayments\DER_PaymentValue_Rejects"
+          TopLeft="337,347" />
         <NodeLayout
           Size="214,42"
           Id="Package\DFT_ODS_OrderPayments\DER_PaymentSeq_Rejects"
@@ -2070,10 +2078,6 @@
           Size="209,42"
           Id="Package\DFT_ODS_OrderPayments\DER_PaymentIns_Rejects"
           TopLeft="338,248" />
-        <NodeLayout
-          Size="241,42"
-          Id="Package\DFT_ODS_OrderPayments\OLE_SRC_STA_OrderPayments"
-          TopLeft="18,14" />
         <NodeLayout
           Size="213,42"
           Id="Package\DFT_ODS_OrderPayments\DCNV_PaymentValue_Dec"
@@ -2086,6 +2090,28 @@
           Size="237,42"
           Id="Package\DFT_ODS_OrderPayments\DCNV_PaymentInstallments_Int"
           TopLeft="24,244" />
+        <EdgeLayout
+          Id="Package\DFT_ODS_OrderPayments.Paths[Union All Output 1]"
+          TopLeft="672.666666666667,291">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,260"
+              Start="0,0"
+              End="0,252.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,252.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
         <EdgeLayout
           Id="Package\DFT_ODS_OrderPayments.Paths[OLE DB Source Output]"
           TopLeft="141.25,56">
@@ -2100,6 +2126,62 @@
                   Capacity="5">
                   <mssgle:LineSegment
                     End="0,53.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\DFT_ODS_OrderPayments.Paths[Derived Column Output2]"
+          TopLeft="448.5,347">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="181.166666666667,-56"
+              Start="0,0"
+              End="181.166666666667,-48.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,-29.2176386913229" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,-29.2176386913229"
+                    Point2="0,-33.2176386913229"
+                    Point3="4,-33.2176386913229" />
+                  <mssgle:LineSegment
+                    End="177.166666666667,-33.2176386913229" />
+                  <mssgle:CubicBezierSegment
+                    Point1="177.166666666667,-33.2176386913229"
+                    Point2="181.166666666667,-33.2176386913229"
+                    Point3="181.166666666667,-37.2176386913229" />
+                  <mssgle:LineSegment
+                    End="181.166666666667,-48.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\DFT_ODS_OrderPayments.Paths[Derived Column Output1]"
+          TopLeft="547,269.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="35,0"
+              Start="0,0"
+              End="27.5,0">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="27.5,0" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -2302,93 +2384,11 @@
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
-        <NodeLayout
-          Size="250,42"
-          Id="Package\DFT_ODS_OrderPayments\OLE_DST_ADM_TechnicalRejects"
-          TopLeft="547,551" />
-        <EdgeLayout
-          Id="Package\DFT_ODS_OrderPayments.Paths[Union All Output 1]"
-          TopLeft="672.666666666667,291">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,260"
-              Start="0,0"
-              End="0,252.5">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,252.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\DFT_ODS_OrderPayments.Paths[Derived Column Output1]"
-          TopLeft="547,269.5">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="35,0"
-              Start="0,0"
-              End="27.5,0">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="27.5,0" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\DFT_ODS_OrderPayments.Paths[Derived Column Output2]"
-          TopLeft="448.5,347">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="181.166666666667,-56"
-              Start="0,0"
-              End="181.166666666667,-48.5">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,-29.2176386913229" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,-29.2176386913229"
-                    Point2="0,-33.2176386913229"
-                    Point3="4,-33.2176386913229" />
-                  <mssgle:LineSegment
-                    End="177.166666666667,-33.2176386913229" />
-                  <mssgle:CubicBezierSegment
-                    Point1="177.166666666667,-33.2176386913229"
-                    Point2="181.166666666667,-33.2176386913229"
-                    Point3="181.166666666667,-37.2176386913229" />
-                  <mssgle:LineSegment
-                    End="181.166666666667,-48.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
       </GraphLayout>
     </LayoutInfo>
   </TaskHost>
   <PipelineComponentMetadata
-    design-time-name="Package\DFT_ODS_OrderPayments\OLE_DST_OLE_OrderPayments">
+    design-time-name="Package\DFT_ODS_OrderPayments\OLE_SRC_STA_OrderPayments">
     <Properties>
       <Property>
         <Name>DataSourceViewID</Name>
@@ -2401,7 +2401,7 @@
     </Properties>
   </PipelineComponentMetadata>
   <PipelineComponentMetadata
-    design-time-name="Package\DFT_ODS_OrderPayments\OLE_SRC_STA_OrderPayments">
+    design-time-name="Package\DFT_ODS_OrderPayments\OLE_DST_OLE_OrderPayments">
     <Properties>
       <Property>
         <Name>DataSourceViewID</Name>
