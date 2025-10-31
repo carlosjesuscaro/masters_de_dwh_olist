@@ -11,8 +11,8 @@
   DTS:LocaleID="4105"
   DTS:ObjectName="Package1"
   DTS:PackageType="5"
-  DTS:VersionBuild="4"
-  DTS:VersionGUID="{095E386C-2450-43C3-A7BF-49DB489EE38A}">
+  DTS:VersionBuild="5"
+  DTS:VersionGUID="{057B7D86-5B84-4FDD-8579-ACB52C58810E}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -566,13 +566,13 @@
       <GraphLayout
         Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
-          Size="212,42"
-          Id="Package\DFT_STA_OrderPayments\FFT_SRC_OrderPayments"
-          TopLeft="77,36" />
-        <NodeLayout
           Size="157,42"
           Id="Package\DFT_STA_OrderPayments\OLE_DST_STA"
           TopLeft="109,151" />
+        <NodeLayout
+          Size="212,42"
+          Id="Package\DFT_STA_OrderPayments\FFT_SRC_OrderPayments"
+          TopLeft="77,36" />
         <EdgeLayout
           Id="Package\DFT_STA_OrderPayments.Paths[Flat File Source Output]"
           TopLeft="185.25,78">

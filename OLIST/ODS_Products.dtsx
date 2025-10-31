@@ -11,8 +11,8 @@
   DTS:LocaleID="4105"
   DTS:ObjectName="Package1"
   DTS:PackageType="5"
-  DTS:VersionBuild="41"
-  DTS:VersionGUID="{EF3FC216-A4D1-45B1-A11A-B3022A872447}">
+  DTS:VersionBuild="43"
+  DTS:VersionGUID="{08337746-CA6C-4663-A3DB-3D4B1F8899F4}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:Variables />
@@ -40,7 +40,257 @@
               version="1">
               <inputs>
                 <input
+                  refId="Package\DFT_ODS_Products\ALL_Match.Inputs[Union All Input 3]"
+                  hasSideEffects="true"
+                  name="Union All Input 3">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\DFT_ODS_Products\ALL_Match.Inputs[Union All Input 3].Columns[product_id]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="product_id"
+                      lineageId="Package\DFT_ODS_Products\OLE_SRC_STA_Products.Outputs[OLE DB Source Output].Columns[product_id]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\DFT_ODS_Products\ALL_Match.Outputs[Union All Output 1].Columns[product_id]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\DFT_ODS_Products\ALL_Match.Inputs[Union All Input 3].Columns[product_category_name]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="product_category_name"
+                      lineageId="Package\DFT_ODS_Products\OLE_SRC_STA_Products.Outputs[OLE DB Source Output].Columns[product_category_name]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\DFT_ODS_Products\ALL_Match.Outputs[Union All Output 1].Columns[product_category_name]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\DFT_ODS_Products\ALL_Match.Inputs[Union All Input 3].Columns[product_name_lenght]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="product_name_lenght"
+                      lineageId="Package\DFT_ODS_Products\OLE_SRC_STA_Products.Outputs[OLE DB Source Output].Columns[product_name_lenght]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\DFT_ODS_Products\ALL_Match.Outputs[Union All Output 1].Columns[product_name_lenght]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\DFT_ODS_Products\ALL_Match.Inputs[Union All Input 3].Columns[product_description_lenght]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="product_description_lenght"
+                      lineageId="Package\DFT_ODS_Products\OLE_SRC_STA_Products.Outputs[OLE DB Source Output].Columns[product_description_lenght]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\DFT_ODS_Products\ALL_Match.Outputs[Union All Output 1].Columns[product_description_lenght]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\DFT_ODS_Products\ALL_Match.Inputs[Union All Input 3].Columns[product_photos_qty]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="product_photos_qty"
+                      lineageId="Package\DFT_ODS_Products\OLE_SRC_STA_Products.Outputs[OLE DB Source Output].Columns[product_photos_qty]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\DFT_ODS_Products\ALL_Match.Outputs[Union All Output 1].Columns[product_photos_qty]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\DFT_ODS_Products\ALL_Match.Inputs[Union All Input 3].Columns[product_weight_g]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="product_weight_g"
+                      lineageId="Package\DFT_ODS_Products\OLE_SRC_STA_Products.Outputs[OLE DB Source Output].Columns[product_weight_g]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\DFT_ODS_Products\ALL_Match.Outputs[Union All Output 1].Columns[product_weight_g]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\DFT_ODS_Products\ALL_Match.Inputs[Union All Input 3].Columns[product_length_cm]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="product_length_cm"
+                      lineageId="Package\DFT_ODS_Products\OLE_SRC_STA_Products.Outputs[OLE DB Source Output].Columns[product_length_cm]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\DFT_ODS_Products\ALL_Match.Outputs[Union All Output 1].Columns[product_length_cm]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\DFT_ODS_Products\ALL_Match.Inputs[Union All Input 3].Columns[product_height_cm]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="product_height_cm"
+                      lineageId="Package\DFT_ODS_Products\OLE_SRC_STA_Products.Outputs[OLE DB Source Output].Columns[product_height_cm]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\DFT_ODS_Products\ALL_Match.Outputs[Union All Output 1].Columns[product_height_cm]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\DFT_ODS_Products\ALL_Match.Inputs[Union All Input 3].Columns[product_width_cm]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="product_width_cm"
+                      lineageId="Package\DFT_ODS_Products\OLE_SRC_STA_Products.Outputs[OLE DB Source Output].Columns[product_width_cm]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\DFT_ODS_Products\ALL_Match.Outputs[Union All Output 1].Columns[product_width_cm]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\DFT_ODS_Products\ALL_Match.Inputs[Union All Input 3].Columns[product_name_lenght_int]"
+                      cachedDataType="ui2"
+                      cachedName="product_name_lenght_int"
+                      lineageId="Package\DFT_ODS_Products\DCNV_ProductNameLength_Int.Outputs[Data Conversion Output].Columns[product_name_lenght_int]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\DFT_ODS_Products\ALL_Match.Outputs[Union All Output 1].Columns[product_name_lenght_int]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\DFT_ODS_Products\ALL_Match.Inputs[Union All Input 3].Columns[product_description_lenght_int]"
+                      cachedDataType="ui2"
+                      cachedName="product_description_lenght_int"
+                      lineageId="Package\DFT_ODS_Products\DCNV_ProductDescriptionLength_Int.Outputs[Data Conversion Output].Columns[product_description_lenght_int]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\DFT_ODS_Products\ALL_Match.Outputs[Union All Output 1].Columns[product_description_lenght_int]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\DFT_ODS_Products\ALL_Match.Inputs[Union All Input 3].Columns[product_photos_qty_int]"
+                      cachedDataType="ui2"
+                      cachedName="product_photos_qty_int"
+                      lineageId="Package\DFT_ODS_Products\DCNV_ProductPhotosQty_Int.Outputs[Data Conversion Output].Columns[product_photos_qty_int]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\DFT_ODS_Products\ALL_Match.Outputs[Union All Output 1].Columns[product_photos_qty_int]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\DFT_ODS_Products\ALL_Match.Inputs[Union All Input 3].Columns[product_weight_g_dec]"
+                      cachedDataType="decimal"
+                      cachedName="product_weight_g_dec"
+                      lineageId="Package\DFT_ODS_Products\DCNV_ProductWeight_Dec.Outputs[Data Conversion Output].Columns[product_weight_g_dec]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\DFT_ODS_Products\ALL_Match.Outputs[Union All Output 1].Columns[product_weight_g_dec]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\DFT_ODS_Products\ALL_Match.Inputs[Union All Input 3].Columns[product_length_cm_dec]"
+                      cachedDataType="decimal"
+                      cachedName="product_length_cm_dec"
+                      lineageId="Package\DFT_ODS_Products\DCNV_ProductLength_Dec.Outputs[Data Conversion Output].Columns[product_length_cm_dec]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\DFT_ODS_Products\ALL_Match.Outputs[Union All Output 1].Columns[product_length_cm_dec]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\DFT_ODS_Products\ALL_Match.Inputs[Union All Input 3].Columns[product_height_cm_dec]"
+                      cachedDataType="decimal"
+                      cachedName="product_height_cm_dec"
+                      lineageId="Package\DFT_ODS_Products\DCNV_ProductHeight_Dec.Outputs[Data Conversion Output].Columns[product_height_cm_dec]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\DFT_ODS_Products\ALL_Match.Outputs[Union All Output 1].Columns[product_height_cm_dec]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\DFT_ODS_Products\ALL_Match.Inputs[Union All Input 3].Columns[product_width_cm_dec]"
+                      cachedDataType="decimal"
+                      cachedName="product_width_cm_dec"
+                      lineageId="Package\DFT_ODS_Products\DCNV_ProductWidth_Dec.Outputs[Data Conversion Output].Columns[product_width_cm_dec]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\DFT_ODS_Products\ALL_Match.Outputs[Union All Output 1].Columns[product_width_cm_dec]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\DFT_ODS_Products\ALL_Match.Inputs[Union All Input 3].Columns[product_category_name_english]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="product_category_name_english"
+                      lineageId="Package\DFT_ODS_Products\LKP_ProductCategoryName_English.Outputs[Lookup Match Output].Columns[product_category_name_english]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\DFT_ODS_Products\ALL_Match.Outputs[Union All Output 1].Columns[product_category_name_english]}</property>
+                      </properties>
+                    </inputColumn>
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+                <input
                   refId="Package\DFT_ODS_Products\ALL_Match.Inputs[Union All Input 1]"
+                  hasSideEffects="true"
                   name="Union All Input 1">
                   <inputColumns>
                     <inputColumn
@@ -269,263 +519,14 @@
                           name="OutputColumnLineageID">#{Package\DFT_ODS_Products\ALL_Match.Outputs[Union All Output 1].Columns[product_width_cm_dec]}</property>
                       </properties>
                     </inputColumn>
-                    <inputColumn
-                      refId="Package\DFT_ODS_Products\ALL_Match.Inputs[Union All Input 1].Columns[product_category_name_english]"
-                      cachedCodepage="1252"
-                      cachedDataType="str"
-                      cachedLength="50"
-                      cachedName="product_category_name_english"
-                      lineageId="Package\DFT_ODS_Products\LKP_ProductCategoryName_English.Outputs[Lookup Match Output].Columns[product_category_name_english]">
-                      <properties>
-                        <property
-                          containsID="true"
-                          dataType="System.Int32"
-                          description="Output column lineage ID"
-                          name="OutputColumnLineageID">#{Package\DFT_ODS_Products\ALL_Match.Outputs[Union All Output 1].Columns[product_category_name_english]}</property>
-                      </properties>
-                    </inputColumn>
                   </inputColumns>
                   <externalMetadataColumns />
                 </input>
                 <input
                   refId="Package\DFT_ODS_Products\ALL_Match.Inputs[Union All Input 2]"
-                  hasSideEffects="true"
-                  name="Union All Input 2">
-                  <inputColumns>
-                    <inputColumn
-                      refId="Package\DFT_ODS_Products\ALL_Match.Inputs[Union All Input 2].Columns[product_id]"
-                      cachedCodepage="1252"
-                      cachedDataType="str"
-                      cachedLength="50"
-                      cachedName="product_id"
-                      lineageId="Package\DFT_ODS_Products\OLE_SRC_STA_Products.Outputs[OLE DB Source Output].Columns[product_id]">
-                      <properties>
-                        <property
-                          containsID="true"
-                          dataType="System.Int32"
-                          description="Output column lineage ID"
-                          name="OutputColumnLineageID">#{Package\DFT_ODS_Products\ALL_Match.Outputs[Union All Output 1].Columns[product_id]}</property>
-                      </properties>
-                    </inputColumn>
-                    <inputColumn
-                      refId="Package\DFT_ODS_Products\ALL_Match.Inputs[Union All Input 2].Columns[product_category_name]"
-                      cachedCodepage="1252"
-                      cachedDataType="str"
-                      cachedLength="50"
-                      cachedName="product_category_name"
-                      lineageId="Package\DFT_ODS_Products\OLE_SRC_STA_Products.Outputs[OLE DB Source Output].Columns[product_category_name]">
-                      <properties>
-                        <property
-                          containsID="true"
-                          dataType="System.Int32"
-                          description="Output column lineage ID"
-                          name="OutputColumnLineageID">#{Package\DFT_ODS_Products\ALL_Match.Outputs[Union All Output 1].Columns[product_category_name]}</property>
-                      </properties>
-                    </inputColumn>
-                    <inputColumn
-                      refId="Package\DFT_ODS_Products\ALL_Match.Inputs[Union All Input 2].Columns[product_name_lenght]"
-                      cachedCodepage="1252"
-                      cachedDataType="str"
-                      cachedLength="50"
-                      cachedName="product_name_lenght"
-                      lineageId="Package\DFT_ODS_Products\OLE_SRC_STA_Products.Outputs[OLE DB Source Output].Columns[product_name_lenght]">
-                      <properties>
-                        <property
-                          containsID="true"
-                          dataType="System.Int32"
-                          description="Output column lineage ID"
-                          name="OutputColumnLineageID">#{Package\DFT_ODS_Products\ALL_Match.Outputs[Union All Output 1].Columns[product_name_lenght]}</property>
-                      </properties>
-                    </inputColumn>
-                    <inputColumn
-                      refId="Package\DFT_ODS_Products\ALL_Match.Inputs[Union All Input 2].Columns[product_description_lenght]"
-                      cachedCodepage="1252"
-                      cachedDataType="str"
-                      cachedLength="50"
-                      cachedName="product_description_lenght"
-                      lineageId="Package\DFT_ODS_Products\OLE_SRC_STA_Products.Outputs[OLE DB Source Output].Columns[product_description_lenght]">
-                      <properties>
-                        <property
-                          containsID="true"
-                          dataType="System.Int32"
-                          description="Output column lineage ID"
-                          name="OutputColumnLineageID">#{Package\DFT_ODS_Products\ALL_Match.Outputs[Union All Output 1].Columns[product_description_lenght]}</property>
-                      </properties>
-                    </inputColumn>
-                    <inputColumn
-                      refId="Package\DFT_ODS_Products\ALL_Match.Inputs[Union All Input 2].Columns[product_photos_qty]"
-                      cachedCodepage="1252"
-                      cachedDataType="str"
-                      cachedLength="50"
-                      cachedName="product_photos_qty"
-                      lineageId="Package\DFT_ODS_Products\OLE_SRC_STA_Products.Outputs[OLE DB Source Output].Columns[product_photos_qty]">
-                      <properties>
-                        <property
-                          containsID="true"
-                          dataType="System.Int32"
-                          description="Output column lineage ID"
-                          name="OutputColumnLineageID">#{Package\DFT_ODS_Products\ALL_Match.Outputs[Union All Output 1].Columns[product_photos_qty]}</property>
-                      </properties>
-                    </inputColumn>
-                    <inputColumn
-                      refId="Package\DFT_ODS_Products\ALL_Match.Inputs[Union All Input 2].Columns[product_weight_g]"
-                      cachedCodepage="1252"
-                      cachedDataType="str"
-                      cachedLength="50"
-                      cachedName="product_weight_g"
-                      lineageId="Package\DFT_ODS_Products\OLE_SRC_STA_Products.Outputs[OLE DB Source Output].Columns[product_weight_g]">
-                      <properties>
-                        <property
-                          containsID="true"
-                          dataType="System.Int32"
-                          description="Output column lineage ID"
-                          name="OutputColumnLineageID">#{Package\DFT_ODS_Products\ALL_Match.Outputs[Union All Output 1].Columns[product_weight_g]}</property>
-                      </properties>
-                    </inputColumn>
-                    <inputColumn
-                      refId="Package\DFT_ODS_Products\ALL_Match.Inputs[Union All Input 2].Columns[product_length_cm]"
-                      cachedCodepage="1252"
-                      cachedDataType="str"
-                      cachedLength="50"
-                      cachedName="product_length_cm"
-                      lineageId="Package\DFT_ODS_Products\OLE_SRC_STA_Products.Outputs[OLE DB Source Output].Columns[product_length_cm]">
-                      <properties>
-                        <property
-                          containsID="true"
-                          dataType="System.Int32"
-                          description="Output column lineage ID"
-                          name="OutputColumnLineageID">#{Package\DFT_ODS_Products\ALL_Match.Outputs[Union All Output 1].Columns[product_length_cm]}</property>
-                      </properties>
-                    </inputColumn>
-                    <inputColumn
-                      refId="Package\DFT_ODS_Products\ALL_Match.Inputs[Union All Input 2].Columns[product_height_cm]"
-                      cachedCodepage="1252"
-                      cachedDataType="str"
-                      cachedLength="50"
-                      cachedName="product_height_cm"
-                      lineageId="Package\DFT_ODS_Products\OLE_SRC_STA_Products.Outputs[OLE DB Source Output].Columns[product_height_cm]">
-                      <properties>
-                        <property
-                          containsID="true"
-                          dataType="System.Int32"
-                          description="Output column lineage ID"
-                          name="OutputColumnLineageID">#{Package\DFT_ODS_Products\ALL_Match.Outputs[Union All Output 1].Columns[product_height_cm]}</property>
-                      </properties>
-                    </inputColumn>
-                    <inputColumn
-                      refId="Package\DFT_ODS_Products\ALL_Match.Inputs[Union All Input 2].Columns[product_width_cm]"
-                      cachedCodepage="1252"
-                      cachedDataType="str"
-                      cachedLength="50"
-                      cachedName="product_width_cm"
-                      lineageId="Package\DFT_ODS_Products\OLE_SRC_STA_Products.Outputs[OLE DB Source Output].Columns[product_width_cm]">
-                      <properties>
-                        <property
-                          containsID="true"
-                          dataType="System.Int32"
-                          description="Output column lineage ID"
-                          name="OutputColumnLineageID">#{Package\DFT_ODS_Products\ALL_Match.Outputs[Union All Output 1].Columns[product_width_cm]}</property>
-                      </properties>
-                    </inputColumn>
-                    <inputColumn
-                      refId="Package\DFT_ODS_Products\ALL_Match.Inputs[Union All Input 2].Columns[product_name_lenght_int]"
-                      cachedDataType="ui2"
-                      cachedName="product_name_lenght_int"
-                      lineageId="Package\DFT_ODS_Products\DCNV_ProductNameLength_Int.Outputs[Data Conversion Output].Columns[product_name_lenght_int]">
-                      <properties>
-                        <property
-                          containsID="true"
-                          dataType="System.Int32"
-                          description="Output column lineage ID"
-                          name="OutputColumnLineageID">#{Package\DFT_ODS_Products\ALL_Match.Outputs[Union All Output 1].Columns[product_name_lenght_int]}</property>
-                      </properties>
-                    </inputColumn>
-                    <inputColumn
-                      refId="Package\DFT_ODS_Products\ALL_Match.Inputs[Union All Input 2].Columns[product_description_lenght_int]"
-                      cachedDataType="ui2"
-                      cachedName="product_description_lenght_int"
-                      lineageId="Package\DFT_ODS_Products\DCNV_ProductDescriptionLength_Int.Outputs[Data Conversion Output].Columns[product_description_lenght_int]">
-                      <properties>
-                        <property
-                          containsID="true"
-                          dataType="System.Int32"
-                          description="Output column lineage ID"
-                          name="OutputColumnLineageID">#{Package\DFT_ODS_Products\ALL_Match.Outputs[Union All Output 1].Columns[product_description_lenght_int]}</property>
-                      </properties>
-                    </inputColumn>
-                    <inputColumn
-                      refId="Package\DFT_ODS_Products\ALL_Match.Inputs[Union All Input 2].Columns[product_photos_qty_int]"
-                      cachedDataType="ui2"
-                      cachedName="product_photos_qty_int"
-                      lineageId="Package\DFT_ODS_Products\DCNV_ProductPhotosQty_Int.Outputs[Data Conversion Output].Columns[product_photos_qty_int]">
-                      <properties>
-                        <property
-                          containsID="true"
-                          dataType="System.Int32"
-                          description="Output column lineage ID"
-                          name="OutputColumnLineageID">#{Package\DFT_ODS_Products\ALL_Match.Outputs[Union All Output 1].Columns[product_photos_qty_int]}</property>
-                      </properties>
-                    </inputColumn>
-                    <inputColumn
-                      refId="Package\DFT_ODS_Products\ALL_Match.Inputs[Union All Input 2].Columns[product_weight_g_dec]"
-                      cachedDataType="decimal"
-                      cachedName="product_weight_g_dec"
-                      lineageId="Package\DFT_ODS_Products\DCNV_ProductWeight_Dec.Outputs[Data Conversion Output].Columns[product_weight_g_dec]">
-                      <properties>
-                        <property
-                          containsID="true"
-                          dataType="System.Int32"
-                          description="Output column lineage ID"
-                          name="OutputColumnLineageID">#{Package\DFT_ODS_Products\ALL_Match.Outputs[Union All Output 1].Columns[product_weight_g_dec]}</property>
-                      </properties>
-                    </inputColumn>
-                    <inputColumn
-                      refId="Package\DFT_ODS_Products\ALL_Match.Inputs[Union All Input 2].Columns[product_length_cm_dec]"
-                      cachedDataType="decimal"
-                      cachedName="product_length_cm_dec"
-                      lineageId="Package\DFT_ODS_Products\DCNV_ProductLength_Dec.Outputs[Data Conversion Output].Columns[product_length_cm_dec]">
-                      <properties>
-                        <property
-                          containsID="true"
-                          dataType="System.Int32"
-                          description="Output column lineage ID"
-                          name="OutputColumnLineageID">#{Package\DFT_ODS_Products\ALL_Match.Outputs[Union All Output 1].Columns[product_length_cm_dec]}</property>
-                      </properties>
-                    </inputColumn>
-                    <inputColumn
-                      refId="Package\DFT_ODS_Products\ALL_Match.Inputs[Union All Input 2].Columns[product_height_cm_dec]"
-                      cachedDataType="decimal"
-                      cachedName="product_height_cm_dec"
-                      lineageId="Package\DFT_ODS_Products\DCNV_ProductHeight_Dec.Outputs[Data Conversion Output].Columns[product_height_cm_dec]">
-                      <properties>
-                        <property
-                          containsID="true"
-                          dataType="System.Int32"
-                          description="Output column lineage ID"
-                          name="OutputColumnLineageID">#{Package\DFT_ODS_Products\ALL_Match.Outputs[Union All Output 1].Columns[product_height_cm_dec]}</property>
-                      </properties>
-                    </inputColumn>
-                    <inputColumn
-                      refId="Package\DFT_ODS_Products\ALL_Match.Inputs[Union All Input 2].Columns[product_width_cm_dec]"
-                      cachedDataType="decimal"
-                      cachedName="product_width_cm_dec"
-                      lineageId="Package\DFT_ODS_Products\DCNV_ProductWidth_Dec.Outputs[Data Conversion Output].Columns[product_width_cm_dec]">
-                      <properties>
-                        <property
-                          containsID="true"
-                          dataType="System.Int32"
-                          description="Output column lineage ID"
-                          name="OutputColumnLineageID">#{Package\DFT_ODS_Products\ALL_Match.Outputs[Union All Output 1].Columns[product_width_cm_dec]}</property>
-                      </properties>
-                    </inputColumn>
-                  </inputColumns>
-                  <externalMetadataColumns />
-                </input>
-                <input
-                  refId="Package\DFT_ODS_Products\ALL_Match.Inputs[Union All Input 3]"
                   dangling="true"
                   hasSideEffects="true"
-                  name="Union All Input 3">
+                  name="Union All Input 2">
                   <externalMetadataColumns />
                 </input>
               </inputs>
@@ -4862,12 +4863,12 @@ where [refTable].[product_category_name] = ?</property>
               startId="Package\DFT_ODS_Products\DER_ProductPhotosQty_Rejects.Outputs[Derived Column Output]" />
             <path
               refId="Package\DFT_ODS_Products.Paths[Lookup Match Output]"
-              endId="Package\DFT_ODS_Products\ALL_Match.Inputs[Union All Input 1]"
+              endId="Package\DFT_ODS_Products\ALL_Match.Inputs[Union All Input 3]"
               name="Lookup Match Output"
               startId="Package\DFT_ODS_Products\LKP_ProductCategoryName_English.Outputs[Lookup Match Output]" />
             <path
               refId="Package\DFT_ODS_Products.Paths[Lookup No Match Output]"
-              endId="Package\DFT_ODS_Products\ALL_Match.Inputs[Union All Input 2]"
+              endId="Package\DFT_ODS_Products\ALL_Match.Inputs[Union All Input 1]"
               name="Lookup No Match Output"
               startId="Package\DFT_ODS_Products\LKP_ProductCategoryName_English.Outputs[Lookup No Match Output]" />
             <path
@@ -4998,7 +4999,7 @@ where [refTable].[product_category_name] = ?</property>
         <NodeLayout
           Size="208,42"
           Id="Package\DFT_ODS_Products\OLE_DST_ODS_Products"
-          TopLeft="74,769" />
+          TopLeft="62,769" />
         <NodeLayout
           Size="235,42"
           Id="Package\DFT_ODS_Products\DCNV_ProductNameLength_Int"
@@ -5049,30 +5050,18 @@ where [refTable].[product_category_name] = ?</property>
           TopLeft="55,446" />
         <EdgeLayout
           Id="Package\DFT_ODS_Products.Paths[Union All Output 11]"
-          TopLeft="162.5,740">
+          TopLeft="164.25,740">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="15.5,29"
+              EndConnector="0,29"
               Start="0,0"
-              End="15.5,21.5">
+              End="0,21.5">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,10.5" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,10.5"
-                    Point2="0,14.5"
-                    Point3="4,14.5" />
-                  <mssgle:LineSegment
-                    End="11.5,14.5" />
-                  <mssgle:CubicBezierSegment
-                    Point1="11.5,14.5"
-                    Point2="15.5,14.5"
-                    Point3="15.5,18.5" />
-                  <mssgle:LineSegment
-                    End="15.5,21.5" />
+                    End="0,21.5" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -5135,54 +5124,6 @@ where [refTable].[product_category_name] = ?</property>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
             <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\DFT_ODS_Products.Paths[Lookup No Match Output]"
-          TopLeft="162.25,640">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,58"
-              Start="0,0"
-              End="0,50.5">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,50.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="-55.80638671875,19.4453125,111.6127734375,11.609375"
-              RelativePosition="Any" />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\DFT_ODS_Products.Paths[Lookup Match Output]"
-          TopLeft="162.25,640">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,58"
-              Start="0,0"
-              End="0,50.5">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,50.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="-48.19138671875,19.4453125,96.3827734375,11.609375"
-              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -5742,6 +5683,54 @@ where [refTable].[product_category_name] = ?</property>
           <EdgeLayout.Labels>
             <mssgm:EdgeLabel
               BoundingBox="-20.33638671875,5,132.1727734375,11.43359375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\DFT_ODS_Products.Paths[Lookup Match Output]"
+          TopLeft="162.25,640">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,58"
+              Start="0,0"
+              End="0,50.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,50.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-48.19138671875,19.4453125,96.3827734375,11.609375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\DFT_ODS_Products.Paths[Lookup No Match Output]"
+          TopLeft="162.25,640">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,58"
+              Start="0,0"
+              End="0,50.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,50.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-55.80638671875,19.4453125,111.6127734375,11.609375"
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
