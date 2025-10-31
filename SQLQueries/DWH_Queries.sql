@@ -21,6 +21,9 @@ CREATE TABLE dbo.[DWH_FactOrders] (
 SELECT *
 FROM DWH_FactOrders;
 
+SELECT COUNT(DISTINCT order_id)
+FROM DWH_FactOrders;
+
 DROP TABLE dbo.DWH_FactOrders;
 
 -- Sellers
@@ -172,3 +175,36 @@ USE OLIST_ODS;
 
 SELECT *
 FROM ODS_Customers;
+
+-- Truncating all tables for testing purposes
+USE OLIST_STA
+TRUNCATE TABLE STA_Customers; 
+TRUNCATE TABLE STA_OrderItems; 
+TRUNCATE TABLE STA_OrderPayments; 
+TRUNCATE TABLE STA_OrderReviews; 
+TRUNCATE TABLE STA_Orders; 
+TRUNCATE TABLE STA_Products; 
+TRUNCATE TABLE STA_Sellers; 
+TRUNCATE TABLE STA_ProductTranslations; 
+
+USE OLIST_ODS
+TRUNCATE TABLE ODS_Customers; 
+TRUNCATE TABLE ODS_OrderItems; 
+TRUNCATE TABLE ODS_OrderPayments; 
+TRUNCATE TABLE ODS_OrderReviews; 
+TRUNCATE TABLE ODS_Orders; 
+TRUNCATE TABLE ODS_Products; 
+TRUNCATE TABLE ODS_Sellers; 
+
+USE OLIST_DWH
+TRUNCATE TABLE DWH_DimCustomers; 
+TRUNCATE TABLE DWH_DimOrderItems; 
+TRUNCATE TABLE DWH_DimOrderPayments; 
+TRUNCATE TABLE DWH_DimOrderReviews; 
+TRUNCATE TABLE DWH_FactOrders; 
+TRUNCATE TABLE DWH_DimProducts; 
+TRUNCATE TABLE DWH_DimSellers; 
+
+USE OLIST_ADM
+TRUNCATE TABLE FunctionalRejects;
+TRUNCATE TABLE TechnicalRejects;

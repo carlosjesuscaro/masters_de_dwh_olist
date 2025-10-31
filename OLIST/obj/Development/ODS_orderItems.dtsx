@@ -11,8 +11,8 @@
   DTS:LocaleID="4105"
   DTS:ObjectName="ODS_OrderItems"
   DTS:PackageType="5"
-  DTS:VersionBuild="18"
-  DTS:VersionGUID="{7AA3E57E-6F0C-4618-97E0-0910CBAA5D67}">
+  DTS:VersionBuild="19"
+  DTS:VersionGUID="{BE71996C-AF8B-438E-8950-E96C226D2BE7}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:Variables />
@@ -1475,7 +1475,7 @@
               <connections>
                 <connection
                   refId="Package\DFT_ODS_OrderItems\OLE_DST_ADM_TechnicalRejects.Connections[OleDbConnection]"
-                  connectionManagerID="{EBE512C9-9A7B-4291-ADC7-D5C02C982ECB}:external"
+                  connectionManagerID="{2110CE29-D337-42CE-A509-65703320B4EE}:external"
                   connectionManagerRefId="Project.ConnectionManagers[MACHINEX.OLIST_ADM]"
                   description="The OLE DB runtime connection used to access the database."
                   name="OleDbConnection" />
@@ -1530,7 +1530,7 @@
                     <externalMetadataColumn
                       refId="Package\DFT_ODS_OrderItems\OLE_DST_ADM_TechnicalRejects.Inputs[OLE DB Destination Input].ExternalColumns[RejectColumn]"
                       dataType="wstr"
-                      length="50"
+                      length="90"
                       name="RejectColumn" />
                     <externalMetadataColumn
                       refId="Package\DFT_ODS_OrderItems\OLE_DST_ADM_TechnicalRejects.Inputs[OLE DB Destination Input].ExternalColumns[RejectDescription]"

@@ -2,7 +2,7 @@
 <BuildLog xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
   <ProjectInfo>
     <Name>OLIST</Name>
-    <LastWriteTime>2025-10-28T05:37:36.4517117Z</LastWriteTime>
+    <LastWriteTime>2025-10-31T03:54:33.6849011Z</LastWriteTime>
     <LastKnownProtectionLevel>EncryptSensitiveWithUserKey</LastKnownProtectionLevel>
   </ProjectInfo>
   <LastBuildInfos>
@@ -53,7 +53,7 @@
     </ProjectBuildItemInfo>
     <ProjectBuildItemInfo>
       <Name>ODS_OrderItems.dtsx</Name>
-      <LastWriteTime>2025-10-24T02:07:41.0359279Z</LastWriteTime>
+      <LastWriteTime>2025-10-31T04:28:18.2111705Z</LastWriteTime>
       <LastKnownProtectionLevel>EncryptSensitiveWithUserKey</LastKnownProtectionLevel>
     </ProjectBuildItemInfo>
     <ProjectBuildItemInfo>
@@ -63,17 +63,17 @@
     </ProjectBuildItemInfo>
     <ProjectBuildItemInfo>
       <Name>ODS_OrderReviews.dtsx</Name>
-      <LastWriteTime>2025-10-24T02:25:44.2009828Z</LastWriteTime>
+      <LastWriteTime>2025-10-31T04:28:55.5475536Z</LastWriteTime>
       <LastKnownProtectionLevel>EncryptSensitiveWithUserKey</LastKnownProtectionLevel>
     </ProjectBuildItemInfo>
     <ProjectBuildItemInfo>
       <Name>ODS_Orders.dtsx</Name>
-      <LastWriteTime>2025-10-24T03:08:35.1183887Z</LastWriteTime>
+      <LastWriteTime>2025-10-31T04:30:19.125668Z</LastWriteTime>
       <LastKnownProtectionLevel>EncryptSensitiveWithUserKey</LastKnownProtectionLevel>
     </ProjectBuildItemInfo>
     <ProjectBuildItemInfo>
       <Name>ODS_Products.dtsx</Name>
-      <LastWriteTime>2025-10-24T07:30:55.8878276Z</LastWriteTime>
+      <LastWriteTime>2025-10-31T04:30:19.1551989Z</LastWriteTime>
       <LastKnownProtectionLevel>EncryptSensitiveWithUserKey</LastKnownProtectionLevel>
     </ProjectBuildItemInfo>
     <ProjectBuildItemInfo>
@@ -114,6 +114,11 @@
     <ProjectBuildItemInfo>
       <Name>DWH_FactOrders.dtsx</Name>
       <LastWriteTime>2025-10-29T06:32:29.9876926Z</LastWriteTime>
+      <LastKnownProtectionLevel>EncryptSensitiveWithUserKey</LastKnownProtectionLevel>
+    </ProjectBuildItemInfo>
+    <ProjectBuildItemInfo>
+      <Name>OLIST_Exec.dtsx</Name>
+      <LastWriteTime>2025-10-31T04:20:24.1872357Z</LastWriteTime>
       <LastKnownProtectionLevel>EncryptSensitiveWithUserKey</LastKnownProtectionLevel>
     </ProjectBuildItemInfo>
   </LastBuildInfos>

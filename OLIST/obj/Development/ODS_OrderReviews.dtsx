@@ -11,8 +11,8 @@
   DTS:LocaleID="4105"
   DTS:ObjectName="ODS_OrderReviews"
   DTS:PackageType="5"
-  DTS:VersionBuild="12"
-  DTS:VersionGUID="{4CDDC1EE-C55C-443B-AE1F-EFE8B8185216}">
+  DTS:VersionBuild="13"
+  DTS:VersionGUID="{2E90C554-1A8D-4414-9527-049F122AB606}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:Variables />
@@ -1369,7 +1369,7 @@
               <connections>
                 <connection
                   refId="Package\DFT_ODS_OrderReviews\OLE_DST_ADM_TechnicalRejects.Connections[OleDbConnection]"
-                  connectionManagerID="{EBE512C9-9A7B-4291-ADC7-D5C02C982ECB}:external"
+                  connectionManagerID="{2110CE29-D337-42CE-A509-65703320B4EE}:external"
                   connectionManagerRefId="Project.ConnectionManagers[MACHINEX.OLIST_ADM]"
                   description="The OLE DB runtime connection used to access the database."
                   name="OleDbConnection" />
@@ -1424,7 +1424,7 @@
                     <externalMetadataColumn
                       refId="Package\DFT_ODS_OrderReviews\OLE_DST_ADM_TechnicalRejects.Inputs[OLE DB Destination Input].ExternalColumns[RejectColumn]"
                       dataType="wstr"
-                      length="50"
+                      length="90"
                       name="RejectColumn" />
                     <externalMetadataColumn
                       refId="Package\DFT_ODS_OrderReviews\OLE_DST_ADM_TechnicalRejects.Inputs[OLE DB Destination Input].ExternalColumns[RejectDescription]"
@@ -2010,145 +2010,45 @@
       <GraphLayout
         Capacity="32" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
-          Size="234,42"
-          Id="Package\DFT_ODS_OrderReviews\OLE_SRC_STA_OrderReviews"
-          TopLeft="96,28" />
+          Size="223,42"
+          Id="Package\DFT_ODS_OrderReviews\DCNV_ReviewCreation_Date"
+          TopLeft="109,235" />
+        <NodeLayout
+          Size="141,42"
+          Id="Package\DFT_ODS_OrderReviews\ALL_Rejects"
+          TopLeft="648,240" />
         <NodeLayout
           Size="199,42"
           Id="Package\DFT_ODS_OrderReviews\DCNV_ReviewScore_Int"
           TopLeft="117,131" />
-        <EdgeLayout
-          Id="Package\DFT_ODS_OrderReviews.Paths[OLE DB Source Output]"
-          TopLeft="214.75,70">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,61"
-              Start="0,0"
-              End="0,53.5">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,53.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
         <NodeLayout
-          Size="223,42"
-          Id="Package\DFT_ODS_OrderReviews\DCNV_ReviewCreation_Date"
-          TopLeft="109,235" />
-        <EdgeLayout
-          Id="Package\DFT_ODS_OrderReviews.Paths[Data Conversion Output]"
-          TopLeft="218.5,173">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,62"
-              Start="0,0"
-              End="0,54.5">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,54.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <NodeLayout
-          Size="218,42"
-          Id="Package\DFT_ODS_OrderReviews\DCNV_ReviewAnswer_Date"
-          TopLeft="110,333" />
-        <EdgeLayout
-          Id="Package\DFT_ODS_OrderReviews.Paths[Data Conversion Output1]"
-          TopLeft="219.75,277">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,56"
-              Start="0,0"
-              End="0,48.5">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,48.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
+          Size="250,42"
+          Id="Package\DFT_ODS_OrderReviews\OLE_DST_ADM_TechnicalRejects"
+          TopLeft="508,425" />
         <NodeLayout
           Size="235,42"
           Id="Package\DFT_ODS_OrderReviews\OLE_DST_ODS_OrderReviews"
           TopLeft="101,432" />
-        <EdgeLayout
-          Id="Package\DFT_ODS_OrderReviews.Paths[Data Conversion Output2]"
-          TopLeft="218.75,375">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,57"
-              Start="0,0"
-              End="0,49.5">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,49.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
         <NodeLayout
-          Size="216,42"
-          Id="Package\DFT_ODS_OrderReviews\DER_ReviewScore_Rejects"
-          TopLeft="396,132" />
-        <EdgeLayout
-          Id="Package\DFT_ODS_OrderReviews.Paths[Data Conversion Error Output]"
-          TopLeft="316,152.5">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="80,0"
-              Start="0,0"
-              End="72.5,0">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="72.5,0" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="-29.83638671875,5,132.1727734375,11.43359375"
-              RelativePosition="Any" />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
+          Size="218,42"
+          Id="Package\DFT_ODS_OrderReviews\DCNV_ReviewAnswer_Date"
+          TopLeft="110,333" />
+        <NodeLayout
+          Size="234,42"
+          Id="Package\DFT_ODS_OrderReviews\OLE_SRC_STA_OrderReviews"
+          TopLeft="96,28" />
         <NodeLayout
           Size="229,42"
           Id="Package\DFT_ODS_OrderReviews\DER_ReviewCreation_Rejects"
           TopLeft="395,237" />
+        <NodeLayout
+          Size="224,42"
+          Id="Package\DFT_ODS_OrderReviews\DER_ReviewAnswer_Rejects"
+          TopLeft="397,330" />
+        <NodeLayout
+          Size="216,42"
+          Id="Package\DFT_ODS_OrderReviews\DER_ReviewScore_Rejects"
+          TopLeft="396,132" />
         <EdgeLayout
           Id="Package\DFT_ODS_OrderReviews.Paths[Data Conversion Error Output1]"
           TopLeft="332,257">
@@ -2173,64 +2073,56 @@
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
-        <NodeLayout
-          Size="224,42"
-          Id="Package\DFT_ODS_OrderReviews\DER_ReviewAnswer_Rejects"
-          TopLeft="397,330" />
         <EdgeLayout
-          Id="Package\DFT_ODS_OrderReviews.Paths[Data Conversion Error Output2]"
-          TopLeft="328,352.5">
+          Id="Package\DFT_ODS_OrderReviews.Paths[Data Conversion Error Output]"
+          TopLeft="316,152.5">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="69,0"
+              EndConnector="80,0"
               Start="0,0"
-              End="61.5,0">
+              End="72.5,0">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="61.5,0" />
+                    End="72.5,0" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
             <mssgm:EdgeLabel
-              BoundingBox="-35.33638671875,5,132.1727734375,11.43359375"
+              BoundingBox="-29.83638671875,5,132.1727734375,11.43359375"
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
-        <NodeLayout
-          Size="141,42"
-          Id="Package\DFT_ODS_OrderReviews\ALL_Rejects"
-          TopLeft="648,240" />
         <EdgeLayout
-          Id="Package\DFT_ODS_OrderReviews.Paths[Derived Column Output]"
-          TopLeft="504,174">
+          Id="Package\DFT_ODS_OrderReviews.Paths[Union All Output 1]"
+          TopLeft="740.666666666667,282">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="214.5,66"
+              EndConnector="-107.666666666667,143"
               Start="0,0"
-              End="214.5,58.5">
+              End="-107.666666666667,135.5">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,29" />
+                    End="0,54.1626928471249" />
                   <mssgle:CubicBezierSegment
-                    Point1="0,29"
-                    Point2="0,33"
-                    Point3="4,33" />
+                    Point1="0,54.1626928471249"
+                    Point2="0,58.1626928471249"
+                    Point3="-4,58.1626928471249" />
                   <mssgle:LineSegment
-                    End="210.5,33" />
+                    End="-103.666666666667,58.1626928471249" />
                   <mssgle:CubicBezierSegment
-                    Point1="210.5,33"
-                    Point2="214.5,33"
-                    Point3="214.5,37" />
+                    Point1="-103.666666666667,58.1626928471249"
+                    Point2="-107.666666666667,58.1626928471249"
+                    Point3="-107.666666666667,62.1626928471249" />
                   <mssgle:LineSegment
-                    End="214.5,58.5" />
+                    End="-107.666666666667,135.5" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -2240,19 +2132,19 @@
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
-          Id="Package\DFT_ODS_OrderReviews.Paths[Derived Column Output1]"
-          TopLeft="624,259.5">
+          Id="Package\DFT_ODS_OrderReviews.Paths[OLE DB Source Output]"
+          TopLeft="214.75,70">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="24,0"
+              EndConnector="0,61"
               Start="0,0"
-              End="16.5,0">
+              End="0,53.5">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="16.5,0" />
+                    End="0,53.5" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -2295,36 +2187,20 @@
             <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
-        <NodeLayout
-          Size="250,42"
-          Id="Package\DFT_ODS_OrderReviews\OLE_DST_ADM_TechnicalRejects"
-          TopLeft="508,425" />
         <EdgeLayout
-          Id="Package\DFT_ODS_OrderReviews.Paths[Union All Output 1]"
-          TopLeft="740.666666666667,282">
+          Id="Package\DFT_ODS_OrderReviews.Paths[Derived Column Output1]"
+          TopLeft="624,259.5">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="-107.666666666667,143"
+              EndConnector="24,0"
               Start="0,0"
-              End="-107.666666666667,135.5">
+              End="16.5,0">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,54.1626928471249" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,54.1626928471249"
-                    Point2="0,58.1626928471249"
-                    Point3="-4,58.1626928471249" />
-                  <mssgle:LineSegment
-                    End="-103.666666666667,58.1626928471249" />
-                  <mssgle:CubicBezierSegment
-                    Point1="-103.666666666667,58.1626928471249"
-                    Point2="-107.666666666667,58.1626928471249"
-                    Point3="-107.666666666667,62.1626928471249" />
-                  <mssgle:LineSegment
-                    End="-107.666666666667,135.5" />
+                    End="16.5,0" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -2333,11 +2209,135 @@
             <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
+        <EdgeLayout
+          Id="Package\DFT_ODS_OrderReviews.Paths[Derived Column Output]"
+          TopLeft="504,174">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="214.5,66"
+              Start="0,0"
+              End="214.5,58.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,29" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,29"
+                    Point2="0,33"
+                    Point3="4,33" />
+                  <mssgle:LineSegment
+                    End="210.5,33" />
+                  <mssgle:CubicBezierSegment
+                    Point1="210.5,33"
+                    Point2="214.5,33"
+                    Point3="214.5,37" />
+                  <mssgle:LineSegment
+                    End="214.5,58.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\DFT_ODS_OrderReviews.Paths[Data Conversion Output2]"
+          TopLeft="218.75,375">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,57"
+              Start="0,0"
+              End="0,49.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,49.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\DFT_ODS_OrderReviews.Paths[Data Conversion Output1]"
+          TopLeft="219.75,277">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,56"
+              Start="0,0"
+              End="0,48.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,48.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\DFT_ODS_OrderReviews.Paths[Data Conversion Output]"
+          TopLeft="218.5,173">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,62"
+              Start="0,0"
+              End="0,54.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,54.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\DFT_ODS_OrderReviews.Paths[Data Conversion Error Output2]"
+          TopLeft="328,352.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="69,0"
+              Start="0,0"
+              End="61.5,0">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="61.5,0" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-35.33638671875,5,132.1727734375,11.43359375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
       </GraphLayout>
     </LayoutInfo>
   </TaskHost>
   <PipelineComponentMetadata
-    design-time-name="Package\DFT_ODS_OrderReviews\OLE_SRC_STA_OrderReviews">
+    design-time-name="Package\DFT_ODS_OrderReviews\OLE_DST_ADM_TechnicalRejects">
     <Properties>
       <Property>
         <Name>DataSourceViewID</Name>
@@ -2363,7 +2363,7 @@
     </Properties>
   </PipelineComponentMetadata>
   <PipelineComponentMetadata
-    design-time-name="Package\DFT_ODS_OrderReviews\OLE_DST_ADM_TechnicalRejects">
+    design-time-name="Package\DFT_ODS_OrderReviews\OLE_SRC_STA_OrderReviews">
     <Properties>
       <Property>
         <Name>DataSourceViewID</Name>
